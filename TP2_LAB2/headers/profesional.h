@@ -8,19 +8,21 @@
 class Profesional{
     private:
         int matricula;
-        Especialidad especialidad;
+        int  ID_especialidad;
     public:
-        Profesional(int mat, Especialidad esp){
-         //   this->matricula = mat;
-         //   this->especialidad = esp;
+
+        Profesional(int mat, int esp){
+          matricula = mat;
+          ID_especialidad = esp;
         }
+
         ~Profesional(){};
         //GETs
         int GetMatricula();
         Especialidad GetEspecialidad();
         //SETs
         void SetMatricula(int);
-        void SetEspecialidad(Especialidad);
+        void SetEspecialidad(int );
 
 };
 

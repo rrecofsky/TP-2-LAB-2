@@ -13,17 +13,17 @@ class Informe{
         char descripcion[500];
         int numero;
         Fecha fecha;
-        Profesional profesional;
-        Paciente paciente;
+        int  ID_profesional;
+        int ID_paciente;
         bool estado;
     public:
-        Informe( Fecha f, Profesional pf, Paciente pc, const char *h = "", int n = 0){
+        Informe( Fecha f, int pf = 0, int pc =0, const char *h = "", int n = 0){
             ID_Informe = 0; //se debe buscar en ela rchivo el ultimo ID
             strcpy(descripcion,h);
             numero = n;
             fecha = f;
-            profesional = pf;
-            paciente = pc;
+            ID_profesional = pf;
+            ID_paciente = pc;
             estado = true;
         }
         ~Informe(){};
