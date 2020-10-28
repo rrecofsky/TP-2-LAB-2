@@ -8,12 +8,12 @@
 
 class Especialidad{
     private:
-       int ID_Especialidad;
+       int ID;
        char nombre[50];
     public:
         Especialidad(const char *n)
         {
-            ID_Especialidad = 0; //buscar en base al nro en los archivos
+            ID = 0; //buscar en base al nro en los archivos
             strcpy(nombre,n);
         }
         ~Especialidad(){};
