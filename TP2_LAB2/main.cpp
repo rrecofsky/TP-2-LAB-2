@@ -5,6 +5,11 @@
 #include "headers/informes.h"
 #include "headers/paciente.h"
 #include "headers/profesional.h"
+#include "headers/medicacion.h"
+#include "headers/planfarmacologico.h"
+#include "headers/registro.h"
+#include "headers/archivo.h"
+#include "headers/detalleplanfarmacologico.h"
 
 using namespace std;
 

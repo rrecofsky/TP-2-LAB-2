@@ -1,17 +1,17 @@
-#ifndef COBERTURA_H_INCLUDED
-#define COBERTURA_H_INCLUDED
+#ifndef FARMACO_H_INCLUDED
+#define FARMACO_H_INCLUDED
 
-class Cobertura{
+class Farmaco{
     private:
        int ID;
        char nombre[50];
     public:
-        Cobertura(const char *n)
+        Farmaco(const char *n)
         {
             ID = 0; //buscar en base al nro en los archivos
             strcpy(nombre,n);
         }
-        ~Cobertura(){};
+        ~Farmaco(){};
         //GETs
         int GetId();
         char *GetNombre();
@@ -19,5 +19,4 @@ class Cobertura{
         void SetNombre(const char*);
 };
 
-
-#endif // COBERTURA_H_INCLUDED
+#endif // FARMACO_H_INCLUDED

@@ -3,7 +3,7 @@
 
 1603818089 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\fecha.cpp
 
-1603859005 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
+1603890492 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
 	<iostream>
 	"headers/especialidad.h"
 	"headers/persona.h"
@@ -11,6 +11,10 @@
 	"headers/informes.h"
 	"headers/paciente.h"
 	"headers/profesional.h"
+	"headers/medicacion.h"
+	"headers/planfarmacologico.h"
+	"headers/registro.h"
+	"headers/archivo.h"
 
 1603856222 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\persona.cpp
 	"../headers/persona.h"
@@ -41,4 +45,44 @@
 	"cstring"
 
 1603861128 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\paciente.h
+
+1603888148 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\menuesadministrador.cpp
+	"iostream"
+	"string.h"
+
+1603888178 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\menuesprofesional.cpp
+	"iostream"
+	"string.h"
+
+1603888201 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuespaciente.cpp
+	"iostream"
+	"string.h"
+
+1603888201 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\menuespaciente.cpp
+	"iostream"
+	"string.h"
+
+1603891878 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\medicacion.h
+	"../headers/fecha.h"
+	"iostream"
+	"cstring"
+
+1603889884 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\planfarmacologico.h
+	"../headers/fecha.h"
+	"iostream"
+	"cstring"
+
+1603890063 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\registro.h
+	"../headers/fecha.h"
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+
+1603890596 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\archivo.h
+	"../headers/fecha.h"
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
 

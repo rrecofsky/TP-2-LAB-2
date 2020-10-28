@@ -3,8 +3,8 @@
 
 class Paciente{
     private:
-        int nro_Afiliado;
-        int ID_Conertura;
+        int nro_Afiliado; //nro de afiliado
+        int ID_Conertura; //0 es sin cobertura
         int ID_PlanFarmacologico; //R FUERTE A N, no pueden existir sin un paciente
         int ID_Informe; //R FUERTE A 1, no puede existir si un paciente
     public:
