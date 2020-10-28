@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1603817295 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\archivo.cpp
+
+1603818089 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\fecha.cpp
+
+1584205420 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
+	<iostream>
+
+1603856222 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\persona.cpp
+	"../headers/persona.h"
+
+1603858152 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\persona.h
+	"../headers/Fecha.h"
+	"iostream"
+	"string.h"
+
+1603858137 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\fecha.h
+

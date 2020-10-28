@@ -1,0 +1,6 @@
+#ifndef REGISTRO_H_INCLUDED
+#define REGISTRO_H_INCLUDED
+
+
+
+#endif // REGISTRO_H_INCLUDED
