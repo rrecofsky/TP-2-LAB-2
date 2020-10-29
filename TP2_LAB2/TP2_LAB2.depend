@@ -40,7 +40,7 @@
 
 1603892904 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\headers\paciente.h
 
-1603933003 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\menuesadministrador.cpp
+1603934347 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\menuesadministrador.cpp
 	"iostream"
 	"string.h"
 	"../headers/ui.h"
@@ -56,6 +56,7 @@
 	"../headers/registro.h"
 	"../headers/archivo.h"
 	"../headers/detalleplanfarmacologico.h"
+	"../headers/menuesadministrador.h"
 
 1603932817 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\menuesprofesional.cpp
 	"iostream"

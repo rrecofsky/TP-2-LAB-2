@@ -32,8 +32,33 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="cpps/archivo.cpp" />
+		<Unit filename="cpps/fecha.cpp" />
+		<Unit filename="cpps/menuesadministrador.cpp" />
+		<Unit filename="cpps/menuespaciente.cpp" />
+		<Unit filename="cpps/menuesprofesional.cpp" />
 		<Unit filename="cpps/persona.cpp" />
+		<Unit filename="cpps/ui.cpp" />
+		<Unit filename="headers/archivo.h" />
+		<Unit filename="headers/cobertura.h" />
+		<Unit filename="headers/detalleplanfarmacologico.h" />
+		<Unit filename="headers/especialidad.h" />
+		<Unit filename="headers/farmaco.h" />
+		<Unit filename="headers/fecha.h" />
+		<Unit filename="headers/informes.h" />
+		<Unit filename="headers/medicacion.h" />
+		<Unit filename="headers/menuesadministrador.h" />
+		<Unit filename="headers/menuespaciente.h" />
+		<Unit filename="headers/menuesprofesional.h" />
+		<Unit filename="headers/paciente.h" />
 		<Unit filename="headers/persona.h" />
+		<Unit filename="headers/planfarmacologico.h" />
+		<Unit filename="headers/presentacion.h" />
+		<Unit filename="headers/profesional.h" />
+		<Unit filename="headers/registro.h" />
+		<Unit filename="headers/rlutil.h" />
+		<Unit filename="headers/ui.h" />
+		<Unit filename="headers/usuario.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
