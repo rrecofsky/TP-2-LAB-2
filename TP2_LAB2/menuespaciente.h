@@ -1,7 +1,10 @@
 #ifndef MENUESPACIENTE_H_INCLUDED
 #define MENUESPACIENTE_H_INCLUDED
 
-void MenuPacienteListado();
+
 void MenuPacienteConsulta();
+void MenuPlanFarmacologico();
+void MenuPaciente();
+void MenuPacienteListados();
 
 #endif // MENUESPACIENTE_H_INCLUDED

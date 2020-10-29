@@ -1,29 +1,24 @@
 #include <iostream>
-#include "string.h"
+#include <string.h>
 #include "ui.h"
 #include "rlutil.h"
-
-#include "especialidad.h"
-#include "persona.h"
-#include "fecha.h"
 #include "informes.h"
 #include "paciente.h"
 #include "profesional.h"
 #include "medicacion.h"
 #include "planfarmacologico.h"
-#include "registro.h"
-#include "archivo.h"
 #include "detalleplanfarmacologico.h"
+#include "menuespaciente.h"
 
+using namespace std;
 
-void MenuPacienteListado(){
+void MenuPaciente(){
     while(true){
         rlutil::cls();
-        title("PACIENTE - LISTADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        title("PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) MEDICACION ACTUAL"<<endl;
-        cout<<"2) PROFESIONALES"<<endl;
-        cout<<"3) ESTUDIOS REALIZADOS"<<endl;
+        cout<<"1) LISTADOS"<<endl;
+        cout<<"2) CONSULTAS"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -32,14 +27,9 @@ void MenuPacienteListado(){
         cin >> opcion;
 
         switch(opcion){
-            case 1:
-                rlutil::anykey();
+            case 1: MenuPacienteListados();
             break;
-            case 2:
-            rlutil::anykey();
-            break;
-            case 3:
-            rlutil::anykey();
+            case 2: MenuPacienteConsulta();
             break;
             case 0:
                 return;
@@ -76,8 +66,79 @@ void MenuPacienteConsulta(){
             case 3:
             rlutil::anykey();
             break;
+            case 4: MenuPlanFarmacologico();
+            rlutil::anykey();
+            case 0:
+                return;
+            break;
+        }
+        cin.ignore();
+    }
+    return ;
+}
+
+void MenuPlanFarmacologico(){
+    while(true){
+        rlutil::cls();
+        title("PACIENTE - CONSULTA", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        gotoxy(1, 3);
+        cout<<"1) MEDICACION"<<endl;
+        cout<<"2) PROFESIONAL"<<endl;
+        cout<<"3) DETALLE DEL PLAN"<<endl;
+        cout<<"4) STOCK"<<endl;
+        cout<<"----------------------"<<endl;
+        cout<<"0) REGRESAR"<<endl;
+
+        int opcion;
+        cout << endl << "> ";
+        cin >> opcion;
+
+        switch(opcion){
+            case 1:
+            rlutil::anykey();
+            break;
+            case 2:
+            rlutil::anykey();
+            break;
+            case 3:
+            rlutil::anykey();
+            break;
             case 4:
             rlutil::anykey();
+            case 0:
+                return;
+            break;
+        }
+        cin.ignore();
+    }
+    return ;
+}
+
+void MenuPacienteListados(){
+    while(true){
+        rlutil::cls();
+        title("PACIENTE - LISTADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        gotoxy(1, 3);
+        cout<<"1) LISTADO DE MEDICACION ACTUAL"<<endl;
+        cout<<"2) LISTADO DE PROFESIONALES"<<endl;
+        cout<<"3) LISTADO DE ESTUDIOS REALIZADOS"<<endl;
+        cout<<"----------------------"<<endl;
+        cout<<"0) REGRESAR"<<endl;
+
+        int opcion;
+        cout << endl << "> ";
+        cin >> opcion;
+
+        switch(opcion){
+            case 1:
+                rlutil::anykey();
+            break;
+            case 2:
+            rlutil::anykey();
+            break;
+            case 3:
+            rlutil::anykey();
+            break;
             case 0:
                 return;
             break;

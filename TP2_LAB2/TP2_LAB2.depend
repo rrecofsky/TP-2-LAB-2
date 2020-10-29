@@ -3,9 +3,11 @@
 
 1603818089 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\fecha.cpp
 
-1603944456 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
+1604012762 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
 	<iostream>
-	"menuesadministrador.h"
+	"login.h"
+	"usuario.h"
+	"rlutil.h"
 
 1603856222 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\persona.cpp
 	"../headers/persona.h"
@@ -73,22 +75,18 @@
 	"../headers/archivo.h"
 	"../headers/detalleplanfarmacologico.h"
 
-1604007492 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuespaciente.cpp
+1604013166 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuespaciente.cpp
 	<iostream>
-	"string.h"
+	<string.h>
 	"ui.h"
 	"rlutil.h"
-	"especialidad.h"
-	"persona.h"
-	"fecha.h"
 	"informes.h"
 	"paciente.h"
 	"profesional.h"
 	"medicacion.h"
 	"planfarmacologico.h"
-	"registro.h"
-	"archivo.h"
 	"detalleplanfarmacologico.h"
+	"menuespaciente.h"
 
 1603932800 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\menuespaciente.cpp
 	"iostream"
@@ -161,14 +159,14 @@
 
 1603818089 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\fecha.cpp
 
-1604007552 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.h
+1604012611 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.h
 
 1603944551 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.cpp
 	"persona.h"
 
-1603944558 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.h
-	"Fecha.h"
-	"Registro.h"
+1604008698 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.h
+	"fecha.h"
+	"registro.h"
 	"iostream"
 	"string.h"
 
@@ -243,12 +241,12 @@
 	<cstdio>
 	<cstring>
 
-1603944628 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\detalleplanfarmacologico.h
+1604010932 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\detalleplanfarmacologico.h
 	"registro.h"
 
-1604007516 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.cpp
+1604012710 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.cpp
 	<iostream>
-	"string.h"
+	<string.h>
 	"ui.h"
 	"rlutil.h"
 	"especialidad.h"
@@ -263,7 +261,7 @@
 	"archivo.h"
 	"detalleplanfarmacologico.h"
 
-1603944649 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.cpp
+1604012735 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.cpp
 	"iostream"
 	"string.h"
 	"ui.h"
@@ -280,4 +278,22 @@
 	"archivo.h"
 	"detalleplanfarmacologico.h"
 	"menuesadministrador.h"
+	"menuesprofesional.h"
+	"menuespaciente.h"
+
+1604012693 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.h
+
+1604013010 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuespaciente.h
+
+1604008805 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.h
+
+1604012420 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.cpp
+	<iostream>
+	<string.h>
+	"menuesadministrador.h"
+	"menuespaciente.h"
+	"menuesprofesional.h"
+
+1604010771 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
+	"registro.h"
 

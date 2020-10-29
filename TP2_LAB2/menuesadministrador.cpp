@@ -21,7 +21,7 @@
 using namespace std;
 using namespace rlutil;
 
-void MenuPrincipal()
+void MenuAdministrador()
 {
     initUI();
     title("", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
@@ -102,10 +102,10 @@ void MenuEntidad(char * entidad)
             break;
             case 4:
                 if (strcmp("PROFESIONAL",entidad) == 0) {
-                    MenuProfesionalListado();
+                    MenuProfesional();
                 }
                 else {
-                    MenuPacienteListado();
+                    MenuPaciente();
 
                 }
             break;

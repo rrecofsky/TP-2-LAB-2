@@ -1,11 +1,21 @@
 #include <iostream>
-#include "menuesadministrador.h"
+#include "login.h"
+#include "usuario.h"
+#include "rlutil.h"
 
 
 using namespace std;
 
 int main()
-{
-    MenuPrincipal();
+{ /*
+    Usuario user("admin","1234");
+
+    cout<<"User: "<<user.GetUser();
+    cout<<endl;
+    cout<<"Pass: "<<user.GetPass();
+
+    rlutil::anykey();
+    */
+    MenuLogin("admin","admin");
     return 0;
 }

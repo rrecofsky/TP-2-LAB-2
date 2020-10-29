@@ -1,5 +1,5 @@
 #include <iostream>
-#include "string.h"
+#include <string.h>
 #include "ui.h"
 #include "rlutil.h"
 
@@ -16,10 +16,10 @@
 #include "detalleplanfarmacologico.h"
 
 
-void MenuProfesionalListado(){
+void MenuProfesional(){
     while(true){
         rlutil::cls();
-        title("PROFESIONAL - LISTADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        title("PROFESIONAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
         cout<<"1) PLANES FARMACOLOGICOS"<<endl;
         cout<<"2) PACIENTES"<<endl;

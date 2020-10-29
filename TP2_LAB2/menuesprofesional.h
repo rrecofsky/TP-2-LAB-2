@@ -3,6 +3,7 @@
 
 void MenuProfesionalConsulta();
 void MenuProfesionalListado();
+void MenuProfesional();
 
 
 #endif // MENUESPROFESIONAL_H_INCLUDED

@@ -9,7 +9,7 @@ class DetallePlanFarmacologico:public Registro{
         int  Id_CodigoMedicacion;
         int  dosisdiaria;
         bool estado;
-        int  cantidad;
+        int  cantidad; //cantidad en mg (cant_pastilla x cant_mg)
     public:
         DetallePlanFarmacologico(int cp, int cm, int d){
             Id_CodigoPlan       = cp;
@@ -29,7 +29,7 @@ class DetallePlanFarmacologico:public Registro{
         void  SetCodigoMedicacion(int);
         void  SetDosisdiaria(int);
         void  SetEstado(bool);
-        void  SetCantidad(); //cantidad de pastillas x cantididad de mg
+        void  SetCantidad(int); //cantidad de pastillas x cantididad de mg
 };
 
 #endif // DETALLEPLANFARMACOLOGICO_H_INCLUDED
