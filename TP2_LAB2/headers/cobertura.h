@@ -1,22 +1,21 @@
 #ifndef COBERTURA_H_INCLUDED
 #define COBERTURA_H_INCLUDED
+#include "../headers/registro.h"
 
-class Cobertura{
+class Cobertura:public Registro{
     private:
-       int ID;
        char nombre[50];
     public:
         Cobertura(const char *n)
         {
-            ID = 0; //buscar en base al nro en los archivos
             strcpy(nombre,n);
         }
         ~Cobertura(){};
         //GETs
-        int GetId();
+        int   GetId();
         char *GetNombre();
-        void SetId(int);
-        void SetNombre(const char*);
+        void  SetId(int);
+        void  SetNombre(const char*);
 };
 
 

@@ -1,20 +1,11 @@
 #include <iostream>
-#include "headers/especialidad.h"
-#include "headers/persona.h"
-#include "headers/fecha.h"
-#include "headers/informes.h"
-#include "headers/paciente.h"
-#include "headers/profesional.h"
-#include "headers/medicacion.h"
-#include "headers/planfarmacologico.h"
-#include "headers/registro.h"
-#include "headers/archivo.h"
-#include "headers/detalleplanfarmacologico.h"
+#include "headers/menuesadministrador.h"
+
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    MenuPrincipal();
     return 0;
 }

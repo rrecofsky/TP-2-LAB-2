@@ -7,36 +7,32 @@
 #include "iostream"
 #include "cstring"
 
-class Informe{
+class Informe:public Registro{
     private:
-        int ID_Informe;
-        char descripcion[500];
-        int numero;
+        char  descripcion[500];
+        int   numero;
         Fecha fecha;
-        int  ID_profesional;
-        int ID_paciente;
-        bool estado;
+        int   ID_profesional;
+        int   ID_paciente;
+        bool  estado;
     public:
         Informe( Fecha f, int pf = 0, int pc =0, const char *h = "", int n = 0){
-            ID_Informe = 0; //se debe buscar en ela rchivo el ultimo ID
             strcpy(descripcion,h);
-            numero = n;
-            fecha = f;
+            numero         = n;
+            fecha          = f;
             ID_profesional = pf;
-            ID_paciente = pc;
-            estado = true;
+            ID_paciente    = pc;
+            estado         = true;
         }
         ~Informe(){};
         //GETs
-        int GetIdInforme();
-        char *GetDescripcion();
-        int GetNumero();
-        Fecha GetFecha();
+        char       *GetDescripcion();
+        int         GetNumero();
+        Fecha       GetFecha();
         Profesional GetProfesional();
-        Paciente GetPaciente();
-        bool GetEstado();
+        Paciente    GetPaciente();
+        bool        GetEstado();
         //SETs
-        void SetID(int);
         void SetDescripcion(const char*);
         void SetNumero(int);
         void SetFecha(Fecha);

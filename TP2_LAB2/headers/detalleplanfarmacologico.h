@@ -1,10 +1,10 @@
 #ifndef DETALLEPLANFARMACOLOGICO_H_INCLUDED
 #define DETALLEPLANFARMACOLOGICO_H_INCLUDED
+#include "../headers/registro.h"
 
 //registra lo que un medico le receta a un paciente
-class DetallePlanFarmacologico{
+class DetallePlanFarmacologico:public Registro{
     private:
-        int  ID;
         int  Id_CodigoPlan;
         int  Id_CodigoMedicacion;
         int  dosisdiaria;
@@ -12,7 +12,6 @@ class DetallePlanFarmacologico{
         int  cantidad;
     public:
         DetallePlanFarmacologico(int cp, int cm, int d){
-            ID                  = 0;
             Id_CodigoPlan       = cp;
             Id_CodigoMedicacion = cm;
             dosisdiaria         = d;
@@ -20,14 +19,12 @@ class DetallePlanFarmacologico{
         }
         ~DetallePlanFarmacologico(){};
         //GETs
-        int  GetId();
         int  GetCodigoPlan();
         int  GetCodigoMedicacion();
         int  GetDosisdiaria();
         bool GetEstado();
         int  GetCantidad();
         //SETs
-        void  SetId(int);
         void  SetCodigoPlan(int);
         void  SetCodigoMedicacion(int);
         void  SetDosisdiaria(int);

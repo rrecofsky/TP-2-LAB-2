@@ -1,21 +1,20 @@
 #ifndef MEDICACION_H_INCLUDED
 #define MEDICACION_H_INCLUDED
 
+#include "../headers/registro.h"
 #include "../headers/fecha.h"
 #include "iostream"
 #include "cstring"
 
-class Medicacion{
+class Medicacion:public Registro{
     private:
-        int ID;
-        char farmaco[50];
-        int ID_Presentacion;
+        char  farmaco[50];
+        int   ID_Presentacion;
         float dosis;
         Fecha vencimiento;
-        bool estado;
+        bool  estado;
     public:
         Medicacion(Fecha fv, const char* f, float d=0){
-            ID                  = 0; //Debe heredar de registro
             strcpy(farmaco,f);
             dosis               = d;
             estado              = true;
@@ -23,14 +22,12 @@ class Medicacion{
         }
         ~Medicacion(){};
         //GETs
-        int   GetId();
         char *GetFarmaco();
         float GetDosis();
         Fecha GetFechaVecimiento();
         bool  GetEstado();
         int   GetIdPresentacion();
         //SETs
-        void  SetId(int);
         void  SetFarmaco(const char*);
         void  SetDosis(float);
         void  SetFechaVencimiento(Fecha);

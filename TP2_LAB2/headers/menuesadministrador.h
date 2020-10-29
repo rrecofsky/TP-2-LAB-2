@@ -1,0 +1,7 @@
+#ifndef MENUESADMINISTRADOR_H_INCLUDED
+#define MENUESADMINISTRADOR_H_INCLUDED
+
+void MenuPrincipal();
+void MenuEntidad(char *);
+
+#endif // MENUESADMINISTRADOR_H_INCLUDED

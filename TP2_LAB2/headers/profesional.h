@@ -1,6 +1,7 @@
 #ifndef PROFESIONAL_H_INCLUDED
 #define PROFESIONAL_H_INCLUDED
 
+#include "../headers/registro.h"
 #include "../headers/especialidad.h"
 #include "iostream"
 #include "cstring"
@@ -8,18 +9,16 @@
 class Profesional{
     private:
         int matricula;
-        int  ID_especialidad;
+        int ID_especialidad;
     public:
-
         Profesional(int mat, int esp){
-          matricula = mat;
+          matricula       = mat;
           ID_especialidad = esp;
         }
-
         ~Profesional(){};
         //GETs
         int GetMatricula();
-        Especialidad GetEspecialidad();
+      //  Especialidad GetEspecialidad();
         //SETs
         void SetMatricula(int);
         void SetEspecialidad(int );

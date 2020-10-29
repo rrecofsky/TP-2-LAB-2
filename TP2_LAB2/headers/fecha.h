@@ -8,14 +8,14 @@ class Fecha{
         int anio;
     public:
         Fecha(int d = 0, int m = 0, int a = 0){
-            dia=d;
-            mes=m;
-            anio=a;
+            dia  = d;
+            mes  = m;
+            anio = a;
         }
         ~Fecha(){
-            dia=0;
-            mes=0;
-            anio=0;
+            dia  = 0;
+            mes  = 0;
+            anio = 0;
         }
         int GetDia();
         int GetMes();
