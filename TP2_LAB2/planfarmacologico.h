@@ -1,8 +1,8 @@
 #ifndef PLANFARMACOLOGICO_H_INCLUDED
 #define PLANFARMACOLOGICO_H_INCLUDED
 
-#include "../headers/registro.h"
-#include "../headers/fecha.h"
+#include "registro.h"
+#include "fecha.h"
 #include "iostream"
 #include "cstring"
 

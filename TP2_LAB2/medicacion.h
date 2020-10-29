@@ -1,8 +1,8 @@
 #ifndef MEDICACION_H_INCLUDED
 #define MEDICACION_H_INCLUDED
 
-#include "../headers/registro.h"
-#include "../headers/fecha.h"
+#include "registro.h"
+#include "fecha.h"
 #include "iostream"
 #include "cstring"
 

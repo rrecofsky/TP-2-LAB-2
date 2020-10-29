@@ -1,7 +1,7 @@
 #ifndef ESPECIALIDAD_H_INCLUDED
 #define ESPECIALIDAD_H_INCLUDED
 
-#include "../headers/registro.h"
+#include "registro.h"
 #include "iostream"
 #include "cstring"
 #include "iostream"

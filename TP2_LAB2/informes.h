@@ -1,9 +1,9 @@
 #ifndef INFORMES_H_INCLUDED
 #define INFORMES_H_INCLUDED
 
-#include "../headers/fecha.h"
-#include "../headers/profesional.h"
-#include "../headers/paciente.h"
+#include "fecha.h"
+#include "profesional.h"
+#include "paciente.h"
 #include "iostream"
 #include "cstring"
 

@@ -1,6 +1,6 @@
 #ifndef DETALLEPLANFARMACOLOGICO_H_INCLUDED
 #define DETALLEPLANFARMACOLOGICO_H_INCLUDED
-#include "../headers/registro.h"
+#include "registro.h"
 
 //registra lo que un medico le receta a un paciente
 class DetallePlanFarmacologico:public Registro{

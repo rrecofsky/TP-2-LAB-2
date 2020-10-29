@@ -1,8 +1,8 @@
 #ifndef PROFESIONAL_H_INCLUDED
 #define PROFESIONAL_H_INCLUDED
 
-#include "../headers/registro.h"
-#include "../headers/especialidad.h"
+#include "registro.h"
+#include "especialidad.h"
 #include "iostream"
 #include "cstring"
 

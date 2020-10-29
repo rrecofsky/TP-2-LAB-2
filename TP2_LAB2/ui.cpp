@@ -1,8 +1,8 @@
 ﻿#include <iostream>
 using namespace std;
 #include <cstring>
-#include "../headers/ui.h"
-#include "../headers/rlutil.h"
+#include "ui.h"
+#include "rlutil.h"
 using namespace rlutil;
 
 void initUI() {

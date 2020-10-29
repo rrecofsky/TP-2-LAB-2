@@ -1,8 +1,8 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
 
-#include "../headers/Fecha.h"
-#include "../headers/Registro.h"
+#include "Fecha.h"
+#include "Registro.h"
 #include "iostream"
 #include "string.h"
 

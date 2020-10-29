@@ -1,7 +1,7 @@
 #ifndef REGISTRO_H_INCLUDED
 #define REGISTRO_H_INCLUDED
 
-#include "../headers/fecha.h"
+#include "fecha.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>

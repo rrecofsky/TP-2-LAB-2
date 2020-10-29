@@ -1,7 +1,7 @@
 #ifndef ARCHIVO_H_INCLUDED
 #define ARCHIVO_H_INCLUDED
 
-#include "../headers/fecha.h"
+#include "fecha.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
