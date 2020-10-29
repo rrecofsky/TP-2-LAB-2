@@ -16,7 +16,8 @@
 #include "detalleplanfarmacologico.h"
 
 #include "menuesadministrador.h"
-
+#include "menuesprofesional.h"
+#include "menuespaciente.h"
 using namespace std;
 using namespace rlutil;
 
@@ -74,6 +75,7 @@ void MenuEntidad(char * entidad)
         cout<<"2) MODIFICACION"<<endl;
         cout<<"3) BAJA"<<endl;
         cout<<"4) LISTADO"<<endl;
+        cout<<"5) CONSULTA"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -83,8 +85,14 @@ void MenuEntidad(char * entidad)
 
         switch(opcion){
             case 1:
-                      strcmp("PROFESIONAL",entidad) == 0 ? cout<<"ingresa a alta de profesional"<<endl : cout<<"ingresa a alta de paciente"<<endl;
+                if (strcmp("PROFESIONAL",entidad) == 0) {
+                        cout<<"ingresa a alta de profesional"<<endl;
+                        anykey();
+                }
+                else {
+                cout<<"ingresa a alta de paciente"<<endl;
                       anykey();
+                }
             break;
             case 2:
 
@@ -93,6 +101,23 @@ void MenuEntidad(char * entidad)
 
             break;
             case 4:
+                if (strcmp("PROFESIONAL",entidad) == 0) {
+                    MenuProfesionalListado();
+                }
+                else {
+                    MenuPacienteListado();
+
+                }
+            break;
+            case 5:
+            if (strcmp("PROFESIONAL",entidad) == 0) {
+                MenuProfesionalConsulta();
+                }
+            else {
+                MenuPacienteConsulta();
+
+                }
+
             break;
             case 0:
                 return;
