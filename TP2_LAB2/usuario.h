@@ -5,8 +5,8 @@
 
 class Usuario {
     private:
-       char user[10];
-       char pass[10];
+       char user[50];
+       char pass[50];
     public:
         Usuario(const char *u ,const char* p )
         {

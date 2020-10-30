@@ -23,7 +23,7 @@ void MenuProfesional(){
         gotoxy(1, 3);
         cout<<"1) PLANES FARMACOLOGICOS"<<endl;
         cout<<"2) PACIENTES"<<endl;
-        cout<<"3) ESTUDIOS REALIZADOS"<<endl;
+        cout<<"3) CONSULTAS"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 

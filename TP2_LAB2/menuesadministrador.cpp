@@ -84,30 +84,33 @@ void MenuEntidad(char * entidad)
         cin >> opcion;
 
         switch(opcion){
-            case 1:
-                if (strcmp("PROFESIONAL",entidad) == 0) {
-                        cout<<"ingresa a alta de profesional"<<endl;
-                        anykey();
-                }
-                else {
-                cout<<"ingresa a alta de paciente"<<endl;
-                      anykey();
-                }
+        case 1:     strcmp("PROFESIONAL",entidad) == 0 ?
+                    cout<<"ingresa a alta de profesional"<<endl
+                    :
+                    cout<<"ingresa a alta de paciente"<<endl;
+                    anykey();
             break;
             case 2:
+                    strcmp("PROFESIONAL",entidad) == 0 ?
+                    cout<<"ingresa a modificacion de profesional"<<endl
+                    :
+                    cout<<"ingresa a modificacion de paciente"<<endl;
+                    anykey();
 
             break;
             case 3:
-
+                     strcmp("PROFESIONAL",entidad) == 0 ?
+                    cout<<"ingresa a baja de profesional"<<endl
+                    :
+                    cout<<"ingresa a baja de paciente"<<endl;
+                    anykey();
             break;
             case 4:
-                if (strcmp("PROFESIONAL",entidad) == 0) {
-                    MenuProfesional();
-                }
-                else {
-                    MenuPaciente();
-
-                }
+                    strcmp("PROFESIONAL",entidad) == 0 ?
+                    cout<<"ingresa al listado de profesionales"<<endl
+                    :
+                    cout<<"ingresa al listado de pacientes"<<endl;
+                    anykey();
             break;
             case 5:
             if (strcmp("PROFESIONAL",entidad) == 0) {

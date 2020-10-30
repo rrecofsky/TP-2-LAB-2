@@ -4,13 +4,11 @@
 #include "menuespaciente.h"
 #include "menuesprofesional.h"
 
-
 using namespace std;
 
 void MenuLogin(char* usr, char* pas)
 {
-    char user[10], pass[10];
-    char salir = 'N';
+    char user[50], pass[50];
     cout<<"Ingrese un usuario: ";
     cin>>user;
     cout<<"Ingrese su contrasenia: ";

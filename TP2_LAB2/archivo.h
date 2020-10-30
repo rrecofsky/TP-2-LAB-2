@@ -45,7 +45,7 @@ class Archivo{
     int tamanioRegistro;
     void *pRegistro;
     char *nombreArchivo;
-    int cantRegistros;
+    int cantRegistros; //+1 es el ID
     int estado;
     int cantidadRegistros(){
       if(!abrirArchivo(SoloLectura)){
