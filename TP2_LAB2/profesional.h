@@ -18,7 +18,7 @@ class Profesional{
         ~Profesional(){};
         //GETs
         int GetMatricula();
-      //  Especialidad GetEspecialidad();
+        int GetEspecialidad();
         //SETs
         void SetMatricula(int);
         void SetEspecialidad(int );

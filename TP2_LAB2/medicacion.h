@@ -10,28 +10,26 @@ class Medicacion:public Registro{
     private:
         char  farmaco[50];
         int   ID_Presentacion;
-        float dosis;
+        int   dosis;
         Fecha vencimiento;
         bool  estado;
     public:
-        Medicacion(Fecha fv, const char* f, float d=0){
-            strcpy(farmaco,f);
-            dosis               = d;
+        Medicacion(Fecha _fechaVencimento, const char* _farmaco, float _dosis=0){
+            strcpy(farmaco,_farmaco);
+            dosis               = _dosis;
             estado              = true;
-            vencimiento         = fv;
+            vencimiento         = _fechaVencimento;
         }
         ~Medicacion(){};
         //GETs
-        char *GetFarmaco();
-        float GetDosis();
+        const char *GetFarmaco();
+        int   GetDosis();
         Fecha GetFechaVecimiento();
-        bool  GetEstado();
         int   GetIdPresentacion();
         //SETs
         void  SetFarmaco(const char*);
-        void  SetDosis(float);
+        void  SetDosis(int);
         void  SetFechaVencimiento(Fecha);
-        void  SetEstado();
         void  SetIdPresentacion(int);
 };
 

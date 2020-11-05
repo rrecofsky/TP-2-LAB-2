@@ -229,7 +229,7 @@ bool Archivo::abrirArchivo(Modo modo){
     return true;
   }
 
-
 */
+
 
 #endif // ARCHIVO_H_INCLUDED

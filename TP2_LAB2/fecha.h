@@ -7,24 +7,26 @@ class Fecha{
         int mes;
         int anio;
     public:
-        Fecha(int d = 0, int m = 0, int a = 0){
-            dia  = d;
-            mes  = m;
-            anio = a;
+         Fecha(int _dia = 0, int _mes = 0, int _anio = 0){
+            dia  = _dia;
+            mes  = _mes;
+            anio = _anio;
         }
         ~Fecha(){
             dia  = 0;
             mes  = 0;
             anio = 0;
         }
-        int GetDia();
-        int GetMes();
-        int GetAnio();
-        Fecha GetFecha();
-        void SetDia(int);
-        void SetMes(int);
-        void SetAnio(int);
-        void SetFecha(Fecha);
+        ///GETS
+        int   GetDia();
+        int   GetMes();
+        int   GetAnio();
+        Fecha GetFechaActual();
+        ///SETS
+        void  SetDia(int);
+        void  SetMes(int);
+        void  SetAnio(int);
+        void  SetNuevaFecha(int,int,int);
 
 };
 

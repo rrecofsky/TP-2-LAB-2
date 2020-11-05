@@ -18,12 +18,12 @@ class Paciente{
         //GETs
         int GetNroAfiliado();
         int GetIdCobertura();
-        int GetInforme();
+        int GetIdInforme();
+        int GetIdPlanFarmacologico();
         //SETs
         void SetNroAfiliado(int);
         void SetIdCObertura(int);
         void SetIdInforme(int);
-
 
 };
 

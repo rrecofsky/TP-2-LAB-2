@@ -17,9 +17,9 @@ class Usuario {
         //GETs
         char *GetUser(){return user;}
         char *GetPass(){return pass;}
+        //SETs
         void  ChangeUserName(const char*);
         void  ChangeUserPass(const char*);
-        //SETs
 };
 
 

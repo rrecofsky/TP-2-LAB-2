@@ -11,27 +11,27 @@ class Persona:public Registro{
     protected:
         char  nombres[50];
         char  apellidos[50];
-        char  Genero;
+        char  genero;
         Fecha fecha_nacimiento;
         int   DNI;
         bool  estado;
+
+        char user[50];
+        char pass[50];
     public:
-        Persona(const char *n, const char *a, const Fecha f, int d)
-        {
-            strcpy(nombres,n);
-            strcpy(apellidos,a);
-            fecha_nacimiento = f;
-            DNI              = d;
-            estado           = true;
-        }
-        ~Persona(){}
-        int   GetIdPersona();
-        char *GetNombres();
-        char *GetApellidos();
+        Persona(const char *, const char *, Fecha, int);
+        //GETS
+        int   GetId(); //PLM
+        bool  GetEstado(); //PLM
+        const char *GetNombres();
+        const char *GetApellidos();
         Fecha GetFechaNacimiento();
         int   GetDNI();
         char  GetGenero();
-        bool  GetEstado();
+
+        const char *GetUser();
+        const char *GetPass();
+        //SETS
         void  SetIDPersona();
         void  SetNombres(const char *);
         void  SetApellidos(const char *);
@@ -39,6 +39,11 @@ class Persona:public Registro{
         void  SetDNI(int);
         void  SetEstado(bool);
         void  SetGenero(char);
+
+        void  ChangeUserName(const char*);
+        void  ChangeUserPass(const char*);
+
+        ~Persona(){}
 };
 
 

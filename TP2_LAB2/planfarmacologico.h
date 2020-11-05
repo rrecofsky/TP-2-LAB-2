@@ -29,15 +29,13 @@ class PlanFarmacologico:public Registro{
         Fecha GetActualizacion();
         int   GetIdPaciente();
         int   GetIdProfesional();
-        char *GetNotas();
-        bool  GetEstado();
+        const char *GetNotas();
         //SETs
         void  SetEmision(Fecha);
         void  SetActualizacion(Fecha);
         void  SetIdPaciente(int);
         void  SetIdProfesional(int);
         void  SetNotas(const char*);
-        void  SetEstado(bool);
 };
 
 

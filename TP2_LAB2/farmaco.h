@@ -1,19 +1,19 @@
 #ifndef FARMACO_H_INCLUDED
 #define FARMACO_H_INCLUDED
-#include "../headers/registro.h"
+
+#include "registro.h"
 
 class Farmaco:public Registro{
     private:
        char nombre[50];
     public:
-        Farmaco(const char *n)
+        Farmaco(const char *_nombre)
         {
-            strcpy(nombre,n);
+            strcpy(nombre,_nombre);
         }
         ~Farmaco(){};
         //GETs
-        char *GetNombre();
-        void  SetId(int);
+        const char *GetNombre();
         void  SetNombre(const char*);
 };
 

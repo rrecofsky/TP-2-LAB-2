@@ -18,14 +18,14 @@ class Registro{
       //SETs
       void  SetId();  //Los Ids se generan igual para todas las clases: se debe buscar el ultimo en su archivo correspondiente
       void  SetEstado(bool); //Los estados se generan por defecto en true con el constructor, pero se puede setear al darla de baja
-      void  SetFechaAlta(Fecha); //fecha de alta de la instancia: se obtiene de la fecha local del sistema
-      void  SetFechaBaja(Fecha); //fecha de baja de la instancia para tener uan traza (para el admin de la app)
-      //GETs
-      int   GetId();
-      bool  GetEstado();
-      Fecha GetFechaAlta();
-      Fecha GetFechaBaja();
-      //VIRTUALES
+      void  SetFechaAlta(); //fecha de alta de la instancia: se obtiene de la fecha local del sistema
+      void  SetFechaBaja(); //fecha de baja de la instancia para tener uan traza (para el admin de la app)
+      //GET VIRTUALES
+      virtual int   GetId();
+      virtual bool  GetEstado();
+      virtual Fecha GetFechaAlta();
+      virtual Fecha GetFechaBaja();
+
       virtual void Cargar() = 0;
       virtual void Mostrar()= 0;
       virtual int getSize() = 0;//DEVUELVE EL SIZEOF DEL OBJETO

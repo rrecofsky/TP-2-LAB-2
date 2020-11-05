@@ -17,7 +17,7 @@ class Especialidad:public Registro{
         }
         ~Especialidad(){};
         //GETs
-        char *GetNombre();
+        const char *GetNombre();
         void SetNombre(const char*);
 };
 

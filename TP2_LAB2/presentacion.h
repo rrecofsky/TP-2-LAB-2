@@ -1,6 +1,7 @@
 #ifndef PRESENTACION_H_INCLUDED
 #define PRESENTACION_H_INCLUDED
-#include "../headers/registro.h"
+
+#include "registro.h"
 
 class Presentacion:public Registro{
     private:
@@ -14,13 +15,13 @@ class Presentacion:public Registro{
         }
         ~Presentacion(){};
         //GETs
-        char *GetNombre();
+        const char *GetNombre();
         int   GetCantidad();
-        float GetMg();
+        int   GetMg();
         //SET's
         void SetNombre(const char*);
         void SetCantidad(int);
-        void SetMg(float);
+        void SetMg(int);
 };
 
 #endif // PRESENTACION_H_INCLUDED
