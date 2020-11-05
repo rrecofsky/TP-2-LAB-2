@@ -6,7 +6,8 @@
 #include "iostream"
 #include "cstring"
 
-class PlanFarmacologico:public Registro{
+class PlanFarmacologico:public Registro
+{
     private:
         Fecha emision;
         Fecha actualizacion;

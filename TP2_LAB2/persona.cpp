@@ -1,15 +1,10 @@
 #include "persona.h"
+#include <iostream>
 
-/*
-//Constructor persona
-Persona::Persona(const char *_nombre, const char *_apellido, Fecha _fecha, int _dni){
-            strcpy(nombres,_nombre);
-            strcpy(apellidos,_apellido);
-            fecha_nacimiento = _fecha;
-            DNI              = _dni;
-            estado           = true;
-}
-*/
+
+
+using namespace std;
+
 //Gets
 
 const char * Persona :: GetNombres(){return nombres;}
@@ -32,5 +27,25 @@ void  Persona :: SetGenero(char _genero){ genero = _genero;}
 void  Persona :: ChangeUserName(const char*_userName){strcpy(user,_userName);}
 void  Persona :: ChangeUserPass(const char*_password){strcpy(pass,_password);}
 
+//Busquedas
+
+//Compara las personas por ID o DNI
+
+bool  Persona :: comparaID(Registro *temp){
+        Persona *aux=(Persona *)temp;
+        if(ID==aux->ID ||DNI == aux->DNI) return true;
+        return false;
+}
+
+void  Persona :: Mostrar(){
+        return;
+}
+
+void  Persona :: Cargar(){
+        return;
+}
+
+
+int   Persona :: getSize(){return sizeof *this;}
 
 

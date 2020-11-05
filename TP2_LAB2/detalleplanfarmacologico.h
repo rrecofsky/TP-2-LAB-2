@@ -3,7 +3,8 @@
 #include "registro.h"
 
 //registra lo que un medico le receta a un paciente
-class DetallePlanFarmacologico:public Registro{
+class DetallePlanFarmacologico:public Registro
+{
     private:
         int  Id_PlanFarmacologico;
         int  Id_Medicacion;
@@ -43,7 +44,6 @@ class DetallePlanFarmacologico:public Registro{
           bool comparaID(Registro *); //Puede estar en una capa de logica
           int getSize();
           DetallePlanFarmacologico& operator = (Registro *temp){
-
                 DetallePlanFarmacologico *aux=(DetallePlanFarmacologico *)temp;
                 Id_PlanFarmacologico = aux->Id_PlanFarmacologico;
                 Id_Medicacion =aux->Id_Medicacion;

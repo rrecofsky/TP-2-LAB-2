@@ -15,20 +15,25 @@ class Persona:public Registro{
         Fecha fecha_nacimiento;
         int   DNI;
         bool  estado;
-
         char user[50];
         char pass[50];
     public:
-        Persona(const char *, const char *, Fecha, int);
+
+        Persona(const char *_nombre = "", const char *_apellido = "", int _dni = 0):Registro()
+        {
+            strcpy(nombres,_nombre);
+            strcpy(apellidos,_apellido);
+            DNI              = _dni;
+            estado           = true;
+        }
+
         //GETS
-        int   GetId(); //PLM
-        bool  GetEstado(); //PLM
         const char *GetNombres();
         const char *GetApellidos();
         Fecha GetFechaNacimiento();
         int   GetDNI();
         char  GetGenero();
-
+        //GETS de usuarios
         const char *GetUser();
         const char *GetPass();
         //SETS
@@ -39,13 +44,30 @@ class Persona:public Registro{
         void  SetDNI(int);
         void  SetEstado(bool);
         void  SetGenero(char);
-
+        //SETS DE USUARIO
         void  ChangeUserName(const char*);
         void  ChangeUserPass(const char*);
+        //
+        void Cargar();
+        void Mostrar();
+        int getSize();
+
+        Persona& operator = (Registro *temp){
+            Persona *aux=(Persona *)temp;
+            strcpy(this->apellidos,aux->apellidos);
+            strcpy(this->user, aux->user);
+            strcpy(this->pass, aux->pass);
+            strcpy(this->nombres, aux->nombres);
+            genero           = aux->genero;
+            fecha_nacimiento = aux->fecha_nacimiento;
+            DNI              = aux->DNI;
+            estado           = aux->estado;
+            }
+        bool comparaID(Registro *temp);
+        //Destructor
 
         ~Persona(){}
 };
-
 
 
 #endif // PERSONA_H_INCLUDED

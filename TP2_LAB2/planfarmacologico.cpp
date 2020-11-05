@@ -1,6 +1,12 @@
 #include "planfarmacologico.h"
 #include "paciente.h"
+#include "profesional.h"
 #include <iostream>
+#include "fecha.h"
+#include "archivo.h"
+
+const char *FILE_PACIENTES = "pacientes.dat";
+const char *FILE_PROFESIONALES = "profesionales.dat";
 
 using namespace std;
 
@@ -20,36 +26,60 @@ bool  PlanFarmacologico :: comparaID(Registro *temp){
             return false;
 }
 
+
 //El plan farmacologico es cargado por un Profesional, con dicho
 //ID se carga el src de la relacion y el profesional setea el
 //tgt de la relacion si es que encuentra un paciente, sino se descarta el plan
 void  PlanFarmacologico :: Cargar(int _idProfesional){
-      Fecha f;
-      int nroAfiliado;
-      Paciente pcte;
-      //PRIMERO SE BUSCA EL AFILIADO, SI EXISTE, SE CARGA EL PLAN.
-      cout<<"Ingrese el numero de afiliado del paciente: "<<nroAfiliado;
-      ///IMPLEMENTAR UN METODO EN PACIENTE QUE BUSQUE EL REGISTRO POR NRO AFILIADO, DNI, APELLIDO Y NOMBRE
-      pcte.GetIdPorNroAfiliado(nroAfiliado);
-      if (pcte.GetIdPorNroAfiliado(nroAfiliado)!=0)
+      Paciente pcte, pacienteSistema;
+      int DNI;
+      int posiscion;
+      //Abro el archivo de paciente
+      FILE *f = fopen(FILE_PACIENTES, "rb");
+      //Creo un objeto tipo archivo para buscar si existe el paciente en el archivo
+      Archivo archPacientes(FILE_PACIENTES,sizeof(Paciente));
+      //PRIMERO SE BUSCA EL PACIENTE, SI EXISTE, SE CARGA EL PLAN.
+      cout<<"Ingrese el DNI del paciente: ";
+      cin>>DNI;
+      pcte.SetDNI(DNI);
+      //BUSCA LA POSICION DEL PACIENTE POR DNI, SI LA ENCUENTRA -> EXISTE.
+      posiscion = archPacientes.buscarRegistro(pcte);
+      if (posiscion != 1) //--> encontro el registro en el archivo
       {
-          ID_Paciente = pcte.GetIdPorNroAfiliado(nroAfiliado);
+          ID_Profesional = _idProfesional;
+          //UNA VEZ ENCONTRADA LA POSICION, DEJAMOS EL PUNTERO A FILE DONDE CORRESPONDE
+          fseek(f, posiscion * sizeof(Paciente), SEEK_SET);
+          //BUSCO EN ESA POSICION EL PACIENTE EN EL ARCHIVO, PARA OBTENER EL ID DE ESE DNI
+          fread(&pacienteSistema, sizeof(Paciente), 1, f);
+          //SETEO EL TGT DE LA RELACION
+          ID_Paciente = pacienteSistema.GetId();
           cout<<"Ingrese la fecha de emision del plan: ";
-          f.CargarFecha();
-          emision = f;
-
+          emision.CargarFecha();
           cout<<endl;
-          cout<<"Ingrese el nombre: ";
+          cout<<"Ingrese las Notas del Plan: ";
           cin.ignore();
           cin.getline(notas,500);
       }else{
-                cout<<"No se ha encontrado un paciente con el Nro de afiliado: "<<nroAfiliado<<endl;
+                cout<<"No se ha encontrado un paciente con el DNI: "<<DNI<<endl;
            }
+      fclose(f);
       return;
 }
 
 
 void  PlanFarmacologico :: Mostrar(){
+
+      Archivo archPacientes(FILE_PACIENTES,sizeof(Paciente));
+      Paciente pacienteSistema;
+      pacienteSistema.SetId(ID_Paciente);
+
+      Archivo archProfesionales(FILE_PROFESIONALES,sizeof(Profesional));
+      Profesional profesionalSistema;
+      profesionalSistema.SetId(ID_Profesional);
+
+      //retorna el paciente que encontro en el archivo, si es que lo hizo.
+      int pos_paciente = archPacientes.buscarRegistro(pacienteSistema);
+      int pos_profesional = archPacientes.buscarRegistro(profesionalSistema);
 
       cout<<"Fecha de Emision: ";
       emision.GetFecha();
@@ -57,9 +87,11 @@ void  PlanFarmacologico :: Mostrar(){
       cout<<"Fecha de Actualizacion: ";
       actualizacion.GetFecha();
       cout<<endl;
-      cout<<"Datos del Paciente: "<<ID_Paciente<<endl; ///HACER METODO QUE BUSQUE EL PACIENTE POR ID
-      cout<<"Datos del Profesional: "<<ID_Profesional<<endl; ///HACER FX QUE BUSQUE EL PROFESIONAL POR ID
+      cout<<"Datos del Paciente: "<<pacienteSistema.GetNombres()<<" - "<<pacienteSistema.GetApellidos()<<endl;
+      cout<<"Datos del Profesional: "<<profesionalSistema.GetNombres()<<" - "<<profesionalSistema.GetApellidos()<<endl;
       cout<<"Notas: "<<notas<<endl;
+
+
       return;
 }
 

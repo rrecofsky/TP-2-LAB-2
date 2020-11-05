@@ -2,7 +2,8 @@
 #define COBERTURA_H_INCLUDED
 #include "registro.h"
 
-class Cobertura:public Registro{
+class Cobertura:public Registro
+{
     private:
        char nombre[50];
     public:

@@ -2,8 +2,9 @@
 #include "fecha.h"
 
 //Cada vez que se crea un registro debe tener una fecha de alta
+
 Registro::Registro(){
-    Fecha fecha; fechaAlta = fecha.GetFechaActual();
+    fechaAlta = fechaAlta.GetFechaActual();
 }
 
 //Gets
@@ -22,6 +23,13 @@ void  Registro :: SetEstado(bool _estado){
         fechaBaja = fecha.GetFechaActual();
      }
 }
+
+void  Registro :: SetId(int _ID){ID = _ID;}
+
+
+
+
+
 
 
 

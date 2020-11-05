@@ -1,19 +1,21 @@
 #ifndef PROFESIONAL_H_INCLUDED
 #define PROFESIONAL_H_INCLUDED
 
-#include "registro.h"
-#include "especialidad.h"
-#include "iostream"
-#include "cstring"
+#include "persona.h"
 
-class Profesional{
+
+
+
+class Profesional: public Persona
+{
     private:
         int matricula;
         int ID_especialidad;
     public:
-        Profesional(int mat, int esp){
-          matricula       = mat;
-          ID_especialidad = esp;
+        Profesional(const char * _nombre = "", const char * _apellido = "", int _dni = 0, int _matricula = 0, int _especialidad = 0):Persona(_nombre,_apellido,_dni)
+        {
+          matricula       = _matricula;
+          ID_especialidad = _especialidad;
         }
         ~Profesional(){};
         //GETs

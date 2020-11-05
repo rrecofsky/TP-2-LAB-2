@@ -8,6 +8,7 @@
 #include <cstring>
 
 //Clase Abastracta registro
+
 class Registro{
   protected:
       int   ID;
@@ -16,8 +17,14 @@ class Registro{
       Fecha fechaBaja;
   public:
       Registro();
+      /*
+      Registro(){
+          //  Fecha f;
+          //  fechaAlta = f.GetFechaActual();
+        }
+        */
       //SETs
-      void  SetId();  //Los Ids se generan igual para todas las clases: se debe buscar el ultimo en su archivo correspondiente
+      void  SetId(int);  //Los Ids se generan igual para todas las clases: se debe buscar el ultimo en su archivo correspondiente
       void  SetEstado(bool); //Los estados se generan por defecto en true con el constructor, pero se puede setear al darla de baja
       //GETs
       int   GetId();
@@ -33,5 +40,8 @@ class Registro{
 };                                       // IDENTIFICA A CADA OBJETO (UN PROPIEDAD CLAVE)
      //COMO ESA IDENTIFICACION UNICA (ID) PUEDE SER DE DISTINTO TIPO SE DEBE HACER UN METODO
       //PARA COMPARAR EL VALOR DE LA PROPIEDAD CLAVE ENTRE DISTINTOS OBJETOS
+
+
+
 
 #endif // REGISTRO_H_INCLUDED
