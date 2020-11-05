@@ -1,14 +1,16 @@
-
+#include "ui.h"
+#include "rlutil.h"
 #include "archivo.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
 
+using namespace rlutil;
+
 //LEE EL REGISTRO UBICADO EN LA POSICIÓN pos, Y LO ESCRIBE EN LA REFERENCIA var
 //DEVUELVE 1 SI LEYO; 0 SI NO LEYO; -1 SI EL ARCHIVO NO EXISTE
-int  Archivo::leerRegistro(Registro &var, int pos)
-{
+int  Archivo::leerRegistro(Registro &var, int pos){
        int x;
        if(!abrirArchivo(SoloLectura)){
          return -1;
@@ -19,7 +21,8 @@ int  Archivo::leerRegistro(Registro &var, int pos)
         var=(Registro *)pRegistro;
         cerrarArchivo();
         return x;
-}
+       }
+
 
 //grabarRegistro( Registro &dato, int pos).
 //ESCRIBE EN EL DISCO LOS DATOS EXISTENTES EN LA REFERENCIA dato
@@ -31,7 +34,8 @@ int Archivo::grabarRegistro( Registro &dato, int pos){
       if(pos==-1){
         if(!abrirArchivo(Agregar)){
         cout<<"no pudo abrir en AB"<<endl;
-        system("pause");
+        anykey();
+        system("cls");
         return -1;
         }
       }
@@ -68,7 +72,8 @@ int Archivo::alta(Registro &obj){
   else{
     cout<<"YA EXISTE EL CODIGO"<<endl;
     cout<<"NO SE GRABO EL REGISTRO"<<endl;
-    system("pause");
+    anykey();
+    system("cls");
     }
   return -2;
 }

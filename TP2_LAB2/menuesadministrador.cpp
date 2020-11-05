@@ -14,12 +14,13 @@
 #include "registro.h"
 #include "archivo.h"
 #include "detalleplanfarmacologico.h"
-
 #include "menuesadministrador.h"
-#include "menuesprofesional.h"
-#include "menuespaciente.h"
+
 using namespace std;
 using namespace rlutil;
+
+extern const char *FILE_PACIENTES;
+extern const char *FILE_PROFESIONALES;
 
 void MenuAdministrador()
 {
@@ -83,47 +84,24 @@ void MenuEntidad(char * entidad)
         cout << endl << "> ";
         cin >> opcion;
 
-        switch(opcion){
-        case 1:     strcmp("PROFESIONAL",entidad) == 0 ?
-                    cout<<"ingresa a alta de profesional"<<endl
-                    :
-                    cout<<"ingresa a alta de paciente"<<endl;
-                    anykey();
-            break;
+        switch(opcion)
+        {
+            case 1: strcmp("PROFESIONAL",entidad) == 0 ? AltaProfesional() : AltaPaciente();
+                    break;
             case 2:
-                    strcmp("PROFESIONAL",entidad) == 0 ?
-                    cout<<"ingresa a modificacion de profesional"<<endl
-                    :
-                    cout<<"ingresa a modificacion de paciente"<<endl;
-                    anykey();
-
-            break;
+                    strcmp("PROFESIONAL",entidad) == 0 ? ModificarProfesional() : ModificarPaciente();
+                    break;
             case 3:
-                     strcmp("PROFESIONAL",entidad) == 0 ?
-                    cout<<"ingresa a baja de profesional"<<endl
-                    :
-                    cout<<"ingresa a baja de paciente"<<endl;
-                    anykey();
-            break;
+                    strcmp("PROFESIONAL",entidad) == 0 ? BajaProfesional() : BajaPaciente();
+                    break;
             case 4:
-                    strcmp("PROFESIONAL",entidad) == 0 ?
-                    cout<<"ingresa al listado de profesionales"<<endl
-                    :
-                    cout<<"ingresa al listado de pacientes"<<endl;
-                    anykey();
-            break;
+                    strcmp("PROFESIONAL",entidad) == 0 ? MostrarProfesionales() : MostrarPacientes();
+                    break;
             case 5:
-            if (strcmp("PROFESIONAL",entidad) == 0) {
-                MenuProfesionalConsulta();
-                }
-            else {
-                MenuPacienteConsulta();
-
-                }
-
-            break;
+                    strcmp("PROFESIONAL",entidad) == 0 ? ConsultaProfesional() : ConsultaPaciente();
+                    break;
             case 0:
-                return;
+                    return;
             break;
         }
         cin.ignore();
@@ -131,4 +109,77 @@ void MenuEntidad(char * entidad)
     return ;
 }
 
+/******************* FUNCIONES BASICAS PROFESIONAL *************************/
 
+void AltaProfesional()
+{
+    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
+    Profesional prof;
+    prof.Cargar();
+    //damos de alta un nuevo profesional, por ello utiliza -1
+    if(profesionales.grabarRegistro(prof,-1) == 1)
+        cout<<"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+    else
+        cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+    anykey();
+}
+
+void MostrarProfesionales()
+{
+    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
+    Profesional prof;
+    if(!profesionales.listarArchivo(prof)){
+        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
+        anykey();
+        system("cls");
+    }
+}
+
+void ModificarProfesional(){
+    return;
+}
+
+void BajaProfesional(){
+    return;
+}
+
+void ConsultaProfesional(){
+    return;
+}
+
+/******************* FUNCIONES BASICAS PACIENTE *************************/
+
+void AltaPaciente(){
+    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
+    Paciente pac;
+    pac.Cargar();
+    //damos de alta un nuevo paciente, por ello utiliza -1
+    if(pacientes.grabarRegistro(pac,-1) == 1)
+        cout<<"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+    else
+        cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+    anykey();
+}
+
+void MostrarPacientes()
+{
+    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
+    Paciente pac;
+    if(!pacientes.listarArchivo(pac)){
+        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
+        anykey();
+        system("cls");
+    }
+}
+
+void ModificarPaciente(){
+    return;
+}
+
+void BajaPaciente(){
+    return;
+}
+
+void ConsultaPaciente(){
+    return;
+}

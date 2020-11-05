@@ -18,12 +18,15 @@ class Profesional: public Persona
           ID_especialidad = _especialidad;
         }
         ~Profesional(){};
-        //GETs
+        ///GETs
         int GetMatricula();
         int GetEspecialidad();
-        //SETs
+        ///SETs
         void SetMatricula(int);
         void SetEspecialidad(int );
+        ///Carga
+        void Cargar();
+        void Mostrar();
 
 };
 

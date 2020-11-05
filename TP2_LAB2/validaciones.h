@@ -9,4 +9,6 @@ char cargar_Char();
 bool leer_SoN();
 void generar_Mensaje(int error,char *);
 
+void ADesarrollar();
+
 #endif // VALIDACIONES_H_INCLUDED

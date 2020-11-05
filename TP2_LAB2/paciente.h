@@ -31,6 +31,9 @@ class Paciente:public Persona
         void SetNroAfiliado(int);
         void SetIdCObertura(int);
         void SetIdInforme(int);
+        ///Carga
+        void Cargar();
+        void Mostrar();
 };
 
 

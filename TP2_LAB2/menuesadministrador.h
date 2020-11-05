@@ -4,5 +4,15 @@
 void MenuAdministrador();
 void MenuEntidad(char *);
 void MenuProfesional();
+void AltaProfesional();
+void AltaPaciente();
+void MostrarProfesionales();
+void MostrarPacientes();
+void ModificarPaciente();
+void BajaPaciente();
+void ConsultaPaciente();
+void ModificarProfesional();
+void BajaProfesional();
+void ConsultaProfesional();
 
 #endif // MENUESADMINISTRADOR_H_INCLUDED

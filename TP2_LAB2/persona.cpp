@@ -1,5 +1,6 @@
 #include "persona.h"
 #include <iostream>
+#include <limits>
 
 
 
@@ -33,15 +34,57 @@ void  Persona :: ChangeUserPass(const char*_password){strcpy(pass,_password);}
 
 bool  Persona :: comparaID(Registro *temp){
         Persona *aux=(Persona *)temp;
-        if(ID==aux->ID ||DNI == aux->DNI) return true;
+        if(ID==aux->ID ||DNI == aux->DNI || strcmp(user,aux->user) == 0) return true;
         return false;
 }
 
 void  Persona :: Mostrar(){
+        cout<<"Nombres: "<<nombres<<endl;
+        cout<<"Apellidos: "<<apellidos<<endl;
+        cout<<"Genero: "<<genero<<endl;
+        cout<<"Fecha Nacimiento: ";
+        fecha_nacimiento.GetFecha();
+        cout<<endl;
+        cout<<"DNI: "<<DNI<<endl;
+        cout<<"user: "<<user<<endl;
+        cout<<"pass: "<<pass<<endl;
         return;
 }
 
-void  Persona :: Cargar(){
+void  Persona :: Cargar()
+{
+        cout<<"Nombres: ";
+        cin.clear(); // unset failbit
+        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
+        cin.getline(nombres,50);
+        cout<<endl;
+        cout<<"Apellidos: ";
+        cin.clear(); // unset failbit
+        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
+        cin.getline(apellidos,50);
+        cout<<endl;
+        cout<<"Genero: ";
+        cin>>genero;
+        cout<<"Fecha de Nacimiento: ";
+        fecha_nacimiento.CargarFecha();
+        cout<<endl;
+        cout<<"DNI: ";
+        cin>>DNI;
+        cout<<endl;
+        cin.clear(); // unset failbit
+        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
+        cout<<"Nombre Usuario del sistema: ";
+        cin.getline(user,50);
+        cout<<endl;
+        cin.clear(); // unset failbit
+        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
+        cout<<"Password Usuario del sistema: ";
+        cin.getline(pass,50);
+        cout<<endl;
+        system("PAUSE");
+        cout<<"user: "<<user<<endl;
+        cout<<"pass: "<<pass<<endl;
+        system("PAUSE");
         return;
 }
 

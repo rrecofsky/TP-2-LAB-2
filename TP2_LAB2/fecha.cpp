@@ -4,8 +4,6 @@
 
 using namespace std;
 
-
-
 ///GETS
 
 int   Fecha :: GetDia(){return dia;}
@@ -38,9 +36,15 @@ void  Fecha :: SetAnio(int _anio){anio = _anio;}
 ///CARGAS y CONSULTAS
 
 void  Fecha :: CargarFecha(){
-    cout<<"Ingrese el dia: "<<dia<<endl;
-    cout<<"Ingrese el mes: "<<mes<<endl;
-    cout<<"Ingrese el anio: "<<anio<<endl;
+    cout<<"Ingrese el dia: ";
+    cin>>dia;
+    cout<<endl;
+    cout<<"Ingrese el mes: ";
+    cin>>mes;
+    cout<<endl;
+    cout<<"Ingrese el anio: ";
+    cin>>anio;
+    cout<<endl;
     return;
 }
 

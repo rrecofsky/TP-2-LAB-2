@@ -3,6 +3,8 @@
 #include "rlutil.h"
 #include "validaciones.h"
 #include <string.h>
+#include <typeinfo>
+#include "profesional.h"
 
 using namespace std;
 using namespace rlutil;
@@ -118,4 +120,15 @@ void generar_Mensaje(int error,char *mensaje)
     cls();
     setColor(WHITE);
     return;
+}
+
+void ADesarrollar()
+{
+  char x;
+  int j;
+  Profesional p;
+  if (typeid(x) == typeid(char)) cout << "X ES CHAR! " <<  "!\n";
+  if (typeid(j) == typeid(char)) cout << "J ES CHAR! " <<  "!\n"; else cout<<"J NO ES CHAR!";
+  if (typeid(p) == typeid(Profesional)) cout << "P ES PROFESIONAL! " <<  "!\n"; else cout<<"J NO ES CHAR!";
+  return;
 }
