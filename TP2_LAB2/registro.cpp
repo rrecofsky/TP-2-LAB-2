@@ -1,6 +1,11 @@
 #include "registro.h"
 #include "fecha.h"
 
+//Cada vez que se crea un registro debe tener una fecha de alta
+Registro::Registro(){
+    Fecha fecha; fechaAlta = fecha.GetFechaActual();
+}
+
 //Gets
 int   Registro :: GetId(){ return ID; }
 bool  Registro :: GetEstado(){ return estado; }
@@ -9,8 +14,14 @@ Fecha Registro :: GetFechaBaja(){ return fechaBaja; }
 
 //SETS
 
-void  Registro :: SetEstado(bool _estado){ estado = _estado;}
-void  Registro :: SetFechaAlta(){ Fecha fecha; fechaAlta = fecha.GetFechaActual(); }
-void  Registro :: SetFechaBaja(){ Fecha fecha; fechaAlta = fecha.GetFechaActual(); }
+//Si doy de baja el registro, se debe setear la fecha de baja
+void  Registro :: SetEstado(bool _estado){
+     estado = _estado;
+     if(!_estado){
+        Fecha fecha;
+        fechaBaja = fecha.GetFechaActual();
+     }
+}
+
 
 

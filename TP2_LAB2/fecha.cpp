@@ -1,5 +1,9 @@
 #include "fecha.h"
 #include <ctime>
+#include <iostream>
+
+using namespace std;
+
 
 
 ///GETS
@@ -31,6 +35,17 @@ void  Fecha :: SetDia(int _dia){dia = _dia;}
 void  Fecha :: SetMes(int _mes){mes = _mes;}
 void  Fecha :: SetAnio(int _anio){anio = _anio;}
 
+///CARGAS y CONSULTAS
 
+void  Fecha :: CargarFecha(){
+    cout<<"Ingrese el dia: "<<dia<<endl;
+    cout<<"Ingrese el mes: "<<mes<<endl;
+    cout<<"Ingrese el anio: "<<anio<<endl;
+    return;
+}
+
+void Fecha :: GetFecha(){
+    cout<<dia<<"/"<<mes<<"/"<<anio;
+}
 
 

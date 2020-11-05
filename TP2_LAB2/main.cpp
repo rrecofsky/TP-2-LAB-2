@@ -17,6 +17,15 @@ int main()
 
     rlutil::anykey();
     */
+
+    DetallePlanFarmacologico dpf;
+    dpf.Cargar();
+    dpf.Mostrar();
+    cout<<"Fecha de alta de registro: "<<dpf.GetFechaAlta().GetDia()<<"/"<<dpf.GetFechaAlta().GetMes()<<"/"<<dpf.GetFechaAlta().GetAnio()<<endl;
+    cout<<"Fecha de baja de registro: "<<dpf.GetFechaBaja().GetDia()<<"/"<<dpf.GetFechaBaja().GetMes()<<"/"<<dpf.GetFechaBaja().GetAnio()<<endl;
+    dpf.SetEstado(false);
+    cout<<"Fecha de baja de registro: "<<dpf.GetFechaBaja().GetDia()<<"/"<<dpf.GetFechaBaja().GetMes()<<"/"<<dpf.GetFechaBaja().GetAnio()<<endl;
+
     MenuLogin("admin","admin");
     return 0;
 }

@@ -15,15 +15,19 @@ class Paciente{
             ID_Informe           = 0;
         }
         ~Paciente(){};
-        //GETs
+        ///GETs
         int GetNroAfiliado();
         int GetIdCobertura();
         int GetIdInforme();
         int GetIdPlanFarmacologico();
-        //SETs
+        ///SETs
         void SetNroAfiliado(int);
         void SetIdCObertura(int);
         void SetIdInforme(int);
+        ///Busquedas --> capa logica
+        int GetIdPorNroAfiliado(int);
+        int GetIdPorDNI(int);
+        int GetIdPorNombreApellido(const char*);
 
 };
 

@@ -27,6 +27,9 @@ class Fecha{
         void  SetMes(int);
         void  SetAnio(int);
         void  SetNuevaFecha(int,int,int);
+        ///CARGAS y CONSULTAS
+        void  CargarFecha();
+        void  GetFecha();
 
 };
 
