@@ -295,7 +295,7 @@
 
 1604668704 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.h
 
-1604684115 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.cpp
+1604685036 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.cpp
 	<iostream>
 	<cstring>
 	"menuesadministrador.h"
@@ -309,12 +309,12 @@
 	"profesional.h"
 	"interfaz.h"
 
-1604682102 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
+1604684983 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
 	<cstring>
 	<iostream>
 	"registro.h"
 
-1604682913 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.cpp
+1604685057 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.cpp
 	<iostream>
 	"ui.h"
 	"rlutil.h"
@@ -387,7 +387,7 @@
 	<limits>
 	<iostream>
 
-1604682249 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.cpp
+1604684934 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.cpp
 	"interfaz.h"
 	<limits>
 	<iostream>

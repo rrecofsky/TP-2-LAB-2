@@ -7,9 +7,9 @@
 using namespace std;
 
 enum Perfil{//MODOS DE APERTURA DE UN ARCHIVO
-   Admin, // 0
-   Profesional, // 1
-   Paciente // 2
+   Perfil_Administrador, // 0
+   Perfil_Profesional, // 1
+   Perfil_Paciente // 2
 };
 
 class Usuario :public Registro {
@@ -20,7 +20,7 @@ class Usuario :public Registro {
        int ID_Perfil;
     public:
         ///Constructor
-        Usuario(const char * _user = "" ,const char* _pass = "",int _perfil = 2 ):Registro()
+        Usuario(const char * _user = "" ,const char* _pass = "",int _perfil = Perfil_Paciente ):Registro()
         {
             strcpy(user,_user);
             strcpy(pass,_pass);

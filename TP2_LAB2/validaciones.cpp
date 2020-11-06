@@ -24,7 +24,7 @@ int ValidacionesGenerales :: ValidarPerfilDeUsuario(){
     do
     {
         dato = val.cargar_Entero();
-        fail = dato < Admin || dato > Paciente ? true : false;
+        fail = dato < Perfil_Administrador || dato > Perfil_Paciente ? true : false;
         if (fail) val.generar_Mensaje(Error,"PERFIL NO DISPONIBLE.");
 
     }while(fail);
