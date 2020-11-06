@@ -14,9 +14,6 @@ Fecha Persona :: GetFechaNacimiento(){ return fecha_nacimiento; }
 int   Persona :: GetDNI(){return DNI;}
 char  Persona :: GetGenero(){ return genero; }
 
-const char* Persona ::GetUser(){return user;}
-const char* Persona ::GetPass(){return pass;}
-
 //Sets
 
 void  Persona :: SetNombres(const char * _nombres){strcpy(nombres,_nombres);}
@@ -25,16 +22,13 @@ void  Persona :: SetFechaNacimiento(Fecha _fechaNacimiento){fecha_nacimiento = _
 void  Persona :: SetDNI(int _dni){ DNI = _dni;}
 void  Persona :: SetGenero(char _genero){ genero = _genero;}
 
-void  Persona :: ChangeUserName(const char*_userName){strcpy(user,_userName);}
-void  Persona :: ChangeUserPass(const char*_password){strcpy(pass,_password);}
-
 //Busquedas
 
 //Compara las personas por ID o DNI
 
 bool  Persona :: comparaID(Registro *temp){
         Persona *aux=(Persona *)temp;
-        if(ID==aux->ID ||DNI == aux->DNI || strcmp(user,aux->user) == 0) return true;
+        if(ID==aux->ID ||DNI == aux->DNI ) return true;
         return false;
 }
 
@@ -42,12 +36,9 @@ void  Persona :: Mostrar(){
         cout<<"Nombres: "<<nombres<<endl;
         cout<<"Apellidos: "<<apellidos<<endl;
         cout<<"Genero: "<<genero<<endl;
-        cout<<"Fecha Nacimiento: ";
-        fecha_nacimiento.GetFecha();
-        cout<<endl;
         cout<<"DNI: "<<DNI<<endl;
-        cout<<"user: "<<user<<endl;
-        cout<<"pass: "<<pass<<endl;
+        cout<<"Fecha Alta: "<<fechaAlta.GetFechaConFormato()<<endl;
+        cout<<"Fecha Alta: "<<fechaBaja.GetFechaConFormato()<<endl;
         return;
 }
 
@@ -69,20 +60,6 @@ void  Persona :: Cargar()
         cout<<"DNI: ";
         cin>>DNI;
         cout<<endl;
-        cin.clear(); // unset failbit
-        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
-        cout<<"Nombre Usuario del sistema: ";
-        cin.getline(user,50);
-        cout<<endl;
-        cin.clear(); // unset failbit
-        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
-        cout<<"Password Usuario del sistema: ";
-        cin.getline(pass,50);
-        cout<<endl;
-        system("PAUSE");
-        cout<<"user: "<<user<<endl;
-        cout<<"pass: "<<pass<<endl;
-        system("PAUSE");
         return;
 }
 

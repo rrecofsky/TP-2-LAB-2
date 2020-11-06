@@ -3,11 +3,8 @@
 
 1603818089 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\fecha.cpp
 
-1604668841 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
-	<iostream>
+1604672445 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
 	"login.h"
-	"rlutil.h"
-	"usuario.h"
 
 1603856222 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\persona.cpp
 	"../headers/persona.h"
@@ -164,27 +161,29 @@
 	<cstdio>
 	<cstring>
 
-1604610299 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\fecha.cpp
+1604675472 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\fecha.cpp
 	"fecha.h"
 	<ctime>
 	<iostream>
+	<cstring>
+	"rlutil.h"
 
 1604616151 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.h
 
-1604619347 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.cpp
+1604675537 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.cpp
 	"persona.h"
 	<iostream>
 	<limits>
 
-1604609974 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.h
+1604675448 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.h
 	"fecha.h"
 	"registro.h"
 	"iostream"
 	"string.h"
 
-1604552028 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\fecha.h
+1604673156 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\fecha.h
 
-1604605188 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\registro.h
+1604682043 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\registro.h
 	"fecha.h"
 	<iostream>
 	<cstdlib>
@@ -296,7 +295,7 @@
 
 1604668704 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.h
 
-1604669303 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.cpp
+1604684115 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.cpp
 	<iostream>
 	<cstring>
 	"menuesadministrador.h"
@@ -308,22 +307,24 @@
 	"archivo.h"
 	"paciente.h"
 	"profesional.h"
+	"interfaz.h"
 
-1604669031 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
+1604682102 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
 	<cstring>
 	<iostream>
+	"registro.h"
 
-1604667970 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.cpp
+1604682913 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.cpp
 	<iostream>
 	"ui.h"
 	"rlutil.h"
 	"validaciones.h"
-	<string.h>
+	<string>
 	<typeinfo>
 	"usuario.h"
 	"profesional.h"
 
-1604669450 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.h
+1604682680 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.h
 
 1604591846 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\registro.cpp
 	"registro.h"
@@ -364,10 +365,11 @@
 1604538200 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\medicacion.cpp
 	"medicacion.h"
 
-1604615897 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\paciente.cpp
+1604675602 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\paciente.cpp
 	"paciente.h"
 	<iostream>
 	<limits>
+	"rlutil.h"
 
 1604538795 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\presentacion.cpp
 	"presentacion.h"
@@ -380,6 +382,16 @@
 	<iostream>
 	<limits>
 
-1604669044 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.cpp
+1604681933 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.cpp
 	"usuario.h"
+	<limits>
+	<iostream>
+
+1604682249 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.cpp
+	"interfaz.h"
+	<limits>
+	<iostream>
+	"usuario.h"
+
+1604682111 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.h
 

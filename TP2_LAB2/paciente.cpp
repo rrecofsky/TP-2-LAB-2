@@ -1,7 +1,9 @@
 #include "paciente.h"
 #include <iostream>
 #include <limits>
+#include "rlutil.h"
 
+using namespace rlutil;
 using namespace std;
 
 //GETs
@@ -29,6 +31,7 @@ void Paciente :: Cargar(){
     cout<<endl;
     cout<<"ID Cobertura: ";
     cin>>ID_Conertura;
+    cout<<endl;
     return;
 }
 
@@ -38,6 +41,7 @@ void Paciente :: Mostrar(){
     cout<<"Nro de Afiliado: "<<nro_Afiliado<<endl;
     cout<<"ID Cobertura: "<<ID_Conertura<<endl;
     cout<<endl;
-    cout<<endl;
+    anykey();
+
 }
 

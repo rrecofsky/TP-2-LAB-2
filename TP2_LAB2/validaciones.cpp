@@ -46,6 +46,35 @@ int ValidacionesGenerales :: ValidarOpciones(int _opMin, int _opMax){
     return dato;
 }
 
+bool ValidacionesGenerales :: leer_SoN()
+{
+    ValidacionesTipoDato vtd;
+    bool rta_Correcta;
+    char opcion;
+    do
+    {
+        cin>>opcion;
+        opcion = toupper(opcion);
+        if (opcion != 'S' && opcion != 'N')
+        {
+            vtd.generar_Mensaje(0,"ERROR: RESPUESTA INVALIDA. DEBE TIPEAR S o N ...");
+            rta_Correcta = false;
+        }else{
+                rta_Correcta = true;
+             }
+    }while(!rta_Correcta);
+    if (opcion == 'S')
+    {
+        return true;
+    } else
+         {
+            return false;
+         }
+
+}
+
+///VALIDACIONES TIPO DE DATO
+
 int ValidacionesTipoDato :: cargar_Entero()
 {
     bool fail;
@@ -122,32 +151,6 @@ char ValidacionesTipoDato :: cargar_Char()
         }
     }while(fail);
     return dato;
-}
-
-bool ValidacionesTipoDato :: leer_SoN()
-{
-    bool rta_Correcta;
-    char opcion;
-    do
-    {
-        cin>>opcion;
-        opcion = toupper(opcion);
-        if (opcion != 'S' && opcion != 'N')
-        {
-            generar_Mensaje(0,"ERROR: RESPUESTA INVALIDA. DEBE TIPEAR S o N ...");
-            rta_Correcta = false;
-        }else{
-                rta_Correcta = true;
-             }
-    }while(!rta_Correcta);
-    if (opcion == 'S')
-    {
-        return true;
-    } else
-         {
-            return false;
-         }
-
 }
 
 void  ValidacionesTipoDato :: generar_Mensaje(int _error,const char *_mensaje)

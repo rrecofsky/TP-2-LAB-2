@@ -1,8 +1,11 @@
 #include "fecha.h"
 #include <ctime>
 #include <iostream>
+#include <cstring>
+#include "rlutil.h"
 
 using namespace std;
+using namespace rlutil;
 
 ///GETS
 
@@ -19,6 +22,11 @@ Fecha Fecha :: GetFechaActual()
      fecha.dia =  now->tm_mday;
      fecha.mes = (now->tm_mon + 1);
      return fecha;
+}
+
+const char * Fecha ::  GetFechaConFormato(){
+    char str[10];
+    return strcat(strcat(strcat(strcat(strcat(str,(char*)dia),"/"),(char*)mes),"/"),(char*)anio);
 }
 
 ///SETS
@@ -45,6 +53,7 @@ void  Fecha :: CargarFecha(){
     cout<<"Ingrese el anio: ";
     cin>>anio;
     cout<<endl;
+    anykey();
     return;
 }
 

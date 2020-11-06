@@ -7,6 +7,8 @@
 #include "string.h"
 
 
+
+
 class Persona:public Registro{
     protected:
         char  nombres[50];
@@ -15,8 +17,6 @@ class Persona:public Registro{
         Fecha fecha_nacimiento;
         int   DNI;
         bool  estado;
-        char user[50];
-        char pass[50];
     public:
 
         Persona(const char *_nombre = "", const char *_apellido = "", int _dni = 0):Registro()
@@ -47,7 +47,7 @@ class Persona:public Registro{
         //SETS DE USUARIO
         void  ChangeUserName(const char*);
         void  ChangeUserPass(const char*);
-        //
+        /// POLIMORFICAS
         void Cargar();
         void Mostrar();
         int getSize();
@@ -55,17 +55,17 @@ class Persona:public Registro{
         Persona& operator = (Registro *temp){
             Persona *aux=(Persona *)temp;
             strcpy(this->apellidos,aux->apellidos);
-            strcpy(this->user, aux->user);
-            strcpy(this->pass, aux->pass);
             strcpy(this->nombres, aux->nombres);
             genero           = aux->genero;
             fecha_nacimiento = aux->fecha_nacimiento;
             DNI              = aux->DNI;
             estado           = aux->estado;
+            ID               = aux->ID;
+            fechaAlta        = aux->fechaAlta;
+            fechaBaja        = aux->fechaBaja;
             }
         bool comparaID(Registro *temp);
-        //Destructor
-
+        ///Destructor
         ~Persona(){}
 };
 

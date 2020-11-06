@@ -11,6 +11,7 @@ class ValidacionesGenerales{
     public:
         int ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
         int ValidarOpciones(int _opMin, int _opMax);
+        bool leer_SoN();
 };
 
 class ValidacionesTipoDato{
@@ -19,7 +20,6 @@ class ValidacionesTipoDato{
         float cargar_Float();
         bool cargar_Bool();
         char cargar_Char();
-        bool leer_SoN();
         void generar_Mensaje(int ,const char *);
         void ADesarrollar();
 };

@@ -22,6 +22,7 @@ class Fecha{
         int   GetMes();
         int   GetAnio();
         Fecha GetFechaActual();
+        const char * GetFechaConFormato();
         ///SETS
         void  SetDia(int);
         void  SetMes(int);
