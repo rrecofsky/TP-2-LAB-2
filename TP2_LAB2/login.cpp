@@ -44,6 +44,7 @@ void MenuLogin(const char* usr,const char* pas)
                  pacienteSistema.ChangeUserName(user);
                  //Cambio el paciente encontrado en el registro
                  posPaciente = archPacientes.buscarRegistro(pacienteSistema);
+                 MenuProfesional();
 
              }
              if ( archPacientes.leerRegistro(pacienteSistema, posPaciente) != -1 && strcmp(pacienteSistema.GetPass(),pass) == 0 )

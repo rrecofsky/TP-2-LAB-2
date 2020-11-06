@@ -96,6 +96,7 @@ void MenuEntidad(char * entidad)
                     break;
             case 4:
                     strcmp("PROFESIONAL",entidad) == 0 ? MostrarProfesionales() : MostrarPacientes();
+                    system("PAUSE");
                     break;
             case 5:
                     strcmp("PROFESIONAL",entidad) == 0 ? ConsultaProfesional() : ConsultaPaciente();

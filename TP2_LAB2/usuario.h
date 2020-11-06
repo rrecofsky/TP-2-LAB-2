@@ -7,6 +7,8 @@ class Usuario {
     private:
        char user[50];
        char pass[50];
+       int ID_Persona;
+       int ID_Perfil; //1 - 2 - 3 o Enum
     public:
         Usuario(const char *u ,const char* p )
         {

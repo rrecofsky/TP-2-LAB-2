@@ -4,7 +4,6 @@
 #include "rlutil.h"
 
 #include "especialidad.h"
-#include "persona.h"
 #include "fecha.h"
 #include "informes.h"
 #include "paciente.h"
@@ -14,6 +13,7 @@
 #include "registro.h"
 #include "archivo.h"
 #include "detalleplanfarmacologico.h"
+#include "menuesprofesional.h"
 
 
 void MenuProfesional(){
@@ -33,74 +33,21 @@ void MenuProfesional(){
 
         switch(opcion){
             case 1:
-                rlutil::cls();
-                title("PROFESIONAL - LISTADO - PLAN FARMACOLOGICO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-                gotoxy(1, 3);
-                cout<<"1) Listar Plan Farmacologico por fecha"<<endl;
-                cout<<"2) Listar Plan Farmacologico por apellido de paciente"<<endl;
-                cout<<"----------------------"<<endl;
-                cout<<"0) REGRESAR"<<endl;
-
-                int opcion2;
-                cout << endl << "> ";
-                cin >> opcion2;
-
-                switch(opcion2){
-
-                case 1:
-                    cout<<"Plan farmacologico para la fecha: "<<endl;
-                break;
-                case 2:
-
-                default:
-                    break;
-                }
-                break;
-            break;
-
+                   PlanesFarmacologicos();
+                   break;
             case 2:
-                    rlutil::cls();
-                    title("PROFESIONAL - LISTADO - PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-                    gotoxy(1, 3);
-                    cout<<"1) Listar paciente por apellido"<<endl;
-                    cout<<"2) Listar paciente por DNI"<<endl;
-                    cout<<"3) Listar paciente por obra social"<<endl;
-                    cout<<"4) Listar paciente por n° afilidado"<<endl;
-                    cout<<"----------------------"<<endl;
-                    cout<<"0) REGRESAR"<<endl;
-                int opcion3;
-                cout << endl << "> ";
-                cin >> opcion3;
-
-                switch(opcion3){
-                    case 1:
-                    break;
-                    case 2:
-                    break;
-                    case 3:
-                    break;
-                    case 4:
-                    break;
-
-                }
-            break;
-
+                   Pacientes();
+                   break;
             case 3:
-                rlutil::cls();
-                title("PROFESIONAL - LISTADO - ESTUDIOS REALIZADOS", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-                gotoxy(1, 3);
-                cout<<"1) Listar estudio realizado por n° afilidado"<<endl;
-                cout<<"----------------------"<<endl;
-                cout<<"0) REGRESAR"<<endl;
-                rlutil::anykey();
-            break;
+                   Consultas();
+                   break;
             case 0:
-                return;
+                   return;
             break;
         }
         cin.ignore();
     }
-    return ;
+    return;
 }
 
 void MenuProfesionalConsulta(){
@@ -241,4 +188,70 @@ void MenuProfesionalConsulta(){
         cin.ignore();
     }
     return ;
+}
+
+void PlanesFarmacologicos(){
+
+    rlutil::cls();
+    title("PROFESIONAL - LISTADO - PLAN FARMACOLOGICO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+    gotoxy(1, 3);
+    cout<<"1) Listar Plan Farmacologico por fecha"<<endl;
+    cout<<"2) Listar Plan Farmacologico por apellido de paciente"<<endl;
+    cout<<"----------------------"<<endl;
+    cout<<"0) REGRESAR"<<endl;
+
+    int opcion2;
+    cout << endl << "> ";
+    cin >> opcion2;
+
+    switch(opcion2){
+
+    case 1:
+           cout<<"Plan farmacologico para la fecha: "<<endl;
+           break;
+    case 2:
+
+    default:
+            break;
+    }
+    return;
+}
+
+void Pacientes(){
+    rlutil::cls();
+    title("PROFESIONAL - LISTADO - PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+    gotoxy(1, 3);
+    cout<<"1) Listar paciente por apellido"<<endl;
+    cout<<"2) Listar paciente por DNI"<<endl;
+    cout<<"3) Listar paciente por obra social"<<endl;
+    cout<<"4) Listar paciente por n° afilidado"<<endl;
+    cout<<"----------------------"<<endl;
+    cout<<"0) REGRESAR"<<endl;
+    int opcion3;
+    cout << endl << "> ";
+    cin >> opcion3;
+
+    switch(opcion3)
+    {
+        case 1:
+        break;
+        case 2:
+            break;
+            case 3:
+            break;
+            case 4:
+            break;
+
+         }
+}
+
+void Consultas()
+{
+    rlutil::cls();
+    title("PROFESIONAL - LISTADO - ESTUDIOS REALIZADOS", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+    gotoxy(1, 3);
+    cout<<"1) Listar estudio realizado por n° afilidado"<<endl;
+    cout<<"----------------------"<<endl;
+    cout<<"0) REGRESAR"<<endl;
+    rlutil::anykey();
 }

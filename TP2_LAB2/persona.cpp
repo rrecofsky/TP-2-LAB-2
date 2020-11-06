@@ -59,8 +59,6 @@ void  Persona :: Cargar()
         cin.getline(nombres,50);
         cout<<endl;
         cout<<"Apellidos: ";
-        cin.clear(); // unset failbit
-        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
         cin.getline(apellidos,50);
         cout<<endl;
         cout<<"Genero: ";
