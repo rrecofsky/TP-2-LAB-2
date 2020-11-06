@@ -2,14 +2,51 @@
 #include "ui.h"
 #include "rlutil.h"
 #include "validaciones.h"
-#include <string.h>
+#include <string>
 #include <typeinfo>
+#include "usuario.h"
 #include "profesional.h"
+
+
 
 using namespace std;
 using namespace rlutil;
 
-int cargar_Entero()
+
+
+
+///VALIDACIONES LOGIN
+
+int ValidacionesGenerales :: ValidarPerfilDeUsuario(){
+    ValidacionesTipoDato val;
+    bool fail;
+    int  dato;
+    do
+    {
+        dato = val.cargar_Entero();
+        fail = dato < Admin || dato > Paciente ? true : false;
+        if (fail) val.generar_Mensaje(Error,"PERFIL NO DISPONIBLE.");
+
+    }while(fail);
+    return dato;
+}
+
+int ValidacionesGenerales :: ValidarOpciones(int _opMin, int _opMax){
+    ValidacionesTipoDato val;
+    char str[80];
+    bool fail;
+    int  dato;
+    do
+    {
+        dato = val.cargar_Entero();
+        fail = dato < _opMin || dato > _opMax ? true : false;
+        if (fail) val.generar_Mensaje(Error,strcat("OPCIONES DISPONIBLES: ",strcat (strcpy (str,(char*)_opMin),(char*)_opMax)));
+
+    }while(fail);
+    return dato;
+}
+
+int ValidacionesTipoDato :: cargar_Entero()
 {
     bool fail;
     int dato;
@@ -17,6 +54,7 @@ int cargar_Entero()
     fflush(stdin); //limpiar buffer
     do
     {
+        cout << endl << "> ";
         fail = (cin>>dato).fail();
         if (fail)//validar tipo de dato
         {
@@ -29,7 +67,7 @@ int cargar_Entero()
 
 }
 
-float cargar_Float()
+float ValidacionesTipoDato :: cargar_Float()
 {
     bool fail;
     float dato;
@@ -48,7 +86,7 @@ float cargar_Float()
     return dato;
 }
 
-bool cargar_Bool()
+bool ValidacionesTipoDato :: cargar_Bool()
 {
     bool fail;
     bool dato;
@@ -67,7 +105,7 @@ bool cargar_Bool()
     return dato;
 }
 
-char cargar_Char()
+char ValidacionesTipoDato :: cargar_Char()
 {
     bool fail;
     char dato;
@@ -86,7 +124,7 @@ char cargar_Char()
     return dato;
 }
 
-bool leer_SoN()
+bool ValidacionesTipoDato :: leer_SoN()
 {
     bool rta_Correcta;
     char opcion;
@@ -112,23 +150,34 @@ bool leer_SoN()
 
 }
 
-void generar_Mensaje(int error,char *mensaje)
-{  //0: error - 1: advertencia - 2 : OK
-    error == 0 ? setColor(LIGHTRED) : setColor(LIGHTBLUE);;
-    cout<<endl<<mensaje<<endl;
-    anykey();
-    cls();
+void  ValidacionesTipoDato :: generar_Mensaje(int _error,const char *_mensaje)
+{
+    _error == Error ? setColor(LIGHTRED) : setColor(LIGHTBLUE);
+
+    switch(_error){
+        case Error:
+                         cout << endl << "ERROR: "       << _mensaje << endl;
+                         break;
+        case Advertencia:
+                         cout << endl << "ADVERTENCIA: " << _mensaje << endl;
+                         break;
+        case Informativo:
+                         cout << endl << "INFORMATIVO: " << _mensaje << endl;
+                         break;
+        default:
+                         return;
+    }
     setColor(WHITE);
     return;
 }
 
-void ADesarrollar()
+void ValidacionesTipoDato :: ADesarrollar()
 {
   char x;
   int j;
-  Profesional p;
+ /* Profesional p;
   if (typeid(x) == typeid(char)) cout << "X ES CHAR! " <<  "!\n";
   if (typeid(j) == typeid(char)) cout << "J ES CHAR! " <<  "!\n"; else cout<<"J NO ES CHAR!";
-  if (typeid(p) == typeid(Profesional)) cout << "P ES PROFESIONAL! " <<  "!\n"; else cout<<"J NO ES CHAR!";
+  if (typeid(p) == typeid(Profesional)) cout << "P ES PROFESIONAL! " <<  "!\n"; else cout<<"J NO ES CHAR!"; */
   return;
 }

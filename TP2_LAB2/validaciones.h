@@ -1,14 +1,29 @@
 #ifndef VALIDACIONES_H_INCLUDED
 #define VALIDACIONES_H_INCLUDED
 
+enum TipoMensaje{
+    Error,
+    Advertencia,
+    Informativo
+};
 
-int cargar_Entero();
-float cargar_Float();
-bool cargar_Bool();
-char cargar_Char();
-bool leer_SoN();
-void generar_Mensaje(int error,char *);
+class ValidacionesGenerales{
+    public:
+        int ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
+        int ValidarOpciones(int _opMin, int _opMax);
+};
 
-void ADesarrollar();
+class ValidacionesTipoDato{
+    public:
+        int cargar_Entero();
+        float cargar_Float();
+        bool cargar_Bool();
+        char cargar_Char();
+        bool leer_SoN();
+        void generar_Mensaje(int ,const char *);
+        void ADesarrollar();
+};
+
+
 
 #endif // VALIDACIONES_H_INCLUDED
