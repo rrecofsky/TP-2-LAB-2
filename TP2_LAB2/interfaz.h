@@ -7,6 +7,7 @@ class InterfazUsuario  {
         void Cargar();
         void Mostrar();
         void CambiarPasswrd();
+        void BajaDeUsuario();
 };
 
 #endif // INTERFAZ_H_INCLUDED

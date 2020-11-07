@@ -9,7 +9,7 @@ extern Usuario usr_lgd;
 
 using namespace std;
 
-/// InterfazUsuario
+/// INTERFAZ USUARIO
 
 void  InterfazUsuario :: Mostrar(){
 
@@ -40,7 +40,7 @@ void  InterfazUsuario :: Cargar()
         cin.getline(pas,50);
         usr_lgd.ChangeUserPass(pas);
         cout<<"FALTA RELACIONAR A UN USUARIO"<<endl;
-
+}
 
 void InterfazUsuario :: CambiarPasswrd(){
         char usr[50], pas[50];
@@ -53,6 +53,11 @@ void InterfazUsuario :: CambiarPasswrd(){
         cout<<"NUEVA CONTRASENIA: ";
         cin.getline(pas,50);
         usr_lgd.ChangeUserPass(pas);
+}
+
+void  InterfazUsuario :: BajaDeUsuario(){
+       cout<<"INGRESE EL DNI o ID DE USUARIO QUE DESEA DAR DE BAJA: "<<endl;
+       cout << endl << "> ";
 
 }
 

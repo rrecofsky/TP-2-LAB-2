@@ -37,7 +37,7 @@ void MenuLogin()
 
     tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
 
-    cout << "INRGESE UN USUARIO: ";
+    cout << "INGRESE UN USUARIO: ";
     cout << endl << "> ";
     cin  >> user;
     cout << "INGRESE UNA CONTRASENIA: ";
@@ -72,7 +72,7 @@ void MenuLogin()
         cout<<"USUARIO O CONTRASENIA INCORRECTOS. DESEA SALIR? S - N"<<endl;
         salir = validacionLogin.leer_SoN();
         if (!salir){
-            cout << "INRGESE UN USUARIO: ";
+            cout << "INGRESE UN USUARIO: ";
             cin.clear(); // unset failbit
             cin.ignore(); // skip bad input
             cout << endl << "> ";
