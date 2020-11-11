@@ -6,7 +6,7 @@
 
 using namespace std;
 
-enum Perfil{//MODOS DE APERTURA DE UN ARCHIVO
+enum Perfil{//perfiles de usuario
    Perfil_Administrador, // 0
    Perfil_Profesional, // 1
    Perfil_Paciente // 2
@@ -38,6 +38,7 @@ class Usuario :public Registro {
         void Cargar();
         void Mostrar();
         int getSize();
+        void Modificar();
 
         Usuario& operator = (Registro *temp){
             Usuario *aux=(Usuario *)temp;

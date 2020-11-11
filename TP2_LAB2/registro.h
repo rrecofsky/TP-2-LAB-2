@@ -17,12 +17,6 @@ class Registro{
       Fecha fechaBaja;
   public:
       Registro();
-      /*
-      Registro(){
-          //  Fecha f;
-          //  fechaAlta = f.GetFechaActual();
-        }
-        */
       //SETs
       void  SetId(int);  //Los Ids se generan igual para todas las clases: se debe buscar el ultimo en su archivo correspondiente
       void  SetEstado(bool); //Los estados se generan por defecto en true con el constructor, pero se puede setear al darla de baja
@@ -34,6 +28,7 @@ class Registro{
       //GET VIRTUALES
       virtual void Cargar() = 0;
       virtual void Mostrar()= 0;
+      virtual void Modificar()= 0;
       virtual int getSize() = 0;//DEVUELVE EL SIZEOF DEL OBJETO
       virtual Registro& operator = (Registro *) =0;//SOBRECARGA PARA ASIGNAR UN PUNTERO REGISTRO A UNA REFERENCIA A UN OBJETO DE UNA CLASE DERIVADA DE REGISTRO
       virtual bool comparaID(Registro*)=0;// SE SUPONE QUE CADA CLASE TIENE UNA PROPIEDAD QUE

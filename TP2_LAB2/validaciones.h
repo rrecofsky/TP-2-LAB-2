@@ -11,6 +11,7 @@ class ValidacionesGenerales{
     public:
         int ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
         int ValidarOpciones(int _opMin, int _opMax);
+        char ValidarGenero();
         bool leer_SoN();
 };
 

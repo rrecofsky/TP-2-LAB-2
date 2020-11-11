@@ -6,6 +6,7 @@
 #include <typeinfo>
 #include "usuario.h"
 #include "profesional.h"
+#include "persona.h"
 
 
 
@@ -71,6 +72,23 @@ bool ValidacionesGenerales :: leer_SoN()
             return false;
          }
 
+}
+
+/// VALIDACIONES PERSONA
+
+char ValidacionesGenerales :: ValidarGenero(){
+    ValidacionesTipoDato val;
+    bool fail;
+    char  dato;
+    do
+    {
+        dato = val.cargar_Char();
+        dato = toupper(dato);
+        fail = dato == 'M' || dato == 'F'  ? true : false;
+        if (fail) val.generar_Mensaje(Error,"GENERO NO DISPONIBLE, INGRESE M o F.");
+
+    }while(fail);
+    return dato;
 }
 
 ///VALIDACIONES TIPO DE DATO

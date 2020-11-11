@@ -27,6 +27,7 @@ class Profesional: public Persona
         ///Carga
         void Cargar();
         void Mostrar();
+        void Modificar();
 
 };
 

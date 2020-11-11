@@ -18,6 +18,7 @@ void  Usuario :: ChangePerfilUser(Perfil _perfil){ID_Perfil = _perfil;}
 
 void Usuario ::Cargar(){return;}
 void Usuario ::Mostrar(){return;}
+void Usuario ::Modificar(){return;}
 
 bool  Usuario :: comparaID(Registro *temp){
         Usuario *aux=(Usuario *)temp;
@@ -26,4 +27,6 @@ bool  Usuario :: comparaID(Registro *temp){
 }
 
 int   Usuario :: getSize(){return sizeof *this;}
+
+
 

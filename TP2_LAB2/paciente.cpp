@@ -45,3 +45,5 @@ void Paciente :: Mostrar(){
 
 }
 
+void Paciente ::  Modificar(){return;}
+

@@ -4,17 +4,14 @@
 #include "rlutil.h"
 
 #include "especialidad.h"
-#include "persona.h"
+#include "archivo.h"
 #include "fecha.h"
 #include "informes.h"
 #include "paciente.h"
 #include "profesional.h"
 #include "medicacion.h"
-#include "planfarmacologico.h"
-#include "registro.h"
-#include "archivo.h"
-#include "detalleplanfarmacologico.h"
 #include "menuesadministrador.h"
+#include "validaciones.h"
 
 using namespace std;
 using namespace rlutil;
@@ -137,7 +134,28 @@ void MostrarProfesionales()
 }
 
 void ModificarProfesional(){
-    return;
+    ValidacionesGenerales validaciones;
+    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
+    Profesional prof;
+    char rta;
+    int idProfesional;
+    cout<<"DESEA VER LA LISTA DE PROFESIONALES? S/N"<<endl;
+    rta = validaciones.leer_SoN();
+         if (rta) MostrarProfesionales();
+    cout<<"INGRESE EL ID DEL PROFESIONAL: ";
+    cout << endl << "> ";
+    cin>>idProfesional;
+    prof.SetId(idProfesional);
+    int posProf = profesionales.buscarRegistro(prof);
+    if ( profesionales.leerRegistro(prof, posProf) != -1){ //si encontro el profesional
+        prof.Modificar();
+        if(profesionales.grabarRegistro(prof,posProf) == 1)
+            cout<<"SE ACTUALIZO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+        else
+            cout<<"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+        anykey();
+        return;
+    }
 }
 
 void BajaProfesional(){

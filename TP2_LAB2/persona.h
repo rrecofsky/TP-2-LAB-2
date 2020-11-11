@@ -6,9 +6,6 @@
 #include "iostream"
 #include "string.h"
 
-
-
-
 class Persona:public Registro{
     protected:
         char  nombres[50];
@@ -50,6 +47,7 @@ class Persona:public Registro{
         /// POLIMORFICAS
         void Cargar();
         void Mostrar();
+        void Modificar(){};
         int getSize();
 
         Persona& operator = (Registro *temp){
