@@ -5,7 +5,7 @@
 using namespace std;
 
 ///GETs
-const char * Usuario :: GetUserName(){return user;}
+const char * Usuario :: GetUserNamee(){return user;}
 const char * Usuario :: GetUserPass(){return pass;}
 int          Usuario :: GetPerfilUser(){return ID_Perfil;}
 int          Usuario :: GetIdPersona(){return ID_Persona;}

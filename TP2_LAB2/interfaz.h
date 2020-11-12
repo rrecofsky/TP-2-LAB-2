@@ -6,6 +6,10 @@
 #include "usuario.h"
 #include "paciente.h"
 
+class InterfazPersona{
+    public:
+        void AsociarPersona(Persona &);
+};
 
 class InterfazUsuario  {
     public:

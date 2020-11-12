@@ -27,7 +27,7 @@ class Usuario :public Registro {
             ID_Perfil = _perfil;
         }
         ///GETs
-        const char* GetUserName();
+        const char* GetUserNamee();
         const char* GetUserPass();
         int   GetPerfilUser();
         int   GetIdPersona();

@@ -14,5 +14,6 @@ void ConsultaPaciente();
 void ModificarProfesional();
 void BajaProfesional();
 void ConsultaProfesional();
+void AltaUsuario();
 
 #endif // MENUESADMINISTRADOR_H_INCLUDED

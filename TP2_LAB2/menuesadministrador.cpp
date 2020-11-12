@@ -33,7 +33,7 @@ void MenuAdministrador()
         gotoxy(1, 3);
         cout<<"1) PROFESIONALES"<<endl;
         cout<<"2) PACIENTES"<<endl;
-        cout<<"3) REPORTES"<<endl;
+        cout<<"3) USUARIOS"<<endl;
         cout<<"4) CONFIGURACION"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) SALIR DEL PROGRAMA"<<endl;
@@ -44,15 +44,15 @@ void MenuAdministrador()
 
         switch(opcion){
             case 1:
-                     MenuEntidad("PROFESIONAL");
+                    MenuEntidad("PROFESIONAL");
                     break;
             case 2:
-                     MenuEntidad("PACIENTE");
+                    MenuEntidad("PACIENTE");
                     break;
             break;
             case 3:
-
-            break;
+                    MenuEntidad("USUARIO");
+                    break;
             case 4:
             break;
             case 0:
@@ -83,7 +83,14 @@ void MenuEntidad(char * entidad)
 
         switch(opcion)
         {
-            case 1: strcmp("PROFESIONAL",entidad) == 0 ? AltaProfesional() : AltaPaciente();
+            case 1: if (strcmp("PROFESIONAL",entidad) == 0)
+                        AltaProfesional();
+                    else
+                        if(strcmp("PACIENTE",entidad) == 0)
+                            AltaPaciente();
+                        else
+                            if(strcmp("USUARIO",entidad) == 0)
+                                AltaUsuario();
                     break;
             case 2:
                     strcmp("PROFESIONAL",entidad) == 0 ? ModificarProfesional() : ModificarPaciente();
@@ -132,6 +139,15 @@ void ModificarProfesional(){
     IP.ModificarEnArchivo(prof);
 }
 
+/******************* FUNCIONES BASICAS USUARIO  *************************/
+
+void AltaUsuario(){
+    cls();
+    InterfazUsuario IU;
+    Usuario usr;
+    IU.CargarUsuario(usr);
+    IU.AgregarUsuarioAArchivo(usr);
+}
 
 /******************* FUNCIONES BASICAS PACIENTE *************************/
 

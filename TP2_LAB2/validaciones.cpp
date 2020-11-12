@@ -15,7 +15,7 @@ using namespace rlutil;
 
 /// VALIDACIONES GRALES
 
-int ValidacionesGenerales :: ValidarPerfilDeUsuario(){
+Perfil ValidacionesGenerales :: ValidarPerfilDeUsuario(){
     ValidacionesTipoDato val;
     bool fail;
     int  dato;
@@ -26,7 +26,7 @@ int ValidacionesGenerales :: ValidarPerfilDeUsuario(){
         if (fail) val.generar_Mensaje(Error,"PERFIL NO DISPONIBLE.");
 
     }while(fail);
-    return dato;
+    return (Perfil)dato;
 }
 
 bool ValidacionesGenerales :: EsBiciesto(Fecha _fecha)

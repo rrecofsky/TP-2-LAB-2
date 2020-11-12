@@ -14,7 +14,7 @@ enum TipoMensaje{
 
 class ValidacionesGenerales{
     public:
-        int ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
+        Perfil ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
         int ValidarOpciones(int , int , const char *);
         char ValidarGenero();
         bool leer_SoN();

@@ -47,7 +47,7 @@ void MenuLogin()
 
     do{
         if (tipoDeUsuario == usr_lgd.GetPerfilUser() &&
-             strcmp(user,usr_lgd.GetUserName()) == 0 &&
+             strcmp(user,usr_lgd.GetUserNamee()) == 0 &&
              strcmp(pass,usr_lgd.GetUserPass()) == 0  )
             { //si es ADMIN
                MenuAdministrador();
