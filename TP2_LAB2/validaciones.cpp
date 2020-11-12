@@ -4,9 +4,7 @@
 #include "validaciones.h"
 #include <string>
 #include <typeinfo>
-#include "usuario.h"
-#include "profesional.h"
-#include "persona.h"
+
 
 
 
@@ -15,8 +13,7 @@ using namespace rlutil;
 
 
 
-
-///VALIDACIONES LOGIN
+/// VALIDACIONES GRALES
 
 int ValidacionesGenerales :: ValidarPerfilDeUsuario(){
     ValidacionesTipoDato val;
@@ -32,16 +29,41 @@ int ValidacionesGenerales :: ValidarPerfilDeUsuario(){
     return dato;
 }
 
-int ValidacionesGenerales :: ValidarOpciones(int _opMin, int _opMax){
+bool ValidacionesGenerales :: EsBiciesto(Fecha _fecha)
+//retorna true si es fecha valida
+{
+    bool validoFecha=true;
+
+    //Biciesto para el mes de febrero
+    if (_fecha.GetMes()==2 && _fecha.GetDia()==29 && ( _fecha.GetAnio() % 400 != 0 || _fecha.GetAnio() % 4 == 0 && _fecha.GetAnio() % 100 != 0 ))
+    {
+        validoFecha=false;
+    }
+    return validoFecha;
+}
+
+int ValidacionesGenerales :: ValidarDia(){
+    return ValidarOpciones(1,31,"INGRESE UN DIA VALIDO");
+}
+
+int ValidacionesGenerales :: ValidarMes(){
+    return ValidarOpciones(1,12,"INGRESE UN MES VALIDO");
+}
+
+int ValidacionesGenerales :: ValidarAnio(){
+    Fecha fechaAux;
+    return ValidarOpciones(fechaAux.GetFechaActual().GetAnio() - 100,fechaAux.GetFechaActual().GetAnio(),"INGRESE UN MES ANIO");
+}
+
+int ValidacionesGenerales :: ValidarOpciones(int _opMin, int _opMax, const char * _msj){
     ValidacionesTipoDato val;
-    char str[80];
     bool fail;
     int  dato;
     do
     {
         dato = val.cargar_Entero();
         fail = dato < _opMin || dato > _opMax ? true : false;
-        if (fail) val.generar_Mensaje(Error,strcat("OPCIONES DISPONIBLES: ",strcat (strcpy (str,(char*)_opMin),(char*)_opMax)));
+        if (fail) val.generar_Mensaje(Error,strcat("ERROR: ",_msj));
 
     }while(fail);
     return dato;
@@ -75,7 +97,7 @@ bool ValidacionesGenerales :: leer_SoN()
 
 }
 
-/// VALIDACIONES PERSONA
+
 
 char ValidacionesGenerales :: ValidarGenero(){
     ValidacionesTipoDato val;

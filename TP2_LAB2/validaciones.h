@@ -1,6 +1,11 @@
 #ifndef VALIDACIONES_H_INCLUDED
 #define VALIDACIONES_H_INCLUDED
 
+#include "fecha.h"
+#include "usuario.h"
+#include "profesional.h"
+#include "persona.h"
+
 enum TipoMensaje{
     Error,
     Advertencia,
@@ -10,9 +15,13 @@ enum TipoMensaje{
 class ValidacionesGenerales{
     public:
         int ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
-        int ValidarOpciones(int _opMin, int _opMax);
+        int ValidarOpciones(int , int , const char *);
         char ValidarGenero();
         bool leer_SoN();
+        int ValidarDia();
+        int ValidarMes();
+        int ValidarAnio();
+        bool EsBiciesto(Fecha );
 };
 
 class ValidacionesTipoDato{
