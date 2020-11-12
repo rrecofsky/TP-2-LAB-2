@@ -13,6 +13,8 @@
 #include "menuesadministrador.h"
 #include "validaciones.h"
 
+#include "interfaz.h"
+
 using namespace std;
 using namespace rlutil;
 
@@ -111,26 +113,16 @@ void MenuEntidad(char * entidad)
 
 void AltaProfesional()
 {
-    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
+    InterfazProfesional IP;
     Profesional prof;
-    prof.Cargar();
-    //damos de alta un nuevo profesional, por ello utiliza -1
-    if(profesionales.grabarRegistro(prof,-1) == 1)
-        cout<<"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-    else
-        cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-    anykey();
+    IP.CargarProfesional(prof);
+    IP.AgregarAArchivo(prof);
 }
 
 void MostrarProfesionales()
 {
-    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
-    Profesional prof;
-    if(!profesionales.listarArchivo(prof)){
-        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
-        anykey();
-        system("cls");
-    }
+    InterfazProfesional IP;
+    IP.ListarProfesionales();
 }
 
 void ModificarProfesional(){

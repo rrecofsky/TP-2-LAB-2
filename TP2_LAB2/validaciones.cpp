@@ -84,7 +84,7 @@ char ValidacionesGenerales :: ValidarGenero(){
     {
         dato = val.cargar_Char();
         dato = toupper(dato);
-        fail = dato == 'M' || dato == 'F'  ? true : false;
+        fail = dato == 'M' || dato == 'F'  ? false : true;
         if (fail) val.generar_Mensaje(Error,"GENERO NO DISPONIBLE, INGRESE M o F.");
 
     }while(fail);

@@ -2,7 +2,9 @@
 #define PROFESIONAL_H_INCLUDED
 
 #include "persona.h"
-
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
 
 
@@ -28,7 +30,9 @@ class Profesional: public Persona
         void Cargar();
         void Mostrar();
         void Modificar();
-
+        ///Sobrecarga con Friend
+        friend istream & operator>>(istream &, int &);
+        friend ostream & operator<<(ostream &, int &);
 };
 
 #endif // PROFESIONAL_H_INCLUDED

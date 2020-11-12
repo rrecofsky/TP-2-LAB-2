@@ -1,6 +1,7 @@
 #include "persona.h"
 #include <iostream>
 #include <limits>
+#include "fecha.h"
 
 
 
@@ -13,6 +14,32 @@ const char * Persona :: GetApellidos(){return apellidos; }
 Fecha Persona :: GetFechaNacimiento(){ return fecha_nacimiento; }
 int   Persona :: GetDNI(){return DNI;}
 char  Persona :: GetGenero(){ return genero; }
+int   Persona :: GetEdad(){
+
+    int respFech , respMes;
+    Fecha fecha_actual = fecha_actual.GetFechaActual();
+
+    if ( fecha_actual.GetFechaActual().GetDia() < fecha_nacimiento.GetDia()  )
+    {   //En caso de ser menor la fecha actual que el nacimiento
+        fecha_actual.SetDia(fecha_actual.GetDia()+30); // Se le suma los 30 días (1 mes) a la fecha actual
+        fecha_actual.SetMes(fecha_actual.GetMes()-1); // Se le resta un mes (30 días) al mes actual
+        respFech =  fecha_actual.GetDia() - fecha_nacimiento.GetDia() ; //Se le resta fecha nacimiento al actual
+    }
+    else //En caso de ser mayor la fecha actual que el nacimiento
+        respFech =  fecha_actual.GetDia() - fecha_nacimiento.GetDia();  //Se le resta fecha nacimiento al actual
+
+    if( fecha_actual.GetMes() < fecha_nacimiento.GetMes() )
+    {   //En caso de ser menor el mes actual que el nacimiento
+        fecha_actual.SetMes(fecha_actual.GetMes()+12); // Se le suma los 12 meses (1 año) al mes actual
+        fecha_actual.SetAnio(fecha_actual.GetAnio()-1); // Se le resta 1 año ( 12 meses) al año actual
+        respMes = fecha_actual.GetMes() - fecha_nacimiento.GetMes() ; //Se le resta año nacimiento al actual
+    }
+    else //En caso de ser mayor el mes actual que el nacimiento
+        respMes = fecha_actual.GetMes() - fecha_nacimiento.GetMes() ; //Se le resta año nacimiento al actual
+
+    return fecha_actual.GetAnio() - fecha_nacimiento.GetAnio();
+
+}
 
 //Sets
 
@@ -22,9 +49,7 @@ void  Persona :: SetFechaNacimiento(Fecha _fechaNacimiento){fecha_nacimiento = _
 void  Persona :: SetDNI(int _dni){ DNI = _dni;}
 void  Persona :: SetGenero(char _genero){ genero = _genero;}
 
-//Busquedas
-
-//Compara las personas por ID o DNI
+//Comparaciones
 
 bool  Persona :: comparaID(Registro *temp){
         Persona *aux=(Persona *)temp;
@@ -32,29 +57,39 @@ bool  Persona :: comparaID(Registro *temp){
         return false;
 }
 
+//Sobrecargas
+
+istream & operator>>(istream &dato, Fecha &val)
+{
+  dato>>val;
+  return dato;
+}
+
 void  Persona :: Mostrar(){
-        cout<<"Nombres: "<<nombres<<endl;
-        cout<<"Apellidos: "<<apellidos<<endl;
-        cout<<"Genero: "<<genero<<endl;
+        cout<<"NOMBRES: "<<nombres<<endl;
+        cout<<"APELLIDOS: "<<apellidos<<endl;
+        cout<<"GENERO: "<<genero<<endl;
         cout<<"DNI: "<<DNI<<endl;
-        cout<<"Fecha Alta: "<<fechaAlta.GetFechaConFormato()<<endl;
-        cout<<"Fecha Alta: "<<fechaBaja.GetFechaConFormato()<<endl;
+        cout<<"EDAD: "<<GetEdad()<<endl;
+        cout<<"FECHA DE NACIMIENTO: ";
+        fecha_nacimiento.GetFecha();
+        cout<<endl;
         return;
 }
 
 void  Persona :: Cargar()
 {
-        cout<<"Nombres: ";
+        cout<<"NOMBRES: ";
         cin.clear(); // unset failbit
         cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
         cin.getline(nombres,50);
         cout<<endl;
-        cout<<"Apellidos: ";
+        cout<<"APELLIDOS: ";
         cin.getline(apellidos,50);
         cout<<endl;
-        cout<<"Genero: ";
+        cout<<"GENERO: ";
         cin>>genero;
-        cout<<"Fecha de Nacimiento: ";
+        cout<<"FECHA DE NACIMIENTO: ";
         fecha_nacimiento.CargarFecha();
         cout<<endl;
         cout<<"DNI: ";

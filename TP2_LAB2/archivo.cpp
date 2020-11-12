@@ -32,6 +32,7 @@ int  Archivo::leerRegistro(Registro &var, int pos){
 int Archivo::grabarRegistro( Registro &dato, int pos){
       int grabo;
       if(pos==-1){
+        dato.SetId(cantidadRegistros());
         if(!abrirArchivo(Agregar)){
         cout<<"no pudo abrir en AB"<<endl;
         anykey();

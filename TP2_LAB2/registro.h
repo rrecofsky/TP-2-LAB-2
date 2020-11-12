@@ -25,6 +25,7 @@ class Registro{
       bool  GetEstado();
       Fecha GetFechaAlta();
       Fecha GetFechaBaja();
+      void GetInformacionGeneral();
       //GET VIRTUALES
       virtual void Cargar() = 0;
       virtual void Mostrar()= 0;

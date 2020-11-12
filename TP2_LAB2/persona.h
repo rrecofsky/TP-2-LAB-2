@@ -33,6 +33,7 @@ class Persona:public Registro{
         //GETS de usuarios
         const char *GetUser();
         const char *GetPass();
+        int   GetEdad();
         //SETS
         void  SetIDPersona();
         void  SetNombres(const char *);

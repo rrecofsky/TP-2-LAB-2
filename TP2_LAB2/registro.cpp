@@ -1,10 +1,13 @@
 #include "registro.h"
 #include "fecha.h"
+#include <iostream>
 
+using namespace std;
 //Cada vez que se crea un registro debe tener una fecha de alta
 
 Registro::Registro(){
     fechaAlta = fechaAlta.GetFechaActual();
+    estado = true;
 }
 
 //Gets
@@ -12,6 +15,15 @@ int   Registro :: GetId(){ return ID; }
 bool  Registro :: GetEstado(){ return estado; }
 Fecha Registro :: GetFechaAlta(){ return fechaAlta; }
 Fecha Registro :: GetFechaBaja(){ return fechaBaja; }
+void  Registro :: GetInformacionGeneral(){
+        cout<<"FECHA DE ALTA: ";
+        fechaAlta.GetFecha();
+        cout<<endl;
+        cout<<"FECHA DE BAJA: ";
+        fechaBaja.GetFecha();
+        cout<<endl;
+        cout<<"ID: "<<ID<<endl;
+}
 
 //SETS
 
