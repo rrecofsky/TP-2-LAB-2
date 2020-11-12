@@ -129,22 +129,8 @@ void InterfazUsuario :: MostrarUsuario(Usuario _user){
     Persona persona;
     interPersona.AsociarPersona(persona);
     cout << setw(12)  << persona.GetNombres();
-    cout << setw(12)  << persona.GetApellidos();
-    /*
-    Profesional prof;
-    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
-    int posEntidad = profesionales.buscarRegistro(prof);
-    if ( posEntidad >= 0 && profesionales.leerRegistro(prof, posEntidad) != -1)
-        cout << setw(12)  << prof.GetNombres()
-        cout << setw(12)  << prof.GetApellidos();
-    else{
-            Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
-            Paciente pac;
-            posEntidad = pacientes.buscarRegistro(pac);
-            if ( posEntidad >= 0 && profesionales.leerRegistro(pac, posEntidad) != -1)
-                cout << setw(12)  << strcat(strcat(pac.GetNombres()," - "),pac.GetApellidos());
-        }
-        */
+    cout << setw(4)   << persona.GetApellidos();
+    cout<<endl;
 };
 
 void InterfazUsuario :: AgregarUsuarioAArchivo(Usuario _user){
@@ -166,9 +152,37 @@ void InterfazUsuario :: AgregarUsuarioAArchivo(Usuario _user){
 
 };
 
+void InterfazUsuario :: ListarUsuarios(){
+
+    Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
+    Usuario usr;
+    cls();
+
+    cout << left;
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
+        cout << setw(12)  << "ID";
+        cout << setw(12)  << "CONTRASENIA";
+    }
+    cout << setw(12)  << "USUARIO";
+    cout << setw(12)  << "PERFIL";
+    cout << setw(12)  << "ENTIDAD";
+    cout << endl;
+
+    if(!usuarios.listarArchivo(usr)){
+        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
+        cout<<endl<<endl;
+        system("PAUSE");
+        system("cls");
+    }
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
+
+};
+
 void InterfazUsuario :: ModificarUsuario(Usuario & _user){};
 void InterfazUsuario :: ModificarUsuarioEnArchivo(Usuario _user){};
-void InterfazUsuario :: ListarUsuarios(){};
+
 
 ///INERFAZ PROFESIONAL
 

@@ -4,6 +4,9 @@
 #include <iostream>
 #include "registro.h"
 
+#include "persona.h"
+
+
 using namespace std;
 
 enum Perfil{//perfiles de usuario
@@ -58,5 +61,6 @@ class Usuario :public Registro {
         ~Usuario(){};
 };
 
+extern Usuario usr_lgd;
 
 #endif // USUARIO_H_INCLUDED

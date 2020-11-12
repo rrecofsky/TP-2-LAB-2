@@ -168,7 +168,7 @@
 	<cstring>
 	"rlutil.h"
 
-1605205577 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.h
+1605206060 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.h
 
 1605164205 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\persona.cpp
 	"persona.h"
@@ -275,7 +275,7 @@
 	"detalleplanfarmacologico.h"
 	"menuesprofesional.h"
 
-1605205553 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.cpp
+1605206053 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.cpp
 	"iostream"
 	"string.h"
 	"ui.h"
@@ -311,10 +311,11 @@
 	"profesional.h"
 	"interfaz.h"
 
-1605204729 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
+1605206874 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
 	<cstring>
 	<iostream>
 	"registro.h"
+	"persona.h"
 
 1605200217 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.cpp
 	<iostream>
@@ -390,12 +391,13 @@
 	"rlutil.h"
 	"usuario.h"
 
-1605204724 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.cpp
+1605207042 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.cpp
 	"usuario.h"
 	<limits>
 	<iostream>
+	"interfaz.h"
 
-1605205305 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.cpp
+1605206216 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.cpp
 	"interfaz.h"
 	<limits>
 	<iostream>
@@ -403,7 +405,7 @@
 	"validaciones.h"
 	"rlutil.h"
 
-1605203991 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.h
+1605206506 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaz.h
 	"profesional.h"
 	"registro.h"
 	"usuario.h"

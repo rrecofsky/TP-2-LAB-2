@@ -3,17 +3,18 @@
 
 void MenuAdministrador();
 void MenuEntidad(char *);
-void MenuProfesional();
+
 void AltaProfesional();
-void AltaPaciente();
-void MostrarProfesionales();
-void MostrarPacientes();
-void ModificarPaciente();
-void BajaPaciente();
-void ConsultaPaciente();
 void ModificarProfesional();
-void BajaProfesional();
-void ConsultaProfesional();
+void MostrarProfesionales();
+
+void AltaPaciente();
+void ModificarPaciente();
+void MostrarPacientes();
+
 void AltaUsuario();
+void ModificarUsuario();
+void MostrarUsuarios();
+
 
 #endif // MENUESADMINISTRADOR_H_INCLUDED

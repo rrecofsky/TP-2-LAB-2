@@ -1,6 +1,5 @@
 #ifndef INTERFAZ_H_INCLUDED
 #define INTERFAZ_H_INCLUDED
-//#include "usuario.h"
 #include "profesional.h"
 #include "registro.h"
 #include "usuario.h"

@@ -88,23 +88,3 @@ void MenuLogin()
     return;
 }
 
-/*
-
-{
-//USO DE POLIMORFISMO PARA DEJAR EN REGISTRO UNA COPIA DEL ENCONTRADO EN EL ARCHIVO
-
-        //cambio de forma temporal el user del reg paciente, para buscarlo por comparacion con el usuario
-        pacienteSistema.ChangeUserName(user);
-        //Cambio el paciente encontrado en el registro
-        posPaciente = archPacientes.buscarRegistro(pacienteSistema);
-        MenuProfesional();
-
-    }
-    if ( archPacientes.leerRegistro(pacienteSistema, posPaciente) != -1 && strcmp(pacienteSistema.GetPass(),pass) == 0 )
-    {   //si es paciente y coincide la clave ingresada con la que posee el registro --> OK
-        MenuPaciente();
-        return;
-    }
-
-*/
-

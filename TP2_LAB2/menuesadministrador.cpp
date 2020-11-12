@@ -89,14 +89,25 @@ void MenuEntidad(char * entidad)
                         if(strcmp("PACIENTE",entidad) == 0)
                             AltaPaciente();
                         else
-                            if(strcmp("USUARIO",entidad) == 0)
-                                AltaUsuario();
+                            AltaUsuario();
                     break;
             case 2:
-                    strcmp("PROFESIONAL",entidad) == 0 ? ModificarProfesional() : ModificarPaciente();
+                    if (strcmp("PROFESIONAL",entidad) == 0)
+                        ModificarProfesional();
+                    else
+                        if(strcmp("PACIENTE",entidad) == 0)
+                            ModificarPaciente();
+                        else
+                            ModificarUsuario();
                     break;
             case 3:
-                    strcmp("PROFESIONAL",entidad) == 0 ? MostrarProfesionales() : BajaPaciente();
+                    if (strcmp("PROFESIONAL",entidad) == 0)
+                        MostrarProfesionales();
+                    else
+                        if(strcmp("PACIENTE",entidad) == 0)
+                            MostrarPacientes();
+                        else
+                            MostrarUsuarios();
                     break;
             case 0:
                     return;
@@ -148,6 +159,17 @@ void AltaUsuario(){
     IU.CargarUsuario(usr);
     IU.AgregarUsuarioAArchivo(usr);
 }
+
+void MostrarUsuarios(){
+    cls();
+    InterfazUsuario IU;
+    IU.ListarUsuarios();
+}
+
+void ModificarUsuario(){
+
+}
+
 
 /******************* FUNCIONES BASICAS PACIENTE *************************/
 

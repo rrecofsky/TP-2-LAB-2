@@ -2,6 +2,10 @@
 #include <limits>
 #include <iostream>
 
+#include "interfaz.h"
+
+
+
 using namespace std;
 
 ///GETs
@@ -19,7 +23,28 @@ void  Usuario :: ChangeIdPersona(int _idPersona){ID_Persona = _idPersona;}
 ///POLOMORFICAS
 
 void Usuario ::Cargar(){return;}
-void Usuario ::Mostrar(){return;}
+void Usuario ::Mostrar(){ //TEMPORAL, HASTA QUE HAGA POLIMORFISMO CON LAS INTERFASES
+
+    cout << left;
+
+    if (usr_lgd.ID_Perfil == Perfil_Administrador){
+        cout << setw(12)  << ID;
+        cout << setw(12)  << pass;
+    }
+    cout << setw(12)  << user;
+    if (ID_Perfil  == Perfil_Profesional )
+        cout << setw(12)  << "PROFESIONAL";
+    else
+        cout << setw(12)  << "PACIENTE";
+    Persona persona;
+    InterfazPersona interPersona;
+    interPersona.AsociarPersona(persona);
+    cout << setw(12)  << persona.GetNombres();
+    cout << setw(4)   << persona.GetApellidos();
+    cout<<endl;
+
+}
+
 void Usuario ::Modificar(){return;}
 
 bool  Usuario :: comparaID(Registro *temp){
