@@ -3,14 +3,18 @@
 //#include "usuario.h"
 #include "profesional.h"
 #include "registro.h"
+#include "usuario.h"
+#include "paciente.h"
 
 
 class InterfazUsuario  {
     public:
-        void Cargar();
-        void Mostrar();
-        void CambiarPasswrd();
-        void BajaDeUsuario();
+        void CargarUsuario(Usuario &);
+        void MostrarUsuario(Usuario);
+        void ModificarUsuario(Usuario &);
+        void AgregarUsuarioAArchivo(Usuario);
+        void ModificarUsuarioEnArchivo(Usuario);
+        void ListarUsuarios();
 };
 
 class InterfazProfesional  {
@@ -21,6 +25,17 @@ class InterfazProfesional  {
         void AgregarAArchivo(Profesional);
         void ModificarEnArchivo(Profesional);
         void ListarProfesionales();
+
+};
+
+class InterfazPaciente  {
+    public:
+        void CargarPaciente(Paciente &);
+        void MostrarPaciente(Paciente);
+        void ModificarPaciente(Paciente &);
+        void AgregarPacienteAArchivo(Paciente);
+        void ModificarPacienteEnArchivo(Paciente);
+        void ListarPacientes();
 
 };
 

@@ -8,11 +8,13 @@ using namespace std;
 const char * Usuario :: GetUserName(){return user;}
 const char * Usuario :: GetUserPass(){return pass;}
 int          Usuario :: GetPerfilUser(){return ID_Perfil;}
+int          Usuario :: GetIdPersona(){return ID_Persona;}
 
 ///SETs
 void  Usuario :: ChangeUserName(const char* _user){strcpy(user,_user);}
 void  Usuario :: ChangeUserPass(const char* _pass){strcpy(pass,_pass);}
 void  Usuario :: ChangePerfilUser(Perfil _perfil){ID_Perfil = _perfil;}
+void  Usuario :: ChangeIdPersona(int _idPersona){ID_Persona = _idPersona;}
 
 ///POLOMORFICAS
 

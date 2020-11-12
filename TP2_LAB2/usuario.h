@@ -30,10 +30,12 @@ class Usuario :public Registro {
         const char* GetUserName();
         const char* GetUserPass();
         int   GetPerfilUser();
+        int   GetIdPersona();
         ///SETs
         void  ChangeUserName(const char*);
         void  ChangeUserPass(const char*);
         void  ChangePerfilUser(Perfil _perfil);
+        void  ChangeIdPersona(int);
         /// POLIMORFICAS
         void Cargar();
         void Mostrar();
