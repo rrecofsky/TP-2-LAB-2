@@ -47,14 +47,10 @@ void  Fecha :: SetAnio(int _anio){anio = _anio;}
 void  Fecha :: CargarFecha(){
     cout<<"Ingrese el dia: ";
     cin>>dia;
-    cout<<endl;
     cout<<"Ingrese el mes: ";
     cin>>mes;
-    cout<<endl;
     cout<<"Ingrese el anio: ";
     cin>>anio;
-    cout<<endl;
-    anykey();
     return;
 }
 

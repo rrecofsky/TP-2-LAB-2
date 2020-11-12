@@ -24,6 +24,7 @@ int  Archivo::leerRegistro(Registro &var, int pos){
        }
 
 
+
 //grabarRegistro( Registro &dato, int pos).
 //ESCRIBE EN EL DISCO LOS DATOS EXISTENTES EN LA REFERENCIA dato
 //SI EL VALOR DE POS ES -1 AGREGA UN REGISTRO NUEVO
@@ -88,6 +89,21 @@ bool Archivo::listarArchivo(Registro &aux){
        while(fread(pRegistro,tamanioRegistro,1,pF)){
          aux=(Registro *)pRegistro;
          aux.Mostrar();
+         };
+       cerrarArchivo();
+       return true;
+}
+
+//USAR POLIMORFISMO CON CLASE InterfazGenerica
+bool Archivo::listarArchivoProfesionales(Profesional &aux){
+      InterfazProfesional interfazProfesional;
+       if(cantRegistros==0)return false;
+       if(!abrirArchivo(SoloLectura)){
+            cout<<"NO ABRI EL ARCHIVO"<<endl;
+         return false;
+       }
+       while(fread(&aux,tamanioRegistro,1,pF)){
+         interfazProfesional.MostrarProfesional(aux);
          };
        cerrarArchivo();
        return true;

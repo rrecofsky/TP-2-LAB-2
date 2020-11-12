@@ -3,8 +3,6 @@
 #include <limits>
 #include "fecha.h"
 
-
-
 using namespace std;
 
 //Gets
@@ -53,7 +51,10 @@ void  Persona :: SetGenero(char _genero){ genero = _genero;}
 
 bool  Persona :: comparaID(Registro *temp){
         Persona *aux=(Persona *)temp;
-        if(ID==aux->ID ||DNI == aux->DNI ) return true;
+
+        if(DNI != 0 && DNI == aux->DNI ) return true;
+        if( ID == aux->ID  ) return true;
+
         return false;
 }
 

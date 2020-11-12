@@ -111,59 +111,77 @@ void InterfazProfesional :: CargarProfesional(Profesional &prof){
     ValidacionesGenerales validaGeneral;
     Fecha fecha;
     char nombres[50], apellidos[50];
-    cout<<"NOMBRES: ";
-    cin.clear(); // unset failbit
-    cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
+    cout<<"NOMBRES";
+    cin.clear();
+    cin.ignore();
+    cout << endl << "> ";
     cin.getline(nombres,50);
     prof.SetNombres(nombres);
     cout<<endl;
-    cout<<"APELLIDOS: ";
+    cout<<"APELLIDOS";
+    cout << endl << "> ";
     cin.getline(apellidos,50);
     prof.SetApellidos(apellidos);
     cout<<endl;
-    cout<<"GENERO: ";
+    cout<<"GENERO";
     prof.SetGenero(validaGeneral.ValidarGenero());
-    cout<<"FECHA DE NACIMIENTO: ";
+    cout<<endl;
+    cout<<"FECHA DE NACIMIENTO"<<endl;
     fecha.CargarFecha();
     prof.SetFechaNacimiento(fecha);
     cout<<endl;
-    cout<<"DNI: ";
+    cout<<"DNI";
     prof.SetDNI(validaTDato.cargar_Entero());
     cout<<endl;
-    cout<<"NRO DE MATRICULA: ";
+    cout<<"NRO DE MATRICULA";
     prof.SetMatricula(validaTDato.cargar_Entero());
     cout<<endl;
-    cout<<"ID DE LA ESPECIALIDAD: ";
+    cout<<"ID DE LA ESPECIALIDAD";
     prof.SetEspecialidad(validaTDato.cargar_Entero());
     return;
 };
 
 void InterfazProfesional :: MostrarProfesional(Profesional _prof){
 
-    cout<<"NOMBRES: "<<_prof.GetNombres()<<endl;
-    cout<<"APELLIDOS: "<<_prof.GetApellidos()<<endl;
-    cout<<"GENERO: "<<_prof.GetGenero()<<endl;
-    cout<<"DNI: "<<_prof.GetDNI()<<endl;
-    cout<<"EDAD: "<<_prof.GetEdad()<<endl;
-    cout<<"FECHA DE NACIMIENTO: ";
+    cls();
+    cout << left;
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)//Solo el admin ve el ID
+    cout << setw(12)  << "ID";
+    cout << setw(12)  << "NOMBRES";
+    cout << setw(12)  << "APELLIDOS";
+    cout << setw(12)  << "GENERO";
+    cout << setw(12)  << "DNI";
+    cout << setw(12)  << "EDAD";
+    cout << setw(12)  << "MATRICULA";
+    cout << setw(12)  << "ESPECIALIDAD";
+    cout << endl;
+    cout << left;
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
+        cout << setw(12)  << _prof.GetId();
+        cout << setw(12)  ;  _prof.GetFechaAlta();
+        if ( !_prof.GetEstado() )//si esta dado de baja
+            cout << setw(12)  ; _prof.GetFechaBaja();
+    }
+    cout << setw(12)  << _prof.GetNombres();
+    cout << setw(12)  << _prof.GetApellidos();
+    cout << setw(12)  << _prof.GetGenero();
+    cout << setw(12)  << _prof.GetDNI();
+    cout << setw(12)  << _prof.GetEdad();
+    cout << setw(12)  << _prof.GetMatricula();
+    cout<<  setw(12)  << "SIN IMPLEMENTAR";
+    /*
     _prof.GetFechaNacimiento().GetFecha();
-    cout<<endl;
-    cout<<"NRO DE MATRICULA: "<<_prof.GetMatricula()<<endl;
-    cout<<"ID DE LA ESPECIALIDAD: "<<_prof.GetEspecialidad()<<endl;
-    cout<<"ESPECIALIDAD: "<<"A DESARROLLAR ..."<<endl;
-    cout<<endl;
-    anykey();
 
+    */
 };
-void InterfazProfesional :: ModificarProfesional(){};
+
 
 void InterfazProfesional :: AgregarAArchivo(Profesional _prof){
     cls();
     ValidacionesGenerales valGral;
-    cout<<"ESTA SEGURO QUE DESEA AGREGAR EL SIGUIENTE PROFESIONAL? S/N";
-    cout<<endl<<endl;
     MostrarProfesional(_prof);
-    cout << endl << "> ";
+    cout<<endl<<endl;
+    cout<<"ESTA SEGURO QUE DESEA AGREGAR EL SIGUIENTE PROFESIONAL? S/N";
     if(valGral.leer_SoN())
     {
         Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
@@ -172,41 +190,135 @@ void InterfazProfesional :: AgregarAArchivo(Profesional _prof){
         else
             cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
     }
-    anykey();
+    cout<<endl;
+    system("PAUSE");
 };
 
-void InterfazProfesional :: ModificarEnArchivo(Profesional _prof, int _posiscion){
-    ValidacionesGenerales validaciones;
+void InterfazProfesional :: ModificarProfesional(Profesional &_prof){
+        ValidacionesGenerales valGral;
+        ValidacionesTipoDato valTipoDato;
+        int opcion=0;
+        char nombres[50], apellidos[50];
+        while(true){
+            cls();
+            cout<<"QUE DESEA MODIFICAR?"<<endl;
+            cout<<"1) NOMBRES"<<endl;
+            cout<<"2) APELLIDOS"<<endl;
+            cout<<"3) GENERO"<<endl;
+            cout<<"4) DNI"<<endl;
+            cout<<"5) NRO DE MATRICULA"<<endl;
+            cout<<"7) ESTADO"<<endl;
+            cout<<"8) ESPECIALIDAD"<<endl;
+            cout<<"----------------------"<<endl;
+            cout<<"0) REGRESAR"<<endl;
+            cout << endl << "> ";
+            cin >> opcion;
+            switch(opcion)
+                {
+                    case 1: {
+                             cout<<"NOMBRES: ";
+                            cin.clear();
+                            cin.ignore();
+                            cin.getline(nombres,50);
+                            _prof.SetNombres(nombres);
+                            }
+                            break;
+                    case 2:{
+                            cout<<"APELLIDOS: ";
+                            cin.clear();
+                            cin.ignore();
+                            cin.getline(nombres,50);
+                            _prof.SetApellidos(apellidos);
+                            }
+
+                            break;
+                    case 3:{
+                             cout<<"GENERO: ";
+                             cin.clear();
+                             cin.ignore();
+                            _prof.SetGenero(valGral.ValidarGenero());
+                            }
+                            break;
+                    case 4:
+                            cout<<"DNI: ";
+                            _prof.SetDNI(valTipoDato.cargar_Entero()); //se debe crear CARGAR DNI
+                            break;
+                    case 5:
+                            _prof.SetMatricula(valTipoDato.cargar_Entero());
+                            break;
+                    case 6:
+                            cout<<"ESPECIALIDAD: ";
+                            _prof.SetEspecialidad(valTipoDato.cargar_Entero());
+                            break;
+                    case 7:
+                            _prof.SetEstado(valTipoDato.cargar_Bool());
+                            break;
+                    case 0:
+                            return;
+                            break;
+                }
+
+        }
+        return ;
+}
+
+void InterfazProfesional :: ModificarEnArchivo(Profesional _prof){
+    ValidacionesGenerales valGral;
     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
-    Profesional prof;
-    char rta;
-    int idProfesional;
-    cout<<"DESEA VER LA LISTA DE PROFESIONALES? S/N"<<endl;
-    rta = validaciones.leer_SoN();
-         if (rta) MostrarProfesionales();
-    cout<<"INGRESE EL ID DEL PROFESIONAL: ";
-    cout << endl << "> ";
-    cin>>idProfesional;
-    prof.SetId(idProfesional);
-    int posProf = profesionales.buscarRegistro(prof);
-    if ( profesionales.leerRegistro(prof, posProf) != -1){ //si encontro el profesional
-        prof.Modificar();
-        if(profesionales.grabarRegistro(prof,posProf) == 1)
-            cout<<"SE ACTUALIZO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-        else
-            cout<<"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-        anykey();
-        return;
-    }
+    int posProf = profesionales.buscarRegistro(_prof);
+    cout<<"ID DEL _PROF"<<_prof.GetId()<<endl;
+    cout<<"pos posProf"<<posProf<<endl;
+    system("PAUSE");
+    if ( posProf != -1 && profesionales.leerRegistro(_prof, posProf) != -1){
+        MostrarProfesional(_prof);
+        cout<<endl<<endl;
+        cout<<"ESTA SEGURO QUE DESEA MODIFICAR EL SIGUIENTE PROFESIONAL? S/N"<<endl;
+        if(valGral.leer_SoN())
+        {
+            ModificarProfesional(_prof);
+            if(profesionales.grabarRegistro(_prof,posProf) == 1)
+                cout<<"SE ACTUALIZO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+            else
+                cout<<"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+
+            cout<<endl;
+            system("PAUSE");
+            return;
+        }
+    }else{
+            cout<<"NO EXISTE UN PROFESIONAL CON EL ID: "<<_prof.GetId()<<endl;
+            cout<<endl<<endl;
+            system("PAUSE");
+
+         }
 };
 
 void InterfazProfesional :: ListarProfesionales(){
     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
     Profesional prof;
+    cls();
+
+    cout << left;
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)//Solo el admin ve el ID
+    cout << setw(12)  << "ID";
+    cout << setw(12)  << "NOMBRES";
+    cout << setw(12)  << "APELLIDOS";
+    cout << setw(12)  << "GENERO";
+    cout << setw(12)  << "DNI";
+    cout << setw(12)  << "EDAD";
+    cout << setw(12)  << "MATRICULA";
+    cout << setw(12)  << "ESPECIALIDAD";
+    cout << endl;
+
     if(!profesionales.listarArchivo(prof)){
         cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
-        anykey();
+        cout<<endl<<endl;
+        system("PAUSE");
         system("cls");
     }
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
 }
+
 

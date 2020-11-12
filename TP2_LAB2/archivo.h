@@ -6,6 +6,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
+#include "interfaz.h"
 
 using namespace std;
 
@@ -86,6 +87,7 @@ class Archivo{
       const char *getNombreArchivo(){return nombreArchivo;}
       int   getCantidadRegistros(){return cantRegistros;}
       bool  listarArchivo(Registro &aux);
+      bool  listarArchivoProfesionales(Profesional &aux);
   };
 
 

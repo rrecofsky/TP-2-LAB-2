@@ -72,10 +72,8 @@ void MenuEntidad(char * entidad)
         title(entidad, APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
         cout<<"1) ALTA"<<endl;
-        cout<<"2) MODIFICACION"<<endl;
-        cout<<"3) BAJA"<<endl;
-        cout<<"4) LISTADO"<<endl;
-        cout<<"5) CONSULTA"<<endl;
+        cout<<"2) MODIFICAR"<<endl;
+        cout<<"3) LISTAR"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -91,14 +89,7 @@ void MenuEntidad(char * entidad)
                     strcmp("PROFESIONAL",entidad) == 0 ? ModificarProfesional() : ModificarPaciente();
                     break;
             case 3:
-                    strcmp("PROFESIONAL",entidad) == 0 ? BajaProfesional() : BajaPaciente();
-                    break;
-            case 4:
-                    strcmp("PROFESIONAL",entidad) == 0 ? MostrarProfesionales() : MostrarPacientes();
-                    system("PAUSE");
-                    break;
-            case 5:
-                    strcmp("PROFESIONAL",entidad) == 0 ? ConsultaProfesional() : ConsultaPaciente();
+                    strcmp("PROFESIONAL",entidad) == 0 ? MostrarProfesionales() : BajaPaciente();
                     break;
             case 0:
                     return;
@@ -111,8 +102,8 @@ void MenuEntidad(char * entidad)
 
 /******************* FUNCIONES BASICAS PROFESIONAL *************************/
 
-void AltaProfesional()
-{
+void AltaProfesional(){
+    cls();
     InterfazProfesional IP;
     Profesional prof;
     IP.CargarProfesional(prof);
@@ -121,42 +112,26 @@ void AltaProfesional()
 
 void MostrarProfesionales()
 {
+    cls();
     InterfazProfesional IP;
     IP.ListarProfesionales();
 }
 
 void ModificarProfesional(){
-    ValidacionesGenerales validaciones;
-    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
+
+    cls();
+    ValidacionesTipoDato valTipoDato;
+    ValidacionesGenerales valGeneral;
+    InterfazProfesional IP;
+    int  idProfesional;
     Profesional prof;
-    char rta;
-    int idProfesional;
     cout<<"DESEA VER LA LISTA DE PROFESIONALES? S/N"<<endl;
-    rta = validaciones.leer_SoN();
-         if (rta) MostrarProfesionales();
-    cout<<"INGRESE EL ID DEL PROFESIONAL: ";
-    cout << endl << "> ";
-    cin>>idProfesional;
-    prof.SetId(idProfesional);
-    int posProf = profesionales.buscarRegistro(prof);
-    if ( profesionales.leerRegistro(prof, posProf) != -1){ //si encontro el profesional
-        prof.Modificar();
-        if(profesionales.grabarRegistro(prof,posProf) == 1)
-            cout<<"SE ACTUALIZO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-        else
-            cout<<"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-        anykey();
-        return;
-    }
+    if (valGeneral.leer_SoN()) IP.ListarProfesionales();
+    cout<<"INGRESE EL ID DEL PROFESIONAL QUE DESEA MODIFICAR: ";
+    prof.SetId(valTipoDato.cargar_Entero());
+    IP.ModificarEnArchivo(prof);
 }
 
-void BajaProfesional(){
-    return;
-}
-
-void ConsultaProfesional(){
-    return;
-}
 
 /******************* FUNCIONES BASICAS PACIENTE *************************/
 

@@ -33,6 +33,7 @@ class Profesional: public Persona
         ///Sobrecarga con Friend
         friend istream & operator>>(istream &, int &);
         friend ostream & operator<<(ostream &, int &);
+
 };
 
 #endif // PROFESIONAL_H_INCLUDED

@@ -3,8 +3,10 @@
 
 #include "fecha.h"
 #include "registro.h"
-#include "iostream"
-#include "string.h"
+#include <iostream>
+#include <cstring>
+
+using namespace std;
 
 class Persona:public Registro{
     protected:
@@ -40,7 +42,6 @@ class Persona:public Registro{
         void  SetApellidos(const char *);
         void  SetFechaNacimiento(Fecha );
         void  SetDNI(int);
-        void  SetEstado(bool);
         void  SetGenero(char);
         //SETS DE USUARIO
         void  ChangeUserName(const char*);
@@ -51,7 +52,7 @@ class Persona:public Registro{
         void Modificar(){};
         int getSize();
 
-        Persona& operator = (Registro *temp){
+         Persona& operator = (Registro *temp){
             Persona *aux=(Persona *)temp;
             strcpy(this->apellidos,aux->apellidos);
             strcpy(this->nombres, aux->nombres);

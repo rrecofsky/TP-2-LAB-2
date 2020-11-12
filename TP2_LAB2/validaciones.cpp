@@ -54,6 +54,7 @@ bool ValidacionesGenerales :: leer_SoN()
     char opcion;
     do
     {
+        cout << endl << "> ";
         cin>>opcion;
         opcion = toupper(opcion);
         if (opcion != 'S' && opcion != 'N')
@@ -160,6 +161,7 @@ char ValidacionesTipoDato :: cargar_Char()
     fflush(stdin); //limpiar buffer
     do
     {
+        cout << endl << "> ";
         fail = (cin>>dato).fail();
         if (fail)//validar tipo de dato
         {
@@ -193,10 +195,10 @@ void  ValidacionesTipoDato :: generar_Mensaje(int _error,const char *_mensaje)
 }
 
 void ValidacionesTipoDato :: ADesarrollar()
-{
+{/*
   char x;
   int j;
- /* Profesional p;
+  Profesional p;
   if (typeid(x) == typeid(char)) cout << "X ES CHAR! " <<  "!\n";
   if (typeid(j) == typeid(char)) cout << "J ES CHAR! " <<  "!\n"; else cout<<"J NO ES CHAR!";
   if (typeid(p) == typeid(Profesional)) cout << "P ES PROFESIONAL! " <<  "!\n"; else cout<<"J NO ES CHAR!"; */

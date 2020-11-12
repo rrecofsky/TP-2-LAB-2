@@ -35,7 +35,8 @@ void MenuLogin()
     cout << "1 - Profesional"<<endl;
     cout << "2 - Paciente"<<endl;
 
-    tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
+
+        tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
 
     cout << "INGRESE UN USUARIO: ";
     cout << endl << "> ";

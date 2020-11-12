@@ -2,8 +2,13 @@
 #include <iostream>
 #include <limits>
 #include "validaciones.h"
+#include "rlutil.h"
+#include "usuario.h"
 
 using namespace std;
+using namespace rlutil;
+
+extern Usuario usr_lgd;
 
 int  Profesional :: GetMatricula(){return matricula;}
 int  Profesional :: GetEspecialidad(){return ID_especialidad;}
@@ -29,11 +34,16 @@ void Profesional :: Cargar(){
 
 void Profesional :: Mostrar(){
 
-    Persona :: Mostrar();
-    cout<<"NRO DE MATRICULA: "<<matricula<<endl;
-    cout<<"ID DE LA ESPECIALIDAD: "<<ID_especialidad<<endl;
-    cout<<"ESPECIALIDAD: "<<"A DESARROLLAR ..."<<endl;
-    cout<<endl;
+    cout << left;
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)//Solo el admin ve el ID
+    cout << setw(12) << ID;
+    cout << setw(12) << nombres;
+    cout << setw(12) << apellidos;
+    cout << setw(12) << genero;
+    cout << setw(12) << DNI;
+    cout << setw(12) << GetEdad();
+    cout << setw(12) << matricula;
+    cout << setw(12) <<"SIN IMPLEMENTAR";
     cout<<endl;
 }
 

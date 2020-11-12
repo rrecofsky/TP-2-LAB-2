@@ -2,6 +2,8 @@
 #define INTERFAZ_H_INCLUDED
 //#include "usuario.h"
 #include "profesional.h"
+#include "registro.h"
+
 
 class InterfazUsuario  {
     public:
@@ -11,13 +13,13 @@ class InterfazUsuario  {
         void BajaDeUsuario();
 };
 
-class InterfazProfesional {
+class InterfazProfesional  {
     public:
         void CargarProfesional(Profesional &);
         void MostrarProfesional(Profesional);
-        void ModificarProfesional();
+        void ModificarProfesional(Profesional &);
         void AgregarAArchivo(Profesional);
-        void ModificarEnArchivo(Profesional, int );
+        void ModificarEnArchivo(Profesional);
         void ListarProfesionales();
 
 };
