@@ -1,20 +1,24 @@
 #ifndef INTERFAZPLANFARMACOLOGICO_H_INCLUDED
 #define INTERFAZPLANFARMACOLOGICO_H_INCLUDED
 
+#include "registro.h"
+#include "profesional.h"
+#include "paciente.h"
+#include "archivo.h"
+#include "paciente.h"
 #include "planfarmacologico.h"
-#include "detalleplanfarmacologico.h"
 
 class InterfazPlanFarmacologico  {
     public:
         void CargarPlanFarmacologico(PlanFarmacologico &);
         void MostrarPlanFarmacologico(PlanFarmacologico);
         void ModificarPlanFarmacologico(PlanFarmacologico &);
-        void AgregarUPlanFarmacologicoAArchivo(PlanFarmacologico);
-        void ModificarUPlanFarmacologicoEnArchivo(PlanFarmacologico);
+        void AgregarPlanFarmacologicoAArchivo(PlanFarmacologico);
+        void ModificarPlanFarmacologicoEnArchivo(PlanFarmacologico);
         void ListarPlanesFarmacologicos();
-        bool AsociarUPlanFarmacologico(PlanFarmacologico &);
+        bool AsociarPlanFarmacologico(PlanFarmacologico &);
 };
-
+/*
 class InterfazDetallePlanFarmacologico  {
     public:
         void CargarDetallePlanFarmacologico(DetallePlanFarmacologico &);
@@ -25,5 +29,6 @@ class InterfazDetallePlanFarmacologico  {
         void ListarDetallesDePlanesFarmacologicos();
         bool AsociarDetalleDePlanFarmacologico(DetallePlanFarmacologico &);
 };
+*/
 
 #endif // INTERFAZPLANFARMACOLOGICO_H_INCLUDED

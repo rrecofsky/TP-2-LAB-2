@@ -29,7 +29,8 @@ bool  PlanFarmacologico :: comparaID(Registro *temp){
 //El plan farmacologico es cargado por un Profesional, con dicho
 //ID se carga el src de la relacion y el profesional setea el
 //tgt de la relacion si es que encuentra un paciente, sino se descarta el plan
-void  PlanFarmacologico :: Cargar(int _idProfesional){
+void  PlanFarmacologico :: Cargar(){
+      /*
       Archivo archPacientes(FILE_PACIENTES,sizeof(Paciente));
       Paciente pacienteSistema;
       int DNI;
@@ -56,6 +57,7 @@ void  PlanFarmacologico :: Cargar(int _idProfesional){
                 cout<<"No se ha encontrado un paciente con el DNI: "<<DNI<<endl;
            }
       return;
+      */
 }
 
 
@@ -94,4 +96,5 @@ void  PlanFarmacologico :: SetActualizacion(Fecha _fechaActualizacion){ actualiz
 void  PlanFarmacologico :: SetIdPaciente(int _idPaciente){ ID_Paciente = _idPaciente;}
 void  PlanFarmacologico :: SetIdProfesional(int _idProfesional){ ID_Profesional = _idProfesional;}
 void  PlanFarmacologico :: SetNotas(const char* _notas){strcpy(notas,_notas);}
+
 

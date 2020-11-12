@@ -14,6 +14,8 @@
 #include "archivo.h"
 #include "detalleplanfarmacologico.h"
 #include "menuesprofesional.h"
+//TEMPORAL!
+#include "menuesadministrador.h"
 
 using namespace rlutil;
 using namespace std;
@@ -29,7 +31,7 @@ void MenuProfesional(){
         gotoxy(1, 3);
 
         cout<<"1) PACIENTE"<<endl;
-        cout<<"2) PLANES FARMACOLOGICOS "<<endl;
+        cout<<"2) ALTA DE PLANE FARMACOLOGICO"<<endl;
         cout<<"3) ESTUDIOS "<<endl;
         cout<<"4) INFORMES "<<endl;
         cout<<"----------------------"<<endl;
@@ -41,10 +43,10 @@ void MenuProfesional(){
 
         switch(opcion){
             case 1:
-                   MostrarPacientesDelProfesional();
+                   AltaPaciente();
                    break;
             case 2:
-                  MostrarPlanesFarmacologicosDelProfesional();
+                  AltaPlanFarmacologico();
                   break;
             case 3:
                    MostrarEstudiosDelProfesional();
@@ -61,7 +63,15 @@ void MenuProfesional(){
     return;
 }
 
+/******************* FUNCIONES BASICAS PACIENTE *************************/
 
+void AltaPlanFarmacologico(){
+    cls();
+    InterfazPlanFarmacologico IPF;
+    PlanFarmacologico planFarmaco;
+    IPF.CargarPlanFarmacologico(planFarmaco);
+    IPF.AgregarPlanFarmacologicoAArchivo(planFarmaco);
+}
 
 void MostrarPacientesDelProfesional(){
     cout<<"NO IMPLEMENTADO"<<endl;

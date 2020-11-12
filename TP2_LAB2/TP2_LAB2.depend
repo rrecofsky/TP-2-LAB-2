@@ -3,7 +3,7 @@
 
 1603818089 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\fecha.cpp
 
-1605211554 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
+1605222438 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
 	"login.h"
 
 1603856222 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\persona.cpp
@@ -242,7 +242,7 @@
 	"iostream"
 	"cstring"
 
-1604584378 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\planfarmacologico.h
+1605223016 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\planfarmacologico.h
 	"registro.h"
 	"fecha.h"
 	"iostream"
@@ -259,7 +259,7 @@
 1604584482 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\detalleplanfarmacologico.h
 	"registro.h"
 
-1605219751 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.cpp
+1605223225 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.cpp
 	<iostream>
 	<string.h>
 	"ui.h"
@@ -275,8 +275,9 @@
 	"archivo.h"
 	"detalleplanfarmacologico.h"
 	"menuesprofesional.h"
+	"menuesadministrador.h"
 
-1605217878 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.cpp
+1605223115 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesadministrador.cpp
 	"iostream"
 	"string.h"
 	"ui.h"
@@ -292,13 +293,14 @@
 	"validaciones.h"
 	"interfaz.h"
 
-1605219649 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.h
+1605222947 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.h
+	"interfazplanfarmacologico.h"
 
 1604249260 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuespaciente.h
 
 1604668704 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.h
 
-1605210656 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.cpp
+1605222773 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login.cpp
 	<iostream>
 	<cstring>
 	"menuesadministrador.h"
@@ -344,7 +346,7 @@
 	<iostream>
 	<cstring>
 
-1604621896 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\planfarmacologico.cpp
+1605221736 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\planfarmacologico.cpp
 	"planfarmacologico.h"
 	"paciente.h"
 	"profesional.h"
@@ -421,5 +423,20 @@
 	"cobertura.h"
 	"registro.h"
 
-1605219499 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfazplanfarmacologico.cpp
+1605222458 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfazplanfarmacologico.cpp
+	"planfarmacologico.h"
+	"detalleplanfarmacologico.h"
+	"validaciones.h"
+	"fecha.h"
+	"interfazplanfarmacologico.h"
+	"interfaz.h"
+	"rlutil.h"
+
+1605222789 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfazplanfarmacologico.h
+	"registro.h"
+	"profesional.h"
+	"paciente.h"
+	"archivo.h"
+	"paciente.h"
+	"planfarmacologico.h"
 
