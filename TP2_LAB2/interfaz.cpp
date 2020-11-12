@@ -5,10 +5,13 @@
 #include "archivo.h"
 #include "validaciones.h"
 #include "rlutil.h"
+#include "cobertura.h"
+#include "interfazcobertura.h"
 
 extern const char *FILE_USUARIOS;
 extern const char *FILE_PACIENTES;
 extern const char *FILE_PROFESIONALES;
+extern const char *FILE_COBERTURAS;
 extern Usuario usr_lgd;
 using namespace rlutil;
 
@@ -16,26 +19,39 @@ using namespace std;
 
 ///INTERFAZ PERSONA
 
- void InterfazPersona :: AsociarPersona(Persona & _persona){
+ int InterfazPersona :: AsociarPersona(Persona & _persona){
 
     Profesional prof;
     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
     int posEntidad = profesionales.buscarRegistro(prof);
     if ( posEntidad >= 0 && profesionales.leerRegistro(_persona, posEntidad) != -1)
-        return;
+        return posEntidad;
     else{
             Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
             Paciente pac;
             posEntidad = pacientes.buscarRegistro(pac);
             if ( posEntidad >= 0 && pacientes.leerRegistro(_persona, posEntidad) != -1)
-                return;
+                return posEntidad;
         }
-
-    return;
-
+    return posEntidad;
  }
 
+
+
 /// INTERFAZ USUARIO
+
+ bool InterfazUsuario :: AsociarUsuario(Usuario & _user){
+
+    Usuario usr;
+    Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
+    int posUsuario = usuarios.buscarRegistro(usr);
+    cout<<"POS USUARIO ES!: "<<posUsuario;
+    system("PAUSE");
+    if ( posUsuario >= 0 && usuarios.leerRegistro(_user, posUsuario) != -1)
+        return true;
+
+    return false;
+ }
 
 void InterfazUsuario :: CargarUsuario(Usuario & _user){
     InterfazPaciente IP;
@@ -103,12 +119,12 @@ void InterfazUsuario :: CargarUsuario(Usuario & _user){
 };
 
 void InterfazUsuario :: MostrarUsuario(Usuario _user){
-    InterfazPersona interPersona;
+    InterfazPersona interfazPersona;
     cls();
     cout << left;
     //Solo el admin ve el ID y el PASS
     if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
-        cout << setw(12)  << "ID";
+        cout << setw(4)  << "ID";
         cout << setw(12)  << "CONTRASENIA";
 
     }
@@ -118,7 +134,7 @@ void InterfazUsuario :: MostrarUsuario(Usuario _user){
     cout << endl;
     cout << left;
     if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
-        cout << setw(12)  << _user.GetId();
+        cout << setw(4)  << _user.GetId();
         cout << setw(12)  << _user.GetUserPass();
     }
     cout << setw(12)  << _user.GetUserNamee();
@@ -127,9 +143,9 @@ void InterfazUsuario :: MostrarUsuario(Usuario _user){
     else
         cout << setw(12)  << "PACIENTE";
     Persona persona;
-    interPersona.AsociarPersona(persona);
-    cout << setw(12)  << persona.GetNombres();
-    cout << setw(4)   << persona.GetApellidos();
+    interfazPersona.AsociarPersona(persona);
+    cout << setw(6)  << persona.GetNombres();
+    cout << setw(6)   << persona.GetApellidos();
     cout<<endl;
 };
 
@@ -160,7 +176,7 @@ void InterfazUsuario :: ListarUsuarios(){
 
     cout << left;
     if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
-        cout << setw(12)  << "ID";
+        cout << setw(4)  << "ID";
         cout << setw(12)  << "CONTRASENIA";
     }
     cout << setw(12)  << "USUARIO";
@@ -236,12 +252,9 @@ void InterfazProfesional :: MostrarProfesional(Profesional _prof){
     cout << setw(12)  << "ESPECIALIDAD";
     cout << endl;
     cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)
         cout << setw(12)  << _prof.GetId();
-        cout << setw(12)  ;  _prof.GetFechaAlta();
-        if ( !_prof.GetEstado() )//si esta dado de baja
-            cout << setw(12)  ; _prof.GetFechaBaja();
-    }
+
     cout << setw(12)  << _prof.GetNombres();
     cout << setw(12)  << _prof.GetApellidos();
     cout << setw(12)  << _prof.GetGenero();
@@ -251,7 +264,6 @@ void InterfazProfesional :: MostrarProfesional(Profesional _prof){
     cout<<  setw(12)  << "SIN IMPLEMENTAR";
     /*
     _prof.GetFechaNacimiento().GetFecha();
-
     */
 };
 
@@ -400,11 +412,134 @@ void InterfazProfesional :: ListarProfesionales(){
 
 /// INTERFAZ PACIENTE
 
-void InterfazPaciente :: CargarPaciente(Paciente & _paciente){}
-void InterfazPaciente :: MostrarPaciente(Paciente _paciente){}
+void InterfazPaciente :: CargarPaciente(Paciente & _paciente){
+    ValidacionesTipoDato validaTDato;
+    ValidacionesGenerales validaGeneral;
+    Fecha fecha;
+    char nombres[50], apellidos[50];
+    cout<<"NOMBRES";
+    cin.clear();
+    cin.ignore();
+    cout << endl << "> ";
+    cin.getline(nombres,50);
+    _paciente.SetNombres(nombres);
+    cout<<endl;
+    cout<<"APELLIDOS";
+    cout << endl << "> ";
+    cin.getline(apellidos,50);
+    _paciente.SetApellidos(apellidos);
+    cout<<endl;
+    cout<<"GENERO";
+    _paciente.SetGenero(validaGeneral.ValidarGenero());
+    cout<<endl;
+    cout<<"FECHA DE NACIMIENTO"<<endl;
+    fecha.CargarFecha();
+    _paciente.SetFechaNacimiento(fecha);
+    cout<<endl;
+    cout<<"DNI";
+    _paciente.SetDNI(validaTDato.cargar_Entero());
+    cout<<endl;
+    cout<<"AFILIADO";
+    _paciente.SetNroAfiliado(validaTDato.cargar_Entero());
+    cout<<endl;
+    cout<<"DESEA RELACIONARLE UNA COBERTURA AL PACIENTE? S/N";
+    if (validaGeneral.leer_SoN()){
+         //busco los pacientes del archivo
+         Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura));
+         Cobertura cobertura;
+         cout<<"COBERTURAS DISPONIBLES"<<endl<<endl;
+         //listo los pacientes
+         InterfazCobertura IC;
+         IC.ListarCoberturas();
+         cout<<"INGRESE EL ID DE LA COBERTURA QUE DESEA ASOCIARLE: ";
+         //ingreso el ID del paciente que quiero buscar
+         cobertura.SetId(validaTDato.cargar_Entero());
+         //si existe en el archivo, entonces el ID esta OK
+         int posCobertura = coberturas.buscarRegistro(cobertura);
+         //le relaciono el ID del paciente al usuario
+         if (posCobertura >= 0 ) _paciente.SetIdCObertura(cobertura.GetId());
+    }
+    return;
+
+}
+void InterfazPaciente :: MostrarPaciente(Paciente _paciente){
+
+    cls();
+    cout << left;
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)//Solo el admin ve el ID
+    cout << setw(12)  << "ID";
+    cout << setw(12)  << "NOMBRES";
+    cout << setw(12)  << "APELLIDOS";
+    cout << setw(12)  << "GENERO";
+    cout << setw(12)  << "DNI";
+    cout << setw(12)  << "EDAD";
+    cout << setw(12)  << "NRO AFILIADO";
+    cout << setw(12)  << "COBERTURA";
+    cout << endl;
+    cout << left;
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)
+    cout << setw(12)  << _paciente.GetId();
+    cout << setw(12)  << _paciente.GetNombres();
+    cout << setw(12)  << _paciente.GetApellidos();
+    cout << setw(12)  << _paciente.GetGenero();
+    cout << setw(12)  << _paciente.GetDNI();
+    cout << setw(12)  << _paciente.GetEdad();
+    cout << setw(12)  << _paciente.GetNroAfiliado();
+    cout<<  setw(12)  << "SIN IMPLEMENTAR";
+    /*
+    _prof.GetFechaNacimiento().GetFecha();
+    */
+}
+
+void InterfazPaciente :: AgregarPacienteAArchivo(Paciente _paciente){
+cls();
+    ValidacionesGenerales valGral;
+    MostrarPaciente(_paciente);
+    cout<<endl<<endl;
+    cout<<"ESTA SEGURO QUE DESEA AGREGAR EL SIGUIENTE PROFESIONAL? S/N";
+    if(valGral.leer_SoN())
+    {
+        Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
+        if(pacientes.grabarRegistro(_paciente,-1) == 1)
+            cout<<"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+        else
+            cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+    }
+    cout<<endl;
+    system("PAUSE");
+}
+
+void InterfazPaciente :: ListarPacientes(){
+
+    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
+    Paciente paciente;
+    cls();
+
+    cout << left;
+    cout << setw(12)  << "ID";
+    cout << setw(12)  << "NOMBRES";
+    cout << setw(12)  << "APELLIDOS";
+    cout << setw(12)  << "GENERO";
+    cout << setw(12)  << "DNI";
+    cout << setw(12)  << "EDAD";
+    cout << setw(12)  << "NRO AFILIADO";
+    cout << setw(12)  << "COBERTURA";
+    cout << endl;
+
+    if(!pacientes.listarArchivo(paciente)){
+        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
+        cout<<endl<<endl;
+        system("PAUSE");
+        system("cls");
+    }
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
+}
+
+//TERMINAR! NO OLVIDAR DAR DE BAJA TAMBIEN LAS RELAIOCNES
 void InterfazPaciente :: ModificarPaciente(Paciente & _paciente){}
-void InterfazPaciente :: AgregarPacienteAArchivo(Paciente _paciente){}
 void InterfazPaciente :: ModificarPacienteEnArchivo(Paciente _paciente){}
-void InterfazPaciente :: ListarPacientes(){}
+
 
 

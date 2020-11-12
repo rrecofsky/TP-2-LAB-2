@@ -7,7 +7,7 @@
 
 class InterfazPersona{
     public:
-        void AsociarPersona(Persona &);
+        int AsociarPersona(Persona &);
 };
 
 class InterfazUsuario  {
@@ -18,6 +18,7 @@ class InterfazUsuario  {
         void AgregarUsuarioAArchivo(Usuario);
         void ModificarUsuarioEnArchivo(Usuario);
         void ListarUsuarios();
+        bool AsociarUsuario(Usuario &);
 };
 
 class InterfazProfesional  {

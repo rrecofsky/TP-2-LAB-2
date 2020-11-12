@@ -59,12 +59,12 @@ bool  Persona :: comparaID(Registro *temp){
 }
 
 //Sobrecargas
-
+/*
 istream & operator>>(istream &dato, Fecha &val)
 {
   dato>>val;
   return dato;
-}
+}*/
 
 void  Persona :: Mostrar(){
         cout<<"NOMBRES: "<<nombres<<endl;
@@ -76,6 +76,7 @@ void  Persona :: Mostrar(){
         fecha_nacimiento.GetFecha();
         cout<<endl;
         return;
+
 }
 
 void  Persona :: Cargar()

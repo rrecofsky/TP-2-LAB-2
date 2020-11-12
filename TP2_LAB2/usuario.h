@@ -25,6 +25,7 @@ class Usuario :public Registro {
         ///Constructor
         Usuario(const char * _user = "" ,const char* _pass = "",Perfil _perfil = Perfil_Paciente ):Registro()
         {
+            ID = -1;
             strcpy(user,_user);
             strcpy(pass,_pass);
             ID_Perfil = _perfil;

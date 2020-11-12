@@ -7,10 +7,10 @@
 #include "usuario.h"
 #include "validaciones.h"
 #include "archivo.h"
-#include "paciente.h"
-#include "profesional.h"
-#include "interfaz.h"
+//#include "interfaz.h" usar interfaz para el LOGIN
+#include "rlutil.h"
 
+using namespace    rlutil;
 extern const char *FILE_PACIENTES;
 extern const char *FILE_PROFESIONALES;
 extern const char *FILE_USUARIOS;
@@ -24,7 +24,7 @@ using namespace std;
 void MenuLogin()
 {
     Archivo archUsuarios(FILE_USUARIOS,sizeof(Usuario));
-    int  tipoDeUsuario=2;
+    Perfil  tipoDeUsuario=Perfil_Paciente;
     ValidacionesGenerales validacionLogin;
     char user[50], pass[50];
     bool  salir=false;
@@ -38,6 +38,7 @@ void MenuLogin()
 
         tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
 
+    cls();
     cout << "INGRESE UN USUARIO: ";
     cout << endl << "> ";
     cin  >> user;
@@ -58,20 +59,23 @@ void MenuLogin()
                     usrAxuLogin.ChangeUserName(user);
                     //Cambio el paciente encontrado en el registro
                     int posUserLdg = archUsuarios.buscarRegistro(usrAxuLogin);
-                    if ( archUsuarios.leerRegistro(usrAxuLogin, posUserLdg) != -1 && strcmp(usrAxuLogin.GetUserPass(),pass) == 0 )
-                        if (usrAxuLogin.GetPerfilUser() == Perfil_Profesional){
+                    if ( archUsuarios.leerRegistro(usrAxuLogin, posUserLdg) != -1 && strcmp(usrAxuLogin.GetUserPass(),pass) == 0 ){
+                        if (tipoDeUsuario == (usrAxuLogin.GetPerfilUser() == Perfil_Profesional)){
                                 usr_lgd = usrAxuLogin;
                                 MenuProfesional();
                                 return;
                         }
-                        else{
+                        else
+                            if (tipoDeUsuario == ( usrAxuLogin.GetPerfilUser() == Perfil_Paciente))                            {
                                 usr_lgd = usrAxuLogin;
                                 MenuPaciente();
                                 return;
                             }
+                    }
                 }
         cout<<"USUARIO O CONTRASENIA INCORRECTOS. DESEA SALIR? S - N"<<endl;
         salir = validacionLogin.leer_SoN();
+        cls();
         if (!salir){
             cout << "INGRESE UN USUARIO: ";
             cin.clear(); // unset failbit

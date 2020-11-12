@@ -28,7 +28,7 @@ void Usuario ::Mostrar(){ //TEMPORAL, HASTA QUE HAGA POLIMORFISMO CON LAS INTERF
     cout << left;
 
     if (usr_lgd.ID_Perfil == Perfil_Administrador){
-        cout << setw(12)  << ID;
+        cout << setw(4)  << ID;
         cout << setw(12)  << pass;
     }
     cout << setw(12)  << user;
@@ -39,8 +39,8 @@ void Usuario ::Mostrar(){ //TEMPORAL, HASTA QUE HAGA POLIMORFISMO CON LAS INTERF
     Persona persona;
     InterfazPersona interPersona;
     interPersona.AsociarPersona(persona);
-    cout << setw(12)  << persona.GetNombres();
-    cout << setw(4)   << persona.GetApellidos();
+    cout << setw(6)  << persona.GetNombres();
+    cout << setw(6)  << persona.GetApellidos();
     cout<<endl;
 
 }

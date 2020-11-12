@@ -12,7 +12,6 @@
 #include "medicacion.h"
 #include "menuesadministrador.h"
 #include "validaciones.h"
-
 #include "interfaz.h"
 
 using namespace std;
@@ -64,7 +63,7 @@ void MenuAdministrador()
     return ;
 }
 
-void MenuEntidad(char * entidad)
+void MenuEntidad(const char * entidad)
 {
     while(true)
     {
@@ -167,43 +166,27 @@ void MostrarUsuarios(){
 }
 
 void ModificarUsuario(){
-
+    //a desarrollar
 }
 
 
 /******************* FUNCIONES BASICAS PACIENTE *************************/
 
 void AltaPaciente(){
-    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
-    Paciente pac;
-    pac.Cargar();
-    //damos de alta un nuevo paciente, por ello utiliza -1
-    if(pacientes.grabarRegistro(pac,-1) == 1)
-        cout<<"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-    else
-        cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
-    anykey();
+    cls();
+    InterfazPaciente IP;
+    Paciente paciente;
+    IP.CargarPaciente(paciente);
+    IP.AgregarPacienteAArchivo(paciente);
 }
 
-void MostrarPacientes()
-{
-    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
-    Paciente pac;
-    if(!pacientes.listarArchivo(pac)){
-        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
-        anykey();
-        system("cls");
-    }
+
+void MostrarPacientes(){
+    cls();
+    InterfazPaciente IP;
+    IP.ListarPacientes();
 }
 
 void ModificarPaciente(){
-    return;
-}
-
-void BajaPaciente(){
-    return;
-}
-
-void ConsultaPaciente(){
-    return;
+    //a desarrollar
 }

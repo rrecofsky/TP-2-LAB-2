@@ -2,7 +2,7 @@
 #define MENUESADMINISTRADOR_H_INCLUDED
 
 void MenuAdministrador();
-void MenuEntidad(char *);
+void MenuEntidad(const char *);
 
 void AltaProfesional();
 void ModificarProfesional();

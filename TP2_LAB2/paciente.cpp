@@ -9,14 +9,14 @@ using namespace std;
 //GETs
 
 int Paciente :: GetNroAfiliado(){return nro_Afiliado;}
-int Paciente :: GetIdCobertura(){return ID_Conertura;}
+int Paciente :: GetIdCobertura(){return ID_Cobertura;}
 int Paciente :: GetIdInforme(){return ID_Informe;}
 int Paciente :: GetIdPlanFarmacologico(){return ID_PlanFarmacologico;}
 
 //SETs
 
 void Paciente :: SetNroAfiliado(int _nroAfiliado){nro_Afiliado = _nroAfiliado;}
-void Paciente :: SetIdCObertura(int _idCobertura){ID_Conertura = _idCobertura;}
+void Paciente :: SetIdCObertura(int _idCobertura){ID_Cobertura = _idCobertura;}
 void Paciente :: SetIdInforme(int _idInforme){ ID_Informe = _idInforme;}
 
 
@@ -30,20 +30,41 @@ void Paciente :: Cargar(){
     cin>>nro_Afiliado;
     cout<<endl;
     cout<<"ID Cobertura: ";
-    cin>>ID_Conertura;
+    cin>>ID_Cobertura;
     cout<<endl;
     return;
 }
 
 void Paciente :: Mostrar(){
 
-    Persona : Mostrar();
-    cout<<"Nro de Afiliado: "<<nro_Afiliado<<endl;
-    cout<<"ID Cobertura: "<<ID_Conertura<<endl;
+    cout << left;
+    cout << setw(12) << ID;
+    cout << setw(12) << nombres;
+    cout << setw(12) << apellidos;
+    cout << setw(12) << genero;
+    cout << setw(12) << DNI;
+    cout << setw(12) << GetEdad();
+    cout << setw(12) << ID_Cobertura;
+    cout << setw(12) <<"SIN IMPLEMENTAR";
     cout<<endl;
-    anykey();
-
 }
 
 void Paciente ::  Modificar(){return;}
+
+istream & operator>>(istream &dato, Fecha &val)
+{
+  dato>>val;
+  return dato;
+}
+
+int Paciente :: getSize(){return sizeof *this;}
+
+bool  Paciente :: comparaID(Registro *temp){
+        Paciente *aux=(Paciente *)temp;
+
+        if(DNI != 0 && DNI == aux->DNI ) return true;
+        if( ID == aux->ID  ) return true;
+
+        return false;
+}
 
