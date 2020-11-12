@@ -259,7 +259,7 @@
 1604584482 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\detalleplanfarmacologico.h
 	"registro.h"
 
-1605218277 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.cpp
+1605219751 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.cpp
 	<iostream>
 	<string.h>
 	"ui.h"
@@ -292,7 +292,7 @@
 	"validaciones.h"
 	"interfaz.h"
 
-1605218636 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.h
+1605219649 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuesprofesional.h
 
 1604249260 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menuespaciente.h
 
@@ -420,4 +420,6 @@
 1605212583 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfazcobertura.h
 	"cobertura.h"
 	"registro.h"
+
+1605219499 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfazplanfarmacologico.cpp
 

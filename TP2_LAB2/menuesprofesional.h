@@ -8,8 +8,11 @@ void PlanesFarmacologicos();
 void Pacientes();
 void Consultas();
 
-///ORDENAR!
+///IMPLEMENTAR!
 void MostrarPacientesDelProfesional();
+void MostrarPlanesFarmacologicosDelProfesional();
+void MostrarEstudiosDelProfesional();
+void MostrarInformesDelProfesional();
 
 
 #endif // MENUESPROFESIONAL_H_INCLUDED

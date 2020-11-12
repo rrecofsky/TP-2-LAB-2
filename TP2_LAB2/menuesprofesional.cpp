@@ -27,6 +27,7 @@ void MenuProfesional(){
         cls();
         title("PROFESIONAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
+
         cout<<"1) PACIENTE"<<endl;
         cout<<"2) PLANES FARMACOLOGICOS "<<endl;
         cout<<"3) ESTUDIOS "<<endl;
@@ -43,13 +44,13 @@ void MenuProfesional(){
                    MostrarPacientesDelProfesional();
                    break;
             case 2:
-
-                   break;
+                  MostrarPlanesFarmacologicosDelProfesional();
+                  break;
             case 3:
-
+                   MostrarEstudiosDelProfesional();
                    break;
             case 4:
-
+                   MostrarInformesDelProfesional();
                    break;
             case 0:
                    return;
@@ -64,7 +65,25 @@ void MenuProfesional(){
 
 void MostrarPacientesDelProfesional(){
     cout<<"NO IMPLEMENTADO"<<endl;
-    system("PAUSA");
+    system("PAUSE");
+    return;
+}
+
+void MostrarPlanesFarmacologicosDelProfesional(){
+    cout<<"NO IMPLEMENTADO"<<endl;
+    system("PAUSE");
+    return;
+}
+
+void MostrarEstudiosDelProfesional(){
+    cout<<"NO IMPLEMENTADO"<<endl;
+    system("PAUSE");
+    return;
+}
+
+void MostrarInformesDelProfesional(){
+    cout<<"NO IMPLEMENTADO"<<endl;
+    system("PAUSE");
     return;
 }
 
