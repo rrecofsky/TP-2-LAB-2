@@ -311,21 +311,18 @@
 	"profesional.h"
 	"interfaz.h"
 
-1605165809 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
+1605189645 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\usuario.h
 	<cstring>
 	<iostream>
 	"registro.h"
 
-1605162972 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.cpp
+1605184883 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.cpp
 	<iostream>
 	"ui.h"
 	"rlutil.h"
 	"validaciones.h"
 	<string>
 	<typeinfo>
-	"usuario.h"
-	"profesional.h"
-	"persona.h"
 
 1605184885 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones.h
 	"fecha.h"

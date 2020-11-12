@@ -20,7 +20,7 @@ class Usuario :public Registro {
        int ID_Perfil;
     public:
         ///Constructor
-        Usuario(const char * _user = "" ,const char* _pass = "",int _perfil = Perfil_Paciente ):Registro()
+        Usuario(const char * _user = "" ,const char* _pass = "",Perfil _perfil = Perfil_Paciente ):Registro()
         {
             strcpy(user,_user);
             strcpy(pass,_pass);
@@ -51,6 +51,7 @@ class Usuario :public Registro {
             ID         = aux->ID;
             fechaAlta  = aux->fechaAlta;
             fechaBaja  = aux->fechaBaja;
+            ID_Perfil  = aux->ID_Perfil;
             }
         bool comparaID(Registro *temp);
         ///Destructor
