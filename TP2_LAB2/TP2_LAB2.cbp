@@ -32,14 +32,18 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Interfaces/interfaz.cpp" />
-		<Unit filename="Interfaces/interfaz.h" />
 		<Unit filename="Interfaces/interfazcobertura.cpp" />
 		<Unit filename="Interfaces/interfazcobertura.h" />
 		<Unit filename="Interfaces/interfazfecha.cpp" />
 		<Unit filename="Interfaces/interfazfecha.h" />
 		<Unit filename="Interfaces/interfazplanfarmacologico.cpp" />
 		<Unit filename="Interfaces/interfazplanfarmacologico.h" />
+		<Unit filename="archivos/pacientes.dat" />
+		<Unit filename="archivos/planesfarmaco.dat" />
+		<Unit filename="archivos/profesionales.dat" />
+		<Unit filename="archivos/usuarios.dat" />
+		<Unit filename="interfaces/interfazentidades.cpp" />
+		<Unit filename="interfaces/interfazentidades.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menues/informes.cpp" />
 		<Unit filename="menues/informes.h" />

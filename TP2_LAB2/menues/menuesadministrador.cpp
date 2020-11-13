@@ -12,7 +12,7 @@
 #include "../modelos/medicacion.h"
 #include "../menues/menuesadministrador.h"
 #include "../validaciones/validaciones.h"
-#include "../interfaces/interfaz.h"
+#include "../interfaces/interfazentidades.h"
 
 using namespace std;
 using namespace rlutil;

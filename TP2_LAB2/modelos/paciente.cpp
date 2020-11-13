@@ -51,12 +51,6 @@ void Paciente :: Mostrar(){
 
 void Paciente ::  Modificar(){return;}
 
-istream & operator>>(istream &dato, Fecha &val)
-{
-  dato>>val;
-  return dato;
-}
-
 int Paciente :: getSize(){return sizeof *this;}
 
 bool  Paciente :: comparaID(Registro *temp){

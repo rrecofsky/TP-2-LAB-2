@@ -23,6 +23,11 @@ using namespace std;
 
 void MenuLogin()
 {
+    // ------------> TEMPORAL
+    MenuAdministrador();
+    return;
+    // ------------> TEMPORAL
+
     Archivo archUsuarios(FILE_USUARIOS,sizeof(Usuario));
     Perfil  tipoDeUsuario=Perfil_Paciente;
     ValidacionesGenerales validacionLogin;

@@ -4,7 +4,7 @@
 #include "../validaciones/validaciones.h"
 #include <string>
 #include <typeinfo>
-
+#include "../modelos/fecha.h"
 
 
 
@@ -14,6 +14,14 @@ using namespace rlutil;
 
 
 /// VALIDACIONES GRALES
+
+const char * ValidacionesGenerales ::  GetFechaConFormato(Fecha _fecha){
+    //Consultar por que no funciona!
+    char str[10]={};//itoa para convertir., val,str,base 10. **** string.c_str() --> convertir a string.
+    char dd[2], mm[2], aaaa[4];
+    return strcat(strcat(strcat(strcat(strcat(str,itoa(_fecha.GetDia(),dd,10)),"/"),itoa(_fecha.GetMes(),mm,10)),"/"),itoa(_fecha.GetAnio(),aaaa,10));
+}
+
 
 Perfil ValidacionesGenerales :: ValidarPerfilDeUsuario(){
     ValidacionesTipoDato val;
@@ -34,6 +42,15 @@ bool ValidacionesGenerales :: EsBiciesto(Fecha _fecha)
 {
     bool validoFecha=true;
 
+    if ( _fecha.GetDia() <1 || _fecha.GetDia() >31) {
+        validoFecha=false;
+    }
+    if (_fecha.GetMes()<1 || _fecha.GetMes()>12) {
+        validoFecha=false;
+    }
+    if (_fecha.GetAnio()<1000) {
+        validoFecha=false;
+    }
     //Biciesto para el mes de febrero
     if (_fecha.GetMes()==2 && _fecha.GetDia()==29 && ( _fecha.GetAnio() % 400 != 0 || _fecha.GetAnio() % 4 == 0 && _fecha.GetAnio() % 100 != 0 ))
     {

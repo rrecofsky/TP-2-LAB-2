@@ -3,7 +3,7 @@
 #include "../validaciones/validaciones.h"
 #include "../modelos/fecha.h"
 #include "../interfaces/interfazplanfarmacologico.h"
-#include "../interfaces/interfaz.h"
+#include "../interfaces/interfazentidades.h"
 #include "../util/rlutil.h"
 
 using namespace std;

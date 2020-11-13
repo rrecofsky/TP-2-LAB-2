@@ -22,6 +22,7 @@ class ValidacionesGenerales{
         int ValidarMes();
         int ValidarAnio();
         bool EsBiciesto(Fecha );
+        const char * GetFechaConFormato(Fecha);
 };
 
 class ValidacionesTipoDato{

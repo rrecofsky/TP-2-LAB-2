@@ -1,4 +1,4 @@
-#include "interfaz.h"
+#include "interfazentidades.h"
 #include <limits>
 #include <iostream>
 
@@ -6,6 +6,7 @@
 #include "../validaciones/validaciones.h"
 #include "../util/rlutil.h"
 #include "../interfaces/interfazcobertura.h"
+#include "../interfaces/interfazfecha.h"
 
 extern const char *FILE_USUARIOS;
 extern const char *FILE_PACIENTES;
@@ -33,6 +34,18 @@ using namespace std;
                 return posEntidad;
         }
     return posEntidad;
+ }
+
+void InterfazPersona :: MostrarCabeceraPersona(){
+    cout << left;
+    cout << setw(4)   << "ID";
+    cout << setw(12)  << "NOMBRES";
+    cout << setw(12)  << "APELLIDOS";
+    cout << setw(12)  << "GENERO";
+    cout << setw(12)  << "DNI";
+    cout << setw(12)  << "EDAD";
+    cout << setw(12)  << "FECHA NAC";
+    return;
  }
 
 
@@ -119,21 +132,10 @@ void InterfazUsuario :: CargarUsuario(Usuario & _user){
 
 void InterfazUsuario :: MostrarUsuario(Usuario _user){
     InterfazPersona interfazPersona;
-    cls();
     cout << left;
-    //Solo el admin ve el ID y el PASS
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
-        cout << setw(4)  << "ID";
-        cout << setw(12)  << "CONTRASENIA";
-
-    }
-    cout << setw(12)  << "USUARIO";
-    cout << setw(12)  << "PERFIL";
-    cout << setw(12)  << "ENTIDAD";
-    cout << endl;
-    cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
+    if (_user.GetId() >= 0)
         cout << setw(4)  << _user.GetId();
+    if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
         cout << setw(12)  << _user.GetUserPass();
     }
     cout << setw(12)  << _user.GetUserNamee();
@@ -144,7 +146,7 @@ void InterfazUsuario :: MostrarUsuario(Usuario _user){
     Persona persona;
     interfazPersona.AsociarPersona(persona);
     cout << setw(6)  << persona.GetNombres();
-    cout << setw(6)   << persona.GetApellidos();
+    cout << setw(6)  << persona.GetApellidos();
     cout<<endl;
 };
 
@@ -169,30 +171,26 @@ void InterfazUsuario :: AgregarUsuarioAArchivo(Usuario _user){
 
 void InterfazUsuario :: ListarUsuarios(){
 
-    Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
-    Usuario usr;
-    cls();
-
-    cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
+    Usuario user;
+    Archivo usuarios(FILE_USUARIOS,sizeof(Usuario),true);
+    if( usuarios.getCantidadRegistros() != 0){
+        cout << left;
         cout << setw(4)  << "ID";
-        cout << setw(12)  << "CONTRASENIA";
-    }
-    cout << setw(12)  << "USUARIO";
-    cout << setw(12)  << "PERFIL";
-    cout << setw(12)  << "ENTIDAD";
-    cout << endl;
+        if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
+            cout << setw(12)  << "CONTRASENIA";
+        }
+        cout << setw(12)  << "USUARIO";
+        cout << setw(12)  << "PERFIL";
+        cout << setw(12)  << "ENTIDAD";
+        cout << endl;
 
-    if(!usuarios.listarArchivo(usr)){
-        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
-        cout<<endl<<endl;
-        system("PAUSE");
-        system("cls");
-    }
+        while(fread(&user,sizeof(Usuario),1,usuarios.GetPF())){
+             MostrarUsuario(user);
+        };
+    }else cout<<"NO EXISTEN USUARIOS CARGADOS EN EL SISTEMA";
     cout<<endl<<endl;
     system("PAUSE");
     return;
-
 };
 
 void InterfazUsuario :: ModificarUsuario(Usuario & _user){};
@@ -238,32 +236,18 @@ void InterfazProfesional :: CargarProfesional(Profesional &prof){
 
 void InterfazProfesional :: MostrarProfesional(Profesional _prof){
 
-    cls();
+    InterfazFecha IF;
     cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)//Solo el admin ve el ID
-    cout << setw(12)  << "ID";
-    cout << setw(12)  << "NOMBRES";
-    cout << setw(12)  << "APELLIDOS";
-    cout << setw(12)  << "GENERO";
-    cout << setw(12)  << "DNI";
-    cout << setw(12)  << "EDAD";
-    cout << setw(12)  << "MATRICULA";
-    cout << setw(12)  << "ESPECIALIDAD";
-    cout << endl;
-    cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)
-        cout << setw(12)  << _prof.GetId();
-
+    cout << setw(4)   << _prof.GetId();
     cout << setw(12)  << _prof.GetNombres();
     cout << setw(12)  << _prof.GetApellidos();
     cout << setw(12)  << _prof.GetGenero();
     cout << setw(12)  << _prof.GetDNI();
     cout << setw(12)  << _prof.GetEdad();
+    cout << setw(12)  << IF.GetfechaFormateada(_prof.GetFechaNacimiento());
     cout << setw(12)  << _prof.GetMatricula();
     cout<<  setw(12)  << "SIN IMPLEMENTAR";
-    /*
-    _prof.GetFechaNacimiento().GetFecha();
-    */
+    cout<< endl;
 };
 
 
@@ -382,28 +366,20 @@ void InterfazProfesional :: ModificarEnArchivo(Profesional _prof){
 };
 
 void InterfazProfesional :: ListarProfesionales(){
-    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
+    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional),true);
     Profesional prof;
-    cls();
+    if( profesionales.getCantidadRegistros() != 0){
+        InterfazPersona IP;
+        IP.MostrarCabeceraPersona();
+        cout << left;
+        cout << setw(12)  << "MATRICULA";
+        cout << setw(12)  << "ESPECIALIDAD";
+        cout << endl;
+        while(fread(&prof,sizeof(Profesional),1,profesionales.GetPF())){
+             MostrarProfesional(prof);
+        };
 
-    cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)//Solo el admin ve el ID
-    cout << setw(12)  << "ID";
-    cout << setw(12)  << "NOMBRES";
-    cout << setw(12)  << "APELLIDOS";
-    cout << setw(12)  << "GENERO";
-    cout << setw(12)  << "DNI";
-    cout << setw(12)  << "EDAD";
-    cout << setw(12)  << "MATRICULA";
-    cout << setw(12)  << "ESPECIALIDAD";
-    cout << endl;
-
-    if(!profesionales.listarArchivo(prof)){
-        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
-        cout<<endl<<endl;
-        system("PAUSE");
-        system("cls");
-    }
+    }else cout<<"NO EXISTEN USUARIOS CARGADOS EN EL SISTEMA";
     cout<<endl<<endl;
     system("PAUSE");
     return;

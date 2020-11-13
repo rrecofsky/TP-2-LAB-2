@@ -6,7 +6,9 @@
 #include <cstdlib>
 #include <cstdio>
 #include <cstring>
-#include "../interfaces/interfaz.h"
+#include "../interfaces/interfazentidades.h"
+
+
 
 using namespace std;
 
@@ -64,13 +66,17 @@ class Archivo{
       estado=Cerrado;
       }
   public:
-      Archivo(const char *nombre, int tam){
+      Archivo(const char *nombre, int tam, bool open = false){
           nombreArchivo=new char[strlen(nombre)+1];
           if(nombreArchivo==NULL)exit(1);
           strcpy(nombreArchivo,nombre);
           tamanioRegistro=tam;
           pRegistro=(void *)malloc(tamanioRegistro);
           cantRegistros=cantidadRegistros();
+          //para los mostrar de las interfaces necesito abrir el archivo
+          if (open == true){
+                abrirArchivo(SoloLectura);
+          }
           estado=Cerrado;
       }
     ~Archivo(){
@@ -82,12 +88,13 @@ class Archivo{
       int leerRegistro(Registro &,int );
       int buscarRegistro(Registro &);
       int grabarRegistro( Registro & , int);
-
       int   alta(Registro &);
       const char *getNombreArchivo(){return nombreArchivo;}
       int   getCantidadRegistros(){return cantRegistros;}
       bool  listarArchivo(Registro &aux);
       bool  listarArchivoProfesionales(Profesional &aux);
+      FILE * GetPF(){return pF;} //obtener el puntero
+
   };
 
 

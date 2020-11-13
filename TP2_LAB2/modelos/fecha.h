@@ -1,6 +1,14 @@
 #ifndef FECHA_H_INCLUDED
 #define FECHA_H_INCLUDED
 
+#include <iostream>
+//#include <string.h>
+//#include <ctime>
+//#include <cstdio>
+//#include <cstdlib>
+
+using namespace std;
+
 class Fecha{
     private:
         int dia;
@@ -31,7 +39,6 @@ class Fecha{
         ///CARGAS y CONSULTAS
         void  CargarFecha();
         void  GetFecha();
-
 };
 
 

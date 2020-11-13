@@ -26,8 +26,9 @@ Fecha Fecha :: GetFechaActual()
 
 const char * Fecha ::  GetFechaConFormato(){
     //Consultar por que no funciona!
-    char str[10];//itoa para convertir., val,str,base 10. **** string.c_str() --> convertir a string.
-    return strcat(strcat(strcat(strcat(strcat(str,(char*)dia),"/"),(char*)mes),"/"),(char*)anio);
+    char str[10]={};//itoa para convertir., val,str,base 10. **** string.c_str() --> convertir a string.
+    char dd[2], mm[2], aaaa[4];
+    return strcat(strcat(strcat(strcat(strcat(str,itoa(dia,dd,10)),"/"),itoa(mes,mm,10)),"/"),itoa(anio,aaaa,10));
 }
 
 ///SETS
@@ -45,6 +46,7 @@ void  Fecha :: SetAnio(int _anio){anio = _anio;}
 ///CARGAS y CONSULTAS
 
 void  Fecha :: CargarFecha(){
+
     cout<<"Ingrese el dia: ";
     cin>>dia;
     cout<<"Ingrese el mes: ";
@@ -57,6 +59,10 @@ void  Fecha :: CargarFecha(){
 void Fecha :: GetFecha(){
     cout<<dia<<"/"<<mes<<"/"<<anio;
 }
+
+
+
+
 
 
 

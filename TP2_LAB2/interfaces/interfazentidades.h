@@ -7,7 +7,8 @@
 
 class InterfazPersona{
     public:
-        int AsociarPersona(Persona &);
+        int  AsociarPersona(Persona &);
+        void MostrarCabeceraPersona();
 };
 
 class InterfazUsuario  {
