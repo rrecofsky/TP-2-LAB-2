@@ -1,12 +1,11 @@
-#include "login.h"
+#include "menues/login.h"
 
 
-
-const char *FILE_PACIENTES     = "pacientes.dat";
-const char *FILE_PROFESIONALES = "profesionales.dat";
-const char *FILE_USUARIOS      = "usuarios.dat";
-const char *FILE_COBERTURAS    = "coberturas.dat";
-const char *FILE_PLANFARMACO   = "planesfarmaco.dat";
+const char *FILE_PACIENTES     = "archivos/pacientes.dat";
+const char *FILE_PROFESIONALES = "archivos/profesionales.dat";
+const char *FILE_USUARIOS      = "archivos/usuarios.dat";
+const char *FILE_COBERTURAS    = "archivos/coberturas.dat";
+const char *FILE_PLANFARMACO   = "archivos/planesfarmaco.dat";
 
 
 using namespace std;

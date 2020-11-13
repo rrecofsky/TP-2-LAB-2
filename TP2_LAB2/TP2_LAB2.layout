@@ -2,224 +2,99 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="medicacion.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Interfaces\interfaz.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="636" topLine="0" />
+			<Cursor1 position="183" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="login.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="validaciones\validaciones.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="909" topLine="3" />
+			<Cursor1 position="190" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="farmaco.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="menues\login.h" open="1" top="0" tabpos="19" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="75" topLine="0" />
+			<Cursor1 position="73" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="paciente.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="menues\menuesprofesional.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="82" topLine="0" />
+			<Cursor1 position="102" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="menuesadministrador.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="Interfaces\interfazplanfarmacologico.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="422" topLine="102" />
+			<Cursor1 position="245" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="detalleplanfarmacologico.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="menues\menuesprofesional.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="504" topLine="6" />
+			<Cursor1 position="40" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="validaciones.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="menues\menuespaciente.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1457" topLine="21" />
+			<Cursor1 position="349" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="especialidad.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="modelos\fecha.cpp" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="171" topLine="0" />
+			<Cursor1 position="21" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="persona.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="menues\menuesadministrador.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1542" topLine="52" />
+			<Cursor1 position="218" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="archivo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="menues\login.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="865" topLine="23" />
+			<Cursor1 position="213" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="registro.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Interfaces\interfaz.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="889" topLine="21" />
+			<Cursor1 position="168" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="profesional.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="validaciones\validaciones.cpp" open="1" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="156" topLine="1" />
+			<Cursor1 position="101" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="interfaz.h" open="1" top="1" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="modelos\profesional.cpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="233" topLine="0" />
+			<Cursor1 position="385" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="presentacion.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="menues\informes.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="416" topLine="0" />
+			<Cursor1 position="179" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="especialidad.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="modelos\paciente.cpp" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="466" topLine="9" />
+			<Cursor1 position="42" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="profesional.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="654" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="detalleplanfarmacologico.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1238" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="presentacion.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="128" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="menuesprofesional.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="234" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="usuario.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="555" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="interfaz.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1837" topLine="42" />
-		</Cursor>
-	</File>
-	<File name="persona.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1880" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="main.cpp" open="1" top="1" tabpos="18" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="ui.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="modelos\archivo.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="86" topLine="0" />
+			<Cursor1 position="43" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="login.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="modelos\usuario.cpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1228" topLine="33" />
+			<Cursor1 position="88" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="registro.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="modelos\archivo.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="500" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="menuesadministrador.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="337" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="informes.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="774" topLine="12" />
-		</Cursor>
-	</File>
-	<File name="menuespaciente.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="72" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="fecha.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="743" topLine="17" />
-		</Cursor>
-	</File>
-	<File name="cobertura.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="222" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="medicacion.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="426" topLine="19" />
-		</Cursor>
-	</File>
-	<File name="fecha.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="79" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="paciente.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="703" topLine="6" />
-		</Cursor>
-	</File>
-	<File name="informes.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="704" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="planfarmacologico.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3144" topLine="27" />
-		</Cursor>
-	</File>
-	<File name="farmaco.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="113" topLine="2" />
-		</Cursor>
-	</File>
-	<File name="menuespaciente.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="635" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="usuario.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="581" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="cobertura.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="192" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="planfarmacologico.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="514" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="validaciones.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="517" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="archivo.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1844" topLine="56" />
-		</Cursor>
-	</File>
-	<File name="menuesprofesional.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7493" topLine="225" />
+			<Cursor1 position="195" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
