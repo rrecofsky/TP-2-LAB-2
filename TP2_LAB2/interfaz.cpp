@@ -473,7 +473,7 @@ void InterfazPaciente :: MostrarPaciente(Paciente _paciente){
     cout << setw(12)  << "GENERO";
     cout << setw(12)  << "DNI";
     cout << setw(12)  << "EDAD";
-    cout << setw(12)  << "NRO AFILIADO";
+    cout << setw(16)  << "NRO AFILIADO";
     cout << setw(12)  << "COBERTURA";
     cout << endl;
     cout << left;
@@ -484,7 +484,7 @@ void InterfazPaciente :: MostrarPaciente(Paciente _paciente){
     cout << setw(12)  << _paciente.GetGenero();
     cout << setw(12)  << _paciente.GetDNI();
     cout << setw(12)  << _paciente.GetEdad();
-    cout << setw(12)  << _paciente.GetNroAfiliado();
+    cout << setw(16)  << _paciente.GetNroAfiliado();
     cout<<  setw(12)  << "SIN IMPLEMENTAR";
     /*
     _prof.GetFechaNacimiento().GetFecha();
@@ -522,7 +522,7 @@ void InterfazPaciente :: ListarPacientes(){
     cout << setw(12)  << "GENERO";
     cout << setw(12)  << "DNI";
     cout << setw(12)  << "EDAD";
-    cout << setw(12)  << "NRO AFILIADO";
+    cout << setw(16)  << "NRO AFILIADO";
     cout << setw(12)  << "COBERTURA";
     cout << endl;
 

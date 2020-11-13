@@ -43,7 +43,7 @@ void MenuProfesional(){
 
         switch(opcion){
             case 1:
-                   AltaPaciente();
+                   MenuEntidad("PACIENTE");
                    break;
             case 2:
                   AltaPlanFarmacologico();

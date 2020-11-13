@@ -60,13 +60,13 @@ void MenuLogin()
                     //Cambio el paciente encontrado en el registro
                     int posUserLdg = archUsuarios.buscarRegistro(usrAxuLogin);
                     if ( archUsuarios.leerRegistro(usrAxuLogin, posUserLdg) != -1 && strcmp(usrAxuLogin.GetUserPass(),pass) == 0 ){
-                        if (tipoDeUsuario == Perfil_Profesional && usrAxuLogin.GetPerfilUser() == Perfil_Profesional){
+                        if (/*tipoDeUsuario == Perfil_Profesional &&*/ usrAxuLogin.GetPerfilUser() == Perfil_Profesional){
                                 usr_lgd = usrAxuLogin;
                                 MenuProfesional();
                                 return;
                         }
                         else
-                            if (tipoDeUsuario == Perfil_Paciente && usrAxuLogin.GetPerfilUser() == Perfil_Paciente)                            {
+                            if (/*tipoDeUsuario == Perfil_Paciente &&*/ usrAxuLogin.GetPerfilUser() == Perfil_Paciente)                            {
                                 usr_lgd = usrAxuLogin;
                                 MenuPaciente();
                                 return;

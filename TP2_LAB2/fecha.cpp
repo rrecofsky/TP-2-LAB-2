@@ -26,7 +26,7 @@ Fecha Fecha :: GetFechaActual()
 
 const char * Fecha ::  GetFechaConFormato(){
     //Consultar por que no funciona!
-    char str[10];
+    char str[10];//itoa para convertir., val,str,base 10. **** string.c_str() --> convertir a string.
     return strcat(strcat(strcat(strcat(strcat(str,(char*)dia),"/"),(char*)mes),"/"),(char*)anio);
 }
 

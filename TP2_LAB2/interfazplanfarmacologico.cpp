@@ -21,9 +21,14 @@ void InterfazPlanFarmacologico :: CargarPlanFarmacologico(PlanFarmacologico & _p
     ValidacionesGenerales validaGeneral;
     char  notas[500];
     Fecha fecha;
-    _planFarmacologico.SetIdProfesional(usr_lgd.GetId());//le relaciono el usuario profesional logueado
+
+    Usuario user_aux;
+    Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
+    user_aux.ChangeUserName(usr_lgd.GetUserNamee());//le seteo el user para buscarlo en el archivo
+    int posUsuario = usuarios.buscarRegistro(user_aux);
+    _planFarmacologico.SetIdProfesional(user_aux.GetIdPersona());//si encuentra el ID, lo relaciono
     char nombres[50], apellidos[50];
-    cout<<"INGRESE LA FECHA DE EMISION";
+    cout<<"INGRESE LA FECHA DE EMISION"<<endl;
     fecha.CargarFecha();
     _planFarmacologico.SetEmision(fecha);
 
@@ -66,7 +71,7 @@ void InterfazPlanFarmacologico :: MostrarPlanFarmacologico(PlanFarmacologico _pl
     cout << setw(12)  << "NOTAS";
     cout << endl;
     cout << left;
-    interfazPersona.AsociarPersona(paciente);
+//    interfazPersona.AsociarPersona(_planFarmacologico.GetIdPaciente());
     cout << setw(6)  << paciente.GetNombres();
     cout << setw(6)   << paciente.GetApellidos();
     interfazPersona.AsociarPersona(profesional);

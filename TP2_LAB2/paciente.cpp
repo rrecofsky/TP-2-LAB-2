@@ -44,7 +44,7 @@ void Paciente :: Mostrar(){
     cout << setw(12) << genero;
     cout << setw(12) << DNI;
     cout << setw(12) << GetEdad();
-    cout << setw(12) << ID_Cobertura;
+    cout << setw(16) << ID_Cobertura;
     cout << setw(12) <<"SIN IMPLEMENTAR";
     cout<<endl;
 }
