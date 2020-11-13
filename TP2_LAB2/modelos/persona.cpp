@@ -67,37 +67,11 @@ istream & operator>>(istream &dato, Fecha &val)
 }*/
 
 void  Persona :: Mostrar(){
-        cout<<"NOMBRES: "<<nombres<<endl;
-        cout<<"APELLIDOS: "<<apellidos<<endl;
-        cout<<"GENERO: "<<genero<<endl;
-        cout<<"DNI: "<<DNI<<endl;
-        cout<<"EDAD: "<<GetEdad()<<endl;
-        cout<<"FECHA DE NACIMIENTO: ";
-        fecha_nacimiento.GetFecha();
-        cout<<endl;
-        return;
 
 }
 
 void  Persona :: Cargar()
 {
-        cout<<"NOMBRES: ";
-        cin.clear(); // unset failbit
-        cin.ignore(numeric_limits<streamsize>::max(),'\n'); // skip bad input
-        cin.getline(nombres,50);
-        cout<<endl;
-        cout<<"APELLIDOS: ";
-        cin.getline(apellidos,50);
-        cout<<endl;
-        cout<<"GENERO: ";
-        cin>>genero;
-        cout<<"FECHA DE NACIMIENTO: ";
-        fecha_nacimiento.CargarFecha();
-        cout<<endl;
-        cout<<"DNI: ";
-        cin>>DNI;
-        cout<<endl;
-        return;
 }
 
 

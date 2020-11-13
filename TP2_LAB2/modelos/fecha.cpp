@@ -24,41 +24,15 @@ Fecha Fecha :: GetFechaActual()
      return fecha;
 }
 
-const char * Fecha ::  GetFechaConFormato(){
-    //Consultar por que no funciona!
-    char str[10]={};//itoa para convertir., val,str,base 10. **** string.c_str() --> convertir a string.
-    char dd[2], mm[2], aaaa[4];
-    return strcat(strcat(strcat(strcat(strcat(str,itoa(dia,dd,10)),"/"),itoa(mes,mm,10)),"/"),itoa(anio,aaaa,10));
-}
-
 ///SETS
-
-void  Fecha :: SetNuevaFecha(int _dia,int _mes,int _anio){
-    dia = _dia;
-    mes = _mes;
-    anio = _anio;
-}
 
 void  Fecha :: SetDia(int _dia){dia = _dia;}
 void  Fecha :: SetMes(int _mes){mes = _mes;}
 void  Fecha :: SetAnio(int _anio){anio = _anio;}
 
-///CARGAS y CONSULTAS
 
-void  Fecha :: CargarFecha(){
 
-    cout<<"Ingrese el dia: ";
-    cin>>dia;
-    cout<<"Ingrese el mes: ";
-    cin>>mes;
-    cout<<"Ingrese el anio: ";
-    cin>>anio;
-    return;
-}
 
-void Fecha :: GetFecha(){
-    cout<<dia<<"/"<<mes<<"/"<<anio;
-}
 
 
 

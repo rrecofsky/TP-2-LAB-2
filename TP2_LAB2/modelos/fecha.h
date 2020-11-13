@@ -30,15 +30,10 @@ class Fecha{
         int   GetMes();
         int   GetAnio();
         Fecha GetFechaActual();
-        const char * GetFechaConFormato();
         ///SETS
         void  SetDia(int);
         void  SetMes(int);
         void  SetAnio(int);
-        void  SetNuevaFecha(int,int,int);
-        ///CARGAS y CONSULTAS
-        void  CargarFecha();
-        void  GetFecha();
 };
 
 

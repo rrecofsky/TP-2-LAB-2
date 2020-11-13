@@ -10,15 +10,13 @@ class PlanFarmacologico:public Registro
 {
     private:
         Fecha emision;
-        Fecha actualizacion;
         int   ID_Paciente;
         int   ID_Profesional;
         char  notas[500];
     public:
         PlanFarmacologico(int idpc = 0, int idpf = 0, const char * n = ""):Registro()
-        {
-           // emision           = fe;
-           // actualizacion     = fa;
+        {   Fecha f;
+            emision           = f;
             ID_Paciente       = idpc;
             ID_Profesional    = idpf;
             estado            = true;
@@ -38,16 +36,15 @@ class PlanFarmacologico:public Registro
         void  SetIdProfesional(int);
         void  SetNotas(const char*);
         //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
-        void Cargar(); //Puede estar en una capa de logica
-        void Mostrar(); //Puede estar en una capa de logica
-        void Modificar(){};
+        void Cargar(); //BORRAR
+        void Mostrar(); //BORRAR
+        void Modificar(){}; //BORRAR
         int getSize();
         bool comparaID(Registro *temp);
         PlanFarmacologico& operator = (Registro *temp){
 
             PlanFarmacologico *aux=(PlanFarmacologico *)temp;
             emision = aux->emision;
-            actualizacion =aux->actualizacion;
             ID_Paciente = aux->ID_Paciente;
             ID_Profesional = aux->ID_Profesional;
             strcpy(this->notas,aux->notas);

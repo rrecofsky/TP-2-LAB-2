@@ -12,9 +12,7 @@ class InterfazPlanFarmacologico  {
     public:
         void CargarPlanFarmacologico(PlanFarmacologico &);
         void MostrarPlanFarmacologico(PlanFarmacologico);
-        void ModificarPlanFarmacologico(PlanFarmacologico &);
         void AgregarPlanFarmacologicoAArchivo(PlanFarmacologico);
-        void ModificarPlanFarmacologicoEnArchivo(PlanFarmacologico);
         void ListarPlanesFarmacologicos();
         bool AsociarPlanFarmacologico(PlanFarmacologico &);
 };

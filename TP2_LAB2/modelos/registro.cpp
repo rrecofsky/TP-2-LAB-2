@@ -3,7 +3,6 @@
 #include <iostream>
 
 using namespace std;
-//Cada vez que se crea un registro debe tener una fecha de alta
 
 Registro::Registro(){
     fechaAlta = fechaAlta.GetFechaActual();
@@ -17,10 +16,10 @@ Fecha Registro :: GetFechaAlta(){ return fechaAlta; }
 Fecha Registro :: GetFechaBaja(){ return fechaBaja; }
 void  Registro :: GetInformacionGeneral(){
         cout<<"FECHA DE ALTA: ";
-        fechaAlta.GetFecha();
+       // fechaAlta.GetFecha();
         cout<<endl;
         cout<<"FECHA DE BAJA: ";
-        fechaBaja.GetFecha();
+       // fechaBaja.GetFecha();
         cout<<endl;
         cout<<"ID: "<<ID<<endl;
 }

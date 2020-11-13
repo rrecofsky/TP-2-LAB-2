@@ -140,7 +140,6 @@ void ModificarProfesional(){
     ValidacionesTipoDato valTipoDato;
     ValidacionesGenerales valGeneral;
     InterfazProfesional IP;
-    int  idProfesional;
     Profesional prof;
     cout<<"DESEA VER LA LISTA DE PROFESIONALES? S/N"<<endl;
     if (valGeneral.leer_SoN()) IP.ListarProfesionales();
@@ -188,5 +187,16 @@ void MostrarPacientes(){
 }
 
 void ModificarPaciente(){
-    //a desarrollar
+    cls();
+    ValidacionesTipoDato valTipoDato;
+    ValidacionesGenerales valGeneral;
+    InterfazPaciente IP;
+    Paciente pac;
+    cout<<"DESEA VER LA LISTA DE PACIENTES? S/N"<<endl;
+    if (valGeneral.leer_SoN()) IP.ListarPacientes();
+    cls();
+    cout<<"INGRESE EL ID DEL PACIENTE QUE DESEA MODIFICAR: ";
+    pac.SetId(valTipoDato.cargar_Entero());
+    cls();
+    IP.ModificarPacienteEnArchivo(pac);
 }

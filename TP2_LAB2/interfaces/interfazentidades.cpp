@@ -44,11 +44,9 @@ void InterfazPersona :: MostrarCabeceraPersona(){
     cout << setw(12)  << "GENERO";
     cout << setw(12)  << "DNI";
     cout << setw(12)  << "EDAD";
-    cout << setw(12)  << "FECHA NAC";
+    cout << setw(16)  << "FECHA NAC";
     return;
  }
-
-
 
 /// INTERFAZ USUARIO
 
@@ -200,9 +198,9 @@ void InterfazUsuario :: ModificarUsuarioEnArchivo(Usuario _user){};
 ///INERFAZ PROFESIONAL
 
 void InterfazProfesional :: CargarProfesional(Profesional &prof){
+    InterfazFecha IF;
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
-    Fecha fecha;
     char nombres[50], apellidos[50];
     cout<<"NOMBRES";
     cin.clear();
@@ -220,8 +218,7 @@ void InterfazProfesional :: CargarProfesional(Profesional &prof){
     prof.SetGenero(validaGeneral.ValidarGenero());
     cout<<endl;
     cout<<"FECHA DE NACIMIENTO"<<endl;
-    fecha.CargarFecha();
-    prof.SetFechaNacimiento(fecha);
+    prof.SetFechaNacimiento(IF.CargarFecha());
     cout<<endl;
     cout<<"DNI";
     prof.SetDNI(validaTDato.cargar_Entero());
@@ -244,7 +241,7 @@ void InterfazProfesional :: MostrarProfesional(Profesional _prof){
     cout << setw(12)  << _prof.GetGenero();
     cout << setw(12)  << _prof.GetDNI();
     cout << setw(12)  << _prof.GetEdad();
-    cout << setw(12)  << IF.GetfechaFormateada(_prof.GetFechaNacimiento());
+    cout << setw(16)  << IF.GetfechaFormateada(_prof.GetFechaNacimiento());
     cout << setw(12)  << _prof.GetMatricula();
     cout<<  setw(12)  << "SIN IMPLEMENTAR";
     cout<< endl;
@@ -388,9 +385,9 @@ void InterfazProfesional :: ListarProfesionales(){
 /// INTERFAZ PACIENTE
 
 void InterfazPaciente :: CargarPaciente(Paciente & _paciente){
+    InterfazFecha IF;
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
-    Fecha fecha;
     char nombres[50], apellidos[50];
     cout<<"NOMBRES";
     cin.clear();
@@ -408,8 +405,7 @@ void InterfazPaciente :: CargarPaciente(Paciente & _paciente){
     _paciente.SetGenero(validaGeneral.ValidarGenero());
     cout<<endl;
     cout<<"FECHA DE NACIMIENTO"<<endl;
-    fecha.CargarFecha();
-    _paciente.SetFechaNacimiento(fecha);
+    _paciente.SetFechaNacimiento(IF.CargarFecha());
     cout<<endl;
     cout<<"DNI";
     _paciente.SetDNI(validaTDato.cargar_Entero());
@@ -439,82 +435,168 @@ void InterfazPaciente :: CargarPaciente(Paciente & _paciente){
 }
 void InterfazPaciente :: MostrarPaciente(Paciente _paciente){
 
-    cls();
+    InterfazFecha IF;
     cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)//Solo el admin ve el ID
-    cout << setw(12)  << "ID";
-    cout << setw(12)  << "NOMBRES";
-    cout << setw(12)  << "APELLIDOS";
-    cout << setw(12)  << "GENERO";
-    cout << setw(12)  << "DNI";
-    cout << setw(12)  << "EDAD";
-    cout << setw(16)  << "NRO AFILIADO";
-    cout << setw(12)  << "COBERTURA";
-    cout << endl;
-    cout << left;
-    if (usr_lgd.GetPerfilUser() == Perfil_Administrador)
-    cout << setw(12)  << _paciente.GetId();
+    cout << setw(4)  << _paciente.GetId();
     cout << setw(12)  << _paciente.GetNombres();
     cout << setw(12)  << _paciente.GetApellidos();
     cout << setw(12)  << _paciente.GetGenero();
     cout << setw(12)  << _paciente.GetDNI();
     cout << setw(12)  << _paciente.GetEdad();
+    cout << setw(16)  << IF.GetfechaFormateada(_paciente.GetFechaNacimiento());
     cout << setw(16)  << _paciente.GetNroAfiliado();
     cout<<  setw(12)  << "SIN IMPLEMENTAR";
-    /*
-    _prof.GetFechaNacimiento().GetFecha();
-    */
+    cout<<  endl;
 }
 
 void InterfazPaciente :: AgregarPacienteAArchivo(Paciente _paciente){
 cls();
     ValidacionesGenerales valGral;
+    InterfazPersona IP;
+    IP.MostrarCabeceraPersona();
+    cout << left;
+    cout << setw(16)  << "NRO AFILIADO";
+    cout << setw(12)  << "COBERTURA";
+    cout << endl;
     MostrarPaciente(_paciente);
     cout<<endl<<endl;
-    cout<<"ESTA SEGURO QUE DESEA AGREGAR EL SIGUIENTE PROFESIONAL? S/N";
+    cout<<"ESTA SEGURO QUE DESEA AGREGAR EL SIGUIENTE PACIENTE? S/N";
     if(valGral.leer_SoN())
     {
         Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
         if(pacientes.grabarRegistro(_paciente,-1) == 1)
-            cout<<"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+            cout<<"SE GRABO SATISFACTORIAMENTE EL PACIENTE"<<endl;
         else
-            cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+            cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PACIENTE"<<endl;
     }
     cout<<endl;
     system("PAUSE");
 }
 
 void InterfazPaciente :: ListarPacientes(){
+    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente),true);
+    Paciente pac;
+    if( pacientes.getCantidadRegistros() != 0){
+        InterfazPersona IP;
+        IP.MostrarCabeceraPersona();
+        cout << left;
+        cout << setw(16)  << "NRO AFILIADO";
+        cout << setw(12)  << "COBERTURA";
+        cout << endl;
+        while(fread(&pac,sizeof(Paciente),1,pacientes.GetPF())){
+             MostrarPaciente(pac);
+        };
 
-    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
-    Paciente paciente;
-    cls();
-
-    cout << left;
-    cout << setw(12)  << "ID";
-    cout << setw(12)  << "NOMBRES";
-    cout << setw(12)  << "APELLIDOS";
-    cout << setw(12)  << "GENERO";
-    cout << setw(12)  << "DNI";
-    cout << setw(12)  << "EDAD";
-    cout << setw(16)  << "NRO AFILIADO";
-    cout << setw(12)  << "COBERTURA";
-    cout << endl;
-
-    if(!pacientes.listarArchivo(paciente)){
-        cout<<"NO HAY REGISTROS PARA LISTAR"<<endl;
-        cout<<endl<<endl;
-        system("PAUSE");
-        system("cls");
-    }
+    }else cout<<"NO EXISTEN PACIENTES CARGADOS EN EL SISTEMA";
     cout<<endl<<endl;
     system("PAUSE");
     return;
 }
 
-//TERMINAR! NO OLVIDAR DAR DE BAJA TAMBIEN LAS RELAIOCNES
-void InterfazPaciente :: ModificarPaciente(Paciente & _paciente){}
-void InterfazPaciente :: ModificarPacienteEnArchivo(Paciente _paciente){}
+void InterfazPaciente :: ModificarPaciente(Paciente & _paciente){
+        ValidacionesGenerales valGral;
+        ValidacionesTipoDato valTipoDato;
+        InterfazFecha IF;
+        int opcion=0;
+        char nombres[50], apellidos[50];
+        while(true){
+            cls();
+            cout<<"QUE DESEA MODIFICAR?"<<endl;
+            cout<<"1) NOMBRES"<<endl;
+            cout<<"2) APELLIDOS"<<endl;
+            cout<<"3) GENERO"<<endl;
+            cout<<"4) DNI"<<endl;
+            cout<<"5) FECHA DE NACIMIENTO"<<endl;
+            cout<<"6) NRO AFILIADO"<<endl;
+            cout<<"7) COBERTURA"<<endl;
+            cout<<"8) ESTADO (Solo Admin) "<<endl;
+            cout<<"----------------------"<<endl;
+            cout<<"0) REGRESAR"<<endl;
+            cout << endl << "> ";
+            cin >> opcion;
+            switch(opcion)
+                {
+                    case 1: {
+                             cout<<"NOMBRES: ";
+                            cin.clear();
+                            cin.ignore();
+                            cin.getline(nombres,50);
+                            _paciente.SetNombres(nombres);
+                            }
+                            break;
+                    case 2:{
+                            cout<<"APELLIDOS: ";
+                            cin.clear();
+                            cin.ignore();
+                            cin.getline(nombres,50);
+                            _paciente.SetApellidos(apellidos);
+                            }
+
+                            break;
+                    case 3:{
+                             cout<<"GENERO: ";
+                             cin.clear();
+                             cin.ignore();
+                            _paciente.SetGenero(valGral.ValidarGenero());
+                            }
+                            break;
+                    case 4:
+                            cout<<"DNI: ";
+                            _paciente.SetDNI(valTipoDato.cargar_Entero()); //se debe crear CARGAR DNI
+                            break;
+                    case 5:
+                             cout<<"FECHA DE NACIMIENTO: ";
+                             _paciente.SetFechaNacimiento(IF.CargarFecha());
+                            break;
+                    case 6:
+                            cout<<"NRO DE AFILIADO: ";
+                            _paciente.SetNroAfiliado(valTipoDato.cargar_Entero()); //Se debe crear para validar NO SE PUEDEN REPETIR!
+                            break;
+                    case 7:
+                            cout<<"COBERTURA: ";
+                            _paciente.SetEstado(valTipoDato.cargar_Entero());
+                            break;
+                    case 8: //Desarrollar estado para que se les cambie el estado a las relaciones que correspondan
+                            //como el plan farmacologico
+                            cout<<"ESTADO: ";
+                            _paciente.SetEstado(valTipoDato.cargar_Bool());
+                            break;
+                    case 0:
+                            return;
+                            break;
+                }
+
+        }
+        return ;
+
+}
+void InterfazPaciente :: ModificarPacienteEnArchivo(Paciente _paciente){
+    ValidacionesGenerales valGral;
+    Archivo pacientes(FILE_PROFESIONALES,sizeof(Profesional));
+    int posPac = pacientes.buscarRegistro(_paciente);
+    if ( posPac != -1 && pacientes.leerRegistro(_paciente, posPac) != -1){
+        MostrarPaciente(_paciente);
+        cout<<endl<<endl;
+        cout<<"ESTA SEGURO QUE DESEA MODIFICAR EL SIGUIENTE PROFESIONAL? S/N"<<endl;
+        if(valGral.leer_SoN())
+        {
+            cls();
+            ModificarPaciente(_paciente);
+            if(pacientes.grabarRegistro(_paciente,posPac) == 1)
+                cout<<"SE ACTUALIZO SATISFACTORIAMENTE EL PACIENTE"<<endl;
+            else
+                cout<<"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PACIENTE"<<endl;
+
+            cout<<endl;
+            system("PAUSE");
+            return;
+        }
+    }else{
+            cout<<"NO EXISTE UN PROFESIONAL CON EL ID: "<<_paciente.GetId()<<endl;
+            cout<<endl<<endl;
+            system("PAUSE");
+         }
+}
 
 
 

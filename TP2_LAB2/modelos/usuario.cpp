@@ -2,7 +2,7 @@
 #include <limits>
 #include <iostream>
 
-#include "../interfaces/interfaz.h"
+#include "../interfaces/interfazentidades.h"
 
 
 

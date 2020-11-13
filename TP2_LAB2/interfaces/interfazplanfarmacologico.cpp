@@ -5,6 +5,7 @@
 #include "../interfaces/interfazplanfarmacologico.h"
 #include "../interfaces/interfazentidades.h"
 #include "../util/rlutil.h"
+#include "../interfaces/interfazfecha.h"
 
 using namespace std;
 using namespace rlutil;
@@ -17,21 +18,20 @@ extern const char *FILE_PLANFARMACO;
 extern Usuario usr_lgd;
 
 void InterfazPlanFarmacologico :: CargarPlanFarmacologico(PlanFarmacologico & _planFarmacologico){
+    InterfazFecha IF;
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
     char  notas[500];
-    Fecha fecha;
-
+    Fecha fechaEmision;
     Usuario user_aux;
     Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
     user_aux.ChangeUserName(usr_lgd.GetUserNamee());//le seteo el user para buscarlo en el archivo
     int posUsuario = usuarios.buscarRegistro(user_aux);
     _planFarmacologico.SetIdProfesional(user_aux.GetIdPersona());//si encuentra el ID, lo relaciono
     char nombres[50], apellidos[50];
-    cout<<"INGRESE LA FECHA DE EMISION"<<endl;
-    fecha.CargarFecha();
-    _planFarmacologico.SetEmision(fecha);
-
+    cout<<"FECHA DE EMISION (Automatica)"<<endl;
+    cout<<IF.GetfechaFormateada(fechaEmision);
+    _planFarmacologico.SetEmision(fechaEmision.GetFechaActual());
     cout<<endl;
     cout<<"NOTAS";
     cout << endl << "> ";
