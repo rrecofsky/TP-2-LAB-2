@@ -1,24 +1,42 @@
 #include "../modelos/usuario.h"
 #include "../modelos/profesional.h"
 #include "../modelos/paciente.h"
-#include "../interfaces/interfazgenenal.h"
+#include "../interfaces/interfazgeneral.h"
+#include "../modelos/archivo.h"
 
+#include "../interfaces/interfazentidades.h"
 
+extern const char *FILE_USUARIOS;
+extern const char *FILE_PACIENTES;
+extern const char *FILE_PROFESIONALES;
+extern const char *FILE_COBERTURAS;
 
 /// VALIDACIONES GRALES
 
-bool InterfazGeneral :: CompararForeignKey(Registro &_registro){
+bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
 
-    switch(ObtenerTipoDeObjeto(_registro)){
-            case 0: //Paciente
-              //     return Archivo archUsuarios(FILE_PACIENTES,sizeof(_registro)).buscarRegistro(_registro) > 0;
+    switch(ObtenerTipoDeObjeto(*_registro)){
+            case 0: {//Paciente
+                   Archivo arch(FILE_PACIENTES,sizeof(*_registro));
+                   return arch.buscarRegistro(*_registro) > 0;
+                    }
                    break;
-            case 1://Profesional
-                  cout<<"profesional - REGISTRO NRO: "<<1<<endl;
-                   system("PAUSE");
+            case 1: {//Profesional
+                        Archivo arch(FILE_PROFESIONALES,sizeof(*_registro));
+                        return arch.buscarRegistro(*_registro) > 0;
+                    }
                    break;
-            case 2://Usuario
-
+            case 2:{//Usuario
+                        Usuario *aux=(Usuario *)_registro;
+                        Archivo arch(FILE_USUARIOS,sizeof(*aux));
+                        int pos = arch.buscarRegistro(*aux);
+                        if ( arch.buscarRegistro(*aux) >= 0 ){
+                            free(aux);
+                            return true;
+                        }
+                        free(aux);
+                        return false;
+                    }
                    break;
             case 4:
 

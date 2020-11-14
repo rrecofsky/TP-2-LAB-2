@@ -9,6 +9,7 @@
 #include "../modelos/archivo.h"
 //#include "interfaz.h" usar interfaz para el LOGIN
 #include "../util/rlutil.h"
+//#include "../login/logo.h"
 
 using namespace    rlutil;
 extern const char *FILE_PACIENTES;
@@ -21,13 +22,11 @@ Usuario     usr_lgd(user_adm,pass_adm,Perfil_Administrador);
 
 using namespace std;
 
-
-
 void MenuLogin()
 {
     // ------------> TEMPORAL
-  //  MenuAdministrador();
-  //  return;
+    MenuAdministrador();
+    return;
     //  ------------> TEMPORAL
 
     Archivo archUsuarios(FILE_USUARIOS,sizeof(Usuario));
@@ -37,10 +36,10 @@ void MenuLogin()
     bool  salir=false;
     Usuario usrAxuLogin; //Se usa para copiar en el objeto, el registro del archivo.
 
-    cout << "INGRESE EL PERFIL DEL USUARIO:"<<endl<<endl;
-    cout << "0 - Administrador"<<endl;
-    cout << "1 - Profesional"<<endl;
-    cout << "2 - Paciente"<<endl;
+    cout << "                   INGRESE EL PERFIL DEL USUARIO:"<<endl<<endl;
+    cout << "                        0 - Administrador"<<endl;
+    cout << "                        1 - Profesional"<<endl;
+    cout << "                        2 - Paciente"<<endl;
 
 
         tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
@@ -98,4 +97,5 @@ void MenuLogin()
 
     return;
 }
+
 

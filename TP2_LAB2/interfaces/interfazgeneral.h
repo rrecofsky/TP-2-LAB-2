@@ -10,7 +10,7 @@
 class InterfazGeneral{
     public:
         TipoObjeto ObtenerTipoDeObjeto(Registro &_registro);
-        bool  CompararForeignKey(Registro &_registro);
+        bool  CompararForeignKey(Registro *_registro);
 };
 
 #endif // INTERFAZGENENAL_H_INCLUDED

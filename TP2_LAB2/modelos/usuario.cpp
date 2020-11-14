@@ -27,8 +27,11 @@ void Usuario ::Modificar(){return;}
 
 bool  Usuario :: comparaID(Registro *temp){
         Usuario *aux=(Usuario *)temp;
-        return ( strlen(user) == strlen(aux->user) && compararCadenas(user,aux->user));
-        return (ID==aux->ID);
+        if (strlen(user) > 0 && strlen(aux->user) > 0 )
+            if ( strlen(user) == strlen(aux->user) && compararCadenas(user,aux->user))
+                return true;
+        if (ID==aux->ID)
+            return true;
         return false;
 
 

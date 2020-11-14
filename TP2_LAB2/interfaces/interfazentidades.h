@@ -4,6 +4,7 @@
 #include "../modelos/registro.h"
 #include "../modelos/usuario.h"
 #include "../modelos/paciente.h"
+#include "../interfaces/interfazgeneral.h"
 
 class InterfazPersona{
     public:
@@ -11,7 +12,7 @@ class InterfazPersona{
         void MostrarCabeceraPersona();
 };
 
-class InterfazUsuario  {
+class InterfazUsuario : public InterfazGeneral {
     public:
         void CargarUsuario(Usuario &);
         void MostrarUsuario(Usuario);

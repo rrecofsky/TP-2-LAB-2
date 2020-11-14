@@ -74,6 +74,8 @@ void InterfazUsuario :: CargarUsuario(Usuario & _user){
     cout << endl << "> ";
     cin.getline(user,50);
     _user.ChangeUserName(user);
+    cout<<"EL USUARIO YA EXISTE?: "<<CompararForeignKey(&_user)<<endl;
+
     cout<<endl;
     cout<<"CONTRASENIA";
     cout << endl << "> ";

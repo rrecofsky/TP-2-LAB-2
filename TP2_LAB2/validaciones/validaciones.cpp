@@ -69,7 +69,7 @@ bool ValidacionesGenerales :: EsBiciesto(Fecha _fecha)
         validoFecha=false;
     }
     //Biciesto para el mes de febrero
-    if (_fecha.GetMes()==2 && _fecha.GetDia()==29 && ( _fecha.GetAnio() % 400 != 0 || _fecha.GetAnio() % 4 == 0 && _fecha.GetAnio() % 100 != 0 ))
+    if ( _fecha.GetMes()==2 && _fecha.GetDia()==29 && ( _fecha.GetAnio() % 400 != 0 || (_fecha.GetAnio() % 4 == 0 && _fecha.GetAnio() % 100 != 0) ))
     {
         validoFecha=false;
     }

@@ -13,12 +13,6 @@ enum TipoMensaje{
     Informativo
 };
 
- enum TipoObjeto{
-   Tipo_Paciente,
-   Tipo_Profesional,
-   Tipo_Usuario,
-};
-
 class ValidacionesGenerales{
     public:
         Perfil ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
