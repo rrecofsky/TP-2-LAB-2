@@ -17,13 +17,27 @@ bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
 
     switch(ObtenerTipoDeObjeto(*_registro)){
             case 0: {//Paciente
-                   Archivo arch(FILE_PACIENTES,sizeof(*_registro));
-                   return arch.buscarRegistro(*_registro) > 0;
+                        Paciente *aux=(Paciente *)_registro;
+                        Archivo arch(FILE_PACIENTES,sizeof(*aux));
+                        int pos = arch.buscarRegistro(*aux);
+                        if ( arch.buscarRegistro(*aux) >= 0 ){
+                            free(aux);
+                            return true;
+                        }
+                        free(aux);
+                        return false;
                     }
                    break;
             case 1: {//Profesional
-                        Archivo arch(FILE_PROFESIONALES,sizeof(*_registro));
-                        return arch.buscarRegistro(*_registro) > 0;
+                        Profesional *aux=(Profesional *)_registro;
+                        Archivo arch(FILE_PROFESIONALES,sizeof(*aux));
+                        int pos = arch.buscarRegistro(*aux);
+                        if ( arch.buscarRegistro(*aux) >= 0 ){
+                            free(aux);
+                            return true;
+                        }
+                        free(aux);
+                        return false;
                     }
                    break;
             case 2:{//Usuario

@@ -68,13 +68,20 @@ void InterfazUsuario :: CargarUsuario(Usuario & _user){
     Fecha fecha;
     char user[50], pass[50];
     bool rta=false;
-    cout<<"USUARIO";
-    cin.clear();
-    cin.ignore();
-    cout << endl << "> ";
-    cin.getline(user,50);
-    _user.ChangeUserName(user);
-    cout<<"EL USUARIO YA EXISTE?: "<<CompararForeignKey(&_user)<<endl;
+    do{
+        cout<<"USUARIO";
+        cin.clear();
+        cin.ignore();
+        cout << endl << "> ";
+        cin.getline(user,50);
+        _user.ChangeUserName(user);
+        if (CompararForeignKey(&_user)){
+            cout<<"YA EXISTE UN USUARIO CON EL NOMBRE: "<<user<<" DESEA CARGAR OTRO? S/N"<<endl;
+            if (! validaGeneral.leer_SoN()) return;
+        }else
+            break;
+    }
+    while(true);
 
     cout<<endl;
     cout<<"CONTRASENIA";

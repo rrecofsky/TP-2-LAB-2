@@ -771,7 +771,7 @@
 	"../interfaces/interfazcobertura.h"
 	"../interfaces/interfazfecha.h"
 
-1605325419 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgeneral.cpp
+1605326021 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgeneral.cpp
 	"../modelos/usuario.h"
 	"../modelos/profesional.h"
 	"../modelos/paciente.h"
