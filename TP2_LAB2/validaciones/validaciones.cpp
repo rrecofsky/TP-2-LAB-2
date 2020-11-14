@@ -5,15 +5,32 @@
 #include <string>
 #include <typeinfo>
 #include "../modelos/fecha.h"
-
-
+//#include "../modelos/paciente.h"
+#include "../modelos/profesional.h"
 
 using namespace std;
 using namespace rlutil;
+///Funciones GLOBALES
+
+//COMAPRACIONES
+bool  compararCaracter(char& _c1,char& _c2){
+
+    if (_c1 == _c2) return true;
+    else
+        if (toupper(_c1) == toupper(_c2))
+            return true;
+
+    return false;
+}
+
+bool  compararCadenas(char *_cad1,char*_cad2){
+string str1(_cad1), str2(_cad2);
+return ( (strlen(_cad1) == strlen(_cad2) ) &&
+       equal( str1.begin(),str1.end(), str2.begin(), &compararCaracter ));
+}
 
 
 
-/// VALIDACIONES GRALES
 
 const char * ValidacionesGenerales ::  GetFechaConFormato(Fecha _fecha){
     //Consultar por que no funciona!
@@ -233,13 +250,4 @@ void  ValidacionesTipoDato :: generar_Mensaje(int _error,const char *_mensaje)
     return;
 }
 
-void ValidacionesTipoDato :: ADesarrollar()
-{/*
-  char x;
-  int j;
-  Profesional p;
-  if (typeid(x) == typeid(char)) cout << "X ES CHAR! " <<  "!\n";
-  if (typeid(j) == typeid(char)) cout << "J ES CHAR! " <<  "!\n"; else cout<<"J NO ES CHAR!";
-  if (typeid(p) == typeid(Profesional)) cout << "P ES PROFESIONAL! " <<  "!\n"; else cout<<"J NO ES CHAR!"; */
-  return;
-}
+

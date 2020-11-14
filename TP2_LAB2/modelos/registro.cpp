@@ -44,3 +44,5 @@ void  Registro :: SetId(int _ID){ID = _ID;}
 
 
 
+
+

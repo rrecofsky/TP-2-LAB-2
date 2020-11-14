@@ -50,18 +50,16 @@ void InterfazPersona :: MostrarCabeceraPersona(){
 
 /// INTERFAZ USUARIO
 
- bool InterfazUsuario :: AsociarUsuario(Usuario & _user){
+bool InterfazUsuario :: AsociarUsuario(Usuario & _user){
 
     Usuario usr;
     Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
     int posUsuario = usuarios.buscarRegistro(usr);
-    cout<<"POS USUARIO ES!: "<<posUsuario;
-    system("PAUSE");
     if ( posUsuario >= 0 && usuarios.leerRegistro(_user, posUsuario) != -1)
         return true;
 
     return false;
- }
+}
 
 void InterfazUsuario :: CargarUsuario(Usuario & _user){
     InterfazPaciente IP;
@@ -81,8 +79,9 @@ void InterfazUsuario :: CargarUsuario(Usuario & _user){
     cout << endl << "> ";
     cin.getline(pass,50);
     _user.ChangeUserPass(pass);
+
     if (usr_lgd.GetPerfilUser() == Perfil_Administrador){
-        cout<<"DESEA CARGAR UN USUARIO PROFESIONAL? S/N"<<endl;
+        cout<<"DESEA ASIGNARLE UN USUARIO PROFESIONAL? S/N"<<endl;
         rta = validaGeneral.leer_SoN();
     }
     if ( rta ){
@@ -108,22 +107,24 @@ void InterfazUsuario :: CargarUsuario(Usuario & _user){
     }else{ //Si no quiero cargar un profesional, entonces cargo un paciente
           //si no es un admin solo se pueden dar de alta pacientes
           _user.ChangePerfilUser(Perfil_Paciente);
-          cout<<"DESEA RELACIONAR UN PACIENTE AL USUARIO? S/N";
-          if (validaGeneral.leer_SoN()){
-              //busco los pacientes del archivo
-              Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
-              Paciente paciente;
-              cout<<"PACIENTES DISPONIBLES"<<endl<<endl;
-              //listo los pacientes
-              IP.ListarPacientes();
-              cout<<"INGRESE EL ID DEL PROFESIONAL QUE DESEA RELACIONAR: ";
-              //ingreso el ID del paciente que quiero buscar
-              paciente.SetId(validaTDato.cargar_Entero());
-              //si existe en el archivo, entonces el ID esta OK
-              int posPaciente = pacientes.buscarRegistro(paciente);
-              //le relaciono el ID del paciente al usuario
-              if (posPaciente >= 0 ) _user.ChangeIdPersona(paciente.GetId());
-            }
+          do{
+              cout<<"DESEA RELACIONAR UN PACIENTE AL USUARIO? S/N";
+              if (validaGeneral.leer_SoN()){
+                  //busco los pacientes del archivo
+                  Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
+                  Paciente paciente;
+                  cout<<"PACIENTES DISPONIBLES"<<endl<<endl;
+                  //listo los pacientes
+                  IP.ListarPacientes();
+                  cout<<"INGRESE EL ID DEL PACIENTE QUE DESEA RELACIONAR: ";
+                  //ingreso el ID del paciente que quiero buscar
+                  paciente.SetId(validaTDato.cargar_Entero());
+                  //si existe en el archivo, entonces el ID esta OK
+                  int posPaciente = pacientes.buscarRegistro(paciente);
+                  //le relaciono el ID del paciente al usuario
+                  if (posPaciente >= 0 ) _user.ChangeIdPersona(paciente.GetId());
+                }else break;
+          }while(true);
         }
     return;
 };
@@ -191,7 +192,10 @@ void InterfazUsuario :: ListarUsuarios(){
     return;
 };
 
-void InterfazUsuario :: ModificarUsuario(Usuario & _user){};
+void InterfazUsuario :: ModificarUsuario(Usuario & _user){
+
+};
+
 void InterfazUsuario :: ModificarUsuarioEnArchivo(Usuario _user){};
 
 

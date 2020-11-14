@@ -47,34 +47,18 @@ void  Persona :: SetFechaNacimiento(Fecha _fechaNacimiento){fecha_nacimiento = _
 void  Persona :: SetDNI(int _dni){ DNI = _dni;}
 void  Persona :: SetGenero(char _genero){ genero = _genero;}
 
-//Comparaciones
+//VIRTUAL
 
+void  Persona :: Mostrar(){}
+void  Persona :: Cargar(){}
+int   Persona :: getSize(){return sizeof *this;}
 bool  Persona :: comparaID(Registro *temp){
         Persona *aux=(Persona *)temp;
 
         if(DNI != 0 && DNI == aux->DNI ) return true;
-        if( ID == aux->ID  ) return true;
+        if(ID == aux->ID ) return true;
 
         return false;
 }
-
-//Sobrecargas
-/*
-istream & operator>>(istream &dato, Fecha &val)
-{
-  dato>>val;
-  return dato;
-}*/
-
-void  Persona :: Mostrar(){
-
-}
-
-void  Persona :: Cargar()
-{
-}
-
-
-int   Persona :: getSize(){return sizeof *this;}
 
 

@@ -30,7 +30,8 @@ class ValidacionesGenerales{
         int ValidarAnio();
         bool EsBiciesto(Fecha );
         const char * GetFechaConFormato(Fecha);
-
+        TipoObjeto ObtenerTipoDeObjeto(Registro &_registro);
+        bool  CompararForeignKey(Registro &_registro);
 };
 
 class ValidacionesTipoDato{
@@ -43,10 +44,8 @@ class ValidacionesTipoDato{
         void ADesarrollar();
 };
 
-bool  compararCadenas(char *,char*);
 bool  compararCaracter(char& ,char& );
-
-
+bool  compararCadenas(char *,char*);
 
 
 #endif // VALIDACIONES_H_INCLUDED
