@@ -1,18 +1,23 @@
 #include <iostream>
+#include <string>
+#include <typeinfo>
 #include "../util/ui.h"
 #include "../util/rlutil.h"
 #include "../validaciones/validaciones.h"
-#include <string>
-#include <typeinfo>
 #include "../modelos/fecha.h"
 //#include "../modelos/paciente.h"
-#include "../modelos/profesional.h"
+//#include "../modelos/profesional.h"
 
 using namespace std;
 using namespace rlutil;
+
 ///Funciones GLOBALES
 
-//COMAPRACIONES
+#define GetSize(array_char) (sizeof(array_char)/sizeof(*(array_char)))
+
+//int longitud=GetSize(array_caracteres_enteros);
+
+
 bool  compararCaracter(char& _c1,char& _c2){
 
     if (_c1 == _c2) return true;
@@ -29,7 +34,14 @@ return ( (strlen(_cad1) == strlen(_cad2) ) &&
        equal( str1.begin(),str1.end(), str2.begin(), &compararCaracter ));
 }
 
+///VALIDACIONES GENERALES
 
+bool ValidacionesGenerales :: EsCadenaAlfanumerica(const char * _cadena){
+    for (int i=0; i<strlen(_cadena);i++)
+        if (!isalnum(_cadena[i]))
+            return false;
+    return true;
+}
 
 
 const char * ValidacionesGenerales ::  GetFechaConFormato(Fecha _fecha){
@@ -149,6 +161,17 @@ char ValidacionesGenerales :: ValidarGenero(){
 }
 
 ///VALIDACIONES TIPO DE DATO
+/*
+const char *  ValidacionesTipoDato :: cargar_Cadena(int tam ){
+    //*No funciona bien, consultar.
+    char cadena[tam];
+    cout << endl << "> ";
+    cin.clear();
+    cin.ignore();
+    cin.getline(cadena,tam);
+    return cadena;
+}*/
+
 
 int ValidacionesTipoDato :: cargar_Entero()
 {

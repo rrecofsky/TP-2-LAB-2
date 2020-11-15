@@ -14,7 +14,6 @@ extern const char *FILE_COBERTURAS;
 /// VALIDACIONES GRALES
 
 bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
-
     switch(ObtenerTipoDeObjeto(*_registro)){
             case 0: {//Paciente
                         Paciente *aux=(Paciente *)_registro;
@@ -24,7 +23,6 @@ bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
                             free(aux);
                             return true;
                         }
-                        free(aux);
                         return false;
                     }
                    break;
@@ -36,7 +34,6 @@ bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
                             free(aux);
                             return true;
                         }
-                        free(aux);
                         return false;
                     }
                    break;
@@ -48,7 +45,6 @@ bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
                             free(aux);
                             return true;
                         }
-                        free(aux);
                         return false;
                     }
                    break;

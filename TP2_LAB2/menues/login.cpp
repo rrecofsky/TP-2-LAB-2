@@ -25,8 +25,8 @@ using namespace std;
 void MenuLogin()
 {
     // ------------> TEMPORAL
-    MenuAdministrador();
-    return;
+ //   MenuAdministrador();
+ //   return;
     //  ------------> TEMPORAL
 
     Archivo archUsuarios(FILE_USUARIOS,sizeof(Usuario));

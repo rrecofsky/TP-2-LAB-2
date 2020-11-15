@@ -12,7 +12,7 @@ using namespace std;
 enum Perfil{//perfiles de usuario
    Perfil_Administrador, // 0
    Perfil_Profesional, // 1
-   Perfil_Paciente // 2
+   Perfil_Paciente, // 2
 };
 
 class Usuario :public Registro {
@@ -29,6 +29,7 @@ class Usuario :public Registro {
             strcpy(user,_user);
             strcpy(pass,_pass);
             ID_Perfil = _perfil;
+            ID_Persona = -1;
         }
         ///GETs
         const char* GetUserNamee();

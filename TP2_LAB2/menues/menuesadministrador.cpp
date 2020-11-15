@@ -123,8 +123,9 @@ void AltaProfesional(){
     cls();
     InterfazProfesional IP;
     Profesional prof;
-    IP.CargarProfesional(prof);
-    IP.AgregarAArchivo(prof);
+    if (IP.CargarProfesional(prof))
+        IP.AgregarAArchivo(prof);
+    return;
 }
 
 void MostrarProfesionales()
@@ -154,8 +155,9 @@ void AltaUsuario(){
     cls();
     InterfazUsuario IU;
     Usuario usr;
-    IU.CargarUsuario(usr);
-    IU.AgregarUsuarioAArchivo(usr);
+    if (IU.CargarUsuario(usr))
+        IU.AgregarUsuarioAArchivo(usr);
+    return;
 }
 
 void MostrarUsuarios(){
@@ -175,8 +177,9 @@ void AltaPaciente(){
     cls();
     InterfazPaciente IP;
     Paciente paciente;
-    IP.CargarPaciente(paciente);
-    IP.AgregarPacienteAArchivo(paciente);
+    if (IP.CargarPaciente(paciente))
+        IP.AgregarPacienteAArchivo(paciente);
+    return;
 }
 
 

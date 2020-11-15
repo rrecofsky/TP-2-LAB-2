@@ -24,6 +24,8 @@ class ValidacionesGenerales{
         int ValidarAnio();
         bool EsBiciesto(Fecha );
         const char * GetFechaConFormato(Fecha);
+        bool EsCadenaAlfanumerica(const char *);
+        bool EsCadena(const char*);//IMPLEMENTAR!
 
 };
 
@@ -35,6 +37,7 @@ class ValidacionesTipoDato{
         char cargar_Char();
         void generar_Mensaje(int ,const char *);
         void ADesarrollar();
+     //   const char *  cargar_Cadena(int );
 };
 
 bool  compararCadenas(char *,char*);

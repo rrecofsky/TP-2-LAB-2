@@ -14,7 +14,7 @@ class InterfazPersona{
 
 class InterfazUsuario : public InterfazGeneral {
     public:
-        void CargarUsuario(Usuario &);
+        bool CargarUsuario(Usuario &);
         void MostrarUsuario(Usuario);
         void ModificarUsuario(Usuario &);
         void AgregarUsuarioAArchivo(Usuario);
@@ -25,7 +25,7 @@ class InterfazUsuario : public InterfazGeneral {
 
 class InterfazProfesional  {
     public:
-        void CargarProfesional(Profesional &);
+        bool CargarProfesional(Profesional &);
         void MostrarProfesional(Profesional);
         void ModificarProfesional(Profesional &);
         void AgregarAArchivo(Profesional);
@@ -36,7 +36,7 @@ class InterfazProfesional  {
 
 class InterfazPaciente  {
     public:
-        void CargarPaciente(Paciente &);
+        bool CargarPaciente(Paciente &);
         void MostrarPaciente(Paciente);
         void ModificarPaciente(Paciente &);
         void AgregarPacienteAArchivo(Paciente);
