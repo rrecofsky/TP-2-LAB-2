@@ -18,7 +18,7 @@ class Persona:public Registro{
         bool  estado;
     public:
 
-        Persona(const char *_nombre = "", const char *_apellido = "", int _dni = 0):Registro()
+        Persona(const char *_nombre = "", const char *_apellido = "", int _dni = -1):Registro()
         {
             strcpy(nombres,_nombre);
             strcpy(apellidos,_apellido);

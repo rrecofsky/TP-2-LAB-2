@@ -1,6 +1,9 @@
 #ifndef LOGO_H_INCLUDED
 #define LOGO_H_INCLUDED
 
+#include<iostream>
+
+using namespace std;
 void Logo(){
 cout << left;
 

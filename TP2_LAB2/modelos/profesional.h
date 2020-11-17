@@ -14,7 +14,7 @@ class Profesional: public Persona
         int matricula;
         int ID_especialidad;
     public:
-        Profesional(const char * _nombre = "", const char * _apellido = "", int _dni = 0, int _matricula = 0, int _especialidad = 0):Persona(_nombre,_apellido,_dni)
+        Profesional(const char * _nombre = "", const char * _apellido = "", int _dni = -1, int _matricula = -1, int _especialidad = -1):Persona(_nombre,_apellido,_dni)
         {
           matricula       = _matricula;
           ID_especialidad = _especialidad;
@@ -31,9 +31,7 @@ class Profesional: public Persona
         void Mostrar();
         void Modificar();
         bool comparaID(Registro *temp);
-        ///Sobrecarga con Friend
-        friend istream & operator>>(istream &, int &);
-        friend ostream & operator<<(ostream &, int &);
+        int getSize();
 
 };
 

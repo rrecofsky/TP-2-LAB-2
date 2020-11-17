@@ -1,17 +1,12 @@
 #include "../interfaces/interfazfecha.h"
 #include "../validaciones/validaciones.h"
 
-const char* InterfazFecha :: GetfechaFormateada(Fecha fecha){
-    char str[10];//dd/mm/aaaa
-    char dd[2], mm[2], aaaa[4];/*
-    strcpy(str,itoa(fecha.GetDia(),dd,10));
-    strcat(str,"/");
-    strcat(str,itoa(fecha.GetMes(),mm,10));
-    strcat(str,"/");
-    strcat(str,itoa(fecha.GetAnio(),aaaa,10));
-    return str;*/
-    return strcat(strcat(strcat(strcat(strcat(str,itoa(fecha.GetDia(),dd,10)),"/"),itoa(fecha.GetMes(),mm,10)),"/"),itoa(fecha.GetAnio(),aaaa,10));
-}
+string InterfazFecha :: GetfechaFormateada(Fecha fecha){
+    ValidacionesTipoDato valTDato;
+    InterfazFecha IF;
+    string dia(valTDato.intToStr(fecha.GetDia())), mes(valTDato.intToStr(fecha.GetMes())), anio(valTDato.intToStr(fecha.GetAnio()));
+    return dia+"/"+mes+"/"+anio;
+  }
 
 Fecha  InterfazFecha :: CargarFecha(){
     Fecha fechaAux;
@@ -25,7 +20,7 @@ Fecha  InterfazFecha :: CargarFecha(){
         cout<<"INGRESE EL ANIO";
         fechaAux.SetAnio(valGeneral.ValidarAnio());
         if (!valGeneral.EsBiciesto(fechaAux))
-            cout<<"FECHA INVALIDA, INGRESE UNA FECHA VALIDA: "<<valGeneral.GetFechaConFormato(fechaAux)<<endl;
+            cout<<"FECHA INVALIDA, INGRESE UNA FECHA VALIDA: "<<GetfechaFormateada(fechaAux)<<endl;
         else
             return fechaAux;
     }while(true);

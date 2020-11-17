@@ -3,13 +3,8 @@
 
 1603818089 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\fecha.cpp
 
-1605586564 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
+1605616249 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\main.cpp
 	"menues/login.h"
-	<string.h>
-	<ctime>
-	<cstdio>
-	<cstdlib>
-	<iostream>
 
 1603856222 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\cpps\persona.cpp
 	"../headers/persona.h"
@@ -446,7 +441,7 @@
 
 1605271393 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfazfecha.cpp
 
-1605586014 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazfecha.cpp
+1605616288 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazfecha.cpp
 	"../interfaces/interfazfecha.h"
 	"../validaciones/validaciones.h"
 
@@ -470,12 +465,12 @@
 1605576367 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\fecha.h
 	<iostream>
 
-1605582202 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.h
+1605622389 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.h
 	"persona.h"
 	<iostream>
 	<iomanip>
 
-1605580244 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.h
+1605620866 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.h
 	"fecha.h"
 	"registro.h"
 	<iostream>
@@ -570,7 +565,7 @@
 
 1604249260 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuespaciente.h
 
-1605272030 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.cpp
+1605624518 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.cpp
 	"../util/ui.h"
 	"../util/rlutil.h"
 	"archivo.h"
@@ -579,7 +574,7 @@
 	<cstdio>
 	<cstring>
 
-1605293252 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.h
+1605626546 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.h
 	"../modelos/registro.h"
 	<iostream>
 	<cstdlib>
@@ -630,14 +625,14 @@
 
 1605272695 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\login.h
 
-1605576469 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones\validaciones.h
+1605616143 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones\validaciones.h
 	"../modelos/fecha.h"
 	"../modelos/usuario.h"
 	"../modelos/profesional.h"
 	"../modelos/persona.h"
 	<ctype.h>
 
-1605582018 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.cpp
+1605620890 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.cpp
 	"persona.h"
 	<iostream>
 	<limits>
@@ -684,7 +679,7 @@
 	"ui.h"
 	"rlutil.h"
 
-1605325530 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
+1605618362 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
 	"usuario.h"
 	<limits>
 	<iostream>
@@ -696,7 +691,7 @@
 	<limits>
 	"../util/rlutil.h"
 
-1605584304 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones\validaciones.cpp
+1605626327 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones\validaciones.cpp
 	<iostream>
 	<string>
 	<typeinfo>
@@ -705,7 +700,7 @@
 	"../validaciones/validaciones.h"
 	"../modelos/fecha.h"
 
-1605582257 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.cpp
+1605626561 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.cpp
 	"../modelos/profesional.h"
 	<iostream>
 	<limits>
@@ -722,7 +717,7 @@
 	"../util/rlutil.h"
 	"../interfaces/interfazcobertura.h"
 
-1605573815 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
+1605619912 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
 	<iostream>
 	<cstring>
 	"../util/ui.h"
@@ -756,17 +751,18 @@
 	"../menues/menuesprofesional.h"
 	"../menues/menuesadministrador.h"
 
-1605279932 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazfecha.h
+1605616293 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazfecha.h
+	<iostream>
 	"../modelos/fecha.h"
 
-1605581255 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.h
+1605619906 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.h
 	"../modelos/profesional.h"
 	"../modelos/registro.h"
 	"../modelos/usuario.h"
 	"../modelos/paciente.h"
 	"../interfaces/interfazgeneral.h"
 
-1605584762 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
+1605628227 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
 	"interfazentidades.h"
 	<limits>
 	<iostream>
@@ -786,7 +782,135 @@
 
 1605317472 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgenenal.h
 
-1605321364 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login\logo.h
+1605625910 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login\logo.h
+	<iostream>
 
-1605324210 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgeneral.h
+1605625888 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgeneral.h
+	"../modelos/registro.h"
+
+1605272442 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazcobertura.h
+	"../modelos/cobertura.h"
+	"../modelos/registro.h"
+
+1605619906 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.h
+	"../modelos/profesional.h"
+	"../modelos/registro.h"
+	"../modelos/usuario.h"
+	"../modelos/paciente.h"
+	"../interfaces/interfazgeneral.h"
+
+1605616293 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazfecha.h
+	<iostream>
+	"../modelos/fecha.h"
+
+1605625888 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgeneral.h
+	"../modelos/registro.h"
+
+1605297915 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazplanfarmacologico.h
+	"../modelos/registro.h"
+	"../modelos/profesional.h"
+	"../modelos/paciente.h"
+	"../modelos/archivo.h"
+	"../modelos/paciente.h"
+	"../modelos/planfarmacologico.h"
+
+1605625910 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login\logo.h
+	<iostream>
+
+1605272087 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\informes.h
+	<iostream>
+	<cstring>
+	"../modelos/fecha.h"
+	"../modelos/profesional.h"
+	"../modelos/paciente.h"
+
+1605272695 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\login.h
+
+1605210552 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.h
+
+1604249260 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuespaciente.h
+
+1605574091 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.h
+	"../interfaces/interfazplanfarmacologico.h"
+
+1605625126 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.h
+	"../modelos/registro.h"
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	"../interfaces/interfazentidades.h"
+
+1605212779 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\cobertura.h
+	"registro.h"
+	<iostream>
+	<cstring>
+
+1604584482 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\detalleplanfarmacologico.h
+	"registro.h"
+
+1604537180 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\especialidad.h
+	"registro.h"
+	"iostream"
+	"cstring"
+	"iostream"
+	"cstring"
+
+1604537302 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\farmaco.h
+	"registro.h"
+
+1605576367 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\fecha.h
+	<iostream>
+
+1604538240 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\medicacion.h
+	"registro.h"
+	"fecha.h"
+	"iostream"
+	"cstring"
+
+1605217578 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.h
+	"persona.h"
+	"fecha.h"
+	<iomanip>
+
+1605620866 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.h
+	"fecha.h"
+	"registro.h"
+	<iostream>
+	<cstring>
+
+1605297965 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\planfarmacologico.h
+	"registro.h"
+	"fecha.h"
+	"iostream"
+	"cstring"
+
+1604538806 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\presentacion.h
+	"registro.h"
+
+1605622389 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.h
+	"persona.h"
+	<iostream>
+	<iomanip>
+
+1605322923 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\registro.h
+	"fecha.h"
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstring>
+	<ctype.h>
+
+1605370979 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.h
+	<cstring>
+	<iostream>
+	"registro.h"
+	"persona.h"
+
+1605616143 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones\validaciones.h
+	"../modelos/fecha.h"
+	"../modelos/usuario.h"
+	"../modelos/profesional.h"
+	"../modelos/persona.h"
+	<ctype.h>
 

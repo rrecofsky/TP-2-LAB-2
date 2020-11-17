@@ -51,14 +51,6 @@ bool ValidacionesGenerales :: EsCadenaAlfabetica(const char * _cadena){
 }
 
 
-const char * ValidacionesGenerales ::  GetFechaConFormato(Fecha _fecha){
-    //Consultar por que no funciona!
-    char str[10]={};//itoa para convertir., val,str,base 10. **** string.c_str() --> convertir a string.
-    char dd[2], mm[2], aaaa[4];
-    return strcat(strcat(strcat(strcat(strcat(str,itoa(_fecha.GetDia(),dd,10)),"/"),itoa(_fecha.GetMes(),mm,10)),"/"),itoa(_fecha.GetAnio(),aaaa,10));
-}
-
-
 Perfil ValidacionesGenerales :: ValidarPerfilDeUsuario(){
     ValidacionesTipoDato val;
     bool fail;
@@ -116,7 +108,7 @@ int ValidacionesGenerales :: ValidarOpciones(int _opMin, int _opMax, const char 
     {
         dato = val.cargar_Entero();
         fail = dato < _opMin || dato > _opMax ? true : false;
-        if (fail) val.generar_Mensaje(Error,strcat("ERROR: ",_msj));
+        if (fail) val.generar_Mensaje(Error,_msj);
 
     }while(fail);
     return dato;
@@ -290,6 +282,13 @@ void  ValidacionesTipoDato :: generar_Mensaje(int _error,const char *_mensaje)
     }
     setColor(WHITE);
     return;
+}
+
+const char* ValidacionesTipoDato :: intToStr(int _data) {
+    string strData = to_string(_data);
+    char* temp = new char[strData.length() + 1];
+    strcpy(temp, strData.c_str());
+    return temp;
 }
 
 

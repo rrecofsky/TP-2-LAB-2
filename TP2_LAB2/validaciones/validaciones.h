@@ -23,7 +23,6 @@ class ValidacionesGenerales{
         int ValidarMes();
         int ValidarAnio();
         bool EsBiciesto(Fecha );
-        const char * GetFechaConFormato(Fecha);
         bool EsCadenaAlfanumerica(const char *);
         bool EsCadenaAlfabetica(const char * );
         int ValidarDNI( );
@@ -40,6 +39,7 @@ class ValidacionesTipoDato{
         char cargar_Char();
         void generar_Mensaje(int ,const char *);
         void ADesarrollar();
+        const char* intToStr(int);
      //   const char *  cargar_Cadena(int );
 };
 

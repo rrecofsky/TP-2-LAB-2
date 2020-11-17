@@ -30,6 +30,7 @@ bool  Usuario :: comparaID(Registro *temp){
         if (strlen(user) > 0 && strlen(aux->user) > 0 )
             if ( strlen(user) == strlen(aux->user) && compararCadenas(user,aux->user))
                 return true;
+        if (ID_Persona != -1 && aux->ID_Persona != -1 && ID_Persona == aux->ID_Persona) return true;
         if (ID==aux->ID)
             return true;
         return false;

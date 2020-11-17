@@ -12,6 +12,7 @@ class InterfazPersona{
         void MostrarCabeceraPersona();
         void ObtenerPersona(Persona &);
         int  AsociarPaciente(Paciente & );
+        int AsociarUsuario(Usuario & );
 };
 
 class InterfazUsuario : public InterfazGeneral {
@@ -25,7 +26,7 @@ class InterfazUsuario : public InterfazGeneral {
         bool AsociarUsuario(Usuario &);
 };
 
-class InterfazProfesional  {
+class InterfazProfesional {
     public:
         bool CargarProfesional(Profesional &);
         void MostrarProfesional(Profesional);

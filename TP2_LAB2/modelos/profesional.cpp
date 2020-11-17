@@ -20,10 +20,12 @@ void Profesional :: SetEspecialidad(int _idEspecialidad){ID_especialidad = _idEs
 
 bool  Profesional :: comparaID(Registro *temp){
         Profesional *aux=(Profesional *)temp;
-        if( (DNI != 0 && aux->DNI != 0 )&& DNI == aux->DNI ) return true;
-        if(ID == aux->ID ) return true;
+        if( (DNI != -1 && aux->DNI != -1 )&& DNI == aux->DNI ) return true;
+        if(ID == aux->ID )  return true;
         return false;
 }
+
+int   Profesional :: getSize(){return sizeof *this;}
 
 
 ///MOSTRAR Y CARGAR
