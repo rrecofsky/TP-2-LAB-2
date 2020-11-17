@@ -167,16 +167,16 @@ char ValidacionesGenerales :: ValidarGenero(){
     return dato;
 }
 
-bool ValidarDNI(int ){
-
+int  ValidacionesGenerales :: ValidarDNI(){
+    return ValidarOpciones( 5000000,  50000000, "EL DNI NO PUEDE SER MENOR QUE 5.000.000 NI MAYOR QUE 70.000.000");
 }
 
-bool ValidarNroAlifiado(int ){
-
+int  ValidacionesGenerales :: ValidarNroAlifiado( ){
+     return ValidarOpciones( 0,  4000000, "EL NRO DE AFILIADO NO PUEDE SER MENOR QUE 1000 NI MAYOR QUE 4000");
 }
 
-bool ValidarMatricula(int ){
-
+int  ValidacionesGenerales ::  ValidarMatricula( ){
+    return ValidarOpciones( 0,  400000, "EL NRO DE MATRICULA NO PUEDE SER MENOR QUE 10000 NI MAYOR QUE 40000");
 }
 
 ///VALIDACIONES TIPO DE DATO

@@ -9,7 +9,7 @@
 #include "../modelos/archivo.h"
 //#include "interfaz.h" usar interfaz para el LOGIN
 #include "../util/rlutil.h"
-//#include "../login/logo.h"
+#include "../login/logo.h"
 
 using namespace    rlutil;
 extern const char *FILE_PACIENTES;
@@ -28,6 +28,7 @@ void MenuLogin()
  //   MenuAdministrador();
  //   return;
     //  ------------> TEMPORAL
+    Logo();
 
     Archivo archUsuarios(FILE_USUARIOS,sizeof(Usuario));
     Perfil  tipoDeUsuario=Perfil_Paciente;

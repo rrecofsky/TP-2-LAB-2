@@ -74,7 +74,7 @@ void InterfazPlanFarmacologico :: MostrarPlanFarmacologico(PlanFarmacologico _pl
 //    interfazPersona.AsociarPersona(_planFarmacologico.GetIdPaciente());
     cout << setw(6)  << paciente.GetNombres();
     cout << setw(6)   << paciente.GetApellidos();
-    interfazPersona.AsociarPersona(profesional);
+  //  interfazPersona.AsociarProfesional(profesional);
     cout << setw(6)  << profesional.GetNombres();
     cout << setw(6)   << profesional.GetApellidos();
     cout << setw(12) <<_planFarmacologico.GetNotas();

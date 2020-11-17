@@ -30,6 +30,7 @@ class Profesional: public Persona
         void Cargar();
         void Mostrar();
         void Modificar();
+        bool comparaID(Registro *temp);
         ///Sobrecarga con Friend
         friend istream & operator>>(istream &, int &);
         friend ostream & operator<<(ostream &, int &);

@@ -16,6 +16,16 @@ int  Profesional :: GetEspecialidad(){return ID_especialidad;}
 void Profesional :: SetMatricula(int _matricula){matricula = _matricula;}
 void Profesional :: SetEspecialidad(int _idEspecialidad){ID_especialidad = _idEspecialidad;}
 
+///pol
+
+bool  Profesional :: comparaID(Registro *temp){
+        Profesional *aux=(Profesional *)temp;
+        if( (DNI != 0 && aux->DNI != 0 )&& DNI == aux->DNI ) return true;
+        if(ID == aux->ID ) return true;
+        return false;
+}
+
+
 ///MOSTRAR Y CARGAR
 
 int matricula;

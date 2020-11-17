@@ -2,8 +2,14 @@
 #include "../validaciones/validaciones.h"
 
 const char* InterfazFecha :: GetfechaFormateada(Fecha fecha){
-    char str[10]={};//dd/mm/aaaa
-    char dd[2], mm[2], aaaa[4];
+    char str[10];//dd/mm/aaaa
+    char dd[2], mm[2], aaaa[4];/*
+    strcpy(str,itoa(fecha.GetDia(),dd,10));
+    strcat(str,"/");
+    strcat(str,itoa(fecha.GetMes(),mm,10));
+    strcat(str,"/");
+    strcat(str,itoa(fecha.GetAnio(),aaaa,10));
+    return str;*/
     return strcat(strcat(strcat(strcat(strcat(str,itoa(fecha.GetDia(),dd,10)),"/"),itoa(fecha.GetMes(),mm,10)),"/"),itoa(fecha.GetAnio(),aaaa,10));
 }
 

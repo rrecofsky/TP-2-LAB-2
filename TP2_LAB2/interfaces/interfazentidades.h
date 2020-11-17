@@ -8,8 +8,10 @@
 
 class InterfazPersona{
     public:
-        int  AsociarPersona(Persona &);
+        int  AsociarProfesional(Profesional &);
         void MostrarCabeceraPersona();
+        void ObtenerPersona(Persona &);
+        int  AsociarPaciente(Paciente & );
 };
 
 class InterfazUsuario : public InterfazGeneral {
@@ -29,7 +31,7 @@ class InterfazProfesional  {
         void MostrarProfesional(Profesional);
         void ModificarProfesional(Profesional &);
         void AgregarAArchivo(Profesional);
-        void ModificarEnArchivo(Profesional);
+        void ModificarEnArchivo(Profesional &);
         void ListarProfesionales();
 
 };
