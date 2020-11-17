@@ -25,7 +25,10 @@ class ValidacionesGenerales{
         bool EsBiciesto(Fecha );
         const char * GetFechaConFormato(Fecha);
         bool EsCadenaAlfanumerica(const char *);
-        bool EsCadena(const char*);//IMPLEMENTAR!
+        bool EsCadenaAlfabetica(const char * );
+        bool ValidarDNI(int );
+        bool ValidarNroAlifiado(int );
+        bool ValidarMatricula(int );
 
 };
 

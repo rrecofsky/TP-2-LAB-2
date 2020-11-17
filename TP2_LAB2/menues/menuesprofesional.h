@@ -9,6 +9,7 @@ void MenuProfesional();
 void PlanesFarmacologicos();
 void Pacientes();
 void Consultas();
+void ModificarDatosDeUsuarioLogueado();
 
 ///IMPLEMENTAR!
 void MostrarPacientesDelProfesional();

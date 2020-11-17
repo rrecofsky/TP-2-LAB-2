@@ -43,6 +43,13 @@ bool ValidacionesGenerales :: EsCadenaAlfanumerica(const char * _cadena){
     return true;
 }
 
+bool ValidacionesGenerales :: EsCadenaAlfabetica(const char * _cadena){
+    for (int i=0; i<strlen(_cadena);i++)
+        if (!isalpha(_cadena[i]))
+            return false;
+    return true;
+}
+
 
 const char * ValidacionesGenerales ::  GetFechaConFormato(Fecha _fecha){
     //Consultar por que no funciona!
@@ -158,6 +165,18 @@ char ValidacionesGenerales :: ValidarGenero(){
 
     }while(fail);
     return dato;
+}
+
+bool ValidarDNI(int ){
+
+}
+
+bool ValidarNroAlifiado(int ){
+
+}
+
+bool ValidarMatricula(int ){
+
 }
 
 ///VALIDACIONES TIPO DE DATO

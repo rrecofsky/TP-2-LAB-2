@@ -34,6 +34,7 @@ void MenuProfesional(){
         cout<<"2) ALTA DE PLANE FARMACOLOGICO"<<endl;
         cout<<"3) ESTUDIOS "<<endl;
         cout<<"4) INFORMES "<<endl;
+        cout<<"5) MODIFICAR DATOS DE USUARIO"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -53,6 +54,9 @@ void MenuProfesional(){
                    break;
             case 4:
                    MostrarInformesDelProfesional();
+                   break;
+            case 5:
+                   ModificarDatosDeUsuarioLogueado();
                    break;
             case 0:
                    return;
@@ -239,4 +243,14 @@ void ReportesInformes(){
         case 5:
         break;
     }
+}
+
+
+void ModificarDatosDeUsuarioLogueado(){
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
+    system("PAUSE");
+    return;
+    cls();
+    InterfazUsuario IU;
+    IU.ModificarUsuario(usr_lgd);
 }

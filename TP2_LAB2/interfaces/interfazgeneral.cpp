@@ -31,7 +31,6 @@ bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
                         Archivo arch(FILE_PROFESIONALES,sizeof(*aux));
                         int pos = arch.buscarRegistro(*aux);
                         if ( arch.buscarRegistro(*aux) >= 0 ){
-                            free(aux);
                             return true;
                         }
                         return false;
@@ -42,8 +41,7 @@ bool InterfazGeneral :: CompararForeignKey(Registro *_registro){
                         Archivo arch(FILE_USUARIOS,sizeof(*aux));
                         int pos = arch.buscarRegistro(*aux);
                         if ( arch.buscarRegistro(*aux) >= 0 ){
-                            free(aux);
-                            return true;
+                             return true;
                         }
                         return false;
                     }

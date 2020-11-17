@@ -33,7 +33,7 @@ void MenuAdministrador()
         cout<<"1) PROFESIONALES"<<endl;
         cout<<"2) PACIENTES"<<endl;
         cout<<"3) USUARIOS"<<endl;
-        cout<<"4) CONFIGURACION"<<endl;
+        cout<<"4) MODIFICAR USUARIO Y CONTRASENIA"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) SALIR DEL PROGRAMA"<<endl;
 
@@ -167,7 +167,9 @@ void MostrarUsuarios(){
 }
 
 void ModificarUsuario(){
-    //a desarrollar
+    cls();
+    InterfazUsuario IU;
+    IU.ModificarUsuario(usr_lgd);
 }
 
 

@@ -143,6 +143,9 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
             cout<<"PACIENTES DISPONIBLES"<<endl<<endl;
             //listo los pacientes
             IP.ListarPacientes();
+            cout<<"DESEA ASIGNARLE UNO DE LOS PACIENTES DISPONIBLES? S/N"<<endl;
+            if (! validaGeneral.leer_SoN()) return false;
+            cout<<endl;
             cout<<"INGRESE EL ID DEL PACIENTE QUE DESEA RELACIONAR: ";
             //ingreso el ID del paciente que quiero buscar
             paciente.SetId(validaTDato.cargar_Entero());
@@ -198,9 +201,9 @@ void InterfazUsuario :: AgregarUsuarioAArchivo(Usuario _user){
     {
         Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
         if(usuarios.grabarRegistro(_user,-1) == 1)
-            validaTDato.generar_Mensaje(0,"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
+            validaTDato.generar_Mensaje(2,"SE GRABO SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
         else
-            validaTDato.generar_Mensaje(2,"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
+            validaTDato.generar_Mensaje(0,"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
     }
     cout<<endl;
     system("PAUSE");
@@ -225,16 +228,74 @@ void InterfazUsuario :: ListarUsuarios(){
         while(fread(&user,sizeof(Usuario),1,usuarios.GetPF())){
              MostrarUsuario(user);
         };
-    }else validaTDato.generar_Mensaje(1,"NO EXISTEN USUARIOS CARGADOS EN EL SISTEMA");
+    }else validaTDato.generar_Mensaje(2,"NO EXISTEN USUARIOS CARGADOS EN EL SISTEMA");
     system("PAUSE");
     return;
 };
 
 void InterfazUsuario :: ModificarUsuario(Usuario & _user){
+    //REVISAR.
+    ValidacionesGenerales validaGeneral;
+    ValidacionesTipoDato validaTDato;
+    char str[50];
+    cout<<"DESEA MODIFICAR SU NOMBRE DE USUARIO?: "<<_user.GetUserNamee()<<" S/N"<<endl;
+    if (validaGeneral.leer_SoN()){
+        do{
+            cin.clear();
+             cin.ignore();
+            cout<<"USUARIO";
+            cout << endl << "> ";
+            cin.getline(str,50);
+            _user.ChangeUserName(str);
+            if (!validaGeneral.EsCadenaAlfanumerica(_user.GetUserNamee())){
+                    validaTDato.generar_Mensaje(0,"SOLO SE PERMITEN VALORES ALFANUMERICOS");
+            }
+            else
+                if (CompararForeignKey(&_user)){
+                    validaTDato.generar_Mensaje(0,"YA EXISTE UN USUARIO CON ESE NOMBRE, DESEA CARGAR OTRO? S/N");
+                    if (! validaGeneral.leer_SoN()) return;
+                }else
+                    break;
+        }while(true);
+    }
+    cout<<"DESEA MODIFICAR LA CONTRASENIA? S/N"<<endl;
+    if ( validaGeneral.leer_SoN()){
+            cin.clear();
+             cin.ignore();
+            cout<<"CONTRASENIA";
+            cout << endl << "> ";
+            cin.getline(str,50);
+            _user.ChangeUserPass(str);
+    }else return;
+}
 
-};
-
-void InterfazUsuario :: ModificarUsuarioEnArchivo(Usuario _user){};
+void InterfazUsuario :: ModificarUsuarioEnArchivo(Usuario _user){
+    ValidacionesGenerales valGral;
+    ValidacionesTipoDato validaTDato;
+    Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
+    int posUser = usuarios.buscarRegistro(_user);
+    if ( posUser != -1 && usuarios.leerRegistro(_user, posUser) != -1){
+        MostrarUsuario(_user);
+        cout<<endl<<endl;
+        cout<<"ESTA SEGURO QUE DESEA MODIFICAR EL SIGUIENTE USUARIO? S/N"<<endl;
+        if(!valGral.leer_SoN())
+        {
+            ModificarUsuario(_user);
+            if(usuarios.grabarRegistro(_user,posUser) == 1)
+                validaTDato.generar_Mensaje(2,"SE ACTUALIZO SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
+            else
+                validaTDato.generar_Mensaje(0,"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
+            cout<<endl;
+            system("PAUSE");
+            return;
+        }
+    }else{
+            validaTDato.generar_Mensaje(0,"NO EXISTE UN PROFESIONAL CON EL ID: ");
+            cout<<_user.GetId();
+            cout<<endl<<endl;
+            system("PAUSE");
+         }
+}
 
 
 ///INERFAZ PROFESIONAL
@@ -244,16 +305,30 @@ bool InterfazProfesional :: CargarProfesional(Profesional &prof){
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
     char nombres[50], apellidos[50];
-    cout<<"NOMBRES";
-    cin.clear();
-    cin.ignore();
-    cout << endl << "> ";
-    cin.getline(nombres,50);
+    do{
+        cout<<"NOMBRES";
+        cin.clear();
+        cin.ignore();
+        cout << endl << "> ";
+        cin.getline(nombres,50);
+        if (validaGeneral.EsCadenaAlfabetica(nombres)){
+            validaTDato.generar_Mensaje(0,"SOLO SE PERMITEN VALORES DEL ALFABETO");
+            cout<<endl;
+            system("PAUSE");
+        }else break;
+    }while(true);
     prof.SetNombres(nombres);
     cout<<endl;
-    cout<<"APELLIDOS";
-    cout << endl << "> ";
-    cin.getline(apellidos,50);
+    do{
+        cout<<"APELLIDOS";
+        cout << endl << "> ";
+        cin.getline(apellidos,50);
+        if (validaGeneral.EsCadenaAlfabetica(apellidos)){
+            validaTDato.generar_Mensaje(0,"SOLO SE PERMITEN VALORES DEL ALFABETO");
+            cout<<endl;
+            system("PAUSE");
+        }else break;
+    }while(true);
     prof.SetApellidos(apellidos);
     cout<<endl;
     cout<<"GENERO";
@@ -402,7 +477,7 @@ void InterfazProfesional :: ModificarEnArchivo(Profesional _prof){
             system("PAUSE");
 
          }
-};
+}
 
 void InterfazProfesional :: ListarProfesionales(){
     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional),true);
