@@ -29,9 +29,9 @@ void MenuProfesional(){
         cls();
         title("PROFESIONAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-
+        cout<<"1) USUARIOS"<<endl;
         cout<<"1) PACIENTE"<<endl;
-        cout<<"2) ALTA DE PLANE FARMACOLOGICO"<<endl;
+        cout<<"2) ALTA DE PLANES FARMACOLOGICO"<<endl;
         cout<<"3) ESTUDIOS "<<endl;
         cout<<"4) INFORMES "<<endl;
         cout<<"5) MODIFICAR DATOS DE USUARIO"<<endl;
@@ -44,18 +44,21 @@ void MenuProfesional(){
 
         switch(opcion){
             case 1:
-                   MenuEntidad("PACIENTE");
+                   AltaUsuario();
                    break;
             case 2:
+                   MenuEntidad("PACIENTE");
+                   break;
+            case 3:
                   AltaPlanFarmacologico();
                   break;
-            case 3:
+            case 4:
                    MostrarEstudiosDelProfesional();
                    break;
-            case 4:
+            case 5:
                    MostrarInformesDelProfesional();
                    break;
-            case 5:
+            case 6:
                    ModificarDatosDeUsuarioLogueado();
                    break;
             case 0:

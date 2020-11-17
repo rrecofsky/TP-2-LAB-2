@@ -6,13 +6,16 @@
 #include "../modelos/paciente.h"
 #include "../interfaces/interfazgeneral.h"
 
+
 class InterfazPersona{
     public:
         int  AsociarProfesional(Profesional &);
         void MostrarCabeceraPersona();
         void ObtenerPersona(Persona &);
         int  AsociarPaciente(Paciente & );
-        int AsociarUsuario(Usuario & );
+        int  AsociarUsuario(Usuario & );
+        int  GetCantidadPacientes();
+        int GetCantidadProfesionales();
 };
 
 class InterfazUsuario : public InterfazGeneral {
@@ -34,7 +37,7 @@ class InterfazProfesional {
         void AgregarAArchivo(Profesional);
         void ModificarEnArchivo(Profesional &);
         void ListarProfesionales();
-
+        int  GetCantidadProfesionales();
 };
 
 class InterfazPaciente  {

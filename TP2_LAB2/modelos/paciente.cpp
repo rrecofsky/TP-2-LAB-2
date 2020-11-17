@@ -55,8 +55,9 @@ int Paciente :: getSize(){return sizeof *this;}
 
 bool  Paciente :: comparaID(Registro *temp){
         Paciente *aux=(Paciente *)temp;
-
-        if(DNI != 0 && DNI == aux->DNI ) return true;
+        if(DNI != -1 && aux->DNI != -1 && DNI == aux->DNI ) return true;
+        if (nro_Afiliado != -1 && aux->nro_Afiliado != -1 && nro_Afiliado == aux->nro_Afiliado ) return true;
+        if (ID_Informe != -1 && aux->ID_Informe != -1 && ID_Informe != -1 == aux->ID_Informe ) return true;
         if( ID == aux->ID  ) return true;
 
         return false;

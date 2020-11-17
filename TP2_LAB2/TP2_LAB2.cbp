@@ -46,6 +46,7 @@
 		<Unit filename="interfaces/interfazgeneral.h" />
 		<Unit filename="interfaces/interfazplanfarmacologico.cpp" />
 		<Unit filename="interfaces/interfazplanfarmacologico.h" />
+		<Unit filename="login/logo.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menues/informes.cpp" />
 		<Unit filename="menues/informes.h" />

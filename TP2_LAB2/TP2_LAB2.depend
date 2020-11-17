@@ -484,7 +484,7 @@
 	<cstring>
 	<ctype.h>
 
-1605217578 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.h
+1605635775 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.h
 	"persona.h"
 	"fecha.h"
 	<iomanip>
@@ -565,7 +565,7 @@
 
 1604249260 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuespaciente.h
 
-1605624518 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.cpp
+1605628907 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.cpp
 	"../util/ui.h"
 	"../util/rlutil.h"
 	"archivo.h"
@@ -685,7 +685,7 @@
 	<iostream>
 	"../validaciones/validaciones.h"
 
-1605277833 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.cpp
+1605635515 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.cpp
 	"paciente.h"
 	<iostream>
 	<limits>
@@ -733,7 +733,7 @@
 	"../validaciones/validaciones.h"
 	"../interfaces/interfazentidades.h"
 
-1605574782 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.cpp
+1605635107 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.cpp
 	<iostream>
 	<string.h>
 	"../util/ui.h"
@@ -755,15 +755,14 @@
 	<iostream>
 	"../modelos/fecha.h"
 
-1605619906 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.h
+1605632190 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.h
 	"../modelos/profesional.h"
 	"../modelos/registro.h"
 	"../modelos/usuario.h"
 	"../modelos/paciente.h"
 	"../interfaces/interfazgeneral.h"
 
-1605628227 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
-	"interfazentidades.h"
+1605634682 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
 	<limits>
 	<iostream>
 	"../modelos/archivo.h"
@@ -771,6 +770,7 @@
 	"../util/rlutil.h"
 	"../interfaces/interfazcobertura.h"
 	"../interfaces/interfazfecha.h"
+	"../interfaces/interfazentidades.h"
 
 1605574482 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgeneral.cpp
 	"../modelos/usuario.h"

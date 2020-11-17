@@ -14,12 +14,13 @@ class Paciente:public Persona
         int ID_Informe; //R FUERTE A 1, no puede existir si un paciente
     public:
 
-        Paciente(const char * _nombre = "", const char *  _apellido = "",int _dni = 0, int n =0, int c=0, int p =0, int i =0):Persona(_nombre,_apellido,_dni)
+        Paciente(const char * _nombre = "", const char *  _apellido = "",int _dni = -1, int _nroAfiliado =-1, int _cobertura =-1, int p =0, int i =0):Persona(_nombre,_apellido,_dni)
         {
-            nro_Afiliado         = n;
-            ID_Cobertura         = c;
-            ID_PlanFarmacologico = 0;
-            ID_Informe           = 0;
+            nro_Afiliado         = _nroAfiliado;
+            ID_Cobertura         = _cobertura;
+            ID_PlanFarmacologico = -1;
+            ID_Informe           = -1;
+            ID                   = -1;
         }
 
         ~Paciente(){};
