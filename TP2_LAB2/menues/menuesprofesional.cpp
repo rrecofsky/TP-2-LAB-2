@@ -150,7 +150,7 @@ void MostrarPacientesDelProfesional(){
 }
 
 void ModificarPacienteDelProfesional(){
-    cls();
+    system("cls");
     cout<<"NO IMPLEMENTADO"<<endl;
     system("PAUSE");
     return;
@@ -171,7 +171,7 @@ void ModificarPacienteDelProfesional(){
 /******************* MENUES PLAN FARMA *****************************/
 
 void AltaPlanFarmacologico(){
-    cls();
+    system("cls");
     InterfazPlanFarmacologico IPF;
     PlanFarmacologico planFarmaco;
     if (IPF.CargarPlanFarmacologico(planFarmaco))
@@ -180,7 +180,7 @@ void AltaPlanFarmacologico(){
 }
 
 void MostrarPlanesFarmacologicosDelProfesional(){
-    cls();
+    system("cls");
     InterfazPlanFarmacologico IPF;
     IPF.ListarPlanesFarmacologicos();
     return;
@@ -188,7 +188,7 @@ void MostrarPlanesFarmacologicosDelProfesional(){
 
 /********************** ESTUDIOS ********************/
 void MostrarEstudiosDelProfesional(){
-    cls();
+    system("cls");
     cout<<"NO IMPLEMENTADO"<<endl;
     system("PAUSE");
     return;
