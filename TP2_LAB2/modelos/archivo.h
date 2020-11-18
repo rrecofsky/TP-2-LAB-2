@@ -86,6 +86,7 @@ class Archivo{
       }
 
       int leerRegistro(Registro &,int );
+      int  leerRegistro(Registro &);
       int buscarRegistro(Registro &);
       int grabarRegistro( Registro & , int);
       int   alta(Registro &);

@@ -19,7 +19,7 @@ using namespace std;
 
 ///INTERFAZ PERSONA
 
- int InterfazPersona :: AsociarProfesional(Profesional & _profesional){
+ int InterfazPersona :: ObtenerProfesional(Profesional & _profesional){
     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
     int posEntidad = profesionales.buscarRegistro(_profesional);
     if ( posEntidad >= 0 && profesionales.leerRegistro(_profesional, posEntidad) != -1)
@@ -28,7 +28,7 @@ using namespace std;
 
  }
 
-int InterfazPersona :: AsociarPaciente(Paciente & _paciente){
+int InterfazPersona :: ObtenerPaciente(Paciente & _paciente){
             Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
             int posEntidad = pacientes.buscarRegistro(_paciente);
             if ( posEntidad >= 0 && pacientes.leerRegistro(_paciente, posEntidad) != -1)
@@ -37,7 +37,7 @@ int InterfazPersona :: AsociarPaciente(Paciente & _paciente){
 
  }
 
-int InterfazPersona :: AsociarUsuario(Usuario & _usuario){
+int InterfazPersona :: ObtenerUsuario(Usuario & _usuario){
             Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
             int posEntidad = usuarios.buscarRegistro(_usuario);
             if ( posEntidad >= 0 && usuarios.leerRegistro(_usuario, posEntidad) != -1)
@@ -142,13 +142,13 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
                     //*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
                     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
                     //si existe en el archivo, entonces el ID esta OK
-                    int posProf = IPsna.AsociarProfesional(profesional);
+                    int posProf = IPsna.ObtenerProfesional(profesional);
                     //le relaciono el ID del paciente al usuario
                     Usuario usr;
                     usr.ChangeIdPersona(profesional.GetId());
-                    int posUsr =  IPsna.AsociarUsuario(usr);
+                    int posUsr =  IPsna.ObtenerUsuario(usr);
                     //Si el prof existe y el usuario tiene asociado ese prof
-                    if (posProf >= 0 && posUsr >= 0){
+                    if (posProf >= 0 && posUsr >= 0 && usr.GetPerfilUser() == _user.GetPerfilUser()){
                         validaTDato.generar_Mensaje(0,"EL PROFESIONAL SELECCIONADO YA POSEE UN USUARIO, DESEA SALIR? S/N");
                           if (validaGeneral.leer_SoN()) return false;
                     }else//si el prof existe
@@ -181,16 +181,16 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
             //ingreso el ID del paciente que quiero buscar
             paciente.SetId(validaTDato.cargar_Entero());
             //si existe en el archivo, entonces el ID esta OK
-        //*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
+        ///*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
             Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
             //si existe en el archivo, entonces el ID esta OK
-            int posPac = IPsna.AsociarPaciente(paciente);
+            int posPac = IPsna.ObtenerPaciente(paciente);
             //le relaciono el ID del paciente al usuario
             Usuario usr;
             usr.ChangeIdPersona(paciente.GetId());
-            int posUsr =  IPsna.AsociarUsuario(usr);
+            int posUsr =  IPsna.ObtenerUsuario(usr);
             //Si el prof existe y el usuario tiene asociado ese prof
-            if (posPac >= 0 && posUsr >= 0){
+             if (posPac >= 0 && posUsr >= 0 && usr.GetPerfilUser() == _user.GetPerfilUser()){
                 validaTDato.generar_Mensaje(0,"EL PACIENTE SELECCIONADO YA POSEE UN USUARIO, DESEA SALIR? S/N");
                   if (validaGeneral.leer_SoN()) return false;
             }else//si el prof existe
@@ -224,14 +224,14 @@ void InterfazUsuario :: MostrarUsuario(Usuario _user){
     if (_user.GetPerfilUser() == Perfil_Profesional){
         Profesional profesional;
         profesional.SetId(_user.GetIdPersona());
-        interfazPersona.AsociarProfesional(profesional);
+        interfazPersona.ObtenerProfesional(profesional);
         cout << setw(6)  << profesional.GetNombres();
         cout << setw(6)  << profesional.GetApellidos(); //_user.GetIdPersona(); //profesional.GetApellidos();
     }
     else{
         Paciente paciente;
         paciente.SetId(_user.GetIdPersona());
-        interfazPersona.AsociarPaciente(paciente);
+        interfazPersona.ObtenerPaciente(paciente);
         cout << setw(6)  << paciente.GetNombres();
         cout << setw(6)  << paciente.GetApellidos();
         }
@@ -368,8 +368,8 @@ bool InterfazProfesional :: CargarProfesional(Profesional &prof){
         cin.getline(nombres,50);
         if (!validaGeneral.EsCadenaAlfabetica(nombres)){
             validaTDato.generar_Mensaje(0,"SOLO SE PERMITEN VALORES DEL ALFABETO");
-            cout<<endl;
-          //  system("PAUSE");
+            cout<<endl<<endl;
+            system("PAUSE");
         }else break;
     }while(true);
     prof.SetNombres(nombres);
@@ -380,8 +380,8 @@ bool InterfazProfesional :: CargarProfesional(Profesional &prof){
         cin.getline(apellidos,50);
         if (!validaGeneral.EsCadenaAlfabetica(apellidos)){
             validaTDato.generar_Mensaje(0,"SOLO SE PERMITEN VALORES DEL ALFABETO");
-            cout<<endl;
-        //    system("PAUSE");
+            cout<<endl<<endl;
+            system("PAUSE");
         }else break;
     }while(true);
     prof.SetApellidos(apellidos);
@@ -398,9 +398,9 @@ bool InterfazProfesional :: CargarProfesional(Profesional &prof){
     cout<<"NRO DE MATRICULA";
     prof.SetMatricula(validaGeneral.ValidarMatricula());
     cout<<endl;
-    cout<<"INGRESE EL ID DE UNA ESPECIALIDAD DISPONIBLES";
-     prof.SetMatricula(validaTDato.cargar_Entero());
-     /**************************** DESARROLLAR ESPECIALIDAD *******************************/
+    //cout<<"INGRESE EL ID DE UNA ESPECIALIDAD DISPONIBLES";
+     prof.SetEspecialidad(100);
+     ///**************************** DESARROLLAR ESPECIALIDAD *******************************/
      /*
     do{
             Especialidad esp;
@@ -540,6 +540,7 @@ void InterfazProfesional :: ModificarProfesional(Profesional &_prof){
 
 void InterfazProfesional :: ModificarEnArchivo(Profesional &_prof){
     ValidacionesGenerales valGral;
+    ValidacionesTipoDato validaTDato;
     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
     int posProf = profesionales.buscarRegistro(_prof);
     if ( posProf != -1 && profesionales.leerRegistro(_prof, posProf) != -1){
@@ -550,16 +551,17 @@ void InterfazProfesional :: ModificarEnArchivo(Profesional &_prof){
         {
             ModificarProfesional(_prof);
             if(profesionales.grabarRegistro(_prof,posProf) == 1)
-                cout<<"SE ACTUALIZO SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+                validaTDato.generar_Mensaje(2,"SE ACTUALIZO SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
             else
-                cout<<"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO"<<endl;
+                validaTDato.generar_Mensaje(0,"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PROFESIONAL CARGADO");
 
             cout<<endl;
             system("PAUSE");
             return;
         }
     }else{
-            cout<<"NO EXISTE UN PROFESIONAL CON EL ID: "<<_prof.GetId()<<endl;
+            validaTDato.generar_Mensaje(0,"NO EXISTE UN PROFESIONAL CON EL ID: ");
+            cout<<_prof.GetId();
             cout<<endl<<endl;
             system("PAUSE");
 
@@ -568,6 +570,7 @@ void InterfazProfesional :: ModificarEnArchivo(Profesional &_prof){
 
 void InterfazProfesional :: ListarProfesionales(){
     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional),true);
+    ValidacionesTipoDato validaTDato;
     Profesional prof;
     if( profesionales.getCantidadRegistros() != 0){
         InterfazPersona IP;
@@ -580,7 +583,7 @@ void InterfazProfesional :: ListarProfesionales(){
              MostrarProfesional(prof);
         };
 
-    }else cout<<"NO EXISTEN USUARIOS CARGADOS EN EL SISTEMA";
+    }else  validaTDato.generar_Mensaje(1,"NO EXISTEN USUARIOS CARGADOS EN EL SISTEMA");
     cout<<endl<<endl;
     system("PAUSE");
     return;
@@ -593,16 +596,30 @@ bool InterfazPaciente :: CargarPaciente(Paciente & _paciente){
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
     char nombres[50], apellidos[50];
-    cout<<"NOMBRES";
-    cin.clear();
-    cin.ignore();
-    cout << endl << "> ";
-    cin.getline(nombres,50);
+    do{
+        cout<<"NOMBRES";
+        cin.clear();
+        cin.ignore();
+        cout << endl << "> ";
+        cin.getline(nombres,50);
+        if (!validaGeneral.EsCadenaAlfabetica(nombres)){
+            validaTDato.generar_Mensaje(0,"SOLO SE PERMITEN VALORES DEL ALFABETO");
+            cout<<endl<<endl;
+            system("PAUSE");
+        }else break;
+    }while(true);
     _paciente.SetNombres(nombres);
     cout<<endl;
-    cout<<"APELLIDOS";
-    cout << endl << "> ";
-    cin.getline(apellidos,50);
+    do{
+        cout<<"APELLIDOS";
+        cout << endl << "> ";
+        cin.getline(apellidos,50);
+        if (!validaGeneral.EsCadenaAlfabetica(apellidos)){
+            validaTDato.generar_Mensaje(0,"SOLO SE PERMITEN VALORES DEL ALFABETO");
+            cout<<endl<<endl;
+            system("PAUSE");
+        }else break;
+    }while(true);
     _paciente.SetApellidos(apellidos);
     cout<<endl;
     cout<<"GENERO";
@@ -612,11 +629,14 @@ bool InterfazPaciente :: CargarPaciente(Paciente & _paciente){
     _paciente.SetFechaNacimiento(IF.CargarFecha());
     cout<<endl;
     cout<<"DNI";
-    _paciente.SetDNI(validaTDato.cargar_Entero());
+    _paciente.SetDNI(validaGeneral.ValidarDNI());
     cout<<endl;
     cout<<"AFILIADO";
     _paciente.SetNroAfiliado(validaTDato.cargar_Entero());
     cout<<endl;
+    _paciente.SetIdCObertura(99);
+    ///********************** TERMNAR **************************/
+    /*
     cout<<"DESEA RELACIONARLE UNA COBERTURA AL PACIENTE? S/N";
     if (validaGeneral.leer_SoN()){
          //busco los pacientes del archivo
@@ -634,6 +654,7 @@ bool InterfazPaciente :: CargarPaciente(Paciente & _paciente){
          //le relaciono el ID del paciente al usuario
          if (posCobertura >= 0 ) _paciente.SetIdCObertura(cobertura.GetId());
     }
+    */
     return true;
 
 }
@@ -644,7 +665,7 @@ void InterfazPaciente :: MostrarPaciente(Paciente _paciente){
     if (_paciente.GetId() >= 0 )
         cout << setw(4)  << _paciente.GetId();
     else
-        cout << setw(4)  << " - "
+        cout << setw(4)  << " - ";
     cout << setw(12)  << _paciente.GetNombres();
     cout << setw(12)  << _paciente.GetApellidos();
     cout << setw(12)  << _paciente.GetGenero();
@@ -659,6 +680,7 @@ void InterfazPaciente :: MostrarPaciente(Paciente _paciente){
 void InterfazPaciente :: AgregarPacienteAArchivo(Paciente _paciente){
 cls();
     ValidacionesGenerales valGral;
+    ValidacionesTipoDato validaTDato;
     InterfazPersona IP;
     IP.MostrarCabeceraPersona();
     cout << left;
@@ -672,16 +694,17 @@ cls();
     {
         Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
         if(pacientes.grabarRegistro(_paciente,-1) == 1)
-            cout<<"SE GRABO SATISFACTORIAMENTE EL PACIENTE"<<endl;
+            validaTDato.generar_Mensaje(2,"SE GRABO SATISFACTORIAMENTE EL PACIENTE");
         else
-            cout<<"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PACIENTE"<<endl;
+            validaTDato.generar_Mensaje(0,"NO SE PUDO GRABAR SATISFACTORIAMENTE EL PACIENTE");
     }
-    cout<<endl;
+    cout<<endl<<endl;
     system("PAUSE");
 }
 
 void InterfazPaciente :: ListarPacientes(){
     Archivo pacientes(FILE_PACIENTES,sizeof(Paciente),true);
+    ValidacionesTipoDato validaTDato;
     Paciente pac;
     if( pacientes.getCantidadRegistros() != 0){
         InterfazPersona IP;
@@ -694,13 +717,14 @@ void InterfazPaciente :: ListarPacientes(){
              MostrarPaciente(pac);
         };
 
-    }else cout<<"NO EXISTEN PACIENTES CARGADOS EN EL SISTEMA";
+    }else validaTDato.generar_Mensaje(1,"NO EXISTEN PACIENTES CARGADOS EN EL SISTEMA");
     cout<<endl<<endl;
     system("PAUSE");
     return;
 }
 
 void InterfazPaciente :: ModificarPaciente(Paciente & _paciente){
+///TERMINAR DE DESARROLLAR - FALTAN VALIDACIONES DE ENTRADA
         ValidacionesGenerales valGral;
         ValidacionesTipoDato valTipoDato;
         InterfazFecha IF;
@@ -779,6 +803,7 @@ void InterfazPaciente :: ModificarPaciente(Paciente & _paciente){
 }
 void InterfazPaciente :: ModificarPacienteEnArchivo(Paciente _paciente){
     ValidacionesGenerales valGral;
+    ValidacionesTipoDato validaTDato;
     Archivo pacientes(FILE_PROFESIONALES,sizeof(Profesional));
     int posPac = pacientes.buscarRegistro(_paciente);
     if ( posPac != -1 && pacientes.leerRegistro(_paciente, posPac) != -1){
@@ -790,16 +815,16 @@ void InterfazPaciente :: ModificarPacienteEnArchivo(Paciente _paciente){
             cls();
             ModificarPaciente(_paciente);
             if(pacientes.grabarRegistro(_paciente,posPac) == 1)
-                cout<<"SE ACTUALIZO SATISFACTORIAMENTE EL PACIENTE"<<endl;
+                validaTDato.generar_Mensaje(2,"SE ACTUALIZO SATISFACTORIAMENTE EL PACIENTE");
             else
-                cout<<"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PACIENTE"<<endl;
-
-            cout<<endl;
+            validaTDato.generar_Mensaje(0,"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE EL PACIENTE");
+            cout<<endl<<endl;
             system("PAUSE");
             return;
         }
     }else{
-            cout<<"NO EXISTE UN PROFESIONAL CON EL ID: "<<_paciente.GetId()<<endl;
+            validaTDato.generar_Mensaje(0,"NO EXISTE UN PROFESIONAL CON EL ID: ");
+            cout<<_paciente.GetId();
             cout<<endl<<endl;
             system("PAUSE");
          }

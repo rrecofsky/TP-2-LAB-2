@@ -21,7 +21,23 @@ int  Archivo::leerRegistro(Registro &var, int pos){
         var=(Registro *)pRegistro;
         cerrarArchivo();
         return x;
+ }
+
+ //BUSCA EL REGISTRO Y SI LO ENCUENTRA, LO ESCRIBE EN AL REFERENCIA
+ //DEVUELVE 1 SI LEYO; 0 SI NO LEYO; -1 SI EL ARCHIVO NO EXISTE
+ int  Archivo::leerRegistro(Registro &var){
+       int x;
+       if(!abrirArchivo(SoloLectura)){
+         return -1;
        }
+        int pos = buscarRegistro(var);
+        fseek(pF,pos*var.getSize(),0);
+        x=fread(pRegistro,var.getSize(),1,pF);
+        fclose(pF);
+        var=(Registro *)pRegistro;
+        cerrarArchivo();
+        return x;
+ }
 
 
 

@@ -7,12 +7,15 @@
    Tipo_Paciente,
    Tipo_Profesional,
    Tipo_Usuario,
+   Tipo_PlanFarmaco
 };
 
 class InterfazGeneral{
     public:
         TipoObjeto ObtenerTipoDeObjeto(Registro &_registro);
         bool  CompararForeignKey(Registro *_registro);
+        int   ObtenerRegistro(Registro &);
+
 };
 
 #endif // INTERFAZGENENAL_H_INCLUDED

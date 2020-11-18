@@ -37,6 +37,13 @@ return ( (strlen(_cad1) == strlen(_cad2) ) &&
 ///VALIDACIONES GENERALES
 
 bool ValidacionesGenerales :: EsCadenaAlfanumerica(const char * _cadena){
+    ValidacionesTipoDato val;
+ /*   if (EsCadenaVacia(_cadena)){
+        val.generar_Mensaje(Error,"NO SE ADMITEN TEXTOS SIN LETRAS");
+        cout<<endl<<endl;
+        system("PAUSE");
+        false;
+    }*/
     for (int i=0; i<strlen(_cadena);i++)
         if (!isalnum(_cadena[i]))
             return false;
@@ -44,10 +51,23 @@ bool ValidacionesGenerales :: EsCadenaAlfanumerica(const char * _cadena){
 }
 
 bool ValidacionesGenerales :: EsCadenaAlfabetica(const char * _cadena){
+    ValidacionesTipoDato val;
+  /*  if (EsCadenaVacia(_cadena)){
+        val.generar_Mensaje(Error,"NO SE ADMITEN TEXTOS SIN LETRAS");
+        cout<<endl<<endl;
+        system("PAUSE");
+        false;
+    }*/
     for (int i=0; i<strlen(_cadena);i++)
         if (!isalpha(_cadena[i]))
             return false;
     return true;
+}
+
+bool ValidacionesGenerales :: EsCadenaVacia(const char * _cadena){
+    if (strlen(_cadena) == 0)
+        true;
+    false;
 }
 
 

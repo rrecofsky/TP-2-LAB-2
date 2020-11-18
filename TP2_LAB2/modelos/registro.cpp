@@ -1,5 +1,5 @@
-#include "registro.h"
-#include "fecha.h"
+#include "../modelos/registro.h"
+#include "../modelos/fecha.h"
 #include <iostream>
 
 using namespace std;
@@ -7,6 +7,7 @@ using namespace std;
 Registro::Registro(){
     fechaAlta = fechaAlta.GetFechaActual();
     estado = true;
+    ID = -1;
 }
 
 //Gets

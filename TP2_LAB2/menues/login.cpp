@@ -46,12 +46,14 @@ void MenuLogin()
         tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
 
     cls();
+    cin.clear();
+    cin.ignore();
     cout << "INGRESE UN USUARIO: ";
     cout << endl << "> ";
-    cin  >> user;
+    cin.getline(user,50);
     cout << "INGRESE UNA CONTRASENIA: ";
     cout << endl << "> ";
-    cin  >> pass;
+    cin.getline(pass,50);
 
     do{
         if (tipoDeUsuario == usr_lgd.GetPerfilUser() &&
@@ -66,14 +68,15 @@ void MenuLogin()
                     usrAxuLogin.ChangeUserName(user);
                     //Cambio el paciente encontrado en el registro
                     int posUserLdg = archUsuarios.buscarRegistro(usrAxuLogin);
-                    if ( archUsuarios.leerRegistro(usrAxuLogin, posUserLdg) != -1 && strcmp(usrAxuLogin.GetUserPass(),pass) == 0 ){
-                        if (/*tipoDeUsuario == Perfil_Profesional &&*/ usrAxuLogin.GetPerfilUser() == Perfil_Profesional){
+                    archUsuarios.leerRegistro(usrAxuLogin, posUserLdg);
+                    if (  strcmp(usrAxuLogin.GetUserNamee(),user) == 0 && strcmp(usrAxuLogin.GetUserPass(),pass) == 0 ){
+                       if ( usrAxuLogin.GetPerfilUser() == Perfil_Profesional){
                                 usr_lgd = usrAxuLogin;
                                 MenuProfesional();
                                 return;
                         }
                         else
-                            if (/*tipoDeUsuario == Perfil_Paciente &&*/ usrAxuLogin.GetPerfilUser() == Perfil_Paciente)                            {
+                            if ( usrAxuLogin.GetPerfilUser() == Perfil_Paciente) {
                                 usr_lgd = usrAxuLogin;
                                 MenuPaciente();
                                 return;

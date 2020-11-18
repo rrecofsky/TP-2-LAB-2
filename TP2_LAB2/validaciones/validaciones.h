@@ -16,19 +16,19 @@ enum TipoMensaje{
 class ValidacionesGenerales{
     public:
         Perfil ValidarPerfilDeUsuario(); //solo permite cargar un tipo de usuario correcto
-        int ValidarOpciones(int , int , const char *);
-        char ValidarGenero();
-        bool leer_SoN();
-        int ValidarDia();
-        int ValidarMes();
-        int ValidarAnio();
-        bool EsBiciesto(Fecha );
-        bool EsCadenaAlfanumerica(const char *);
-        bool EsCadenaAlfabetica(const char * );
-        int ValidarDNI( );
-        int ValidarNroAlifiado( );
-        int ValidarMatricula( );
-
+        int    ValidarOpciones(int , int , const char *);
+        char   ValidarGenero();
+        bool   leer_SoN();
+        int    ValidarDia();
+        int    ValidarMes();
+        int    ValidarAnio();
+        bool   EsBiciesto(Fecha );
+        bool   EsCadenaAlfanumerica(const char *);
+        bool   EsCadenaAlfabetica(const char * );
+        int    ValidarDNI( );
+        int    ValidarNroAlifiado( );
+        int    ValidarMatricula( );
+        bool   EsCadenaVacia(const char * _cadena);
 };
 
 class ValidacionesTipoDato{

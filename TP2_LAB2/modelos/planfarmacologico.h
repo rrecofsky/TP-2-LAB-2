@@ -1,10 +1,10 @@
 #ifndef PLANFARMACOLOGICO_H_INCLUDED
 #define PLANFARMACOLOGICO_H_INCLUDED
 
-#include "registro.h"
-#include "fecha.h"
-#include "iostream"
-#include "cstring"
+#include "../modelos/registro.h"
+#include "../modelos/fecha.h"
+#include <iostream>
+#include <cstring>
 
 class PlanFarmacologico:public Registro
 {
@@ -12,15 +12,18 @@ class PlanFarmacologico:public Registro
         Fecha emision;
         int   ID_Paciente;
         int   ID_Profesional;
+        int   ID_DetallePlan;
         char  notas[500];
     public:
-        PlanFarmacologico(int idpc = 0, int idpf = 0, const char * n = ""):Registro()
+        PlanFarmacologico(int _idPaciente = -1, int _idProfesional = -1, const char * _notas = "", int _idDetallePLan = -1):Registro()
         {   Fecha f;
             emision           = f;
-            ID_Paciente       = idpc;
-            ID_Profesional    = idpf;
+            ID_Paciente       = _idPaciente;
+            ID_Profesional    = _idProfesional;
+            ID_DetallePlan    = _idDetallePLan;
             estado            = true;
-            strcpy(notas,n);
+            strcpy(notas,_notas);
+            ID                = -1;
         }
         ~PlanFarmacologico(){};
         //GETS
@@ -41,13 +44,17 @@ class PlanFarmacologico:public Registro
         void Modificar(){}; //BORRAR
         int getSize();
         bool comparaID(Registro *temp);
-        PlanFarmacologico& operator = (Registro *temp){
-
+         PlanFarmacologico& operator = (Registro *temp){
             PlanFarmacologico *aux=(PlanFarmacologico *)temp;
             emision = aux->emision;
             ID_Paciente = aux->ID_Paciente;
             ID_Profesional = aux->ID_Profesional;
+            ID_DetallePlan = aux->ID_DetallePlan;
             strcpy(this->notas,aux->notas);
+            estado           = aux->estado;
+            ID               = aux->ID;
+            fechaAlta        = aux->fechaAlta;
+            fechaBaja        = aux->fechaBaja;
         }
 
 };

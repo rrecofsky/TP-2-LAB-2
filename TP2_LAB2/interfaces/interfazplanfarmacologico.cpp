@@ -17,73 +17,137 @@ extern const char *FILE_COBERTURAS;
 extern const char *FILE_PLANFARMACO;
 extern Usuario usr_lgd;
 
-void InterfazPlanFarmacologico :: CargarPlanFarmacologico(PlanFarmacologico & _planFarmacologico){
+
+
+int InterfazPlanFarmacologico :: ObtenerPlanFarmacologico(PlanFarmacologico & _planFamrma){
+    Archivo planfarmas(FILE_PLANFARMACO,sizeof(PlanFarmacologico));
+    return planfarmas.leerRegistro(_planFamrma);
+ }
+
+
+bool InterfazPlanFarmacologico :: CargarPlanFarmacologico(PlanFarmacologico & _planFarmacologico){
     InterfazFecha IF;
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
+    InterfazPersona IPsna;
     char  notas[500];
     Fecha fechaEmision;
+
     Usuario user_aux;
-    Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
-    user_aux.ChangeUserName(usr_lgd.GetUserNamee());//le seteo el user para buscarlo en el archivo
-    int posUsuario = usuarios.buscarRegistro(user_aux);
-    _planFarmacologico.SetIdProfesional(user_aux.GetIdPersona());//si encuentra el ID, lo relaciono
-    char nombres[50], apellidos[50];
-    cout<<"FECHA DE EMISION (Automatica)"<<endl;
-    cout<<IF.GetfechaFormateada(fechaEmision);
+    //Archivo usuarios(FILE_USUARIOS,sizeof(Usuario));
+    //le seteo el user para buscarlo en el archivo
+    user_aux.ChangeUserName(usr_lgd.GetUserNamee());
+    IPsna.ObtenerUsuario(user_aux);
+    //Seteo el ID del usr logueado -> UN profesional
+    _planFarmacologico.SetIdProfesional(user_aux.GetIdPersona());
+
+    cout<<"FECHA DE EMISION (Automatica): ";
+    cout<<IF.GetfechaFormateada(fechaEmision.GetFechaActual());
     _planFarmacologico.SetEmision(fechaEmision.GetFechaActual());
-    cout<<endl;
+    cout<<endl<<endl;
     cout<<"NOTAS";
     cout << endl << "> ";
     cin.clear();
     cin.ignore();
-    cin.getline(apellidos,500);
+    cin.getline(notas,500);
     _planFarmacologico.SetNotas(notas);
-
-    cout<<"DESEA RELACIONAR UN PACIENTE AL USUARIO? S/N";
-          if (validaGeneral.leer_SoN()){
-              //busco los pacientes del archivo
-              Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
-              Paciente paciente;
-              cout<<"PACIENTES DISPONIBLES"<<endl<<endl;
-              //listo los pacientes
-              InterfazPaciente IP;
-              IP.ListarPacientes();
-              cout<<"INGRESE EL ID DEL PACIENTE QUE DESEA RELACIONAR: ";
-              //ingreso el ID del paciente que quiero buscar
-              paciente.SetId(validaTDato.cargar_Entero());
-              //si existe en el archivo, entonces el ID esta OK
-              int posPaciente = pacientes.buscarRegistro(paciente);
-              //le relaciono el ID del paciente al usuario
-              if (posPaciente >= 0 ) _planFarmacologico.SetIdPaciente(paciente.GetId());
-    }
-    return;
+    cls();
+    cout<<"DEBE RELACIONAR UN PACIENTE AL PLAN"<<endl<<endl;
+    do{
+        InterfazPaciente IP;
+        //busco los pacientes del archivo
+        Paciente paciente;
+        cout<<"PACIENTES DISPONIBLES"<<endl<<endl;
+        //listo los pacientes
+        IP.ListarPacientes();
+        cout<<"DESEA ASIGNARLE UNO DE LOS PACIENTES DISPONIBLES? S/N"<<endl;
+        if (! validaGeneral.leer_SoN()) return false;
+        cout<<endl;
+        cout<<"INGRESE EL ID DEL PACIENTE QUE DESEA RELACIONAR: ";
+        //ingreso el ID del paciente que quiero buscar
+        paciente.SetId(validaTDato.cargar_Entero());
+        //si existe en el archivo, entonces el ID esta OK
+    ///*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
+        Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
+        //si existe en el archivo, entonces el ID esta OK
+        int posPac = IPsna.ObtenerPaciente(paciente);
+        if (posPac >= 0 ){
+            _planFarmacologico.SetIdPaciente(paciente.GetId());
+            validaTDato.generar_Mensaje(2,"PACIENTE ASIGNADO EXITOSAMENTE!");
+            system("PAUSE");
+            return true;
+            //si el prof no existe
+            }else{
+                    validaTDato.generar_Mensaje(0,"EL ID INGRESADO DEL PACIENTE ES INCORRECTO");
+                    system("PAUSE");
+                 }
+    }while(true);
+    return false;
 }
 
 
 void InterfazPlanFarmacologico :: MostrarPlanFarmacologico(PlanFarmacologico _planFarmacologico){
     InterfazPersona interfazPersona;
-    Persona paciente, profesional;
-    cls();
+    Profesional profesional;
+    Paciente paciente;
     cout << left;
-    cout << setw(12)  << "PACIENTE";
-    cout << setw(12)  << "PROFESIONAL";
-    cout << setw(12)  << "NOTAS";
-    cout << endl;
-    cout << left;
-//    interfazPersona.AsociarPersona(_planFarmacologico.GetIdPaciente());
-    cout << setw(6)  << paciente.GetNombres();
-    cout << setw(6)   << paciente.GetApellidos();
-  //  interfazPersona.AsociarProfesional(profesional);
-    cout << setw(6)  << profesional.GetNombres();
-    cout << setw(6)   << profesional.GetApellidos();
-    cout << setw(12) <<_planFarmacologico.GetNotas();
+    if (_planFarmacologico.GetId() != -1)
+        cout << setw(4)  << _planFarmacologico.GetId();
+    else
+        cout << setw(4)  << " - ";
+
+    paciente.SetId(_planFarmacologico.GetIdPaciente());
+    interfazPersona.ObtenerPaciente(paciente);
+    cout << setw(10)  << paciente.GetNombres();
+    cout << setw(10)  << paciente.GetApellidos();
+
+    profesional.SetId(_planFarmacologico.GetIdProfesional() );
+    interfazPersona.ObtenerProfesional(profesional);
+    cout << setw(10)  << profesional.GetNombres();
+    cout << setw(10)  << profesional.GetApellidos();
+
+    cout << setw(50)  << _planFarmacologico.GetNotas();
+
     cout<<endl;
+};
+
+void InterfazPlanFarmacologico :: ListarPlanesFarmacologicos(){
+
+    PlanFarmacologico planFarma;
+    ValidacionesTipoDato validaTDato;
+    Archivo planesfarmaco(FILE_PLANFARMACO,sizeof(planFarma),true);
+    if( planesfarmaco.getCantidadRegistros() != 0){
+
+        cout << left;
+        cout << setw(4)  << "ID";
+        cout << setw(20) << "PACIENTE";
+        cout << setw(20) << "PROFESIONAL";
+        cout << setw(50) << "NOTAS";
+        cout << endl;
+
+        while(fread(&planFarma,sizeof(planFarma),1,planesfarmaco.GetPF())){
+        if (planFarma.GetIdProfesional() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Profesional ||
+            planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
+             MostrarPlanFarmacologico(planFarma);
+
+
+        };
+    }else validaTDato.generar_Mensaje(2,"NO EXISTEN PLANES FARMACOLOGICOS CARGADOS EN EL SISTEMA");
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
 };
 
 void InterfazPlanFarmacologico :: AgregarPlanFarmacologicoAArchivo(PlanFarmacologico _planFarmacologico){
     cls();
     ValidacionesGenerales valGral;
+    cout << left;
+    cout << setw(4)  << "ID";
+    cout << setw(20) << "PACIENTE";
+    cout << setw(20) << "PROFESIONAL";
+    cout << setw(50) << "NOTAS";
+    cout << endl;
+
     MostrarPlanFarmacologico(_planFarmacologico);
     cout<<endl<<endl;
     cout<<"ESTA SEGURO QUE DESEA AGREGAR EL SIGUIENTE PLAN FARMACOLOGICO? S/N";

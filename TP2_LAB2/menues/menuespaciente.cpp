@@ -11,14 +11,18 @@
 #include "../menues/menuespaciente.h"
 
 using namespace std;
+using namespace rlutil;
 
 void MenuPaciente(){
+    initUI();
+    title("PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
     while(true){
-        rlutil::cls();
-        title("PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        cls();
+        title("MENU PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) LISTADOS"<<endl;
-        cout<<"2) CONSULTAS"<<endl;
+        cout<<"1) PLAN FARMACOLOGICO"<<endl;
+        cout<<"2) PROFESIONALES"<<endl;
+        cout<<"3) MODIFICAR DATOS DE USUARIO"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -27,18 +31,128 @@ void MenuPaciente(){
         cin >> opcion;
 
         switch(opcion){
-            case 1: MenuPacienteListados();
+            case 1: MostrarPlanesFarmacologicosDelPaciente();
             break;
-            case 2: MenuPacienteConsulta();
+            case 2: MostrarProfesionalesDelPaciente();
             break;
+            case 3: ModificarUsuarioPaciente();
             case 0:
-                return;
+                    return;
             break;
         }
         cin.ignore();
     }
     return ;
 }
+
+void MostrarPlanesFarmacologicosDelPaciente(){
+    cls();
+    InterfazPlanFarmacologico IPF;
+    IPF.ListarPlanesFarmacologicos();
+    return;
+}
+
+void MostrarProfesionalesDelPaciente(){
+
+    cls();
+    InterfazProfesional IP;
+    IP.ListarProfesionales();
+}
+
+void ModificarUsuarioPaciente(){
+    cls();
+    InterfazUsuario IU;
+    IU.ModificarUsuario(usr_lgd);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void MenuPacienteConsulta(){
     while(true){

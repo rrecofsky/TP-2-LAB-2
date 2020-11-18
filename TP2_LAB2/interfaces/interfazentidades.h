@@ -9,11 +9,11 @@
 
 class InterfazPersona{
     public:
-        int  AsociarProfesional(Profesional &);
+        int  ObtenerProfesional(Profesional &);
         void MostrarCabeceraPersona();
         void ObtenerPersona(Persona &);
-        int  AsociarPaciente(Paciente & );
-        int  AsociarUsuario(Usuario & );
+        int  ObtenerPaciente(Paciente & );
+        int  ObtenerUsuario(Usuario & );
         int  GetCantidadPacientes();
         int GetCantidadProfesionales();
 };

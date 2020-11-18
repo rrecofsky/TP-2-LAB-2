@@ -10,14 +10,22 @@ void PlanesFarmacologicos();
 void Pacientes();
 void Consultas();
 void ModificarDatosDeUsuarioLogueado();
-
-///IMPLEMENTAR!
-void MostrarPacientesDelProfesional();
-void MostrarPlanesFarmacologicosDelProfesional();
-void MostrarEstudiosDelProfesional();
+///USUARIOS
+void AltaDeUsuariosPaciente();
+void MostrarUsuariosPaciente();
+///INFORMES
+void AltaDeInformes();
 void MostrarInformesDelProfesional();
-
+///PLANESFARMA
 void AltaPlanFarmacologico();
+void MostrarPlanesFarmacologicosDelProfesional();
+///PACIENTES
+void AltaPacienteDelProfesional();
+void MostrarPacientesDelProfesional();
+void ModificarPacienteDelProfesional();
+///MENUES
+void MenuGeneral(const char * );
+
 
 
 #endif // MENUESPROFESIONAL_H_INCLUDED
