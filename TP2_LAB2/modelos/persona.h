@@ -53,6 +53,7 @@ class Persona:public Registro{
         void Modificar(){};
         int getSize();
 
+
          Persona& operator = (Registro *temp){
             Persona *aux=(Persona *)temp;
             strcpy(this->apellidos,aux->apellidos);
@@ -69,6 +70,7 @@ class Persona:public Registro{
         ///Destructor
         ~Persona(){}
 };
+
 
 
 #endif // PERSONA_H_INCLUDED

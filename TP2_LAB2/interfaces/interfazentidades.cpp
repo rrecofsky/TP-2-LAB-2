@@ -139,7 +139,7 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
                     cout<<"INGRESE EL ID DEL PROFESIONAL QUE DESEA RELACIONAR: ";
                     //ingreso el ID del paciente que quiero buscar
                     profesional.SetId(validaTDato.cargar_Entero());
-                    //*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
+                    ///*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
                     Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
                     //si existe en el archivo, entonces el ID esta OK
                     int posProf = IPsna.ObtenerProfesional(profesional);

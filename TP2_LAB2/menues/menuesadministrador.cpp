@@ -13,6 +13,7 @@
 #include "../menues/menuesadministrador.h"
 #include "../validaciones/validaciones.h"
 #include "../interfaces/interfazentidades.h"
+#include "../info/info.h"
 
 using namespace std;
 using namespace rlutil;
@@ -33,7 +34,7 @@ void MenuAdministrador()
         cout<<"1) PROFESIONALES"<<endl;
         cout<<"2) PACIENTES"<<endl;
         cout<<"3) USUARIOS"<<endl;
-        cout<<"4) MODIFICAR USUARIO Y CONTRASENIA"<<endl;
+        cout<<"4) ALCANCE DEL PROYECTO"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) SALIR DEL PROGRAMA"<<endl;
 
@@ -52,8 +53,8 @@ void MenuAdministrador()
             case 3:
                     MenuEntidad("USUARIO");
                     break;
-            case 4:
-            break;
+            case 4: MenuAlcance();
+                    break;
             case 0:
                 return;
             break;
@@ -110,6 +111,46 @@ void MenuEntidad(const char * entidad)
                     break;
             case 0:
                     return;
+            break;
+        }
+        cin.ignore();
+    }
+    return ;
+}
+
+void MenuAlcance()
+{
+    while(true){
+        cls();
+        title("ALCANCE DEL PROYECTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        gotoxy(1, 3);
+        cout<<"1) Alcance Del Prototipo "<<endl;
+        cout<<"2) Reglas Del Software Por Perfil De Usuario"<<endl;
+        cout<<"4) Reglas Del Software Por Clases"<<endl;
+        cout<<"5) Validaciones Generales"<<endl;
+        cout<<"6) Verificaciones Gneerales"<<endl;
+        cout<<"----------------------"<<endl;
+        cout<<"0) REGRESAR"<<endl;
+
+        int opcion;
+        cout << endl << "> ";
+        cin >> opcion;
+
+        switch(opcion)
+        {
+            case 1: AlcanceDelPrototipo();
+                    break;
+            case 2:
+                   ReglasDelSoftwarePorPerfilDeUsuario();
+                    break;
+            case 3:
+               //     ReglasDelSoftwarePorClases();
+                    break;
+            case 4:// ValidacionesGenerales();
+                    break;
+            case 5:// VerificacionesGneerales();
+                    break;
+            case 0: return;
             break;
         }
         cin.ignore();

@@ -470,7 +470,7 @@
 	<iostream>
 	<iomanip>
 
-1605664874 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.h
+1605674454 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.h
 	"fecha.h"
 	"registro.h"
 	<iostream>
@@ -611,7 +611,7 @@
 	"../util/rlutil.h"
 	"../login/logo.h"
 
-1605210552 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.h
+1605670485 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.h
 
 1605665847 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.h
 	"../interfaces/interfazplanfarmacologico.h"
@@ -688,7 +688,7 @@
 	<limits>
 	"../util/rlutil.h"
 
-1605667891 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones\validaciones.cpp
+1605673257 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\validaciones\validaciones.cpp
 	<iostream>
 	<string>
 	<typeinfo>
@@ -696,6 +696,7 @@
 	"../util/rlutil.h"
 	"../validaciones/validaciones.h"
 	"../modelos/fecha.h"
+	"../interfaces/interfazfecha.h"
 
 1605626561 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.cpp
 	"../modelos/profesional.h"
@@ -714,7 +715,7 @@
 	"../util/rlutil.h"
 	"../interfaces/interfazcobertura.h"
 
-1605619912 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
+1605671040 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
 	<iostream>
 	<cstring>
 	"../util/ui.h"
@@ -729,8 +730,9 @@
 	"../menues/menuesadministrador.h"
 	"../validaciones/validaciones.h"
 	"../interfaces/interfazentidades.h"
+	"../info/info.h"
 
-1605665737 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.cpp
+1605670262 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.cpp
 	<iostream>
 	<string.h>
 	"../util/ui.h"
@@ -753,7 +755,7 @@
 	"../modelos/paciente.h"
 	"../interfaces/interfazgeneral.h"
 
-1605668355 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
+1605671253 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
 	<limits>
 	<iostream>
 	"../modelos/archivo.h"
@@ -905,4 +907,8 @@
 	"../modelos/profesional.h"
 	"../modelos/persona.h"
 	<ctype.h>
+
+1605673824 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\info\info.h
+	"../util/rlutil.h"
+	"iostream"
 

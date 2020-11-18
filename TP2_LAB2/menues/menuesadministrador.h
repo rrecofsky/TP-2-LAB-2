@@ -16,5 +16,6 @@ void AltaUsuario();
 void ModificarUsuario();
 void MostrarUsuarios();
 
+void MenuAlcance();
 
 #endif // MENUESADMINISTRADOR_H_INCLUDED

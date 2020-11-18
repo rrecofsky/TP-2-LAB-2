@@ -7,6 +7,7 @@
 #include "../modelos/fecha.h"
 //#include "../modelos/paciente.h"
 //#include "../modelos/profesional.h"
+#include "../interfaces/interfazfecha.h"
 
 using namespace std;
 using namespace rlutil;
@@ -89,6 +90,7 @@ bool ValidacionesGenerales :: EsBiciesto(Fecha _fecha)
 //retorna true si es fecha valida
 {
     bool validoFecha=true;
+    Fecha f_aux;
 
     if ( _fecha.GetDia() <1 || _fecha.GetDia() >31) {
         validoFecha=false;
@@ -104,6 +106,12 @@ bool ValidacionesGenerales :: EsBiciesto(Fecha _fecha)
     {
         validoFecha=false;
     }
+    if ((f_aux.GetFechaActual().GetDia() < _fecha.GetDia() && f_aux.GetFechaActual().GetMes() == _fecha.GetMes()
+        && f_aux.GetFechaActual().GetAnio() == _fecha.GetAnio() )
+        || (f_aux.GetFechaActual().GetMes() < _fecha.GetMes() && f_aux.GetFechaActual().GetAnio() == _fecha.GetAnio())
+        || (f_aux.GetFechaActual().GetAnio() < _fecha.GetAnio())
+        )  validoFecha=false;
+
     return validoFecha;
 }
 
@@ -117,7 +125,7 @@ int ValidacionesGenerales :: ValidarMes(){
 
 int ValidacionesGenerales :: ValidarAnio(){
     Fecha fechaAux;
-    return ValidarOpciones(fechaAux.GetFechaActual().GetAnio() - 100,fechaAux.GetFechaActual().GetAnio(),"INGRESE UN MES ANIO");
+    return ValidarOpciones(fechaAux.GetFechaActual().GetAnio() - 150,fechaAux.GetFechaActual().GetAnio(),"INGRESE UN ANIO VALIDO");
 }
 
 int ValidacionesGenerales :: ValidarOpciones(int _opMin, int _opMax, const char * _msj){
