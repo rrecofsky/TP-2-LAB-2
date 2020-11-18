@@ -69,13 +69,13 @@ void MenuLogin()
                     int posUserLdg = archUsuarios.buscarRegistro(usrAxuLogin);
                     archUsuarios.leerRegistro(usrAxuLogin, posUserLdg);
                     if (  strcmp(usrAxuLogin.GetUserNamee(),user) == 0 && strcmp(usrAxuLogin.GetUserPass(),pass) == 0 ){
-                       if ( usrAxuLogin.GetPerfilUser() == Perfil_Profesional){
+                       if ( usrAxuLogin.GetPerfilUser() == Perfil_Profesional && tipoDeUsuario == Perfil_Profesional){
                                 usr_lgd = usrAxuLogin;
                                 MenuProfesional();
                                 return;
                         }
                         else
-                            if ( usrAxuLogin.GetPerfilUser() == Perfil_Paciente) {
+                            if ( usrAxuLogin.GetPerfilUser() == Perfil_Paciente && tipoDeUsuario == Perfil_Paciente) {
                                 usr_lgd = usrAxuLogin;
                                 MenuPaciente();
                                 return;
