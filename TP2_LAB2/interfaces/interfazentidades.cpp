@@ -146,11 +146,13 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
                     //le relaciono el ID del paciente al usuario
                     Usuario usr;
                     usr.ChangeIdPersona(profesional.GetId());
+                    usr.ChangePerfilUser((Perfil)_user.GetPerfilUser());
                     int posUsr =  IPsna.ObtenerUsuario(usr);
                     //Si el prof existe y el usuario tiene asociado ese prof
-                    if (posProf >= 0 && posUsr >= 0 && usr.GetPerfilUser() == _user.GetPerfilUser()){
+                    if (posProf >= 0 && posUsr >= 0 ){
                         validaTDato.generar_Mensaje(0,"EL PROFESIONAL SELECCIONADO YA POSEE UN USUARIO, DESEA SALIR? S/N");
                           if (validaGeneral.leer_SoN()) return false;
+                          cls();
                     }else//si el prof existe
                         if (posProf >= 0 ){
                             _user.ChangeIdPersona(profesional.GetId());
@@ -187,12 +189,15 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
             int posPac = IPsna.ObtenerPaciente(paciente);
             //le relaciono el ID del paciente al usuario
             Usuario usr;
+            //busco por combinacion ID pac & PERFIL
             usr.ChangeIdPersona(paciente.GetId());
+            usr.ChangePerfilUser((Perfil)_user.GetPerfilUser());
             int posUsr =  IPsna.ObtenerUsuario(usr);
             //Si el prof existe y el usuario tiene asociado ese prof
-             if (posPac >= 0 && posUsr >= 0 && usr.GetPerfilUser() == _user.GetPerfilUser()){
+             if (posPac >= 0 && posUsr >= 0 ){
                 validaTDato.generar_Mensaje(0,"EL PACIENTE SELECCIONADO YA POSEE UN USUARIO, DESEA SALIR? S/N");
                   if (validaGeneral.leer_SoN()) return false;
+                  cls();
             }else//si el prof existe
                 if (posPac >= 0 ){
                     _user.ChangeIdPersona(paciente.GetId());

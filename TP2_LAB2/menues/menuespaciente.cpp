@@ -2,19 +2,18 @@
 #include <string.h>
 #include "../util/ui.h"
 #include "../util/rlutil.h"
-#include "../menues/informes.h"
-#include "../modelos/paciente.h"
 #include "../modelos/profesional.h"
-#include "../modelos/medicacion.h"
 #include "../modelos/planfarmacologico.h"
 #include "../modelos/detalleplanfarmacologico.h"
 #include "../menues/menuespaciente.h"
+#include "../validaciones/validaciones.h"
 
 using namespace std;
 using namespace rlutil;
 
 void MenuPaciente(){
     initUI();
+    ValidacionesTipoDato valTDato;
     title("PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
     while(true){
         cls();
@@ -27,8 +26,7 @@ void MenuPaciente(){
         cout<<"0) REGRESAR"<<endl;
 
         int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
+        opcion = valTDato.cargar_Entero();
 
         switch(opcion){
             case 1: MostrarPlanesFarmacologicosDelPaciente();

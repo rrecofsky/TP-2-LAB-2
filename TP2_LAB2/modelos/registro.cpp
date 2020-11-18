@@ -1,14 +1,9 @@
 #include "../modelos/registro.h"
 #include "../modelos/fecha.h"
+#include "../interfaces/interfazfecha.h"
 #include <iostream>
 
 using namespace std;
-
-Registro::Registro(){
-    fechaAlta = fechaAlta.GetFechaActual();
-    estado = true;
-    ID = -1;
-}
 
 //Gets
 int   Registro :: GetId(){ return ID; }
@@ -16,11 +11,12 @@ bool  Registro :: GetEstado(){ return estado; }
 Fecha Registro :: GetFechaAlta(){ return fechaAlta; }
 Fecha Registro :: GetFechaBaja(){ return fechaBaja; }
 void  Registro :: GetInformacionGeneral(){
+        InterfazFecha IF;
         cout<<"FECHA DE ALTA: ";
-       // fechaAlta.GetFecha();
+        IF.GetfechaFormateada(fechaAlta);
         cout<<endl;
         cout<<"FECHA DE BAJA: ";
-       // fechaBaja.GetFecha();
+        IF.GetfechaFormateada(fechaBaja);
         cout<<endl;
         cout<<"ID: "<<ID<<endl;
 }

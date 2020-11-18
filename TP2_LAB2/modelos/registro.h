@@ -1,7 +1,7 @@
 #ifndef REGISTRO_H_INCLUDED
 #define REGISTRO_H_INCLUDED
 
-#include "fecha.h"
+#include "../modelos/fecha.h"
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
@@ -16,8 +16,14 @@ class Registro{
       bool  estado;
       Fecha fechaAlta;
       Fecha fechaBaja;
+  //   int userOwnerId;
   public:
-      Registro();
+      Registro(){
+                fechaAlta = fechaAlta.GetFechaActual();
+                estado = true;
+                ID = -1;
+//                userOwnerId = -1;
+            }
       //SETs
       void  SetId(int);  //Los Ids se generan igual para todas las clases: se debe buscar el ultimo en su archivo correspondiente
       void  SetEstado(bool); //Los estados se generan por defecto en true con el constructor, pero se puede setear al darla de baja
@@ -27,6 +33,7 @@ class Registro{
       Fecha GetFechaAlta();
       Fecha GetFechaBaja();
       void GetInformacionGeneral();
+//      void  SetuserOwnerId(int _userOwnerId){userOwnerId = _userOwnerId;}
       //GET VIRTUALES
       virtual void Cargar() = 0;
       virtual void Mostrar()= 0;

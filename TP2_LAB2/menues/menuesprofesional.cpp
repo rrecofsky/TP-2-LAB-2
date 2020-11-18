@@ -20,7 +20,7 @@ void MenuProfesional(){
 
     initUI();
     title("", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-
+    ValidacionesTipoDato valTDato;
     while(true){
         cls();
         title("PROFESIONAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
@@ -34,8 +34,7 @@ void MenuProfesional(){
         cout<<"0) REGRESAR"<<endl;
 
         int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
+        opcion = valTDato.cargar_Entero();
 
         switch(opcion){
             case 1:
@@ -66,6 +65,7 @@ void MenuProfesional(){
 
 void MenuGeneral(const char * _objeto)
 {
+    ValidacionesTipoDato valTDato;
     while(true)
     {
         cls();
@@ -78,8 +78,7 @@ void MenuGeneral(const char * _objeto)
         cout<<"0) REGRESAR"<<endl;
 
         int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
+        opcion = valTDato.cargar_Entero();
 
         switch(opcion)
         {

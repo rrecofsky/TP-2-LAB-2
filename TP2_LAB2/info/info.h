@@ -9,8 +9,8 @@ using namespace rlutil;
 
 void AlcanceDelPrototipo(){
     cout << left;
-    cout<<"Admin puede crear usuarios con perfil PROFESIONAL y asociarlos a algun profesional"<<endl;
-	cout<<"Admin puede ver la lista de Usuarios con password y todo"<<endl;
+    cout<<"1. El administrador crea profesionales"<<endl;
+	cout<<"2. El administrador crea un usuario (perfil profesional) y lo relaciona a alguno de los profesionales cargados"<<endl;
 	cout<<"Admin debe crear Profesionales"<<endl;
 	cout<<"Admin puede listar los profesionales"<<endl;
 	cout<<"Admin no puede listar los pacientes"<<endl;

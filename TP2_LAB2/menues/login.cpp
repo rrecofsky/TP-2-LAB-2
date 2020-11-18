@@ -1,13 +1,12 @@
 #include <iostream>
 #include <cstring>
-#include "menuesadministrador.h"
-#include "menuespaciente.h"
-#include "menuesprofesional.h"
+#include "../menues/menuesadministrador.h"
+#include "../menues/menuespaciente.h"
+#include "../menues/menuesprofesional.h"
 #include "../menues/login.h"
 #include "../modelos/usuario.h"
 #include "../validaciones/validaciones.h"
 #include "../modelos/archivo.h"
-//#include "interfaz.h" usar interfaz para el LOGIN
 #include "../util/rlutil.h"
 #include "../login/logo.h"
 

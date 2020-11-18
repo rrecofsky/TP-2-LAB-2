@@ -1,10 +1,7 @@
 #ifndef USUARIO_H_INCLUDED
 #define USUARIO_H_INCLUDED
 #include <cstring>
-#include <iostream>
-#include "registro.h"
-
-#include "persona.h"
+#include "../modelos/registro.h"
 
 
 using namespace std;
@@ -34,13 +31,14 @@ class Usuario :public Registro {
         ///GETs
         const char* GetUserNamee();
         const char* GetUserPass();
-        int   GetPerfilUser();
+        Perfil   GetPerfilUser();
         int   GetIdPersona();
         ///SETs
         void  ChangeUserName(const char*);
         void  ChangeUserPass(const char*);
         void  ChangePerfilUser(Perfil _perfil);
         void  ChangeIdPersona(int);
+       // void  ChangeUserOwnerId(int ow){userOwner = -1;};
         /// POLIMORFICAS
         void Cargar();
         void Mostrar();

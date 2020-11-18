@@ -25,7 +25,7 @@ void MenuAdministrador()
 {
     initUI();
     title("", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-
+    ValidacionesTipoDato valTDato;
     while(true)
     {
         cls();
@@ -39,8 +39,7 @@ void MenuAdministrador()
         cout<<"0) SALIR DEL PROGRAMA   "<<endl;
 
         int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
+        opcion = valTDato.cargar_Entero();
 
         switch(opcion){
             case 1:
@@ -66,6 +65,7 @@ void MenuAdministrador()
 
 void MenuEntidad(const char * entidad)
 {
+    ValidacionesTipoDato valTDato;
     while(true)
     {
         cls();
@@ -78,8 +78,7 @@ void MenuEntidad(const char * entidad)
         cout<<"0) REGRESAR           "<<endl;
 
         int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
+        opcion = valTDato.cargar_Entero();
 
         switch(opcion)
         {
@@ -120,6 +119,7 @@ void MenuEntidad(const char * entidad)
 
 void MenuAlcance()
 {
+    ValidacionesTipoDato valTDato;
     while(true){
         cls();
         title("ALCANCE DEL PROYECTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
@@ -133,8 +133,7 @@ void MenuAlcance()
         cout<<"0) REGRESAR                                  "<<endl;
 
         int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
+        opcion = valTDato.cargar_Entero();
 
         switch(opcion)
         {

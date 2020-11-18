@@ -476,8 +476,8 @@
 	<iostream>
 	<cstring>
 
-1605664897 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\registro.h
-	"fecha.h"
+1605708866 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\registro.h
+	"../modelos/fecha.h"
 	<iostream>
 	<cstdlib>
 	<cstdio>
@@ -522,18 +522,16 @@
 1604537302 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\farmaco.h
 	"registro.h"
 
-1605669016 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuespaciente.cpp
+1605708175 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuespaciente.cpp
 	<iostream>
 	<string.h>
 	"../util/ui.h"
 	"../util/rlutil.h"
-	"../menues/informes.h"
-	"../modelos/paciente.h"
 	"../modelos/profesional.h"
-	"../modelos/medicacion.h"
 	"../modelos/planfarmacologico.h"
 	"../modelos/detalleplanfarmacologico.h"
 	"../menues/menuespaciente.h"
+	"../validaciones/validaciones.h"
 
 1604249260 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\util\ui.h
 
@@ -589,21 +587,19 @@
 	"../modelos/usuario.h"
 	"../modelos/paciente.h"
 
-1605370979 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.h
+1605706519 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.h
 	<cstring>
-	<iostream>
-	"registro.h"
-	"persona.h"
+	"../modelos/registro.h"
 
 1604538200 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\medicacion.cpp
 	"medicacion.h"
 
-1605667139 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\login.cpp
+1605708827 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\login.cpp
 	<iostream>
 	<cstring>
-	"menuesadministrador.h"
-	"menuespaciente.h"
-	"menuesprofesional.h"
+	"../menues/menuesadministrador.h"
+	"../menues/menuespaciente.h"
+	"../menues/menuesprofesional.h"
 	"../menues/login.h"
 	"../modelos/usuario.h"
 	"../validaciones/validaciones.h"
@@ -656,9 +652,10 @@
 	<cstring>
 	"../util/rlutil.h"
 
-1605664631 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\registro.cpp
+1605706422 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\registro.cpp
 	"../modelos/registro.h"
 	"../modelos/fecha.h"
+	"../interfaces/interfazfecha.h"
 	<iostream>
 
 1605659447 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazplanfarmacologico.cpp
@@ -676,8 +673,8 @@
 	"ui.h"
 	"rlutil.h"
 
-1605618362 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
-	"usuario.h"
+1605706908 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
+	"../modelos/usuario.h"
 	<limits>
 	<iostream>
 	"../validaciones/validaciones.h"
@@ -715,7 +712,7 @@
 	"../util/rlutil.h"
 	"../interfaces/interfazcobertura.h"
 
-1605671040 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
+1605708110 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
 	<iostream>
 	<cstring>
 	"../util/ui.h"
@@ -732,7 +729,7 @@
 	"../interfaces/interfazentidades.h"
 	"../info/info.h"
 
-1605670262 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.cpp
+1605708057 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesprofesional.cpp
 	<iostream>
 	<string.h>
 	"../util/ui.h"
@@ -755,7 +752,7 @@
 	"../modelos/paciente.h"
 	"../interfaces/interfazgeneral.h"
 
-1605671253 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
+1605704782 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
 	<limits>
 	<iostream>
 	"../modelos/archivo.h"
@@ -776,7 +773,7 @@
 
 1605317472 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgenenal.h
 
-1605625910 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login\logo.h
+1605707441 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\login\logo.h
 	<iostream>
 
 1605657374 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazgeneral.h
@@ -908,7 +905,7 @@
 	"../modelos/persona.h"
 	<ctype.h>
 
-1605675620 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\info\info.h
+1605701435 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\info\info.h
 	"../util/rlutil.h"
 	"iostream"
 

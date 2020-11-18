@@ -36,6 +36,7 @@
 		<Unit filename="archivos/planesfarmaco.dat" />
 		<Unit filename="archivos/profesionales.dat" />
 		<Unit filename="archivos/usuarios.dat" />
+		<Unit filename="info/info.h" />
 		<Unit filename="interfaces/interfazcobertura.cpp" />
 		<Unit filename="interfaces/interfazcobertura.h" />
 		<Unit filename="interfaces/interfazentidades.cpp" />
