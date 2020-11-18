@@ -31,12 +31,12 @@ void MenuAdministrador()
         cls();
         title("MENU PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) PROFESIONALES"<<endl;
-        cout<<"2) PACIENTES"<<endl;
-        cout<<"3) USUARIOS"<<endl;
-        cout<<"4) ALCANCE DEL PROYECTO"<<endl;
-        cout<<"----------------------"<<endl;
-        cout<<"0) SALIR DEL PROGRAMA"<<endl;
+        cout<<"1) PROFESIONALES        "<<endl;
+        cout<<"2) PACIENTES            "<<endl;
+        cout<<"3) USUARIOS             "<<endl;
+        cout<<"4) ALCANCE DEL PROYECTO "<<endl;
+        cout<<"----------------------  "<<endl;
+        cout<<"0) SALIR DEL PROGRAMA   "<<endl;
 
         int opcion;
         cout << endl << "> ";
@@ -71,11 +71,11 @@ void MenuEntidad(const char * entidad)
         cls();
         title(entidad, APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) ALTA"<<endl;
-        cout<<"2) MODIFICAR"<<endl;
-        cout<<"3) LISTAR"<<endl;
+        cout<<"1) ALTA               "<<endl;
+        cout<<"2) MODIFICAR          "<<endl;
+        cout<<"3) LISTAR             "<<endl;
         cout<<"----------------------"<<endl;
-        cout<<"0) REGRESAR"<<endl;
+        cout<<"0) REGRESAR           "<<endl;
 
         int opcion;
         cout << endl << "> ";
@@ -124,13 +124,13 @@ void MenuAlcance()
         cls();
         title("ALCANCE DEL PROYECTO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) Alcance Del Prototipo "<<endl;
-        cout<<"2) Reglas Del Software Por Perfil De Usuario"<<endl;
-        cout<<"4) Reglas Del Software Por Clases"<<endl;
-        cout<<"5) Validaciones Generales"<<endl;
-        cout<<"6) Verificaciones Gneerales"<<endl;
-        cout<<"----------------------"<<endl;
-        cout<<"0) REGRESAR"<<endl;
+        cout<<"1) Alcance Del Prototipo                     "<<endl;
+        cout<<"2) Reglas Del Software Por Perfil De Usuario "<<endl;
+        cout<<"4) Reglas Del Software Por Clases            "<<endl;
+        cout<<"5) Validaciones Generales                    "<<endl;
+        cout<<"6) Verificaciones Gneerales                  "<<endl;
+        cout<<"----------------------                       "<<endl;
+        cout<<"0) REGRESAR                                  "<<endl;
 
         int opcion;
         cout << endl << "> ";
