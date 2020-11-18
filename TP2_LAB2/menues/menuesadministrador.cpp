@@ -31,10 +31,13 @@ void MenuAdministrador()
         cls();
         title("MENU PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) PROFESIONALES        "<<endl;
-        cout<<"2) PACIENTES            "<<endl;
-        cout<<"3) USUARIOS             "<<endl;
-        cout<<"4) ALCANCE DEL PROYECTO "<<endl;
+        cout<<"1) PROFESIONALES       "<<endl;
+        cout<<"2) USUARIOS            "<<endl;
+        cout<<"3) PRESENTACIONES      "<<endl;
+        cout<<"4) FARMACOS            "<<endl;
+        cout<<"5) COBERTURAS          "<<endl;
+        cout<<"6) ESPECIALIDADES      "<<endl;
+        cout<<"7) ALCANCE DEL PROYECTO "<<endl;
         cout<<"----------------------  "<<endl;
         cout<<"0) SALIR DEL PROGRAMA   "<<endl;
 
@@ -43,16 +46,24 @@ void MenuAdministrador()
 
         switch(opcion){
             case 1:
-                    MenuEntidad("PROFESIONAL");
+                    MenuGeneralAdministrador("PROFESIONAL");
                     break;
             case 2:
-                    MenuEntidad("PACIENTE");
+                    MenuGeneralAdministrador("USUARIO");
                     break;
-            break;
             case 3:
-                    MenuEntidad("USUARIO");
+                    MenuGeneralAdministrador("PRESENTACION");
                     break;
-            case 4: MenuAlcance();
+            case 4:
+                    MenuGeneralAdministrador("FARMACO");
+                    break;
+            case 5:
+                    MenuGeneralAdministrador("COBERTURA");
+                    break;
+            case 6:
+                    MenuGeneralAdministrador("ESPECIALIDAD");
+                    break;
+            case 7: MenuAlcance();
                     break;
             case 0:
                 return;
@@ -63,7 +74,8 @@ void MenuAdministrador()
     return ;
 }
 
-void MenuEntidad(const char * entidad)
+
+void MenuGeneralAdministrador(const char * entidad)
 {
     ValidacionesTipoDato valTDato;
     while(true)
@@ -85,28 +97,60 @@ void MenuEntidad(const char * entidad)
             case 1: if (strcmp("PROFESIONAL",entidad) == 0)
                         AltaProfesional();
                     else
-                        if(strcmp("PACIENTE",entidad) == 0)
-                            AltaPaciente();
-                        else
+                        if(strcmp("USUARIO",entidad) == 0)
                             AltaUsuario();
+                        else
+                            if(strcmp("PRESENTACION",entidad) == 0)
+                                AltaPresentacion();
+                            else
+                                if(strcmp("FARMACO",entidad) == 0)
+                                    AltaFarmaco();
+                                else
+                                    if(strcmp("COBERTURA",entidad) == 0)
+                                        AltaCobertura();
+                                    else
+                                        if(strcmp("ESPECIALIDAD",entidad) == 0)
+                                            AltaEspecialidad();
+
+
                     break;
             case 2:
                     if (strcmp("PROFESIONAL",entidad) == 0)
                         ModificarProfesional();
                     else
-                        if(strcmp("PACIENTE",entidad) == 0)
-                            ModificarPaciente();
-                        else
+                        if(strcmp("USUARIO",entidad) == 0)
                             ModificarUsuario();
+                        else
+                            if(strcmp("PRESENTACION",entidad) == 0)
+                                ModificarPresentacion();
+                            else
+                                if(strcmp("FARMACO",entidad) == 0)
+                                    ModificarFarmaco();
+                                else
+                                    if(strcmp("COBERTURA",entidad) == 0)
+                                        ModificarCobertura();
+                                    else
+                                        if(strcmp("ESPECIALIDAD",entidad) == 0)
+                                            ModificarEspecialidad();
                     break;
             case 3:
                     if (strcmp("PROFESIONAL",entidad) == 0)
                         MostrarProfesionales();
                     else
-                        if(strcmp("PACIENTE",entidad) == 0)
-                            MostrarPacientes();
-                        else
+                        if(strcmp("USUARIO",entidad) == 0)
                             MostrarUsuarios();
+                        else
+                            if(strcmp("PRESENTACION",entidad) == 0)
+                                MostrarPresentacion();
+                            else
+                                if(strcmp("FARMACO",entidad) == 0)
+                                    MostrarFarmaco();
+                                else
+                                    if(strcmp("COBERTURA",entidad) == 0)
+                                        MostrarCobertura();
+                                    else
+                                        if(strcmp("ESPECIALIDAD",entidad) == 0)
+                                            MostrarEspecialidad();
                     break;
             case 0:
                     return;
@@ -213,35 +257,84 @@ void ModificarUsuario(){
 }
 
 
-/******************* FUNCIONES BASICAS PACIENTE *************************/
+/***************************** PRESENTACIONES *********************/
 
-void AltaPaciente(){
+
+void AltaPresentacion(){
     cls();
-    InterfazPaciente IP;
-    Paciente paciente;
-    if (IP.CargarPaciente(paciente))
-        IP.AgregarPacienteAArchivo(paciente);
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+return;
+};
+void ModificarPresentacion(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
     return;
-}
+};
+void MostrarPresentacion(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+/***************************** FARMACOS  *********************/
+void AltaFarmaco(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+void ModificarFarmaco(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+void MostrarFarmaco(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+/***************************** COBERTURAS *********************/
+void AltaCobertura(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+void ModificarCobertura(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+void MostrarCobertura(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+/***************************** ESPECIALDIADES *********************/
+
+void AltaEspecialidad(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+void ModificarEspecialidad(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+void MostrarEspecialidad(){
+     cls();
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("PAUSE");
+    return;
+};
 
 
-void MostrarPacientes(){
-    cls();
-    InterfazPaciente IP;
-    IP.ListarPacientes();
-}
-
-void ModificarPaciente(){
-    cls();
-    ValidacionesTipoDato valTipoDato;
-    ValidacionesGenerales valGeneral;
-    InterfazPaciente IP;
-    Paciente pac;
-    cout<<"DESEA VER LA LISTA DE PACIENTES? S/N"<<endl;
-    if (valGeneral.leer_SoN()) IP.ListarPacientes();
-    cls();
-    cout<<"INGRESE EL ID DEL PACIENTE QUE DESEA MODIFICAR: ";
-    pac.SetId(valTipoDato.cargar_Entero());
-    cls();
-    IP.ModificarPacienteEnArchivo(pac);
-}

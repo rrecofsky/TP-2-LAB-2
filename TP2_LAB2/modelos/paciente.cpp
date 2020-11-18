@@ -1,7 +1,7 @@
-#include "paciente.h"
 #include <iostream>
 #include <limits>
 #include "../util/rlutil.h"
+#include "../modelos/paciente.h"
 
 using namespace rlutil;
 using namespace std;
@@ -12,28 +12,20 @@ int Paciente :: GetNroAfiliado(){return nro_Afiliado;}
 int Paciente :: GetIdCobertura(){return ID_Cobertura;}
 int Paciente :: GetIdInforme(){return ID_Informe;}
 int Paciente :: GetIdPlanFarmacologico(){return ID_PlanFarmacologico;}
+int Paciente :: GetProfesionalOwnerID(){ return ProfesionalOwnerID;}
 
 //SETs
 
 void Paciente :: SetNroAfiliado(int _nroAfiliado){nro_Afiliado = _nroAfiliado;}
 void Paciente :: SetIdCObertura(int _idCobertura){ID_Cobertura = _idCobertura;}
 void Paciente :: SetIdInforme(int _idInforme){ ID_Informe = _idInforme;}
+void Paciente :: SetProfesionalOwnerID(int _ProfesionalOwnerID){ ProfesionalOwnerID = _ProfesionalOwnerID;}
 
 
 //Carga
 
 
-void Paciente :: Cargar(){
-
-    persona:Cargar();
-    cout<<"Nro de Afiliado: ";
-    cin>>nro_Afiliado;
-    cout<<endl;
-    cout<<"ID Cobertura: ";
-    cin>>ID_Cobertura;
-    cout<<endl;
-    return;
-}
+void Paciente :: Cargar(){}
 
 void Paciente :: Mostrar(){
 

@@ -1,10 +1,11 @@
 #ifndef PERSONA_H_INCLUDED
 #define PERSONA_H_INCLUDED
 
-#include "fecha.h"
-#include "registro.h"
+#include "../modelos/fecha.h"
+
 #include <iostream>
 #include <cstring>
+#include "../modelos/registro.h"
 
 using namespace std;
 

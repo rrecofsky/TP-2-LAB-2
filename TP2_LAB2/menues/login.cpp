@@ -4,11 +4,11 @@
 #include "../menues/menuespaciente.h"
 #include "../menues/menuesprofesional.h"
 #include "../menues/login.h"
-#include "../modelos/usuario.h"
 #include "../validaciones/validaciones.h"
 #include "../modelos/archivo.h"
 #include "../util/rlutil.h"
 #include "../login/logo.h"
+#include "../modelos/usuario.h"
 
 using namespace    rlutil;
 extern const char *FILE_PACIENTES;

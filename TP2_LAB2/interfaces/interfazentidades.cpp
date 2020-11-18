@@ -640,6 +640,8 @@ bool InterfazPaciente :: CargarPaciente(Paciente & _paciente){
     _paciente.SetNroAfiliado(validaTDato.cargar_Entero());
     cout<<endl;
     _paciente.SetIdCObertura(99);
+    ///Seteo el ProfesionalOwnerID -> ESTO SERA REEMPLAZADO POR EL UserOwnerId del Resitro
+    _paciente.SetProfesionalOwnerID(usr_lgd.GetIdPersona());
     ///********************** TERMNAR **************************/
     /*
     cout<<"DESEA RELACIONARLE UNA COBERTURA AL PACIENTE? S/N";
@@ -708,6 +710,7 @@ cls();
 }
 
 void InterfazPaciente :: ListarPacientes(){
+    fflush(stdin);
     Archivo pacientes(FILE_PACIENTES,sizeof(Paciente),true);
     ValidacionesTipoDato validaTDato;
     Paciente pac;
@@ -719,10 +722,12 @@ void InterfazPaciente :: ListarPacientes(){
         cout << setw(12)  << "COBERTURA";
         cout << endl;
         while(fread(&pac,sizeof(Paciente),1,pacientes.GetPF())){
-             MostrarPaciente(pac);
-        };
-
-    }else validaTDato.generar_Mensaje(1,"NO EXISTEN PACIENTES CARGADOS EN EL SISTEMA");
+             //Mostrar solo los pacientes del profesional
+             if (pac.GetProfesionalOwnerID() == usr_lgd.GetIdPersona() )
+                MostrarPaciente(pac);
+        }
+   } else
+     validaTDato.generar_Mensaje(1,"NO EXISTEN PACIENTES CARGADOS EN EL SISTEMA");
     cout<<endl<<endl;
     system("PAUSE");
     return;

@@ -1,8 +1,6 @@
 #ifndef MENUESPROFESIONAL_H_INCLUDED
 #define MENUESPROFESIONAL_H_INCLUDED
 
-#include "../interfaces/interfazplanfarmacologico.h"
-
 void MenuProfesionalConsulta();
 void MenuProfesionalListado();
 void MenuProfesional();

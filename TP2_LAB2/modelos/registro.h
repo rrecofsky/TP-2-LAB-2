@@ -16,7 +16,7 @@ class Registro{
       bool  estado;
       Fecha fechaAlta;
       Fecha fechaBaja;
-  //   int userOwnerId;
+ //     int userOwnerId;
   public:
       Registro(){
                 fechaAlta = fechaAlta.GetFechaActual();

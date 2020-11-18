@@ -9,6 +9,8 @@
 #include "../modelos/planfarmacologico.h"
 #include "../modelos/archivo.h"
 #include "../menues/menuesprofesional.h"
+#include "../interfaces/interfazentidades.h"
+#include "../interfaces/interfazplanfarmacologico.h"
 
 
 
@@ -17,7 +19,6 @@ using namespace rlutil;
 using namespace std;
 
 void MenuProfesional(){
-
     initUI();
     title("", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
     ValidacionesTipoDato valTDato;
@@ -143,10 +144,9 @@ void AltaPacienteDelProfesional(){
 }
 
 void MostrarPacientesDelProfesional(){
-    ///PUEDE VER TODOS?
-    cls();
+    system("cls");
     InterfazPaciente IP;
-    IP.ListarPacientes(); //Agregar var bool con valor por defecto
+    IP.ListarPacientes();
 }
 
 void ModificarPacienteDelProfesional(){
