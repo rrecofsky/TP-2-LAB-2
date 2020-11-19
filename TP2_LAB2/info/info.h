@@ -14,9 +14,9 @@ void AlcanceDelPrototipo(){
 	cout<<"2.El administrador carga/lista usuarios (perfil profesional) y los relaciona a alguno de los profesionales creados"<<endl;
 	cout<<"3.El usuario con perfil Profesional puede crear/ listar (sus) pacientes"<<endl;
 	cout<<"4.El usuario con perfil Profesional puede crear usuarios y debe asociarlos a los pacientes disponibles"<<endl;
-	cout<<"5.El administrador crea un plan farmacologico y se lo asocia a un paciente"<<endl;
-	cout<<"6.El paciente puede ver sus planes farmacoligicos (IMPLEMENTADO PARCIALMENTE, sin DETALLE)"<<endl;
-	cout<<"7.El paciente puede ver ver el listado de profesionales completo"<<endl;
+	cout<<"5.El usuario con perfil Profesional crea un plan farmacologico y se lo asocia a un paciente"<<endl;
+	cout<<"6.El usuario con perfilpaciente puede ver sus planes farmacoligicos (IMPLEMENTADO PARCIALMENTE, sin DETALLE)"<<endl;
+	cout<<"7.El usuario con perfil paciente puede ver ver el listado de profesionales completo"<<endl;
 	cout<<endl<<endl;
 	cout<<"VALIDACIONES:"<<endl;
 	cout<<"Logica de loguin -> menu por tipo de usuario"<<endl;
@@ -57,6 +57,7 @@ void AlcanceDelPrototipo(){
 	cout<<"Todas las clases tienen los metodos Mostrar, cargar, etc, estos seran eliminados cuando se terminen de implementar las interfaces. Los mismos NO SE ESTAN UTILIZANDO"<<endl;
 	cout<<"Cuando se termine de implementar todo, solo se podran dar de baja las coberturas, lo deas es toda informacion que se utiliza como traza y no se puede modificar ni dar de baja logicamente, para el caso de los medicamentos por ejemplo, tendran un atributo para filtrarlos en las listas"<<endl;
 	cout<<"Alguans funcionalidades estan repetidas. Esto se hizo a proposito porque esta en proceso una mejora de impelemtacion"<<endl;
+	cout<<"No se esta validando DNI, MATRICULAS o NRO de cobertura repetidos. Se verificara en el proyecto completo."<<endl;
 	cout<<endl<<endl;
 	system("PAUSE");
 }

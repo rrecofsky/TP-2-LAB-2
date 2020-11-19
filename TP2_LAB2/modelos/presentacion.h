@@ -1,7 +1,7 @@
 #ifndef PRESENTACION_H_INCLUDED
 #define PRESENTACION_H_INCLUDED
 
-#include "registro.h"
+#include "../modelos/registro.h"
 
 class Presentacion:public Registro{
     private:
@@ -9,7 +9,7 @@ class Presentacion:public Registro{
        int   cantidad; //cantidad de pastillas de la presentacion
        float mg; //miligramos de cada pastilla
     public:
-        Presentacion(const char *n)
+        Presentacion(const char *n):Registro()
         {
             strcpy(nombre,n);
         }

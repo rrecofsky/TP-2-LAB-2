@@ -170,9 +170,9 @@ void MenuAlcance()
         gotoxy(1, 3);
         cout<<"1) Alcance Del Prototipo                     "<<endl;
         cout<<"2) Reglas Del Software Por Perfil De Usuario "<<endl;
-        cout<<"4) Reglas Del Software Por Clases            "<<endl;
-        cout<<"5) Validaciones Generales                    "<<endl;
-        cout<<"6) Verificaciones Gneerales                  "<<endl;
+        cout<<"3) Reglas Del Software Por Clases            "<<endl;
+        cout<<"4) Validaciones Generales                    "<<endl;
+        cout<<"5) Verificaciones Gneerales                  "<<endl;
         cout<<"----------------------                       "<<endl;
         cout<<"0) REGRESAR                                  "<<endl;
 
@@ -221,7 +221,11 @@ void MostrarProfesionales()
 
 void ModificarProfesional(){
 
-    cls();
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
+    system("PAUSE");
+    return;
+
     ValidacionesTipoDato valTipoDato;
     ValidacionesGenerales valGeneral;
     InterfazProfesional IP;
@@ -261,58 +265,58 @@ void ModificarUsuario(){
 
 
 void AltaPresentacion(){
-    cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
-return;
+    return;
 };
 void ModificarPresentacion(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };
 void MostrarPresentacion(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };
 /***************************** FARMACOS  *********************/
 void AltaFarmaco(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };
 void ModificarFarmaco(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+   system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };
 void MostrarFarmaco(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };
 /***************************** COBERTURAS *********************/
 void AltaCobertura(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };
 void ModificarCobertura(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };
 void MostrarCobertura(){
-     cls();
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO"<<endl<<endl;
+     system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 };

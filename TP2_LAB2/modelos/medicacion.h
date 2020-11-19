@@ -14,7 +14,7 @@ class Medicacion:public Registro{
         Fecha vencimiento;
         bool  estado;
     public:
-        Medicacion(Fecha _fechaVencimento, const char* _farmaco, float _dosis=0){
+        Medicacion(Fecha _fechaVencimento, const char* _farmaco, float _dosis=0):Registro(){
             strcpy(farmaco,_farmaco);
             dosis               = _dosis;
             estado              = true;

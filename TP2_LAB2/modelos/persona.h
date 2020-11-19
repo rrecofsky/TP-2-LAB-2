@@ -24,9 +24,7 @@ class Persona:public Registro{
             strcpy(nombres,_nombre);
             strcpy(apellidos,_apellido);
             DNI              = _dni;
-            estado           = true;
-            ID = -1;
-        }
+         }
 
         //GETS
         const char *GetNombres();

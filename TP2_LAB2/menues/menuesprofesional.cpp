@@ -151,7 +151,7 @@ void MostrarPacientesDelProfesional(){
 
 void ModificarPacienteDelProfesional(){
     system("cls");
-    cout<<"NO IMPLEMENTADO"<<endl;
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 
@@ -189,28 +189,29 @@ void MostrarPlanesFarmacologicosDelProfesional(){
 /********************** ESTUDIOS ********************/
 void MostrarEstudiosDelProfesional(){
     system("cls");
-    cout<<"NO IMPLEMENTADO"<<endl;
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 }
 
 /******************** INFORMES ***********************/
 void MostrarInformesDelProfesional(){
-    cls();
-    cout<<"NO IMPLEMENTADO"<<endl;
+    system("cls");
+    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;
 }
 
 void AltaDeInformes(){
-    cls();
+    system("cls");
     cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
+    return;
 };
 
 /********************* DATOS DEL USUARIO *****************/
 void ModificarDatosDeUsuarioLogueado(){
-    cls();
+    system("cls");
     cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
     system("PAUSE");
     return;

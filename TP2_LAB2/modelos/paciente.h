@@ -20,7 +20,6 @@ class Paciente:public Persona
             ID_Cobertura         = _cobertura;
             ID_PlanFarmacologico = -1;
             ID_Informe           = -1;
-            ID                   = -1;
             ProfesionalOwnerID   = -1;
         }
 

@@ -7,7 +7,7 @@ class Farmaco:public Registro{
     private:
        char nombre[50];
     public:
-        Farmaco(const char *_nombre)
+        Farmaco(const char *_nombre):Registro()
         {
             strcpy(nombre,_nombre);
         }

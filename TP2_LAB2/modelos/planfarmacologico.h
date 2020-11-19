@@ -16,14 +16,11 @@ class PlanFarmacologico:public Registro
         char  notas[500];
     public:
         PlanFarmacologico(int _idPaciente = -1, int _idProfesional = -1, const char * _notas = "", int _idDetallePLan = -1):Registro()
-        {   Fecha f;
-            emision           = f;
+        {
             ID_Paciente       = _idPaciente;
             ID_Profesional    = _idProfesional;
             ID_DetallePlan    = _idDetallePLan;
-            estado            = true;
             strcpy(notas,_notas);
-            ID                = -1;
         }
         ~PlanFarmacologico(){};
         //GETS
