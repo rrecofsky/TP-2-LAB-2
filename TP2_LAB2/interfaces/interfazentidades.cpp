@@ -463,6 +463,12 @@ void InterfazProfesional :: AgregarAArchivo(Profesional _prof){
     cls();
     ValidacionesGenerales valGral;
     ValidacionesTipoDato validaTDato;
+    InterfazPersona IP;
+    IP.MostrarCabeceraPersona();
+    cout << left;
+    cout << setw(12)  << "MATRICULA";
+    cout << setw(12)  << "ESPECIALIDAD";
+    cout << endl;
     MostrarProfesional(_prof);
     cout<<endl<<endl;
     cout<<"ESTA SEGURO QUE DESEA AGREGAR EL SIGUIENTE PROFESIONAL? S/N";
