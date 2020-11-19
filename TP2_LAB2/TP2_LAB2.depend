@@ -587,7 +587,7 @@
 	"../modelos/usuario.h"
 	"../modelos/paciente.h"
 
-1605706519 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.h
+1605756154 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.h
 	<cstring>
 	"../modelos/registro.h"
 
@@ -672,7 +672,7 @@
 	"ui.h"
 	"rlutil.h"
 
-1605706908 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
+1605756177 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
 	"../modelos/usuario.h"
 	<limits>
 	<iostream>

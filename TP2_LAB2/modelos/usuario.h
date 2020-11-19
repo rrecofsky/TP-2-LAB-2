@@ -17,7 +17,7 @@ class Usuario :public Registro {
        char user[50];
        char pass[50];
        int ID_Persona;
-       int ID_Perfil;
+       Perfil ID_Perfil;
     public:
         ///Constructor
         Usuario(const char * _user = "" ,const char* _pass = "",Perfil _perfil = Perfil_Paciente ):Registro()
