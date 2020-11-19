@@ -140,7 +140,7 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
                     //ingreso el ID del paciente que quiero buscar
                     profesional.SetId(validaTDato.cargar_Entero());
                     ///*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
-                    Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
+                 //   Archivo profesionales(FILE_PROFESIONALES,sizeof(Profesional));
                     //si existe en el archivo, entonces el ID esta OK
                     int posProf = IPsna.ObtenerProfesional(profesional);
                     //le relaciono el ID del paciente al usuario
@@ -184,7 +184,7 @@ bool InterfazUsuario :: CargarUsuario(Usuario & _user){
             paciente.SetId(validaTDato.cargar_Entero());
             //si existe en el archivo, entonces el ID esta OK
         ///*************** ESTO NO DEBERIA SER NECESARIO, EN OCASIONES DA ERROR SI SE SACA, CONSULTAR ********/
-            Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
+      //      Archivo pacientes(FILE_PACIENTES,sizeof(Paciente));
             //si existe en el archivo, entonces el ID esta OK
             int posPac = IPsna.ObtenerPaciente(paciente);
             //le relaciono el ID del paciente al usuario
@@ -647,7 +647,6 @@ bool InterfazPaciente :: CargarPaciente(Paciente & _paciente){
     cout<<endl;
     _paciente.SetIdCObertura(99);
     ///Seteo el ProfesionalOwnerID -> ESTO SERA REEMPLAZADO POR EL UserOwnerId del Resitro
-    _paciente.SetProfesionalOwnerID(usr_lgd.GetIdPersona());
     ///********************** TERMNAR **************************/
     /*
     cout<<"DESEA RELACIONARLE UNA COBERTURA AL PACIENTE? S/N";
@@ -728,8 +727,6 @@ void InterfazPaciente :: ListarPacientes(){
         cout << setw(12)  << "COBERTURA";
         cout << endl;
         while(fread(&pac,sizeof(Paciente),1,pacientes.GetPF())){
-             //Mostrar solo los pacientes del profesional
-             if (pac.GetProfesionalOwnerID() == usr_lgd.GetIdPersona() )
                 MostrarPaciente(pac);
         }
    } else

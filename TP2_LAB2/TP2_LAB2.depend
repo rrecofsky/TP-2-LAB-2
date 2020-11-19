@@ -484,7 +484,7 @@
 	<cstring>
 	<ctype.h>
 
-1605801274 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.h
+1605826885 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.h
 	<iomanip>
 	"../modelos/persona.h"
 	"../modelos/fecha.h"
@@ -675,7 +675,7 @@
 	<iostream>
 	"../validaciones/validaciones.h"
 
-1605723148 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.cpp
+1605826923 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.cpp
 	<iostream>
 	<limits>
 	"../util/rlutil.h"
@@ -708,7 +708,7 @@
 	"../util/rlutil.h"
 	"../interfaces/interfazcobertura.h"
 
-1605801781 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
+1605802020 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
 	<iostream>
 	<cstring>
 	"../util/ui.h"
@@ -750,7 +750,7 @@
 	"../modelos/paciente.h"
 	"../interfaces/interfazgeneral.h"
 
-1605790207 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
+1605826945 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\interfaces\interfazentidades.cpp
 	<limits>
 	<iostream>
 	"../modelos/archivo.h"
