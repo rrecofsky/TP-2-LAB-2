@@ -1,4 +1,4 @@
-#include "menues/login.h"
+#include "modelos/menu.h"
 
 
 const char *FILE_PACIENTES     = "archivos/pacientes.dat";
@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
-    MenuLogin();
+    MenuLogin login;
+    login.Login();
     return 0;
 }
