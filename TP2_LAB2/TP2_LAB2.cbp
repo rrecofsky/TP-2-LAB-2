@@ -75,8 +75,8 @@
 		<Unit filename="modelos/farmaco.h" />
 		<Unit filename="modelos/fecha.cpp" />
 		<Unit filename="modelos/fecha.h" />
-		<Unit filename="modelos/medicacion.cpp" />
-		<Unit filename="modelos/medicacion.h" />
+		<Unit filename="modelos/medicamento.cpp" />
+		<Unit filename="modelos/medicamento.h" />
 		<Unit filename="modelos/menu.cpp" />
 		<Unit filename="modelos/menu.h" />
 		<Unit filename="modelos/paciente.cpp" />

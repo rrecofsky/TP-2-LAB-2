@@ -16,6 +16,13 @@ class Especialidad:public Registro{
         //GETs
         const char *GetNombre();
         void SetNombre(const char*);
+        //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
+          bool comparaID(Registro *); //Puede estar en una capa de logica
+          int getSize();
+          Especialidad& operator = (Registro *temp){
+                Especialidad *aux=(Especialidad *)temp;
+                strcpy(nombre,aux->nombre);
+            }
 };
 
 

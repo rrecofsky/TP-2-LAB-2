@@ -465,18 +465,18 @@
 1605576367 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\fecha.h
 	<iostream>
 
-1605622389 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.h
+1607220378 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.h
 	"persona.h"
 	<iostream>
 	<iomanip>
 
-1605801373 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.h
+1607220207 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.h
 	"../modelos/fecha.h"
 	<iostream>
 	<cstring>
 	"../modelos/registro.h"
 
-1605712079 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\registro.h
+1607219698 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\registro.h
 	"../modelos/fecha.h"
 	<iostream>
 	<cstdlib>
@@ -484,7 +484,7 @@
 	<cstring>
 	<ctype.h>
 
-1605826885 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.h
+1607220172 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.h
 	<iomanip>
 	"../modelos/persona.h"
 	"../modelos/fecha.h"
@@ -498,26 +498,26 @@
 	<iostream>
 	<cstring>
 
-1604550583 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\detalleplanfarmacologico.cpp
+1607219936 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\detalleplanfarmacologico.cpp
 	"detalleplanfarmacologico.h"
 	"registro.h"
 	<iostream>
 
-1604584482 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\detalleplanfarmacologico.h
+1607219916 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\detalleplanfarmacologico.h
 	"registro.h"
 
-1604537172 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\especialidad.cpp
+1607220041 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\especialidad.cpp
 	"especialidad.h"
 
-1605801217 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\especialidad.h
+1607220016 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\especialidad.h
 	"../modelos/registro.h"
 	<cstring>
 
-1604537368 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\farmaco.cpp
-	"farmaco.h"
+1606515775 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\farmaco.cpp
+	"../modelos/farmaco.h"
 
-1605801234 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\farmaco.h
-	"registro.h"
+1606515754 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\farmaco.h
+	"../modelos/registro.h"
 
 1605708175 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuespaciente.cpp
 	<iostream>
@@ -561,7 +561,7 @@
 1605668876 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuespaciente.h
 	"../interfaces/interfazplanfarmacologico.h"
 
-1605651439 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.cpp
+1607219822 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.cpp
 	"../util/ui.h"
 	"../util/rlutil.h"
 	"archivo.h"
@@ -570,7 +570,7 @@
 	<cstdio>
 	<cstring>
 
-1605721559 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.h
+1607219763 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\archivo.h
 	"../modelos/registro.h"
 	<iostream>
 	<cstdlib>
@@ -584,7 +584,7 @@
 	"../modelos/usuario.h"
 	"../modelos/paciente.h"
 
-1605801517 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.h
+1607220404 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.h
 	<cstring>
 	"../modelos/registro.h"
 
@@ -625,7 +625,7 @@
 	"../modelos/persona.h"
 	<ctype.h>
 
-1605620890 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.cpp
+1607220224 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\persona.cpp
 	"persona.h"
 	<iostream>
 	<limits>
@@ -669,13 +669,13 @@
 	"ui.h"
 	"rlutil.h"
 
-1605756177 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
+1607220414 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\usuario.cpp
 	"../modelos/usuario.h"
 	<limits>
 	<iostream>
 	"../validaciones/validaciones.h"
 
-1605826923 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.cpp
+1607219869 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\paciente.cpp
 	<iostream>
 	<limits>
 	"../util/rlutil.h"
@@ -691,7 +691,7 @@
 	"../modelos/fecha.h"
 	"../interfaces/interfazfecha.h"
 
-1605626561 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.cpp
+1607220300 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\profesional.cpp
 	"../modelos/profesional.h"
 	<iostream>
 	<limits>
@@ -708,7 +708,7 @@
 	"../util/rlutil.h"
 	"../interfaces/interfazcobertura.h"
 
-1605802020 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
+1607220181 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\menues\menuesadministrador.cpp
 	<iostream>
 	<cstring>
 	"../util/ui.h"
@@ -719,7 +719,7 @@
 	"../menues/informes.h"
 	"../modelos/paciente.h"
 	"../modelos/profesional.h"
-	"../modelos/medicacion.h"
+	"../modelos/medicamento.h"
 	"../menues/menuesadministrador.h"
 	"../validaciones/validaciones.h"
 	"../interfaces/interfazentidades.h"
@@ -917,7 +917,7 @@
 
 1606229751 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\menu.h
 
-1606229854 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\menu.cpp
+1607220187 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\menu.cpp
 	<iostream>
 	<cstring>
 	"../util/ui.h"
@@ -927,11 +927,19 @@
 	"../modelos/fecha.h"
 	"../modelos/paciente.h"
 	"../modelos/profesional.h"
-	"../modelos/medicacion.h"
+	"../modelos/medicamento.h"
 	"../modelos/usuario.h"
 	"../modelos/menu.h"
 	"../modelos/planfarmacologico.h"
 	"../validaciones/validaciones.h"
 	"../interfaces/interfazentidades.h"
 	"../interfaces/interfazplanfarmacologico.h"
+
+1606517892 source:f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\medicamento.cpp
+	"../modelos/medicamento.h"
+
+1606517881 f:\fctd\lab ii\tp 2 lab 2\tp-2-lab-2\tp2_lab2\modelos\medicamento.h
+	"../modelos/registro.h"
+	"../modelos/fecha.h"
+	<cstring>
 

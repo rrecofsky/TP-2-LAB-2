@@ -39,8 +39,6 @@ class DetallePlanFarmacologico:public Registro
         void  SetCantMiligramos(int);
 
         //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
-          void Cargar(); //Puede estar en una capa de logica
-          void Mostrar(); //Puede estar en una capa de logica
           bool comparaID(Registro *); //Puede estar en una capa de logica
           int getSize();
           DetallePlanFarmacologico& operator = (Registro *temp){

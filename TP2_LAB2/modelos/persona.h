@@ -47,13 +47,8 @@ class Persona:public Registro{
         void  ChangeUserName(const char*);
         void  ChangeUserPass(const char*);
         /// POLIMORFICAS
-        void Cargar();
-        void Mostrar();
-        void Modificar(){};
         int getSize();
-
-
-         Persona& operator = (Registro *temp){
+        Persona& operator = (Registro *temp){
             Persona *aux=(Persona *)temp;
             strcpy(this->apellidos,aux->apellidos);
             strcpy(this->nombres, aux->nombres);

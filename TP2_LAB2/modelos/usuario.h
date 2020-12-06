@@ -39,11 +39,7 @@ class Usuario :public Registro {
         void  ChangeIdPersona(int);
        // void  ChangeUserOwnerId(int ow){userOwner = -1;};
         /// POLIMORFICAS
-        void Cargar();
-        void Mostrar();
         int getSize();
-        void Modificar();
-
         Usuario& operator = (Registro *temp){
             Usuario *aux=(Usuario *)temp;
             strcpy(this->user,aux->user);

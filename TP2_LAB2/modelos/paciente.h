@@ -31,12 +31,8 @@ class Paciente:public Persona
         void SetNroAfiliado(int);
         void SetIdCObertura(int);
         void SetIdInforme(int);
-        ///Carga
-        void Cargar();
-        void Mostrar();
-        void Modificar();
-        int getSize();
         ///VIRTUAL
+        int getSize();
          Paciente& operator = (Registro *temp){
             Paciente *aux=(Paciente *)temp;
             strcpy(this->apellidos,aux->apellidos);

@@ -49,8 +49,6 @@ void  Persona :: SetGenero(char _genero){ genero = _genero;}
 
 //VIRTUAL
 
-void  Persona :: Mostrar(){}
-void  Persona :: Cargar(){}
 int   Persona :: getSize(){return sizeof *this;}
 bool  Persona :: comparaID(Registro *temp){
         Persona *aux=(Persona *)temp;

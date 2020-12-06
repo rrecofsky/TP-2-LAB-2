@@ -69,62 +69,6 @@ int Archivo::grabarRegistro( Registro &dato, int pos){
       return grabo;
 }
 
-//alta(Registro &obj)
-//AGREGA UN REGISTRO AL ARCHIVO
-//VALIDA EL CAMPO CLAVE
-//DEVUELVE -1 SI NO PUDO ABRIR EL ARCHIVO, 1 SI GRABO, 0 SI NO GRABO Y -2 SI SE REPITE EL CODIGO
-int Archivo::alta(Registro &obj){
-  int grabo;
-  if(!abrirArchivo(Agregar)){
-    return -1;
-  }
-  system("cls");
-  cout<<"ALTA DE REGISTRO"<<endl;
-  obj.Cargar();
-  int pos=buscarRegistro(obj);
-  if(pos==-1){
-    grabo=grabarRegistro(obj,-1);
-    cerrarArchivo();
-    return grabo;
-    }
-  else{
-    cout<<"YA EXISTE EL CODIGO"<<endl;
-    cout<<"NO SE GRABO EL REGISTRO"<<endl;
-    anykey();
-    system("cls");
-    }
-  return -2;
-}
-//listarArchivo(Registro &aux)
-//LISTA EL ARCHIVO COMPLETO
-bool Archivo::listarArchivo(Registro &aux){
-       if(cantRegistros==0)return false;
-       if(!abrirArchivo(SoloLectura)){
-         return false;
-       }
-       while(fread(pRegistro,tamanioRegistro,1,pF)){
-         aux=(Registro *)pRegistro;
-         aux.Mostrar();
-         };
-       cerrarArchivo();
-       return true;
-}
-
-//USAR POLIMORFISMO CON CLASE InterfazGenerica
-bool Archivo::listarArchivoProfesionales(Profesional &aux){
-      InterfazProfesional interfazProfesional;
-       if(cantRegistros==0)return false;
-       if(!abrirArchivo(SoloLectura)){
-            cout<<"NO ABRI EL ARCHIVO"<<endl;
-         return false;
-       }
-       while(fread(&aux,tamanioRegistro,1,pF)){
-         interfazProfesional.MostrarProfesional(aux);
-         };
-       cerrarArchivo();
-       return true;
-}
-
 
 //COMPARA EL CAMPO CLAVE DEL REGISTRO RECIBIDO COMO PARAMETRO CON LOS REGISTROS DEL ARCHIVO.
 //SI YA EXISTE EL VALOR DEL CAMPO CLAVE DEVUELVE LA POSICIÓN QUE OCUPA EN EL ARCHIVO

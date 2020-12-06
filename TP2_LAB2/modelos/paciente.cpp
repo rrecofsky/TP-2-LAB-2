@@ -19,27 +19,7 @@ void Paciente :: SetNroAfiliado(int _nroAfiliado){nro_Afiliado = _nroAfiliado;}
 void Paciente :: SetIdCObertura(int _idCobertura){ID_Cobertura = _idCobertura;}
 void Paciente :: SetIdInforme(int _idInforme){ ID_Informe = _idInforme;}
 
-//Carga
-
-
-void Paciente :: Cargar(){}
-
-void Paciente :: Mostrar(){
-
-    cout << left;
-    cout << setw(12) << ID;
-    cout << setw(12) << nombres;
-    cout << setw(12) << apellidos;
-    cout << setw(12) << genero;
-    cout << setw(12) << DNI;
-    cout << setw(12) << GetEdad();
-    cout << setw(16) << ID_Cobertura;
-    cout << setw(12) <<"SIN IMPLEMENTAR";
-    cout<<endl;
-}
-
-void Paciente ::  Modificar(){return;}
-
+//VIRTUALES
 int Paciente :: getSize(){return sizeof *this;}
 
 bool  Paciente :: comparaID(Registro *temp){

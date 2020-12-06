@@ -7,7 +7,7 @@
 #include "../modelos/fecha.h"
 #include "../modelos/paciente.h"
 #include "../modelos/profesional.h"
-#include "../modelos/medicacion.h"
+#include "../modelos/medicamento.h"
 #include "../modelos/usuario.h"
 #include "../modelos/menu.h"
 #include "../modelos/planfarmacologico.h"

@@ -9,7 +9,7 @@
 #include "../menues/informes.h"
 #include "../modelos/paciente.h"
 #include "../modelos/profesional.h"
-#include "../modelos/medicacion.h"
+#include "../modelos/medicamento.h"
 #include "../menues/menuesadministrador.h"
 #include "../validaciones/validaciones.h"
 #include "../interfaces/interfazentidades.h"

@@ -19,12 +19,7 @@ void  Usuario :: ChangeUserPass(const char* _pass){strcpy(pass,_pass);}
 void  Usuario :: ChangePerfilUser(Perfil _perfil){ID_Perfil = _perfil;}
 void  Usuario :: ChangeIdPersona(int _idPersona){ID_Persona = _idPersona;}
 
-///POLOMORFICAS
-
-void Usuario ::Cargar(){return;}
-void Usuario ::Mostrar(){ }
-
-void Usuario ::Modificar(){return;}
+///VIRTUAL
 
 bool  Usuario :: comparaID(Registro *temp){
         Usuario *aux=(Usuario *)temp;

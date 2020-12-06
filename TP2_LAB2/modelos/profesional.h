@@ -26,12 +26,23 @@ class Profesional: public Persona
         ///SETs
         void SetMatricula(int);
         void SetEspecialidad(int );
-        ///Carga
-        void Cargar();
-        void Mostrar();
-        void Modificar();
+        ///Virtual
         bool comparaID(Registro *temp);
         int getSize();
+        Profesional& operator = (Registro *temp){
+            Profesional *aux=(Profesional *)temp;
+            strcpy(this->apellidos,aux->apellidos);
+            strcpy(this->nombres, aux->nombres);
+            genero           = aux->genero;
+            fecha_nacimiento = aux->fecha_nacimiento;
+            DNI              = aux->DNI;
+            estado           = aux->estado;
+            ID               = aux->ID;
+            fechaAlta        = aux->fechaAlta;
+            fechaBaja        = aux->fechaBaja;
+            matricula        = aux->matricula;
+            ID_especialidad  = aux->ID_especialidad;
+            }
 
 };
 
