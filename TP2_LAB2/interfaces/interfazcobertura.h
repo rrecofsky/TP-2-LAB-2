@@ -2,16 +2,15 @@
 #define INTERFAZCOBERTURA_H_INCLUDED
 #include "../modelos/cobertura.h"
 #include "../modelos/registro.h"
+#include "../interfaces/interfazgeneral.h"
 
-class InterfazCobertura  {
+class InterfazCobertura : public InterfazGeneral {
     public:
-        void CargarCobertura(Cobertura &);
-        void MostrarCobertura(Cobertura);
-        void ModificarCobertura(Cobertura &);
-        void AgregarCoberturaAArchivo(Cobertura);
-        void ModificarCoberturaEnArchivo(Cobertura);
+        int  ObtenerCobertura(Cobertura & );
+        bool CargarCobertura(Cobertura &);
+        void MostrarCobertura(Cobertura );
         void ListarCoberturas();
-        bool AsociarCobertura(Cobertura &);
+        void AgregarCoberturaAArchivo(Cobertura );
 };
 
 #endif // INTERFAZCOBERTURA_H_INCLUDED
