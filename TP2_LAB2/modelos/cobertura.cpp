@@ -10,12 +10,10 @@ const  char * Cobertura :: GetNombre(){return nombre;}
 void  Cobertura :: SetNombre(const char* _nombre){strcpy(nombre,_nombre);}
 
 ///VIRTUAL
-void Cobertura :: Cargar(){};
-void Cobertura :: Mostrar(){};
-void Cobertura :: Modificar(){};
 
 bool Cobertura :: comparaID(Registro *temp){
     Cobertura *aux=(Cobertura *)temp;
+    if (nombre != "" && aux->nombre != "" && nombre == aux->nombre) return true;
     if( ID == aux->ID  ) return true;
     return false;
 }

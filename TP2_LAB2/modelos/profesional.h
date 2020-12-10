@@ -26,7 +26,7 @@ class Profesional: public Persona
         ///SETs
         void SetMatricula(int);
         void SetEspecialidad(int );
-        ///Virtual
+        ///Carga
         bool comparaID(Registro *temp);
         int getSize();
         Profesional& operator = (Registro *temp){
@@ -42,6 +42,7 @@ class Profesional: public Persona
             fechaBaja        = aux->fechaBaja;
             matricula        = aux->matricula;
             ID_especialidad  = aux->ID_especialidad;
+            poseeUsuario     = aux->poseeUsuario;
             }
 
 };

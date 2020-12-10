@@ -16,15 +16,11 @@ class Cobertura:public Registro
         }
         ~Cobertura(){};
         ///GET
-          const char *GetNombre();
+        const char *GetNombre();
         ///SET
         void  SetNombre(const char*);
-        /// POLIMORFICAS
-        void Cargar();
-        void Mostrar();
-        void Modificar();
+        /// VIRTUALS
         int getSize();
-
          Cobertura& operator = (Registro *temp){
             Cobertura *aux=(Cobertura *)temp;
             strcpy(this->nombre, aux->nombre);

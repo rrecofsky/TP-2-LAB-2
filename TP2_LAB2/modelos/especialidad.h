@@ -8,21 +8,25 @@ class Especialidad:public Registro{
     private:
        char nombre[50];
     public:
-        Especialidad(const char *n):Registro()
+        Especialidad(const char *_nombre = ""):Registro()
         {
-            strcpy(nombre,n);
+            strcpy(nombre,_nombre);
         }
         ~Especialidad(){};
         //GETs
         const char *GetNombre();
         void SetNombre(const char*);
-        //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
-          bool comparaID(Registro *); //Puede estar en una capa de logica
-          int getSize();
-          Especialidad& operator = (Registro *temp){
-                Especialidad *aux=(Especialidad *)temp;
-                strcpy(nombre,aux->nombre);
+        /// VIRTUALS
+        int getSize();
+         Especialidad& operator = (Registro *temp){
+            Especialidad *aux=(Especialidad *)temp;
+            strcpy(this->nombre, aux->nombre);
+            estado           = aux->estado;
+            ID               = aux->ID;
+            fechaAlta        = aux->fechaAlta;
+            fechaBaja        = aux->fechaBaja;
             }
+        bool comparaID(Registro *temp);
 };
 
 
