@@ -45,10 +45,14 @@
 		<Unit filename="interfaces/interfazespecialidad.h" />
 		<Unit filename="interfaces/interfazfarmaco.cpp" />
 		<Unit filename="interfaces/interfazfarmaco.h" />
+		<Unit filename="interfaces/interfazfarmacosdelmedicamento.cpp" />
+		<Unit filename="interfaces/interfazfarmacosdelmedicamento.h" />
 		<Unit filename="interfaces/interfazfecha.cpp" />
 		<Unit filename="interfaces/interfazfecha.h" />
 		<Unit filename="interfaces/interfazgeneral.cpp" />
 		<Unit filename="interfaces/interfazgeneral.h" />
+		<Unit filename="interfaces/interfazinforme.cpp" />
+		<Unit filename="interfaces/interfazinforme.h" />
 		<Unit filename="interfaces/interfazmedicacion.cpp" />
 		<Unit filename="interfaces/interfazmedicacion.h" />
 		<Unit filename="interfaces/interfazplanfarmacologico.cpp" />
@@ -73,8 +77,12 @@
 		<Unit filename="modelos/especialidad.h" />
 		<Unit filename="modelos/farmaco.cpp" />
 		<Unit filename="modelos/farmaco.h" />
+		<Unit filename="modelos/farmacos_del_medicamento.cpp" />
+		<Unit filename="modelos/farmacos_del_medicamento.h" />
 		<Unit filename="modelos/fecha.cpp" />
 		<Unit filename="modelos/fecha.h" />
+		<Unit filename="modelos/informe.cpp" />
+		<Unit filename="modelos/informe.h" />
 		<Unit filename="modelos/medicamento.cpp" />
 		<Unit filename="modelos/medicamento.h" />
 		<Unit filename="modelos/menu.cpp" />
