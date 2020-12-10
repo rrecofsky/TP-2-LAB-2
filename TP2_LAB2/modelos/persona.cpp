@@ -7,11 +7,14 @@ using namespace std;
 
 //Gets
 
+
 const char * Persona :: GetNombres(){return nombres;}
 const char * Persona :: GetApellidos(){return apellidos; }
 Fecha Persona :: GetFechaNacimiento(){ return fecha_nacimiento; }
 int   Persona :: GetDNI(){return DNI;}
 char  Persona :: GetGenero(){ return genero; }
+bool  Persona :: PoseeUsuario(){return poseeUsuario;}
+
 int   Persona :: GetEdad(){
 
     int respFech , respMes;
@@ -46,8 +49,10 @@ void  Persona :: SetApellidos(const char *_apellidos){ strcpy(apellidos,_apellid
 void  Persona :: SetFechaNacimiento(Fecha _fechaNacimiento){fecha_nacimiento = _fechaNacimiento;}
 void  Persona :: SetDNI(int _dni){ DNI = _dni;}
 void  Persona :: SetGenero(char _genero){ genero = _genero;}
+void  Persona :: SetPoseeUsuario(){poseeUsuario = true;}
 
 //VIRTUAL
+
 
 int   Persona :: getSize(){return sizeof *this;}
 bool  Persona :: comparaID(Registro *temp){

@@ -92,6 +92,8 @@ class Archivo{
       int   alta(Registro &);
       const char *getNombreArchivo(){return nombreArchivo;}
       int   getCantidadRegistros(){return cantRegistros;}
+      bool  listarArchivo(Registro &aux);
+      bool  listarArchivoProfesionales(Profesional &aux);
       FILE * GetPF(){return pF;} //obtener el puntero
 
   };

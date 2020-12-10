@@ -70,6 +70,22 @@ int Archivo::grabarRegistro( Registro &dato, int pos){
 }
 
 
+//USAR POLIMORFISMO CON CLASE InterfazGenerica
+bool Archivo::listarArchivoProfesionales(Profesional &aux){
+      InterfazProfesional interfazProfesional;
+       if(cantRegistros==0)return false;
+       if(!abrirArchivo(SoloLectura)){
+            cout<<"NO ABRI EL ARCHIVO"<<endl;
+         return false;
+       }
+       while(fread(&aux,tamanioRegistro,1,pF)){
+         interfazProfesional.MostrarProfesional(aux);
+         };
+       cerrarArchivo();
+       return true;
+}
+
+
 //COMPARA EL CAMPO CLAVE DEL REGISTRO RECIBIDO COMO PARAMETRO CON LOS REGISTROS DEL ARCHIVO.
 //SI YA EXISTE EL VALOR DEL CAMPO CLAVE DEVUELVE LA POSICIÓN QUE OCUPA EN EL ARCHIVO
 //SI NO LO ENCUENTRA DEVUELVE -1, Y SI NO PUDO ABRIR EL ARCHIVO DEVUELVE -2

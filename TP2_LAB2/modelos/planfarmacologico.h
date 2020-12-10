@@ -29,16 +29,15 @@ class PlanFarmacologico:public Registro
         int   GetIdPaciente();
         int   GetIdProfesional();
         const char *GetNotas();
+        int   GetIdDetallePlan();
         //SETs
         void  SetEmision(Fecha);
         void  SetActualizacion(Fecha);
         void  SetIdPaciente(int);
         void  SetIdProfesional(int);
         void  SetNotas(const char*);
+        void  SetIdDetallePlan(int);
         //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
-        void Cargar(); //BORRAR
-        void Mostrar(); //BORRAR
-        void Modificar(){}; //BORRAR
         int getSize();
         bool comparaID(Registro *temp);
          PlanFarmacologico& operator = (Registro *temp){

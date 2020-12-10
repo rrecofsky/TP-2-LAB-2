@@ -17,6 +17,7 @@ class Persona:public Registro{
         Fecha fecha_nacimiento;
         int   DNI;
         bool  estado;
+        bool  poseeUsuario;
     public:
 
         Persona(const char *_nombre = "", const char *_apellido = "", int _dni = -1):Registro()
@@ -24,6 +25,7 @@ class Persona:public Registro{
             strcpy(nombres,_nombre);
             strcpy(apellidos,_apellido);
             DNI              = _dni;
+            poseeUsuario     = false;
          }
 
         //GETS
@@ -32,10 +34,12 @@ class Persona:public Registro{
         Fecha GetFechaNacimiento();
         int   GetDNI();
         char  GetGenero();
+        bool PoseeUsuario();
         //GETS de usuarios
         const char *GetUser();
         const char *GetPass();
         int   GetEdad();
+        void SetPoseeUsuario();
         //SETS
         void  SetIDPersona();
         void  SetNombres(const char *);
@@ -48,7 +52,9 @@ class Persona:public Registro{
         void  ChangeUserPass(const char*);
         /// POLIMORFICAS
         int getSize();
-        Persona& operator = (Registro *temp){
+
+
+         Persona& operator = (Registro *temp){
             Persona *aux=(Persona *)temp;
             strcpy(this->apellidos,aux->apellidos);
             strcpy(this->nombres, aux->nombres);
@@ -59,6 +65,7 @@ class Persona:public Registro{
             ID               = aux->ID;
             fechaAlta        = aux->fechaAlta;
             fechaBaja        = aux->fechaBaja;
+            poseeUsuario     = aux->poseeUsuario;
             }
         bool comparaID(Registro *temp);
         ///Destructor

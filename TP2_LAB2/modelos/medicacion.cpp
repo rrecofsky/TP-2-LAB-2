@@ -1,20 +1,20 @@
-#include "../modelos/medicamento.h"
+#include "medicacion.h"
 
 ///GETs
 
+const char*          Medicamento :: GetFarmaco(){return farmaco;}
 int                  Medicamento :: GetDosis(){return dosis;}
 Fecha                Medicamento :: GetFechaVecimiento(){return vencimiento;}
-int                  Medicamento :: GetIdPresentacion(){return ID_Presentacion;}
+Presentacion         Medicamento :: GetIdPresentacion(){return ID_Presentacion;}
 bool                 Medicamento :: GetNoSeFabricaMas(){return NoSeFabricaMas;}
-const char *         Medicamento :: GetaccionTerapeutica(){return accionTerapeutica;}
 
 ///SETs
 
+void  Medicamento :: SetFarmaco(const char* _farmaco){strcpy(farmaco,_farmaco);}
 void  Medicamento :: SetDosis(int _dosis){dosis = _dosis;}
 void  Medicamento :: SetFechaVencimiento(Fecha _fechaVencimiento){vencimiento = _fechaVencimiento;}
-void  Medicamento :: SetIdPresentacion(int _idPresentacion){ID_Presentacion = _idPresentacion;}
+void  Medicamento :: SetIdPresentacion(Presentacion _idPresentacion){ID_Presentacion = _idPresentacion;}
 void  Medicamento :: SetNoSeFabricaMas(bool _NoSeFabricaMas){NoSeFabricaMas = NoSeFabricaMas;}
-void  Medicamento :: SetaccionTerapeutica(const char * _accionTerapeutica){strcpy(accionTerapeutica,_accionTerapeutica);}
 
 ///GETS PLM
 int   Medicamento :: getSize(){return sizeof *this;}

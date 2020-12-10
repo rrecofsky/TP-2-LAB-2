@@ -5,45 +5,47 @@
 #include "../modelos/fecha.h"
 #include <cstring>
 
+enum Presentacion{
+    Capsulas,
+    Comprimidos
+};
 
 class Medicamento : public Registro{
     private:
-        int            ID_Presentacion; //cantidad de pastillas por caja
+        char           farmaco[50];
+        Presentacion   ID_Presentacion;
         int            dosis;
         Fecha          vencimiento;
         bool           NoSeFabricaMas;
-        char           accionTerapeutica[50];
     public:
-        Medicamento( float _dosis=0, int _idPresentacion = -1, const char * _accionTerapeutica = ""):Registro(){
+        Medicamento( const char* _farmaco = "", float _dosis=0):Registro(){
+            strcpy(farmaco,_farmaco);
             dosis               = _dosis;
+            strcpy(farmaco,"");
             NoSeFabricaMas = false;
-            ID_Presentacion = _idPresentacion;
-            strcpy(accionTerapeutica,_accionTerapeutica);
         }
         ~Medicamento(){};
         //GETs
         const char *   GetFarmaco();
         int            GetDosis();
         Fecha          GetFechaVecimiento();
-        int            GetIdPresentacion();
+        Presentacion   GetIdPresentacion();
         bool           GetNoSeFabricaMas();
-        const char *   GetaccionTerapeutica();
         //SETs
+        void           SetFarmaco(const char*);
         void           SetDosis(int);
         void           SetFechaVencimiento(Fecha);
-        void           SetIdPresentacion(int);
+        void           SetIdPresentacion(Presentacion);
         void           SetNoSeFabricaMas(bool);
-        void           SetaccionTerapeutica(const char *);
         //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
         int getSize();
         bool comparaID(Registro *temp);
          Medicamento& operator = (Registro *temp){
             Medicamento *aux=(Medicamento *)temp;
-            strcpy(accionTerapeutica,aux->accionTerapeutica);
+            strcpy(farmaco,aux->farmaco);
             ID_Presentacion = aux->ID_Presentacion;
             dosis = aux->dosis;
             vencimiento = aux->vencimiento;
-            NoSeFabricaMas = aux->NoSeFabricaMas;
             estado           = aux->estado;
             ID               = aux->ID;
             fechaAlta        = aux->fechaAlta;
