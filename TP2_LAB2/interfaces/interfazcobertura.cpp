@@ -10,7 +10,7 @@ extern const char *FILE_COBERTURAS;
 
 
 int InterfazCobertura :: ObtenerCobertura(Cobertura & _cobertura){
-    Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura));
+    Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura),true);
     return coberturas.leerRegistro(_cobertura);
 }
 
@@ -41,7 +41,6 @@ bool InterfazCobertura :: CargarCobertura(Cobertura & _cobertura){
 
 
 void InterfazCobertura :: MostrarCobertura(Cobertura _cobertura){
-    char presentacion[50], fabrica[10];
     cout << left;
     if (_cobertura.GetId() != -1)
         cout << setw(4)  << _cobertura.GetId();
@@ -100,5 +99,45 @@ void InterfazCobertura :: AgregarCoberturaAArchivo(Cobertura _cobertura){
 };
 
 
+void InterfazCobertura :: ModificarCobertura(Cobertura & _cobertura){
+        CargarCobertura(_cobertura);
+        return ;
+
+}
+
+void InterfazCobertura :: ActualizarCobertura(Cobertura _cob, int _pos){
+    Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura));
+    coberturas.grabarRegistro(_cob,_pos);
+}
+
+
+void InterfazCobertura :: ModificarCoberturaEnArchivo(Cobertura _cobertura){
+    ValidacionesGenerales valGral;
+    ValidacionesTipoDato validaTDato;
+    Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura));
+    int posCob = coberturas.buscarRegistro(_cobertura);
+    if ( posCob != -1 && coberturas.leerRegistro(_cobertura, posCob) != -1){
+        MostrarCobertura(_cobertura);
+        cout<<endl<<endl;
+        cout<<"ESTA SEGURO QUE DESEA MODIFICAR LA SIGUIENTE COBERTURA? S/N"<<endl;
+        if(valGral.leer_SoN())
+        {
+            cls();
+            ModificarCobertura(_cobertura);
+            if(coberturas.grabarRegistro(_cobertura,posCob) == 1)
+                validaTDato.generar_Mensaje(2,"SE ACTUALIZO SATISFACTORIAMENTE LA COBERTURA");
+            else
+            validaTDato.generar_Mensaje(0,"NO SE PUDO ACTUALIZAR SATISFACTORIAMENTE LA COBERTURA");
+            cout<<endl<<endl;
+            system("PAUSE");
+            return;
+        }
+    }else{
+            validaTDato.generar_Mensaje(0,"NO EXISTE UNA COBERTURA CON EL ID: ");
+            cout<<_cobertura.GetId();
+            cout<<endl<<endl;
+            system("PAUSE");
+         }
+}
 
 

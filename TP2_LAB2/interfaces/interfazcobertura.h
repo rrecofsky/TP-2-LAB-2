@@ -11,6 +11,13 @@ class InterfazCobertura : public InterfazGeneral {
         void MostrarCobertura(Cobertura );
         void ListarCoberturas();
         void AgregarCoberturaAArchivo(Cobertura );
+
+        void ModificarCobertura(Cobertura & );
+        void ActualizarCobertura(Cobertura , int );
+        void ModificarCoberturaEnArchivo(Cobertura );
+
+
+
 };
 
 #endif // INTERFAZCOBERTURA_H_INCLUDED
