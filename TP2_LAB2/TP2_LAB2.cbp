@@ -60,13 +60,6 @@
 		<Unit filename="interfaces/interfazpresentacion.cpp" />
 		<Unit filename="interfaces/interfazpresentacion.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="menues/informes.cpp" />
-		<Unit filename="menues/informes.h" />
-		<Unit filename="menues/login.h" />
-		<Unit filename="menues/menuesadministrador.cpp" />
-		<Unit filename="menues/menuesadministrador.h" />
-		<Unit filename="menues/menuespaciente.cpp" />
-		<Unit filename="menues/menuespaciente.h" />
 		<Unit filename="modelos/archivo.cpp" />
 		<Unit filename="modelos/archivo.h" />
 		<Unit filename="modelos/cobertura.cpp" />
