@@ -6,16 +6,18 @@
 
 class Informe : public Registro{
     private:
+        int   nroInforme;
         Fecha fechaEmision;
         int   idPaciente;
         int   idProfesional;
         char  detalle[100];
     public:
-         Informe(int _idPaciente = -1, int _idProfesional = -1, const char * _detalle = ""):Registro()
+         Informe(int _idPaciente = -1, int _idProfesional = -1, const char * _detalle = "", int _nroInforme = 0):Registro()
         {
             strcpy(detalle,_detalle);
             idPaciente = idPaciente;
             idProfesional = _idProfesional;
+            nroInforme = _nroInforme;
         }
         ~Informe(){};
         //gets
@@ -23,11 +25,13 @@ class Informe : public Registro{
         int   GetIdPaciente();
         int   GetIdProfesional();
         const char* GetDetalle();
+        int   GetNroInforme();
         //sets
         void  SetFechaEmision(Fecha);
         void  SetIdPaciente(int);
         void  SetIdProfesional(int);
         void  SetDetalle(const char*);
+        void  SetNroInforme(int);
 
         //heredadas
         int getSize();
@@ -38,6 +42,7 @@ class Informe : public Registro{
             idPaciente       = aux->idPaciente;
             idProfesional    = aux->idProfesional;
             fechaEmision     = aux->fechaEmision;
+            nroInforme       = aux->nroInforme;
 
             estado           = aux->estado;
             ID               = aux->ID;

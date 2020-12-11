@@ -8,12 +8,15 @@ using namespace std;
 using namespace rlutil;
 extern const char *FILE_COBERTURAS;
 
+int InterfazCobertura :: GetCantidadCoberturas(){
+    Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura),true);
+    return coberturas.getCantidadRegistros();
+}
 
 int InterfazCobertura :: ObtenerCobertura(Cobertura & _cobertura){
     Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura),true);
     return coberturas.leerRegistro(_cobertura);
 }
-
 
 bool InterfazCobertura :: CargarCobertura(Cobertura & _cobertura){
     ValidacionesTipoDato validaTDato;
@@ -46,8 +49,8 @@ void InterfazCobertura :: MostrarCobertura(Cobertura _cobertura){
         cout << setw(4)  << _cobertura.GetId();
     else
         cout << setw(4)  << " - ";
-
     cout << setw(20)  << _cobertura.GetNombre();
+    cout << endl;
 };
 
 
@@ -57,12 +60,10 @@ void InterfazCobertura :: ListarCoberturas(){
     ValidacionesTipoDato validaTDato;
     Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura),true);
     if( coberturas.getCantidadRegistros() != 0){
-
         cout << left;
         cout << setw(4)  << "ID";
         cout << setw(20) << "COBERTURA";
         cout << endl;
-
         while(fread(&cobertura,sizeof(Cobertura),1,coberturas.GetPF()))
              MostrarCobertura(cobertura);
 
@@ -81,7 +82,6 @@ void InterfazCobertura :: AgregarCoberturaAArchivo(Cobertura _cobertura){
         cout << setw(4)  << "ID";
         cout << setw(20) << "COBERTURA";
         cout << endl;
-
     MostrarCobertura(_cobertura);
     cout<<endl<<endl;
     cout<<endl<<"ESTA SEGURO QUE DESEA AGREGAR LA SIGUIENTE COBERTURA? S/N";
@@ -95,7 +95,6 @@ void InterfazCobertura :: AgregarCoberturaAArchivo(Cobertura _cobertura){
     }
     cout<<endl;
     system("PAUSE");
-
 };
 
 

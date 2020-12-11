@@ -17,7 +17,6 @@ class Paciente:public Persona
             nro_Afiliado         = _nroAfiliado;
             ID_Cobertura         = _cobertura;
         }
-
         ~Paciente(){};
         ///GETs
         int GetNroAfiliado();

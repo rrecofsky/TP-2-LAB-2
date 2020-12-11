@@ -51,9 +51,6 @@ int Archivo::grabarRegistro( Registro &dato, int pos){
       if(pos==-1){
         dato.SetId(cantidadRegistros());
         if(!abrirArchivo(Agregar)){
-        cout<<"no pudo abrir en AB"<<endl;
-        anykey();
-        system("cls");
         return -1;
         }
       }
@@ -67,22 +64,6 @@ int Archivo::grabarRegistro( Registro &dato, int pos){
       cerrarArchivo();
       if(grabo &&pos==-1)  cantRegistros++;
       return grabo;
-}
-
-
-//USAR POLIMORFISMO CON CLASE InterfazGenerica
-bool Archivo::listarArchivoProfesionales(Profesional &aux){
-      InterfazProfesional interfazProfesional;
-       if(cantRegistros==0)return false;
-       if(!abrirArchivo(SoloLectura)){
-            cout<<"NO ABRI EL ARCHIVO"<<endl;
-         return false;
-       }
-       while(fread(&aux,tamanioRegistro,1,pF)){
-         interfazProfesional.MostrarProfesional(aux);
-         };
-       cerrarArchivo();
-       return true;
 }
 
 

@@ -10,6 +10,8 @@ class InterfazInforme : public InterfazGeneral {
         void MostrarInforme(Informe );
         void ListarInformes();
         void AgregarInformeAArchivo(Informe );
+
+
 };
 
 

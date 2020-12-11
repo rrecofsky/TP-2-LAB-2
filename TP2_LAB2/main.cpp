@@ -14,9 +14,6 @@ const char *FILE_ESPECIALIDADES        = "archivos/especialidades.dat";
 const char *FILE_INFORMES              = "archivos/informes.dat";
 
 
-
-
-
 using namespace std;
 
 int main()
