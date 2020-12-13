@@ -452,16 +452,13 @@ void MenuProfesional :: MenuProf(){
     return;
 }
 
-void MenuProfesional :: menuListarPlanesFarmacologicos(const char * _objeto){
+void MenuProfesional :: menuListarPorProfesionalPaciente(const char * _objeto){
 
     ValidacionesTipoDato valTDato;
     while(true)
     {
-       /* cls();
-        title(_objeto, APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        gotoxy(1, 3);*/
         cls();
-        title("LISTAR PLANES FARMACOLOGICOS", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        title(_objeto, APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
         cout<<"1) POR PROFESIONAL"<<endl;
         cout<<"2) POR PACIENTE"<<endl;
@@ -474,14 +471,20 @@ void MenuProfesional :: menuListarPlanesFarmacologicos(const char * _objeto){
         switch(opcion){
             case 1:
                    cls();
-                   MostrarPlanesFarmacologicosDelProfesional();
-                   //MenuGeneral("USUARIOS");
+                   if(strcmp("LISTAR PLANES FARMACOLOGICOS",_objeto) == 0)
+                                    MostrarPlanesFarmacologicosDelProfesional();
+                                else
+                                    if(strcmp("LISTAR INFORMES",_objeto) == 0)
+                                        MostrarInformesDelProfesional();
+
                    break;
             case 2:
-                   MostrarPlanesFarmacologicosDelPaciente();
-                   //menuListarPlanesFarmacologicosPorPaciente("PACIENTES");
-                   //MostrarPlanesFarmacologicosDelPaciente();
-                   //MenuGeneral("PACIENTES");
+                   cls();
+                   if(strcmp("LISTAR PLANES FARMACOLOGICOS",_objeto) == 0)
+                                    MostrarPlanesFarmacologicosDelPaciente();
+                                else
+                                    if(strcmp("LISTAR INFORMES",_objeto) == 0)
+                                        MostrarInformesDelPaciente();
                    break;
             case 0:
                    return;
@@ -492,37 +495,6 @@ void MenuProfesional :: menuListarPlanesFarmacologicos(const char * _objeto){
     return;
 }
 
-void MenuProfesional :: menuListarPlanesFarmacologicosPorPaciente(const char * _objeto){
-
-    ValidacionesTipoDato valTDato;
-    Profesional prof;
-    while(true)
-    {
-        cls();
-        title("LISTAR PLANES FARMACOLOGICOS POR PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        gotoxy(1, 3);
-        MostrarPlanesFarmacologicosDelPaciente();
-        /**int opcion;
-        opcion = valTDato.cargar_Entero();
-
-       switch(opcion){
-            case 1:
-                   cls();
-                   MostrarPlanesFarmacologicosDelProfesional();
-                   //MenuGeneral("USUARIOS");
-                   break;
-            case 2:
-                   MostrarPlanesFarmacologicosDelPaciente();
-                   //MenuGeneral("PACIENTES");
-                   break;
-            case 0:
-                   return;
-            break;
-        }**/
-        cin.ignore();
-    }
-    return;
-}
 
 
 /******************* MENU GENERAL **************************************/
@@ -582,12 +554,12 @@ void MenuProfesional :: MenuGeneral(const char * _objeto)
                             }
                             else
                                 if(strcmp("PLANES FARMACOLOGICOS",_objeto) == 0){
-                                    menuListarPlanesFarmacologicos(_objeto);
-                                    //MostrarPlanesFarmacologicosDelProfesional();
+                                    menuListarPorProfesionalPaciente("LISTAR PLANES FARMACOLOGICOS");///PABLO
                                 }
                                 else
                                     if(strcmp("INFORMES",_objeto) == 0)
-                                        MostrarInformesDelProfesional();
+                                        menuListarPorProfesionalPaciente("LISTAR INFORMES");
+
             case 0:
                     return;
             break;
@@ -646,25 +618,18 @@ void MenuProfesional :: MostrarPlanesFarmacologicosDelProfesional(){
     IPF.ListarPlanesFarmacologicos();
     return;
 }
-void MenuProfesional :: MostrarPlanesFarmacologicosDelPaciente(){
-
+void MenuProfesional :: MostrarPlanesFarmacologicosDelPaciente(){ ///PABLO
     cls();
     InterfazPlanFarmacologico IPF;
     ValidacionesTipoDato valTipoDato;
     ValidacionesGenerales valGeneral;
     InterfazPaciente IP;
-     /**fflush(stdin);
-    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente),true);
-    ValidacionesTipoDato validaTDato;*/
-
     IP.ListarPacientes();
     Paciente pac;
     cout<<"INGRESE EL ID DEL PACIENTE: ";
     pac.SetId(valTipoDato.cargar_Entero());
     cls();
-    IPF.ListarPlanesFarmacologicosPaciente(pac.GetId());
-    //MostrarPacientesDelProfesional();
-    //IPF.ListarPlanesFarmacologicos();
+    IPF.ListarPlanesFarmacologicos(pac.GetId());
     return;
 }
 
@@ -675,6 +640,21 @@ void MenuProfesional :: MostrarInformesDelProfesional(){
     InterfazInforme IF;
     IF.ListarInformes();
 
+    return;
+}
+
+void MenuProfesional :: MostrarInformesDelPaciente(){ ///PABLO
+    cls();
+    InterfazInforme IF;
+    ValidacionesTipoDato valTipoDato;
+    ValidacionesGenerales valGeneral;
+    InterfazPaciente IP;
+    IP.ListarPacientes();
+    Paciente pac;
+    cout<<"INGRESE EL ID DEL PACIENTE: ";
+    pac.SetId(valTipoDato.cargar_Entero());
+    cls();
+    IF.ListarInformes(pac.GetId());
     return;
 }
 

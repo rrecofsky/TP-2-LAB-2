@@ -112,7 +112,7 @@ void InterfazPlanFarmacologico :: MostrarPlanFarmacologico(PlanFarmacologico _pl
     cout<<endl;
 };
 
-void InterfazPlanFarmacologico :: ListarPlanesFarmacologicos(){
+void InterfazPlanFarmacologico :: ListarPlanesFarmacologicos(int idpaciente){///PABLO
 
     PlanFarmacologico planFarma;
     ValidacionesTipoDato validaTDato;
@@ -127,35 +127,13 @@ void InterfazPlanFarmacologico :: ListarPlanesFarmacologicos(){
         cout << endl;
 
         while(fread(&planFarma,sizeof(planFarma),1,planesfarmaco.GetPF())){
-        if (planFarma.GetIdProfesional() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Profesional ||
-            planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
-             MostrarPlanFarmacologico(planFarma);
-
-        };
-    }else validaTDato.generar_Mensaje(2,"NO EXISTEN PLANES FARMACOLOGICOS CARGADOS EN EL SISTEMA");
-    cout<<endl<<endl;
-    system("PAUSE");
-    return;
-};
-
-void InterfazPlanFarmacologico :: ListarPlanesFarmacologicosPaciente(int idpaciente){
-
-    PlanFarmacologico planFarma;
-    ValidacionesTipoDato validaTDato;
-    Archivo planesfarmaco(FILE_PLANFARMACO,sizeof(planFarma),true);
-    if( planesfarmaco.getCantidadRegistros() != 0){
-
-        cout << left;
-        cout << setw(4)  << "ID";
-        cout << setw(20) << "PACIENTE";
-        cout << setw(20) << "PROFESIONAL";
-        cout << setw(50) << "NOTAS";
-        cout << endl;
-
-        while(fread(&planFarma,sizeof(planFarma),1,planesfarmaco.GetPF())){
-        if (planFarma.GetIdPaciente()==idpaciente && usr_lgd.GetPerfilUser() == Perfil_Profesional)
-              MostrarPlanFarmacologico(planFarma);
-
+        if (idpaciente==-1){
+            if (planFarma.GetIdProfesional() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Profesional ||
+                planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
+                MostrarPlanFarmacologico(planFarma);
+        }
+        else if (planFarma.GetIdPaciente()==idpaciente && usr_lgd.GetPerfilUser() == Perfil_Profesional)
+                MostrarPlanFarmacologico(planFarma);
         };
     }else validaTDato.generar_Mensaje(2,"NO EXISTEN PLANES FARMACOLOGICOS CARGADOS EN EL SISTEMA");
     cout<<endl<<endl;

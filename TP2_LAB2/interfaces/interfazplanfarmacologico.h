@@ -13,8 +13,7 @@ class InterfazPlanFarmacologico  {
         bool CargarPlanFarmacologico(PlanFarmacologico &);
         void MostrarPlanFarmacologico(PlanFarmacologico);
         void AgregarPlanFarmacologicoAArchivo(PlanFarmacologico);
-        void ListarPlanesFarmacologicos();
-        void ListarPlanesFarmacologicosPaciente(int idpaciente);
+        void ListarPlanesFarmacologicos(int idpaciente=-1);///PABLO
         bool AsociarPlanFarmacologico(PlanFarmacologico &);
         int  ObtenerPlanFarmacologico(PlanFarmacologico &);
 };

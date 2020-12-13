@@ -120,7 +120,7 @@ void InterfazInforme :: MostrarInforme(Informe _informe){
 };
 
 
-void InterfazInforme :: ListarInformes(){
+void InterfazInforme :: ListarInformes(int idpaciente){
 
     Informe informe;
     ValidacionesTipoDato validaTDato;
@@ -137,12 +137,13 @@ void InterfazInforme :: ListarInformes(){
         cout << endl;
 
         while(fread(&informe,sizeof(Informe),1,informes.GetPF()))
-
-        if (informe.GetIdProfesional() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Profesional)
-        // || planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
-
-             MostrarInforme(informe);
-
+        if (idpaciente==-1){
+            if (informe.GetIdProfesional() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Profesional)
+            // || planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
+                MostrarInforme(informe);
+        }
+        else if (informe.GetIdPaciente()==idpaciente && usr_lgd.GetPerfilUser() == Perfil_Profesional)
+                MostrarInforme(informe);
 
     }else validaTDato.generar_Mensaje(2,"NO EXISTEN INFORMES CARGADOS EN EL SISTEMA");
     cout<<endl<<endl;

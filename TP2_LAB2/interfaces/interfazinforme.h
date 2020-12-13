@@ -8,7 +8,7 @@ class InterfazInforme : public InterfazGeneral {
         int  ObtenerInforme(Informe & _informe);
         bool CargarInforme(Informe &);
         void MostrarInforme(Informe );
-        void ListarInformes();
+        void ListarInformes(int idpaciente=-1);
         void AgregarInformeAArchivo(Informe );
 
 
