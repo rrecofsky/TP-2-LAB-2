@@ -10,6 +10,7 @@ class PlanFarmacologico:public Registro
 {
     private:
         Fecha emision;
+        //Fecha finDelPlan;
         int   ID_Paciente;
         int   ID_Profesional;
         int   ID_DetallePlan;

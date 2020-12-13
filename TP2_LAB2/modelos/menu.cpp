@@ -452,6 +452,79 @@ void MenuProfesional :: MenuProf(){
     return;
 }
 
+void MenuProfesional :: menuListarPlanesFarmacologicos(const char * _objeto){
+
+    ValidacionesTipoDato valTDato;
+    while(true)
+    {
+       /* cls();
+        title(_objeto, APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        gotoxy(1, 3);*/
+        cls();
+        title("LISTAR PLANES FARMACOLOGICOS", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        gotoxy(1, 3);
+        cout<<"1) POR PROFESIONAL"<<endl;
+        cout<<"2) POR PACIENTE"<<endl;
+        cout<<"----------------------"<<endl;
+        cout<<"0) REGRESAR"<<endl;
+
+        int opcion;
+        opcion = valTDato.cargar_Entero();
+
+        switch(opcion){
+            case 1:
+                   cls();
+                   MostrarPlanesFarmacologicosDelProfesional();
+                   //MenuGeneral("USUARIOS");
+                   break;
+            case 2:
+                   MostrarPlanesFarmacologicosDelPaciente();
+                   //menuListarPlanesFarmacologicosPorPaciente("PACIENTES");
+                   //MostrarPlanesFarmacologicosDelPaciente();
+                   //MenuGeneral("PACIENTES");
+                   break;
+            case 0:
+                   return;
+            break;
+        }
+        cin.ignore();
+    }
+    return;
+}
+
+void MenuProfesional :: menuListarPlanesFarmacologicosPorPaciente(const char * _objeto){
+
+    ValidacionesTipoDato valTDato;
+    Profesional prof;
+    while(true)
+    {
+        cls();
+        title("LISTAR PLANES FARMACOLOGICOS POR PACIENTE", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        gotoxy(1, 3);
+        MostrarPlanesFarmacologicosDelPaciente();
+        /**int opcion;
+        opcion = valTDato.cargar_Entero();
+
+       switch(opcion){
+            case 1:
+                   cls();
+                   MostrarPlanesFarmacologicosDelProfesional();
+                   //MenuGeneral("USUARIOS");
+                   break;
+            case 2:
+                   MostrarPlanesFarmacologicosDelPaciente();
+                   //MenuGeneral("PACIENTES");
+                   break;
+            case 0:
+                   return;
+            break;
+        }**/
+        cin.ignore();
+    }
+    return;
+}
+
+
 /******************* MENU GENERAL **************************************/
 
 void MenuProfesional :: MenuGeneral(const char * _objeto)
@@ -508,8 +581,10 @@ void MenuProfesional :: MenuGeneral(const char * _objeto)
                                 MostrarUsuariosPaciente();
                             }
                             else
-                                if(strcmp("PLANES FARMACOLOGICOS",_objeto) == 0)
-                                    MostrarPlanesFarmacologicosDelProfesional();
+                                if(strcmp("PLANES FARMACOLOGICOS",_objeto) == 0){
+                                    menuListarPlanesFarmacologicos(_objeto);
+                                    //MostrarPlanesFarmacologicosDelProfesional();
+                                }
                                 else
                                     if(strcmp("INFORMES",_objeto) == 0)
                                         MostrarInformesDelProfesional();
@@ -571,16 +646,34 @@ void MenuProfesional :: MostrarPlanesFarmacologicosDelProfesional(){
     IPF.ListarPlanesFarmacologicos();
     return;
 }
+void MenuProfesional :: MostrarPlanesFarmacologicosDelPaciente(){
+
+    cls();
+    InterfazPlanFarmacologico IPF;
+    ValidacionesTipoDato valTipoDato;
+    ValidacionesGenerales valGeneral;
+    InterfazPaciente IP;
+     /**fflush(stdin);
+    Archivo pacientes(FILE_PACIENTES,sizeof(Paciente),true);
+    ValidacionesTipoDato validaTDato;*/
+
+    IP.ListarPacientes();
+    Paciente pac;
+    cout<<"INGRESE EL ID DEL PACIENTE: ";
+    pac.SetId(valTipoDato.cargar_Entero());
+    cls();
+    IPF.ListarPlanesFarmacologicosPaciente(pac.GetId());
+    //MostrarPacientesDelProfesional();
+    //IPF.ListarPlanesFarmacologicos();
+    return;
+}
 
 
 /******************** INFORMES ***********************/
 void MenuProfesional :: MostrarInformesDelProfesional(){
     system("cls");
     InterfazInforme IF;
-    Informe informe;
-    if (IF.CargarInforme(informe))
-        IF.AgregarInformeAArchivo(informe);
-    return;
+    IF.ListarInformes();
 
     return;
 }
@@ -588,8 +681,10 @@ void MenuProfesional :: MostrarInformesDelProfesional(){
 void MenuProfesional :: AltaDeInformes(){
     system("cls");
     InterfazInforme IF;
+    Informe informe;
     IF.ListarInformes();
-
+    if (IF.CargarInforme(informe))
+        IF.AgregarInformeAArchivo(informe);
     return;
 };
 

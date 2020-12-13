@@ -52,6 +52,8 @@ class MenuProfesional{
         void MenuProfesionalConsulta();
         void MenuProfesionalListado();
         void MenuProf();
+        void menuListarPlanesFarmacologicos(const char *);
+        void menuListarPlanesFarmacologicosPorPaciente(const char *);
         void PlanesFarmacologicos();
         void Pacientes();
         void Consultas();
@@ -65,6 +67,7 @@ class MenuProfesional{
         ///PLANESFARMA
         void AltaPlanFarmacologico();
         void MostrarPlanesFarmacologicosDelProfesional();
+        void MostrarPlanesFarmacologicosDelPaciente();
         ///PACIENTES
         void AltaPacienteDelProfesional();
         void MostrarPacientesDelProfesional();

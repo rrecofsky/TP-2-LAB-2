@@ -8,9 +8,10 @@ class DetallePlanFarmacologico:public Registro
     private:
         int  Id_PlanFarmacologico;
         int  Id_Medicacion;
-        int  dosisdiaria;
-        int  cantcomprimidos;
-        int  miligramos;
+        int  dosisdiaria;  //Administra profesional --> 2
+        int  cantcomprimidos; //administra paciente
+        int  miligramos; //administra el paciente
+        // int miligramosPorDisis; //administra solo el profesional ---> 500mg
     public:
         ///Constructor
         //DetallePlanFarmacologico(int , int , int , int , int );

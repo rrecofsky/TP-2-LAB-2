@@ -96,6 +96,7 @@ void InterfazPlanFarmacologico :: MostrarPlanFarmacologico(PlanFarmacologico _pl
     else
         cout << setw(4)  << " - ";
 
+//    cout<<"Listar por Profesional"<<endl;
     paciente.SetId(_planFarmacologico.GetIdPaciente());
     interfazPersona.ObtenerPaciente(paciente);
     cout << setw(10)  << paciente.GetNombres();
@@ -130,6 +131,30 @@ void InterfazPlanFarmacologico :: ListarPlanesFarmacologicos(){
             planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
              MostrarPlanFarmacologico(planFarma);
 
+        };
+    }else validaTDato.generar_Mensaje(2,"NO EXISTEN PLANES FARMACOLOGICOS CARGADOS EN EL SISTEMA");
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
+};
+
+void InterfazPlanFarmacologico :: ListarPlanesFarmacologicosPaciente(int idpaciente){
+
+    PlanFarmacologico planFarma;
+    ValidacionesTipoDato validaTDato;
+    Archivo planesfarmaco(FILE_PLANFARMACO,sizeof(planFarma),true);
+    if( planesfarmaco.getCantidadRegistros() != 0){
+
+        cout << left;
+        cout << setw(4)  << "ID";
+        cout << setw(20) << "PACIENTE";
+        cout << setw(20) << "PROFESIONAL";
+        cout << setw(50) << "NOTAS";
+        cout << endl;
+
+        while(fread(&planFarma,sizeof(planFarma),1,planesfarmaco.GetPF())){
+        if (planFarma.GetIdPaciente()==idpaciente && usr_lgd.GetPerfilUser() == Perfil_Profesional)
+              MostrarPlanFarmacologico(planFarma);
 
         };
     }else validaTDato.generar_Mensaje(2,"NO EXISTEN PLANES FARMACOLOGICOS CARGADOS EN EL SISTEMA");
