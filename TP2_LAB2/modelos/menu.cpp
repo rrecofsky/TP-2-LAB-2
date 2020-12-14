@@ -447,6 +447,8 @@ void MenuProfesional :: MenuProf(){
                    break;
             case 6:
 //                    menuReportesProfesional();
+                    Reporte reporte2;
+                    reporte2.MostrarPacientesOrdenadosPorApellido(); ///PABLO
                    break;
             case 0:
                    return;
@@ -551,8 +553,9 @@ void MenuProfesional :: MenuGeneral(const char * _objeto)
                                         AltaDeInformes();
                     break;
             case 3:
-                    if(strcmp("PACIENTES",_objeto) == 0)
+                    if(strcmp("PACIENTES",_objeto) == 0){
                             MostrarPacientesDelProfesional(); ///SE DEBEN VER SUS PACIENTES!
+                            }
                         else
                             if(strcmp("USUARIOS",_objeto) == 0){
                                 MostrarUsuariosPaciente();
@@ -727,7 +730,10 @@ void MenuPaciente :: MenuPac(){
             break;
             case 3: ModificarUsuarioPaciente();
             break;
-//            case 4: menuReportesPaciente();
+            case 4:
+                Reporte reporte;
+                reporte.MostrarProfesionalesOrdenadosPorApellido();
+                // menuReportesPaciente();
             break;
             case 0:
                     return;

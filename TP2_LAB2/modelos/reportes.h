@@ -1,10 +1,10 @@
 #ifndef REPORTES_H_INCLUDED
 #define REPORTES_H_INCLUDED
 
-class reporte{///PABLO
+class Reporte{///PABLO
     public:
         ///PROFESIONALES
-        void MostrarProfesionalesOrdenadosPorMatricula();
+        void MostrarProfesionalesOrdenadosPorApellido();
         void MostrarProfesionalesOrdenadosPorEspecialidad();
         ///PACIENTES
         void MostrarPacientesOrdenadosPorApellido();

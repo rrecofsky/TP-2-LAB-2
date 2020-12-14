@@ -1604,7 +1604,7 @@
 	"../modelos/fecha.h"
 	"../interfaces/interfazfecha.h"
 
-1607902592 source:c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\menu.cpp
+1607925639 source:c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\menu.cpp
 	<iostream>
 	<cstring>
 	"../util/ui.h"
@@ -1618,14 +1618,20 @@
 	"../modelos/usuario.h"
 	"../modelos/menu.h"
 	"../modelos/planfarmacologico.h"
+	"../modelos/reportes.h"
 	"../validaciones/validaciones.h"
 	"../interfaces/interfazentidades.h"
 	"../interfaces/interfazplanfarmacologico.h"
 	"../interfaces/interfazinforme.h"
 
-1607908507 source:c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\reportes.cpp
+1607925722 source:c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\reportes.cpp
 	<iostream>
+	<cstdlib>
 	"../modelos/reportes.h"
+	"../modelos/archivo.h"
+	"../util/rlutil.h"
+	"../interfaces/interfazentidades.h"
+	"../validaciones/validaciones.h"
 
-1607907886 c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\reportes.h
+1607923940 c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\reportes.h
 
