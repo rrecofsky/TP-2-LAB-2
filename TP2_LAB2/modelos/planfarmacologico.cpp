@@ -1,7 +1,6 @@
 #include "planfarmacologico.h"
 #include <iostream>
 
-
 extern const char *FILE_PACIENTES;
 extern const char *FILE_PROFESIONALES;
 
@@ -14,6 +13,7 @@ int   PlanFarmacologico :: GetIdPaciente(){return ID_Paciente;}
 int   PlanFarmacologico :: GetIdProfesional(){return ID_Profesional;}
 const char* PlanFarmacologico :: GetNotas(){return notas;}
 int   PlanFarmacologico :: GetIdDetallePlan(){return ID_DetallePlan; }
+Fecha PlanFarmacologico :: GetFechaFinDelPlan(){return FechaFinDelPlan;}
 
 ///GETS PLM
 int   PlanFarmacologico :: getSize(){return sizeof *this;}
@@ -34,5 +34,6 @@ void  PlanFarmacologico :: SetIdPaciente(int _idPaciente){ ID_Paciente = _idPaci
 void  PlanFarmacologico :: SetIdProfesional(int _idProfesional){ ID_Profesional = _idProfesional;}
 void  PlanFarmacologico :: SetNotas(const char* _notas){strcpy(notas,_notas);}
 void  PlanFarmacologico :: SetIdDetallePlan(int _idDetallePlan){ID_DetallePlan  = _idDetallePlan; }
+void  PlanFarmacologico :: SetFechaFinDelPlan(Fecha _FechaFinDelPlan){ FechaFinDelPlan = _FechaFinDelPlan;}
 
 

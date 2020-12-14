@@ -14,6 +14,7 @@ class PlanFarmacologico:public Registro
         int   ID_Profesional;
         int   ID_DetallePlan;
         char  notas[500];
+        Fecha FechaFinDelPlan;
     public:
         PlanFarmacologico(int _idPaciente = -1, int _idProfesional = -1, const char * _notas = "", int _idDetallePLan = -1):Registro()
         {
@@ -30,6 +31,7 @@ class PlanFarmacologico:public Registro
         int   GetIdProfesional();
         const char *GetNotas();
         int   GetIdDetallePlan();
+        Fecha GetFechaFinDelPlan();
         //SETs
         void  SetEmision(Fecha);
         void  SetActualizacion(Fecha);
@@ -37,6 +39,7 @@ class PlanFarmacologico:public Registro
         void  SetIdProfesional(int);
         void  SetNotas(const char*);
         void  SetIdDetallePlan(int);
+        void  SetFechaFinDelPlan(Fecha);
         //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
         int getSize();
         bool comparaID(Registro *temp);
@@ -46,6 +49,7 @@ class PlanFarmacologico:public Registro
             ID_Paciente = aux->ID_Paciente;
             ID_Profesional = aux->ID_Profesional;
             ID_DetallePlan = aux->ID_DetallePlan;
+            FechaFinDelPlan = aux->FechaFinDelPlan;
             strcpy(this->notas,aux->notas);
             estado           = aux->estado;
             ID               = aux->ID;

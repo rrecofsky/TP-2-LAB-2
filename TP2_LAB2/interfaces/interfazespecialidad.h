@@ -16,7 +16,8 @@ class InterfazEspecialidad : public InterfazGeneral {
         void ModificarEspecialidad(Especialidad & );
         void ActualizarEspecialidad(Especialidad , int );
         void ModificarEspecialidadEnArchivo(Especialidad );
-
+        int  GetCantidadEspecialidades();
+        void ListarEspecialidadesConFiltro(vector<int> & );
 };
 
 

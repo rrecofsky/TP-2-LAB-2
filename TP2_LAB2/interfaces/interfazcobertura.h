@@ -16,6 +16,7 @@ class InterfazCobertura : public InterfazGeneral {
         void ActualizarCobertura(Cobertura , int );
         void ModificarCoberturaEnArchivo(Cobertura );
 
+        void ListarCoberturasConFiltro(vector<int> & );
         int  GetCantidadCoberturas();
 
 };

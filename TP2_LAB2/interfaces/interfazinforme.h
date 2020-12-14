@@ -11,7 +11,7 @@ class InterfazInforme : public InterfazGeneral {
         void ListarInformes();
         void AgregarInformeAArchivo(Informe );
 
-
+        void ListarInformesConFiltro(vector<int> & );
 };
 
 

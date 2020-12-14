@@ -22,6 +22,12 @@ bool InterfazInforme :: CargarInforme(Informe & _informe){
 
     InterfazPaciente itfzPac;
 
+    if (itfzPac.GetCantidadPacientes() == 0 ){
+        cout<<"NO EXISTEN PACIENTES CARGADOS EN EL SISTEMA"<<endl;
+        system("PAUSE"); system("cls");
+        return false;
+    }
+
     InterfazProfesional itfzProf;
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
@@ -54,13 +60,17 @@ bool InterfazInforme :: CargarInforme(Informe & _informe){
 
      Paciente paciente;
 
-
+     vector<int> vecList;
      do{
             cout<<"PACIENTES DISPONIBLES"<<endl<<endl;
-            itfzPac.ListarPacientes();
+            itfzPac.ListarPacientesConFiltro(vecList,Sin_Filtro);
             cout<<"INGRESE EL ID DEL PACIENTE: ";
             paciente.SetId(validaTDato.cargar_Entero());
-
+            if (!VerficicarOpcionListada(vecList,paciente.GetId())){
+                cout<<"EL ID INGRESADO NO SE ENCUENTRA EN LA LISTA, DESEA SALIR? S/N"<<endl;
+                if (validaGeneral.leer_SoN()) return false;
+                system("PAUSE"); system("cls");
+            }
             _informe.SetIdPaciente(paciente.GetId());
             break;
         }while(true);
@@ -98,9 +108,9 @@ void InterfazInforme :: MostrarInforme(Informe _informe){
     Profesional prof;
     Paciente pac;
     prof.SetId(_informe.GetIdProfesional());
-
+    itfzProf.ObtenerProfesional(prof);
     pac.SetId(_informe.GetIdPaciente());
-
+    itfzPac.ObtenerPaciente(pac);
     cout << left;
     if (_informe.GetId() != -1)
         cout << setw(4)  << _informe.GetId();
@@ -174,3 +184,28 @@ void InterfazInforme :: AgregarInformeAArchivo(Informe _informe){
     system("PAUSE");
 
 };
+
+
+void InterfazInforme :: ListarInformesConFiltro(vector<int> & _vec){
+    Archivo informes(FILE_INFORMES,sizeof(Informe),true);
+    ValidacionesTipoDato validaTDato;
+    Informe informe;
+    if( informes.getCantidadRegistros() != 0){
+        cout << left;
+        cout << setw(4)  << "ID";
+        cout << setw(10) << "NRO. INFORME";
+        cout << setw(20) << "F. EMISION";
+        cout << setw(20) << "PROFESIONAL";
+        cout << setw(20) << "PACIENTE";
+        cout << setw(50) << "DETALLE";
+        cout << endl;
+        while(fread(&informe,sizeof(Informe),1,informes.GetPF())){
+                _vec.push_back(informe.GetId());
+                MostrarInforme(informe);
+        }
+
+    }else  validaTDato.generar_Mensaje(1,"NO EXISTEN INFORMES CARGADOS EN EL SISTEMA");
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
+}

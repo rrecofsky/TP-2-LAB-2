@@ -16,14 +16,12 @@ class Registro{
       bool  estado;
       Fecha fechaAlta;
       Fecha fechaBaja;
- //     int userOwnerId;
   public:
       Registro(){
                 fechaAlta = fechaAlta.GetFechaActual();
                 estado = true;
                 ID = -1;
-//                userOwnerId = -1;
-            }
+                }
       //SETs
       void  SetId(int);  //Los Ids se generan igual para todas las clases: se debe buscar el ultimo en su archivo correspondiente
       void  SetEstado(bool); //Los estados se generan por defecto en true con el constructor, pero se puede setear al darla de baja

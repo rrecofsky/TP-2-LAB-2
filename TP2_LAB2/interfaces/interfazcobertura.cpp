@@ -97,6 +97,23 @@ void InterfazCobertura :: AgregarCoberturaAArchivo(Cobertura _cobertura){
     system("PAUSE");
 };
 
+void InterfazCobertura :: ListarCoberturasConFiltro(vector<int> & _vec){
+    Archivo coberturas(FILE_COBERTURAS,sizeof(Cobertura),true);
+    ValidacionesTipoDato validaTDato;
+    Cobertura cobertura;
+    if( coberturas.getCantidadRegistros() != 0){
+        cout << setw(4)  << "ID";
+        cout << setw(20) << "COBERTURA";
+        cout << endl;
+        while(fread(&cobertura,sizeof(Cobertura),1,coberturas.GetPF())){
+                _vec.push_back(cobertura.GetId());
+                MostrarCobertura(cobertura);
+        }
+    }else  validaTDato.generar_Mensaje(1,"NO EXISTEN COBERTURAS CARGADAS EN EL SISTEMA");
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
+}
 
 void InterfazCobertura :: ModificarCobertura(Cobertura & _cobertura){
         CargarCobertura(_cobertura);

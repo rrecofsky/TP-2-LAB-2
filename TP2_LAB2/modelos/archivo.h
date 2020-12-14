@@ -48,7 +48,7 @@ class Archivo{
     int tamanioRegistro;
     void *pRegistro;
     char *nombreArchivo;
-    int cantRegistros; //+1 es el ID
+    int cantRegistros;
     int estado;
     int cantidadRegistros(){
           if(!abrirArchivo(SoloLectura)){
@@ -84,7 +84,6 @@ class Archivo{
           if(pF)fclose(pF);
           free(pRegistro);
       }
-
       int leerRegistro(Registro &,int );
       int  leerRegistro(Registro &);
       int buscarRegistro(Registro &);
@@ -94,13 +93,7 @@ class Archivo{
       int   getCantidadRegistros(){return cantRegistros;}
       bool  listarArchivo(Registro &aux);
       bool  listarArchivoProfesionales(Profesional &aux);
-      FILE * GetPF(){return pF;} //obtener el puntero
-
+      FILE * GetPF(){return pF;}
   };
-
-
-
-
-
 
 #endif // ARCHIVO_H_INCLUDED

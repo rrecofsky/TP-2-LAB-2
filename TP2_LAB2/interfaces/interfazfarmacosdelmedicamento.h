@@ -7,8 +7,9 @@
 
 class InterfazFarmacosDelMedicamento : public InterfazGeneral {
     public:
-        void AgregarFarmacosDelMedicamentoAArchivo(farmacos_del_medicamento);
-        int  ObtenerFarmacosDelMedicamento(farmacos_del_medicamento &);
+        void    AgregarFarmacosDelMedicamentoAArchivo(farmacos_del_medicamento);
+        int     ObtenerFarmacosDelMedicamento(farmacos_del_medicamento &);
+        string  ObtenerStrFarmacosSeparadosPorComa(int );
 };
 
 

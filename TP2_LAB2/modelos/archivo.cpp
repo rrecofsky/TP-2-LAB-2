@@ -66,6 +66,19 @@ int Archivo::grabarRegistro( Registro &dato, int pos){
       return grabo;
 }
 
+bool Archivo::listarArchivoProfesionales(Profesional &aux){
+      InterfazProfesional interfazProfesional;
+       if(cantRegistros==0)return false;
+       if(!abrirArchivo(SoloLectura)){
+         return false;
+       }
+       while(fread(&aux,tamanioRegistro,1,pF)){
+         interfazProfesional.MostrarProfesional(aux);
+         };
+       cerrarArchivo();
+       return true;
+}
+
 
 //COMPARA EL CAMPO CLAVE DEL REGISTRO RECIBIDO COMO PARAMETRO CON LOS REGISTROS DEL ARCHIVO.
 //SI YA EXISTE EL VALOR DEL CAMPO CLAVE DEVUELVE LA POSICIÓN QUE OCUPA EN EL ARCHIVO

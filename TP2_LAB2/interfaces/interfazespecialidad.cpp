@@ -8,12 +8,15 @@ using namespace std;
 using namespace rlutil;
 extern const char *FILE_ESPECIALIDADES;
 
+int InterfazEspecialidad :: GetCantidadEspecialidades(){
+    Archivo especialidades(FILE_ESPECIALIDADES,sizeof(Especialidad),true);
+    return especialidades.getCantidadRegistros();
+}
 
 int InterfazEspecialidad :: ObtenerEspecialidad(Especialidad & _especialidad){
     Archivo especialidades(FILE_ESPECIALIDADES,sizeof(Especialidad),true);
     return especialidades.leerRegistro(_especialidad);
 }
-
 
 bool InterfazEspecialidad :: CargarEspecialidad(Especialidad & _especialidad){
     ValidacionesTipoDato validaTDato;
@@ -34,7 +37,6 @@ bool InterfazEspecialidad :: CargarEspecialidad(Especialidad & _especialidad){
                 system("PAUSE");
                 system("cls");
             }
-
     }while(true);
     return true;
 }
@@ -48,6 +50,7 @@ void InterfazEspecialidad :: MostrarEspecialidad(Especialidad _especialidad){
         cout << setw(4)  << " - ";
 
     cout << setw(20)  << _especialidad.GetNombre();
+    cout<<endl;
 };
 
 
@@ -95,11 +98,28 @@ void InterfazEspecialidad :: AgregarEspecialidadAArchivo(Especialidad _especiali
     }
     cout<<endl;
     system("PAUSE");
-
 };
 
 
-/// new
+void InterfazEspecialidad :: ListarEspecialidadesConFiltro(vector<int> & _vec){
+    Archivo especialidades(FILE_ESPECIALIDADES,sizeof(Especialidad),true);
+
+    ValidacionesTipoDato validaTDato;
+    Especialidad especialidad;
+    if( especialidades.getCantidadRegistros() != 0){
+        cout << setw(4)  << "ID";
+        cout << setw(20) << "ESPECIALIDAD";
+        cout << endl;
+        while(fread(&especialidad,sizeof(Especialidad),1,especialidades.GetPF())){
+                _vec.push_back(especialidad.GetId());
+                MostrarEspecialidad(especialidad);
+        }
+
+    }else  validaTDato.generar_Mensaje(1,"NO EXISTEN ESPECIALIDADES CARGADAS EN EL SISTEMA");
+    cout<<endl<<endl;
+    system("PAUSE");
+    return;
+}
 
 void InterfazEspecialidad :: ModificarEspecialidad(Especialidad & _especialidad){
         CargarEspecialidad(_especialidad);
@@ -121,7 +141,7 @@ void InterfazEspecialidad :: ModificarEspecialidadEnArchivo(Especialidad _especi
     if ( posEsp != -1 && especialidades.leerRegistro(_especialidad, posEsp) != -1){
         MostrarEspecialidad(_especialidad);
         cout<<endl<<endl;
-        cout<<"ESTA SEGURO QUE DESEA MODIFICAR LA SIGUIENTE COBERTURA? S/N"<<endl;
+        cout<<"ESTA SEGURO QUE DESEA MODIFICAR LA SIGUIENTE ESPECIALIDAD? S/N"<<endl;
         if(valGral.leer_SoN())
         {
             cls();
@@ -141,5 +161,3 @@ void InterfazEspecialidad :: ModificarEspecialidadEnArchivo(Especialidad _especi
             system("PAUSE");
          }
 }
-
-

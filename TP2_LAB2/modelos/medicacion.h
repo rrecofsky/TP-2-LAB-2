@@ -5,37 +5,44 @@
 #include "../modelos/fecha.h"
 #include <cstring>
 
+enum Presentacion{
+    Capsulas,
+    Comprimidos
+};
 
 class Medicamento : public Registro{
     private:
-        int            ID_Presentacion; //cantidad de pastillas por caja
+        char           farmaco[50];
+        Presentacion   ID_Presentacion;
         int            dosis;
         Fecha          vencimiento;
-        char           accionTerapeutica[50];
+        bool           NoSeFabricaMas;
     public:
-        Medicamento( float _dosis=0, int _idPresentacion = -1, const char * _accionTerapeutica = ""):Registro(){
+        Medicamento( const char* _farmaco = "", float _dosis=0):Registro(){
+            strcpy(farmaco,_farmaco);
             dosis               = _dosis;
-            ID_Presentacion     = _idPresentacion;
-            strcpy(accionTerapeutica,_accionTerapeutica);
+            strcpy(farmaco,"");
+            NoSeFabricaMas = false;
         }
         ~Medicamento(){};
         //GETs
         const char *   GetFarmaco();
         int            GetDosis();
         Fecha          GetFechaVecimiento();
-        int            GetIdPresentacion();
-        const char *   GetaccionTerapeutica();
+        Presentacion   GetIdPresentacion();
+        bool           GetNoSeFabricaMas();
         //SETs
+        void           SetFarmaco(const char*);
         void           SetDosis(int);
         void           SetFechaVencimiento(Fecha);
-        void           SetIdPresentacion(int);
-        void           SetaccionTerapeutica(const char *);
+        void           SetIdPresentacion(Presentacion);
+        void           SetNoSeFabricaMas(bool);
         //METODOS REDEFINIDOS HEREDADOS DE REGISTRO
         int getSize();
         bool comparaID(Registro *temp);
          Medicamento& operator = (Registro *temp){
             Medicamento *aux=(Medicamento *)temp;
-            strcpy(accionTerapeutica,aux->accionTerapeutica);
+            strcpy(farmaco,aux->farmaco);
             ID_Presentacion = aux->ID_Presentacion;
             dosis = aux->dosis;
             vencimiento = aux->vencimiento;

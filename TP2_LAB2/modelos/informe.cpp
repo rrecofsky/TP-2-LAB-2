@@ -21,3 +21,4 @@ bool  Informe :: comparaID(Registro *temp){
             if(aux->ID == ID) return true;
             return false;
 }
+

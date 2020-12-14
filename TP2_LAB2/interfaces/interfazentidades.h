@@ -5,20 +5,14 @@
 #include "../modelos/usuario.h"
 #include "../modelos/paciente.h"
 #include "../interfaces/interfazgeneral.h"
+#include <vector>
 
-
-class InterfazPersona{
+class InterfazPersona : public InterfazGeneral{
     public:
-        int  ObtenerProfesional(Profesional &);
         void MostrarCabeceraPersona();
-        void ObtenerPersona(Persona &);
-        int  ObtenerPaciente(Paciente & );
-        int  ObtenerUsuario(Usuario & );
-        int  GetCantidadPacientes();
-        int GetCantidadProfesionales();
 };
 
-class InterfazUsuario : public InterfazGeneral {
+class InterfazUsuario : public InterfazPersona {
     public:
         bool CargarUsuario(Usuario &);
         void MostrarUsuario(Usuario);
@@ -27,9 +21,10 @@ class InterfazUsuario : public InterfazGeneral {
         void ModificarUsuarioEnArchivo(Usuario);
         void ListarUsuarios();
         bool AsociarUsuario(Usuario &);
+        int  ObtenerUsuario(Usuario & );
 };
 
-class InterfazProfesional {
+class InterfazProfesional : public InterfazPersona  {
     public:
         bool CargarProfesional(Profesional &);
         void MostrarProfesional(Profesional);
@@ -37,10 +32,15 @@ class InterfazProfesional {
         void AgregarAArchivo(Profesional);
         void ModificarEnArchivo(Profesional &);
         void ListarProfesionales();
+
+        void ListarProfesionalesConFiltro(vector<int> & , Filtros );
+        void ActualizarProfesional(Profesional , int );
+
         int  GetCantidadProfesionales();
+        int  ObtenerProfesional(Profesional &);
 };
 
-class InterfazPaciente  {
+class InterfazPaciente : public InterfazPersona  {
     public:
         bool CargarPaciente(Paciente &);
         void MostrarPaciente(Paciente);
@@ -48,6 +48,12 @@ class InterfazPaciente  {
         void AgregarPacienteAArchivo(Paciente);
         void ModificarPacienteEnArchivo(Paciente);
         void ListarPacientes();
+
+        void ListarPacientesConFiltro(vector<int> & _vec, Filtros);
+        void ActualizarPaciente(Paciente , int );
+
+        int  GetCantidadPacientes();
+        int  ObtenerPaciente(Paciente & );
 
 };
 

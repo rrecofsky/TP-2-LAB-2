@@ -7,14 +7,21 @@
 #include "../modelos/fecha.h"
 #include "../modelos/paciente.h"
 #include "../modelos/profesional.h"
-#include "../modelos/medicamento.h"
+#include "../modelos/medicacion.h"
 #include "../modelos/usuario.h"
 #include "../modelos/menu.h"
 #include "../modelos/planfarmacologico.h"
+#include "../modelos/informe.h"
 #include "../validaciones/validaciones.h"
 #include "../interfaces/interfazentidades.h"
 #include "../interfaces/interfazplanfarmacologico.h"
+#include "../interfaces/interfazmedicamento.h"
+#include "../interfaces/interfazfarmaco.h"
+#include "../interfaces/interfazcobertura.h"
+#include "../interfaces/interfazespecialidad.h"
 #include "../interfaces/interfazinforme.h"
+
+
 
 using namespace std;
 using namespace rlutil;
@@ -61,30 +68,24 @@ cout<<endl<<endl<<endl<<endl;
 
 void MenuLogin :: Login(){
 
-    // ------------> TEMPORAL
- //   MenuAdministrador();
- //   return;
-    //  ------------> TEMPORAL
     Logo logo;
     logo.logo();
-   // Logo();
-
-    Archivo archUsuarios(FILE_USUARIOS,sizeof(Usuario));
     Perfil  tipoDeUsuario=Perfil_Paciente;
     ValidacionesGenerales validacionLogin;
-    char user[50], pass[50];
-    bool  salir=false;
-    Usuario usrAxuLogin; //Se usa para copiar en el objeto, el registro del archivo.
 
     cout << "                   INGRESE EL PERFIL DEL USUARIO:"<<endl<<endl;
     cout << "                        0 - Administrador"<<endl;
     cout << "                        1 - Profesional"<<endl;
     cout << "                        2 - Paciente"<<endl;
 
+    tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
 
-        tipoDeUsuario = validacionLogin.ValidarPerfilDeUsuario();
+    Archivo archUsuarios(FILE_USUARIOS,sizeof(Usuario));
+    char user[50]={}, pass[50]={};
+    bool  salir=false;
+    Usuario usrAxuLogin;
 
-    cls();
+    system("cls");
     cin.clear();
     cin.ignore();
     cout << "INGRESE UN USUARIO: ";
@@ -125,13 +126,13 @@ void MenuLogin :: Login(){
                             }
                     }
                 }
-        cout<<"USUARIO O CONTRASENIA INCORRECTOS. DESEA SALIR? S - N"<<endl;
+        cout<<"USUARIO O CONTRASENIA INCORRECTOS. DESEA SALIR? S/N"<<endl;
         salir = validacionLogin.leer_SoN();
-        cls();
+        system("cls");
         if (!salir){
             cout << "INGRESE UN USUARIO: ";
-            cin.clear(); // unset failbit
-            cin.ignore(); // skip bad input
+            cin.clear();
+            cin.ignore();
             cout << endl << "> ";
             cin.getline(user,50);
             cout << "INGRESE UNA CONTRASENIA: ";
@@ -155,15 +156,15 @@ void MenuAdministrador :: MenuAdmin()
     ValidacionesTipoDato valTDato;
     while(true)
     {
-        cls();
+        system("cls");
         title("MENU PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) PROFESIONALES       "<<endl;
-        cout<<"2) USUARIOS            "<<endl;
-        cout<<"3) PRESENTACIONES      "<<endl;
-        cout<<"4) FARMACOS            "<<endl;
-        cout<<"5) COBERTURAS          "<<endl;
-        cout<<"6) ESPECIALIDADES      "<<endl;
+        cout<<"1) PROFESIONALES        "<<endl;
+        cout<<"2) USUARIOS             "<<endl;
+        cout<<"3) MEDICAMENTOS         "<<endl;
+        cout<<"4) FARMACOS             "<<endl;
+        cout<<"5) COBERTURAS           "<<endl;
+        cout<<"6) ESPECIALIDADES       "<<endl;
         cout<<"----------------------  "<<endl;
         cout<<"0) SALIR DEL PROGRAMA   "<<endl;
 
@@ -178,7 +179,7 @@ void MenuAdministrador :: MenuAdmin()
                     MenuGeneralAdministrador("USUARIO");
                     break;
             case 3:
-                    MenuGeneralAdministrador("PRESENTACION");
+                    MenuGeneralAdministrador("MEDICAMENTO");
                     break;
             case 4:
                     MenuGeneralAdministrador("FARMACO");
@@ -204,12 +205,13 @@ void MenuAdministrador :: MenuGeneralAdministrador(const char * entidad)
     ValidacionesTipoDato valTDato;
     while(true)
     {
-        cls();
+        system("cls");
         title(entidad, APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
         cout<<"1) ALTA               "<<endl;
-        cout<<"2) MODIFICAR          "<<endl;
-        cout<<"3) LISTAR             "<<endl;
+        cout<<"2) LISTAR             "<<endl;
+        if (strcmp(entidad,"COBERTURA") == 0 || strcmp(entidad,"PROFESIONAL") == 0 || strcmp(entidad,"ESPECIALIDAD") == 0 )
+            cout<<"3) MODIFICAR          "<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR           "<<endl;
 
@@ -224,8 +226,8 @@ void MenuAdministrador :: MenuGeneralAdministrador(const char * entidad)
                         if(strcmp("USUARIO",entidad) == 0)
                             AltaUsuario();
                         else
-                            if(strcmp("PRESENTACION",entidad) == 0)
-                                AltaPresentacion();
+                            if(strcmp("MEDICAMENTO",entidad) == 0)
+                                AltaMedicamento();
                             else
                                 if(strcmp("FARMACO",entidad) == 0)
                                     AltaFarmaco();
@@ -238,34 +240,25 @@ void MenuAdministrador :: MenuGeneralAdministrador(const char * entidad)
 
 
                     break;
-            case 2:
+            case 3:
                     if (strcmp("PROFESIONAL",entidad) == 0)
                         ModificarProfesional();
-                    else
-                        if(strcmp("USUARIO",entidad) == 0)
-                            ModificarUsuario();
                         else
-                            if(strcmp("PRESENTACION",entidad) == 0)
-                                ModificarPresentacion();
+                            if(strcmp("COBERTURA",entidad) == 0)
+                                ModificarCobertura();
                             else
-                                if(strcmp("FARMACO",entidad) == 0)
-                                    ModificarFarmaco();
-                                else
-                                    if(strcmp("COBERTURA",entidad) == 0)
-                                        ModificarCobertura();
-                                    else
-                                        if(strcmp("ESPECIALIDAD",entidad) == 0)
-                                            ModificarEspecialidad();
+                                if(strcmp("ESPECIALIDAD",entidad) == 0)
+                                    ModificarEspecialidad();
                     break;
-            case 3:
+            case 2:
                     if (strcmp("PROFESIONAL",entidad) == 0)
                         MostrarProfesionales();
                     else
                         if(strcmp("USUARIO",entidad) == 0)
                             MostrarUsuarios();
                         else
-                            if(strcmp("PRESENTACION",entidad) == 0)
-                                MostrarPresentacion();
+                            if(strcmp("MEDICAMENTO",entidad) == 0)
+                                MostrarMedicamento();
                             else
                                 if(strcmp("FARMACO",entidad) == 0)
                                     MostrarFarmaco();
@@ -285,11 +278,10 @@ void MenuAdministrador :: MenuGeneralAdministrador(const char * entidad)
     return ;
 }
 
-
 /******************* FUNCIONES BASICAS PROFESIONAL *************************/
 
 void MenuAdministrador :: AltaProfesional(){
-    cls();
+    system("cls");
     InterfazProfesional IP;
     Profesional prof;
     if (IP.CargarProfesional(prof))
@@ -299,13 +291,13 @@ void MenuAdministrador :: AltaProfesional(){
 
 void MenuAdministrador :: MostrarProfesionales()
 {
-    cls();
+    system("cls");
     InterfazProfesional IP;
     IP.ListarProfesionales();
 }
 
 void MenuAdministrador :: ModificarProfesional(){
-
+    system("cls");
     ValidacionesTipoDato valTipoDato;
     ValidacionesGenerales valGeneral;
     InterfazProfesional IP;
@@ -320,7 +312,7 @@ void MenuAdministrador :: ModificarProfesional(){
 /******************* FUNCIONES BASICAS USUARIO  *************************/
 
 void MenuAdministrador :: AltaUsuario(){
-    cls();
+    system("cls");
     InterfazUsuario IU;
     Usuario usr;
     if (IU.CargarUsuario(usr))
@@ -329,80 +321,100 @@ void MenuAdministrador :: AltaUsuario(){
 }
 
 void MenuAdministrador :: MostrarUsuarios(){
-    cls();
+    system("cls");
     InterfazUsuario IU;
     IU.ListarUsuarios();
 }
 
-void MenuAdministrador :: ModificarUsuario(){
-    cls();
-    InterfazUsuario IU;
-    IU.ModificarUsuario(usr_lgd);
-}
+/***************************** MEDICAMENTOS *********************/
 
 
-/***************************** PRESENTACIONES *********************/
-
-
-void MenuAdministrador :: AltaPresentacion(){
+void MenuAdministrador :: AltaMedicamento(){
     system("cls");
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
-    system("PAUSE");
+    InterfazMedicamento IM;
+    Medicamento medicamento;
+    vector<int> vecFarmARelacionar;
+    if (IM.CargarMedicamento(medicamento,vecFarmARelacionar))
+        IM.AgregarMedicamentoAArchivo(medicamento,vecFarmARelacionar);
     return;
 };
-void MenuAdministrador :: ModificarPresentacion(){
+
+void MenuAdministrador :: MostrarMedicamento(){
     system("cls");
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
-    system("PAUSE");
-    return;
-};
-void MenuAdministrador :: MostrarPresentacion(){
-    system("cls");
-    cout<<"ESTE MODULO AUN NO HA SIDO IMPLEMENTADO..."<<endl;
-    system("PAUSE");
-    return;
+    InterfazMedicamento IM;
+    IM.ListarMedicamentos();
+
 };
 /***************************** FARMACOS  *********************/
 void MenuAdministrador :: AltaFarmaco(){
     system("cls");
+    InterfazFarmaco IF;
+    Farmaco farmaco;
+    if (IF.CargarFarmaco(farmaco))
+        IF.AgregarFarmacoAArchivo(farmaco);
     return;
 };
-void MenuAdministrador :: ModificarFarmaco(){
-    system("cls");
-    return;
-};
+
 void MenuAdministrador :: MostrarFarmaco(){
     system("cls");
-    return;
+    InterfazFarmaco IF;
+    IF.ListarFarmacos();
 };
+
 /***************************** COBERTURAS *********************/
 void MenuAdministrador :: AltaCobertura(){
     system("cls");
-    return;
+    InterfazCobertura IC;
+    Cobertura cob;
+    if (IC.CargarCobertura(cob))
+        IC.AgregarCoberturaAArchivo(cob);
 };
 void MenuAdministrador :: ModificarCobertura(){
     system("cls");
-    return;
+    ValidacionesTipoDato valTipoDato;
+    ValidacionesGenerales valGeneral;
+    InterfazCobertura IC;
+    Cobertura cob;
+    cout<<"DESEA VER LA LISTA DE COBERTURAS? S/N"<<endl;
+    if (valGeneral.leer_SoN()) IC.ListarCoberturas();
+    cout<<"INGRESE EL ID DE LA COBERTURA QUE DESEA MODIFICAR: ";
+    cob.SetId(valTipoDato.cargar_Entero());
+    IC.ModificarCobertura(cob);
 };
+
 void MenuAdministrador :: MostrarCobertura(){
-     system("cls");
-    return;
+    system("cls");
+    InterfazCobertura IC;
+    IC.ListarCoberturas();
 };
 /***************************** ESPECIALDIADES *********************/
 
 void MenuAdministrador :: AltaEspecialidad(){
-     cls();
-    return;
-};
-void MenuAdministrador :: ModificarEspecialidad(){
-     cls();
-    return;
-};
-void MenuAdministrador :: MostrarEspecialidad(){
-     cls();
-    return;
+    system("cls");
+    InterfazEspecialidad IE;
+    Especialidad esp;
+    if (IE.CargarEspecialidad(esp))
+        IE.AgregarEspecialidadAArchivo(esp);
 };
 
+void MenuAdministrador :: ModificarEspecialidad(){
+    system("cls");
+    ValidacionesTipoDato valTipoDato;
+    ValidacionesGenerales valGeneral;
+    InterfazEspecialidad IE;
+    Especialidad esp;
+    cout<<"DESEA VER LA LISTA DE ESPECIALIDADES? S/N"<<endl;
+    if (valGeneral.leer_SoN()) IE.ListarEspecialidades();
+    cout<<"INGRESE EL ID DE LA ESPECIALIDAD QUE DESEA MODIFICAR: ";
+    esp.SetId(valTipoDato.cargar_Entero());
+    IE.ModificarEspecialidad(esp);
+};
+
+void MenuAdministrador :: MostrarEspecialidad(){
+    system("cls");
+    InterfazEspecialidad IE;
+    IE.ListarEspecialidades();
+};
 
 /// ************************************************************************************* ///
 /// ********************************** METODOS PROFE ************************************ ///
@@ -420,7 +432,7 @@ void MenuProfesional :: MenuProf(){
         cout<<"2) PACIENTES"<<endl;
         cout<<"3) PLANES FARMACOLOGICOS"<<endl;
         cout<<"4) INFORMES "<<endl;
-        cout<<"5) MODIFICAR DATOS DE USUARIO"<<endl;
+    //    cout<<"5) MODIFICAR DATOS DE USUARIO"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -440,9 +452,11 @@ void MenuProfesional :: MenuProf(){
             case 4:
                    MenuGeneral("INFORMES");
                    break;
+            /*
             case 5:
                    ModificarDatosDeUsuarioLogueado();
                    break;
+            */
             case 0:
                    return;
             break;
@@ -459,12 +473,12 @@ void MenuProfesional :: MenuGeneral(const char * _objeto)
     ValidacionesTipoDato valTDato;
     while(true)
     {
-        cls();
+        system("cls");
         title(_objeto, APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
         cout<<"1) ALTA"<<endl;
-        cout<<"2) MODIFICAR"<<endl;
-        cout<<"3) LISTAR"<<endl;
+        cout<<"2) LISTAR"<<endl;
+        //cout<<"3) MODIFICAR"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -486,21 +500,6 @@ void MenuProfesional :: MenuGeneral(const char * _objeto)
                                         AltaDeInformes();
                     break;
             case 2:
-                    if(strcmp("PACIENTES",_objeto) == 0)
-                            ModificarPacienteDelProfesional();
-                        else
-                            if(strcmp("USUARIOS",_objeto) == 0){
-                                cout<<"NO ES POSIBLE MODIFICAR LOS USUARIOS DADOS DE ALTA"<<endl<<endl;
-                                system("PAUSE");
-                            }
-                            else
-                                if(strcmp("PLANES FARMACOLOGICOS",_objeto) == 0)
-                                    AltaPlanFarmacologico();
-                                else
-                                    if(strcmp("INFORMES",_objeto) == 0)
-                                        AltaDeInformes();
-                    break;
-            case 3:
                     if(strcmp("PACIENTES",_objeto) == 0)
                             MostrarPacientesDelProfesional(); ///SE DEBEN VER SUS PACIENTES!
                         else
@@ -525,7 +524,7 @@ void MenuProfesional :: MenuGeneral(const char * _objeto)
 /******************* FUNCIONES BASICAS PACIENTE *************************/
 
 void MenuProfesional :: AltaPacienteDelProfesional(){
-    cls();
+    system("cls");
     InterfazPaciente IP;
     Paciente paciente;
     if (IP.CargarPaciente(paciente))
@@ -541,6 +540,9 @@ void MenuProfesional :: MostrarPacientesDelProfesional(){
 
 void MenuProfesional :: ModificarPacienteDelProfesional(){
     system("cls");
+    cout<<"MODULO INCOMPLETO"<<endl;
+    system("PAUSE");
+    ///TESTEAR!
     ValidacionesTipoDato valTipoDato;
     ValidacionesGenerales valGeneral;
     InterfazPaciente IP;
@@ -560,42 +562,40 @@ void MenuProfesional :: AltaPlanFarmacologico(){
     system("cls");
     InterfazPlanFarmacologico IPF;
     PlanFarmacologico planFarmaco;
-    if (IPF.CargarPlanFarmacologico(planFarmaco))
-        IPF.AgregarPlanFarmacologicoAArchivo(planFarmaco);
+    IPF.CargarPlanFarmacologico(planFarmaco);
     return;
 }
 
 void MenuProfesional :: MostrarPlanesFarmacologicosDelProfesional(){
     system("cls");
+    InterfazDetallePlanFarmacologico idp;
+    idp.ListarDetallesDePlanesFarmacologicos();
+
     InterfazPlanFarmacologico IPF;
-    IPF.ListarPlanesFarmacologicos();
-    return;
+    IPF.ListarPlanesFarmacosCombinados();
 }
 
 
 /******************** INFORMES ***********************/
-void MenuProfesional :: MostrarInformesDelProfesional(){
+void MenuProfesional :: AltaDeInformes(){
     system("cls");
     InterfazInforme IF;
     Informe informe;
     if (IF.CargarInforme(informe))
         IF.AgregarInformeAArchivo(informe);
-    return;
-
-    return;
 }
 
-void MenuProfesional :: AltaDeInformes(){
+void MenuProfesional :: MostrarInformesDelProfesional(){
     system("cls");
     InterfazInforme IF;
     IF.ListarInformes();
-
-    return;
 };
 
 /********************* DATOS DEL USUARIO *****************/
 void MenuProfesional :: ModificarDatosDeUsuarioLogueado(){
+    ///TESTEAR!
     system("cls");
+    cls();
     InterfazUsuario IU;
     IU.ModificarUsuario(usr_lgd);
 }
@@ -603,7 +603,7 @@ void MenuProfesional :: ModificarDatosDeUsuarioLogueado(){
 /********************* USUARIOS *********************/
 
 void MenuProfesional :: AltaDeUsuariosPaciente(){
-    cls();
+    system("cls");
     InterfazUsuario IU;
     Usuario usr;
     if (IU.CargarUsuario(usr))
@@ -612,7 +612,7 @@ void MenuProfesional :: AltaDeUsuariosPaciente(){
 }
 
 void MenuProfesional :: MostrarUsuariosPaciente(){
-    cls();
+    system("cls");
     InterfazUsuario IU;
     IU.ListarUsuarios();
 }
@@ -630,9 +630,9 @@ void MenuPaciente :: MenuPac(){
         cls();
         title("MENU PRINCIPAL", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
         gotoxy(1, 3);
-        cout<<"1) PLAN FARMACOLOGICO"<<endl;
+        cout<<"1) MIS PLANES FARMACOLOGICOS"<<endl;
         cout<<"2) PROFESIONALES"<<endl;
-        cout<<"3) MODIFICAR DATOS DE USUARIO"<<endl;
+        cout<<"3) ADMINISTRAR PLAN FARMACO"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -644,7 +644,8 @@ void MenuPaciente :: MenuPac(){
             break;
             case 2: MostrarProfesionalesDelPaciente();
             break;
-            case 3: ModificarUsuarioPaciente();
+            case 3: AdminPlanFarmaco();
+            break;
             case 0:
                     return;
             break;
@@ -654,130 +655,44 @@ void MenuPaciente :: MenuPac(){
     return ;
 }
 
+///VERIFICAR!!
+void MenuPaciente :: AdminPlanFarmaco(){
+
+    ValidacionesTipoDato valTipoDato;
+    ValidacionesGenerales valGeneral;
+
+    InterfazDetallePlanFarmacologico IDP;
+    DetallePlanFarmacologico det;
+
+    InterfazPaciente IP;
+    Paciente pac;
+    InterfazPlanFarmacologico itfzPlanFc;
+    cout<<"DESEA VER SU LISTA DE PLANES? S/N"<<endl;
+    if (valGeneral.leer_SoN()) itfzPlanFc.ListarPlanesFarmacosCombinados();
+    system("cls");
+    cout<<"INGRESE EL ID DEL PLAN QUE DESEA MODIFICAR: ";
+    det.SetId(valTipoDato.cargar_Entero());
+    system("cls");
+    IDP.ModificarDetallePlan(det);
+    IDP.ModificarDetalleEnArchivo(det);
+    return;
+}
+
 void MenuPaciente :: MostrarPlanesFarmacologicosDelPaciente(){
-    cls();
+    system("cls");
     InterfazPlanFarmacologico IPF;
-    IPF.ListarPlanesFarmacologicos();
+    IPF.ListarPlanesFarmacosCombinados();
     return;
 }
 
 void MenuPaciente :: MostrarProfesionalesDelPaciente(){
-    cls();
+    system("cls");
     InterfazProfesional IP;
     IP.ListarProfesionales();
 }
 
 void MenuPaciente :: ModificarUsuarioPaciente(){
-    cls();
+    system("cls");
     InterfazUsuario IU;
     IU.ModificarUsuario(usr_lgd);
-}
-
-
-void MenuPaciente :: MenuPacienteConsulta(){
-    while(true){
-        rlutil::cls();
-        title("PACIENTE - CONSULTA", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        gotoxy(1, 3);
-        cout<<"1) MEDICACION"<<endl;
-        cout<<"2) PROFESIONAL"<<endl;
-        cout<<"3) ESTUDIOS REALIZADOS"<<endl;
-        cout<<"4) PLAN FARMACOLOGICO"<<endl;
-        cout<<"----------------------"<<endl;
-        cout<<"0) REGRESAR"<<endl;
-
-        int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
-
-        switch(opcion){
-            case 1:
-            rlutil::anykey();
-            break;
-            case 2:
-            rlutil::anykey();
-            break;
-            case 3:
-            rlutil::anykey();
-            break;
-            case 4: MenuPlanFarmacologico();
-            rlutil::anykey();
-            case 0:
-                return;
-            break;
-        }
-        cin.ignore();
-    }
-    return ;
-}
-
-void MenuPaciente :: MenuPlanFarmacologico(){
-    while(true){
-        rlutil::cls();
-        title("PACIENTE - CONSULTA", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        gotoxy(1, 3);
-        cout<<"1) MEDICACION"<<endl;
-        cout<<"2) PROFESIONAL"<<endl;
-        cout<<"3) DETALLE DEL PLAN"<<endl;
-        cout<<"4) STOCK"<<endl;
-        cout<<"----------------------"<<endl;
-        cout<<"0) REGRESAR"<<endl;
-
-        int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
-
-        switch(opcion){
-            case 1:
-            rlutil::anykey();
-            break;
-            case 2:
-            rlutil::anykey();
-            break;
-            case 3:
-            rlutil::anykey();
-            break;
-            case 4:
-            rlutil::anykey();
-            case 0:
-                return;
-            break;
-        }
-        cin.ignore();
-    }
-    return ;
-}
-
-void MenuPaciente :: MenuPacienteListados(){
-    while(true){
-        rlutil::cls();
-        title("PACIENTE - LISTADO", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
-        gotoxy(1, 3);
-        cout<<"1) LISTADO DE MEDICACION ACTUAL"<<endl;
-        cout<<"2) LISTADO DE PROFESIONALES"<<endl;
-        cout<<"3) LISTADO DE ESTUDIOS REALIZADOS"<<endl;
-        cout<<"----------------------"<<endl;
-        cout<<"0) REGRESAR"<<endl;
-
-        int opcion;
-        cout << endl << "> ";
-        cin >> opcion;
-
-        switch(opcion){
-            case 1:
-                rlutil::anykey();
-            break;
-            case 2:
-            rlutil::anykey();
-            break;
-            case 3:
-            rlutil::anykey();
-            break;
-            case 0:
-                return;
-            break;
-        }
-        cin.ignore();
-    }
-    return ;
 }

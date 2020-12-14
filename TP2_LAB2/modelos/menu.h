@@ -1,6 +1,8 @@
 #ifndef MENU_H_INCLUDED
 #define MENU_H_INCLUDED
 
+
+
 class Logo{
     public:
         void logo();
@@ -14,24 +16,19 @@ class MenuLogin{
 class MenuAdministrador{
     public:
         void MenuAdmin();
-        void MenuGeneralAdministrador(const char *);
+        void MenuGeneralAdministrador(const char * entidad);
 
         void AltaProfesional();
         void ModificarProfesional();
         void MostrarProfesionales();
 
         void AltaUsuario();
-        void ModificarUsuario();
         void MostrarUsuarios();
 
-        void MenuAlcance();
-
-        void AltaPresentacion();
-        void ModificarPresentacion();
-        void MostrarPresentacion();
+        void AltaMedicamento();
+        void MostrarMedicamento();
 
         void AltaFarmaco();
-        void ModificarFarmaco();
         void MostrarFarmaco();
 
         void AltaCobertura();
@@ -41,10 +38,6 @@ class MenuAdministrador{
         void AltaEspecialidad();
         void ModificarEspecialidad();
         void MostrarEspecialidad();
-
-        //INFO
-        void AlcanceDelPrototipo();
-        void ReglasDelSoftwarePorPerfilDeUsuario();
 };
 
 class MenuProfesional{
@@ -86,6 +79,7 @@ class MenuPaciente{
         void MenuPlanFarmacologico();
         void MenuPac();
         void MenuPacienteListados();
+        void AdminPlanFarmaco();
 };
 
 #endif // MENU_H_INCLUDED

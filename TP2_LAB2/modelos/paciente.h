@@ -8,7 +8,7 @@ class Paciente:public Persona
 {
     private:
         int nro_Afiliado; //nro de afiliado
-        int ID_Cobertura; //0 es sin cobertura
+        int ID_Cobertura;
         int ID_Informe; //R FUERTE A 1, no puede existir si un paciente
     public:
 
@@ -16,7 +16,9 @@ class Paciente:public Persona
         {
             nro_Afiliado         = _nroAfiliado;
             ID_Cobertura         = _cobertura;
+            ID_Informe           = -1;
         }
+
         ~Paciente(){};
         ///GETs
         int GetNroAfiliado();

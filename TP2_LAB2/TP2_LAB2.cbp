@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="TP2_LAB2" />
+		<Option title="TP2_LAB2_FINAL" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -53,12 +53,11 @@
 		<Unit filename="interfaces/interfazgeneral.h" />
 		<Unit filename="interfaces/interfazinforme.cpp" />
 		<Unit filename="interfaces/interfazinforme.h" />
-		<Unit filename="interfaces/interfazmedicacion.cpp" />
-		<Unit filename="interfaces/interfazmedicacion.h" />
+		<Unit filename="interfaces/interfazmedicamento.cpp" />
+		<Unit filename="interfaces/interfazmedicamento.h" />
 		<Unit filename="interfaces/interfazplanfarmacologico.cpp" />
 		<Unit filename="interfaces/interfazplanfarmacologico.h" />
 		<Unit filename="interfaces/interfazpresentacion.cpp" />
-		<Unit filename="interfaces/interfazpresentacion.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="modelos/archivo.cpp" />
 		<Unit filename="modelos/archivo.h" />
@@ -87,7 +86,6 @@
 		<Unit filename="modelos/planfarmacologico.cpp" />
 		<Unit filename="modelos/planfarmacologico.h" />
 		<Unit filename="modelos/presentacion.cpp" />
-		<Unit filename="modelos/presentacion.h" />
 		<Unit filename="modelos/profesional.cpp" />
 		<Unit filename="modelos/profesional.h" />
 		<Unit filename="modelos/registro.cpp" />
