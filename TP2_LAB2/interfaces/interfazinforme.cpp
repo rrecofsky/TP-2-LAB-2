@@ -32,7 +32,7 @@ bool InterfazInforme :: CargarInforme(Informe & _informe){
     ValidacionesTipoDato validaTDato;
     ValidacionesGenerales validaGeneral;
     char detalle[100] = {};
-    system("cls");
+    //system("cls");
     Fecha fecha;
 
     _informe.SetFechaEmision( fecha.GetFechaActual() );
@@ -102,6 +102,7 @@ bool InterfazInforme :: CargarInforme(Informe & _informe){
 
 
 void InterfazInforme :: MostrarInforme(Informe _informe){
+    InterfazPersona interfazPersona;
     InterfazFecha IF;
     InterfazProfesional itfzProf;
     InterfazPaciente    itfzPac;
@@ -118,14 +119,18 @@ void InterfazInforme :: MostrarInforme(Informe _informe){
         cout << setw(4)  << " - ";
 
     cout << setw(10)  << _informe.GetNroInforme();
-    cout << setw(20)  << IF.GetfechaFormateada( _informe.GetFechaEmision());
-    cout << setw(20)  << (string)prof.GetNombres() + (string)prof.GetApellidos();
-    cout << setw(20)  << (string)prof.GetApellidos() + (string)pac.GetApellidos() ;
-    cout << setw(50)  << _informe.GetDetalle();
+    cout << setw(13)  << IF.GetfechaFormateada( _informe.GetFechaEmision());
+    prof.SetId(_informe.GetIdProfesional());
+    interfazPersona.ObtenerProfesional(prof);
+    pac.SetId(_informe.GetIdPaciente());
+    interfazPersona.ObtenerPaciente(pac);
+    cout << setw(20)  << (string)prof.GetNombres() + " " + (string)prof.GetApellidos();
+    cout << setw(20)  << (string)pac.GetNombres() + " " + (string)pac.GetApellidos() ;
+    cout << setw(50)  << _informe.GetDetalle()<<endl;
 };
 
 
-void InterfazInforme :: ListarInformes(){
+void InterfazInforme :: ListarInformes(int idpaciente){
 
     Informe informe;
     ValidacionesTipoDato validaTDato;
@@ -133,20 +138,22 @@ void InterfazInforme :: ListarInformes(){
     if( informes.getCantidadRegistros() != 0){
 
         cout << left;
-        cout << setw(4)  << "ID";
-        cout << setw(10) << "NRO. INFORME";
-        cout << setw(20) << "F. EMISION";
+        cout << setw(3)  << "ID";
+        cout << setw(12) << "NRO.INFORME";
+        cout << setw(12) << "F. EMISION";
         cout << setw(20) << "PROFESIONAL";
         cout << setw(20) << "PACIENTE";
         cout << setw(50) << "DETALLE";
         cout << endl;
 
         while(fread(&informe,sizeof(Informe),1,informes.GetPF()))
-
-        if (informe.GetIdProfesional() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Profesional)
-        // || planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
-
-             MostrarInforme(informe);
+        if (idpaciente==-1){
+            if (informe.GetIdProfesional() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Profesional)
+            // || planFarma.GetIdPaciente() == usr_lgd.GetIdPersona() && usr_lgd.GetPerfilUser() == Perfil_Paciente)
+                MostrarInforme(informe);
+        }
+        else if (informe.GetIdPaciente()==idpaciente && usr_lgd.GetPerfilUser() == Perfil_Profesional)
+                MostrarInforme(informe);
 
     }else validaTDato.generar_Mensaje(2,"NO EXISTEN INFORMES CARGADOS EN EL SISTEMA");
     cout<<endl<<endl;
