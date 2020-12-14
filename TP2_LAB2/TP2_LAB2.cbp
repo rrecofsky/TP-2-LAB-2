@@ -92,6 +92,8 @@
 		<Unit filename="modelos/profesional.h" />
 		<Unit filename="modelos/registro.cpp" />
 		<Unit filename="modelos/registro.h" />
+		<Unit filename="modelos/reportes.cpp" />
+		<Unit filename="modelos/reportes.h" />
 		<Unit filename="modelos/usuario.cpp" />
 		<Unit filename="modelos/usuario.h" />
 		<Unit filename="util/rlutil.h" />

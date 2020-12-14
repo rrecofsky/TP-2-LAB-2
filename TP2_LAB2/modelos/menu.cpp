@@ -11,6 +11,7 @@
 #include "../modelos/usuario.h"
 #include "../modelos/menu.h"
 #include "../modelos/planfarmacologico.h"
+#include "../modelos/reportes.h"
 #include "../validaciones/validaciones.h"
 #include "../interfaces/interfazentidades.h"
 #include "../interfaces/interfazplanfarmacologico.h"
@@ -421,6 +422,7 @@ void MenuProfesional :: MenuProf(){
         cout<<"3) PLANES FARMACOLOGICOS"<<endl;
         cout<<"4) INFORMES "<<endl;
         cout<<"5) MODIFICAR DATOS DE USUARIO"<<endl;
+        cout<<"6) REPORTES"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -442,6 +444,9 @@ void MenuProfesional :: MenuProf(){
                    break;
             case 5:
                    ModificarDatosDeUsuarioLogueado();
+                   break;
+            case 6:
+                    menuReportesProfesional();
                    break;
             case 0:
                    return;
@@ -708,6 +713,7 @@ void MenuPaciente :: MenuPac(){
         cout<<"1) PLAN FARMACOLOGICO"<<endl;
         cout<<"2) PROFESIONALES"<<endl;
         cout<<"3) MODIFICAR DATOS DE USUARIO"<<endl;
+        cout<<"4) REPORTES"<<endl;
         cout<<"----------------------"<<endl;
         cout<<"0) REGRESAR"<<endl;
 
@@ -720,6 +726,9 @@ void MenuPaciente :: MenuPac(){
             case 2: MostrarProfesionalesDelPaciente();
             break;
             case 3: ModificarUsuarioPaciente();
+            break;
+            case 4: menuReportesPaciente();
+            break;
             case 0:
                     return;
             break;
