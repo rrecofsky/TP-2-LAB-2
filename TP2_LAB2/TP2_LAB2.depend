@@ -1623,3 +1623,9 @@
 	"../interfaces/interfazplanfarmacologico.h"
 	"../interfaces/interfazinforme.h"
 
+1607908507 source:c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\reportes.cpp
+	<iostream>
+	"../modelos/reportes.h"
+
+1607907886 c:\users\olsav\documents\github\tp-2-lab-2\tp2_lab2\modelos\reportes.h
+

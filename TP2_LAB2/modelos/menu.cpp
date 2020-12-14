@@ -446,7 +446,7 @@ void MenuProfesional :: MenuProf(){
                    ModificarDatosDeUsuarioLogueado();
                    break;
             case 6:
-                    menuReportesProfesional();
+//                    menuReportesProfesional();
                    break;
             case 0:
                    return;
@@ -727,7 +727,7 @@ void MenuPaciente :: MenuPac(){
             break;
             case 3: ModificarUsuarioPaciente();
             break;
-            case 4: menuReportesPaciente();
+//            case 4: menuReportesPaciente();
             break;
             case 0:
                     return;
